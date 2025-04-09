@@ -1,0 +1,144 @@
+{
+    "Company Name": "ABS",
+    "Financial Year": "2024",
+    "FinanceData": [
+        {
+            "Revenue": [
+                {
+                    "REV": [
+                        {
+                            "A": [
+                
+                                {
+                                    "month": "May-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "June-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "July-2024",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "August-2024",
+                                    "amount": 34387
+                                }
+                            ]
+                        },
+                        {
+                            "AccountName": "B",
+                            "accountData": [
+                                {
+                                    "month": "May-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "June-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "July-2024",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "August-2024",
+                                    "amount": 34387
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Category": "Cost of Sales",
+            "CategoryData": [
+                {
+                    "classification": "SALES",
+                    "data": [
+                        {
+                            "AccountName": "A",
+                            "accountData": [
+                                {
+                                    "month": "May-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "June-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "July-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "August-2025",
+                                    "amount": 34387
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Category": "Other Expenses",
+            "CategoryData": [
+                {
+                    "classification": "CASH",
+                    "data": [
+                        {
+                            "AccountName": "A",
+                            "accountData": [
+                                {
+                                    "month": "May-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "June-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "July-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "August-2025",
+                                    "amount": 34387
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "classification": "OCA",
+                    "data": [
+                        {
+                            "AccountName": "A",
+                            "accountData": [
+                                {
+                                    "month": "May-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "June-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "July-2025",
+                                    "amount": 34387
+                                },
+                                {
+                                    "month": "August-2025",
+                                    "amount": 34387
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
