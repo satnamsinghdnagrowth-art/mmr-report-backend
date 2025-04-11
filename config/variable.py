@@ -10,9 +10,9 @@ variableMapping = {
             {"DEP": "Depreciation"}
         ],
         "EXPENSES": [
-            {"VEXP": "Variable Expenses"},
-            {"FEXP": "Fixed Expenses"},
-            {"DA": "Depreciation & Amortization"}
+            {"FEXP": "Variable Cost"},
+            {"VEXP": "Fixed Cost"},
+            {"DA": "Depreciation"}
         ],
         "OTHER INCOME": [
             {"IINC": "Investment Income"},
@@ -57,67 +57,3 @@ variableMapping = {
         ]
     }
 }
-
-
-
-
-
-
-# {
-#     "PROFIT & LOSS": {
-#         "REVENUE": [
-#             "REV"
-#         ],
-#         "COST OF SALES": [
-#             "VCOS",
-#             "FCOS",
-#             "DEP"
-#         ],
-#         "EXPENSES": [
-#             "VEXP",
-#             "FEXP",
-#             "DA"
-#         ],
-#         "OTHER INCOME": [
-#             "IINC",
-#             "AINC"
-#         ],
-#         "OTHER EXPENSES": [
-#             "IEXP",
-#             "TEXP",
-#             "DIV",
-#             "ADJ",
-#             "OEXP"
-#         ]
-#     },
-#     "BALANCE SHEET": {
-#         "CURRENT ASSETS": [
-#             "CASH",
-#             "AR",
-#             "INV",
-#             "WIP",
-#             "OCA"
-#         ],
-#         "NON-CURRENT ASSETS": [
-#             "FA",
-#             "IA",
-#             "ONCA"
-#         ],
-#         "CURRENT LIABILITIES": [
-#             "STD",
-#             "AP",
-#             "TL",
-#             "OCL"
-#         ],
-#         "NON-CURRENT LIABILITIES": [
-#             "LTD",
-#             "DTAX",
-#             "ONCL"
-#         ],
-#         "EQUITY": [
-#             "RE",
-#             "CE",
-#             "OEQ"
-#         ]
-#     }
-# }

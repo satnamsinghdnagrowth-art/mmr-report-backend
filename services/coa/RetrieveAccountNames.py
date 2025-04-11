@@ -2,6 +2,7 @@ from helper.readExcel import readExcelFile
 from datetime import datetime
 from collections import defaultdict
 from config.variable import variableMapping
+from core.models.Accounts.AccountNameResponseModel import AccountNameModel
 from core.models.base.ResultModel import Result
 
 # Analyze the data
@@ -29,7 +30,7 @@ def retriveAccountNames():
 
                     for _, row in matches.iterrows():
                         result[main].append(
-                            { "name": row["Account Name"]}
+                            AccountNameModel(Name=row["Account Name"],Code=row["Account Name"])
                         )
 
         return Result(

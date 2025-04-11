@@ -2,30 +2,27 @@ from helper.readExcel import readExcelFile
 from datetime import datetime
 from collections import defaultdict
 from config.variable import variableMapping
+from core.models.Accounts.AccountNameResponseModel import AccountNameModel
 from core.models.base.ResultModel import Result
 
 
 # Analyze the data
-def retriveBSAccountNames():
+def retriveBSAccountNames(category : str):
     try:
-
-        # accountType = "BalanceSheet"
-
-        filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
-
-        excelData = readExcelFile(filePath)
-
-        data = excelData.Data
 
         result = defaultdict(list)
 
-        BSData = variableMapping["BALANCE SHEET"]
+        BSData = variableMapping[category]
 
         for main, category in BSData.items():
 
             for code in category:
                     
-                result[main].append({"name": list(code.values())[0]})
+                result[main].append(
+                    AccountNameModel(
+                        Name=list(code.values())[0], Code=list(code.keys())[0]
+                    )
+                )
 
         return Result(Data=result, Status=1, Message="Success")
 
