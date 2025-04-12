@@ -1,10 +1,10 @@
 from fastapi import APIRouter
-from services.DataAnalysis import analyze
+from services.ExtractDataRange import retriveDataRange
 
 Analyze = APIRouter()
 
 
 @Analyze.get("/")
 def analyzeData():
-    return analyze()
+    return retriveDataRange()
 

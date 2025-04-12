@@ -29,11 +29,9 @@ def calculateRevenue():
             month: revenueDF[month].fillna(0).sum() for month in month_cols
         }
 
-        result_data = {accountName: monthly_totals}
-
         # Return the monthly totals
         return Result(
-            Data=result_data,
+            Data=monthly_totals,
             Status=1,
             Message="Month-wise revenue calculated successfully",
         )

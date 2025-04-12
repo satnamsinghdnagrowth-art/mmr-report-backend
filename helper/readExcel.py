@@ -7,9 +7,7 @@ def readExcelFile(filepath)->Result:
     try:
         df = pd.read_excel(filepath, header=4)
 
-        # df_json = df.to_dict(orient="records")
-
-        return Result(Data=df,Status=0, Message='SUCCESS')
+        return Result(Data=df, Status=0, Message="SUCCESS")
     
     except Exception as ex:
         message = f"Error occur at readExcelFile: {ex}"

@@ -1,14 +1,14 @@
 from datetime import datetime
-from config.variable import variableMapping
+from services.calculations.revenueCalculation import calculateRevenue
 from core.models.base.ResultModel import Result
 
 
 def retriveKPIsNames():
     try:
         resultDict = {
-            "PROFITIABILITY" :[
-            {"Name": "TotalRevenue", "Code": "TotalRevenue"}
-            ]
+            "PROFITIABILITY" :{
+            "TotalRevenue" : calculateRevenue().Data
+            }
         }
 
         return Result(
@@ -18,6 +18,6 @@ def retriveKPIsNames():
         )
 
     except Exception as ex:
-        message = f"Error occur at calculateRevenue: {ex}"
+        message = f"Error occur at retriveKPIsNames: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
