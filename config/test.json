@@ -1,0 +1,229 @@
+{
+    "IncomeStatements": {
+        "REVENUE": {
+            "LineItems":{
+                "Club CARE Plan": [
+                    {
+                        "Month": 1,
+                        "Year": 2022,
+                        "Value": 6088.0
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2022,
+                        "Value": 3582.0
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2022,
+                        "Value": 1354.0
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2022,
+                        "Value": 2198.0
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2022,
+                        "Value": 625.0
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2022,
+                        "Value": 5064.0
+                    },
+                    {
+                        "Month": 7,
+                        "Year": 2022,
+                        "Value": 4925.0
+                    },
+                    {
+                        "Month": 8,
+                        "Year": 2022,
+                        "Value": 6577.0
+                    },
+                    {
+                        "Month": 9,
+                        "Year": 2022,
+                        "Value": 2376.0
+                    },
+                    {
+                        "Month": 10,
+                        "Year": 2022,
+                        "Value": 12240.0
+                    },
+                    {
+                        "Month": 11,
+                        "Year": 2022,
+                        "Value": 625.0
+                    },
+                    {
+                        "Month": 12,
+                        "Year": 2022,
+                        "Value": 4638.0
+                    },
+                    {
+                        "Month": 1,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 7,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 8,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 9,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 10,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 11,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 12,
+                        "Year": 2023,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 1,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 7,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 8,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 9,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 10,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 11,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 12,
+                        "Year": 2024,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 0.0
+                    }
+                ]
+            },
+            "ClassificationTotal": {
+                "Variable Cost": [
+                    {
+                        "Month": 1,
+                        "Year": 2022,
+                        "Value": 18254.0
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2022,
+                        "Value": 58276.75
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2022,
+                        "Value": 31637.79
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2022,
+                        "Value": 31515.0
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2022,
+                        "Value": 31458.63
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2022,
+                        "Value": 39256.56
+                    }]},
+            "Totol":[]
+
+        }
+    }
+}

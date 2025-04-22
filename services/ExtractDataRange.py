@@ -1,6 +1,9 @@
 import pandas as pd
 from datetime import datetime
-from core.models.Accounts.ReportDescriptionModel import ReportDescriptionsModel
+from core.models.Accounts.ReportDescriptionModel import (
+    ReportDescriptionsModel,
+    DateObject,
+)
 from core.models.base.ResultModel import Result
 
 
@@ -10,8 +13,8 @@ def retriveDataRange():
 
         excelData = pd.read_excel(filePath, header=None)
 
-        reportName = excelData.iloc[0, 1] 
-        financialYear = excelData.iloc[1, 1] 
+        reportName = excelData.iloc[0, 1]
+        financialYear = excelData.iloc[1, 1]
 
         excelData.columns = excelData.iloc[4]
 
@@ -29,9 +32,19 @@ def retriveDataRange():
         # Get keys for the data range
         dataRange = list(dataRangeFrame.columns)
 
+        converted_data_range = [
+            DateObject(
+                Month=datetime.strptime(label, "%b %Y").strftime("%B")[0:3],
+                Year=datetime.strptime(label, "%b %Y").year,
+            )
+            for label in dataRange
+        ]
+
         # Create response model
         reportDescription = ReportDescriptionsModel(
-            ReportName=reportName, FinancialYear=financialYear, DataRange=dataRange
+            ReportName=reportName,
+            FinancialYear=financialYear,
+            DataRange=converted_data_range,
         )
 
         return Result(Data=reportDescription, Status=1, Message="Success")

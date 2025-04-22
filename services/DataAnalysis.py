@@ -8,7 +8,7 @@
 # def analyze():
 #     try:
 #         filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
-        
+
 #         excelData = readExcelFile(filePath)
 
 #         data = excelData.Data
@@ -18,7 +18,7 @@
 #         # data.to_dict(orient="records")
 
 #         return Result(Data=result.Data, Status=1, Message="Success")
-    
+
 #     except Exception as ex:
 #         message = f"Error occur at readExcelFile: {ex}"
 #         print(f"{datetime.now()} {message}")
