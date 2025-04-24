@@ -1,25 +1,22 @@
 from datetime import datetime
-from services.AccountValues.RetriveAccountsValue import retriveBSAccountValues
-from services.AccountValues.RetriveCOAValues import retriveCOAValues
+from services.accountValues.RetriveCOAValues import retriveCOAValues
 from core.models.base.ResultModel import Result
-import json 
+from helper.readExcel import readExcelFile
+import time
+import json
 
 
 # Analyze the data
-def retreiveFinacialsValues():
+def formatFinancialData():
     try:
-        # data = {
-        #     "IncomeStatements": retriveBSAccountValues(category="PROFIT & LOSS").Data,
-        #     "BalanceSheet":retriveBSAccountValues(category="BALANCE SHEET").Data,
-        #     "Chart of Accounts": retriveCOAValues().Data,
-        # }
-
+        filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
+        excelData = readExcelFile(filePath)
+        data = excelData.Data
 
         data = {
-            "IncomeStatements": retriveCOAValues(category="PROFIT & LOSS").Data,
-            "BalanceSheet":retriveCOAValues(category="BALANCE SHEET").Data,
+            "PROFIT & LOSS": retriveCOAValues(data, category="PROFIT & LOSS").Data,
+            "BalanceSheet": retriveCOAValues(data, category="BALANCE SHEET").Data,
         }
-
 
         # with open("config/FileOutputTest.json", "w") as f:
         #     json.dump(data, f, indent=4)

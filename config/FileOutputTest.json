@@ -1,5 +1,5 @@
 {
-    "IncomeStatements": {
+    "PROFIT & LOSS": {
         "REVENUE": {
             "Classification": {
                 "Revenue": [
@@ -5437,7 +5437,7 @@
         },
         "EXPENSES": {
             "Classification": {
-                "Variable Cost": [
+                "Variable Expenses": [
                     {
                         "Month": 1,
                         "Year": 2022,
@@ -5624,7 +5624,7 @@
                         "Value": 134573.15
                     }
                 ],
-                "Fixed Cost": [
+                "Fixed Expenses": [
                     {
                         "Month": 1,
                         "Year": 2022,

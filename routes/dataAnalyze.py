@@ -9,6 +9,3 @@ Analyze = APIRouter()
 def analyzeData():
     return retriveDataRange()
 
-@Analyze.get("/readData")
-def analyzeData():
-    return testformat()

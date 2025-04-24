@@ -21,9 +21,7 @@ def retriveBSAccountValues(category: str):
         BSData = variableMapping[category]
 
         for main, category in BSData.items():
-            
             for code in category:
-
                 classification = list(code.keys())[0]
                 displayname = list(code.values())[0]
 

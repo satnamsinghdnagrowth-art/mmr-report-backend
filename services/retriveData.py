@@ -1,75 +1,73 @@
-from helper.LoadJsonData import financialData,financialDataTest
+from helper.LoadJsonData import financialDataTest
 from datetime import datetime
+from services.calculations.GetKPIsData import retreiveKPIsValue
 from core.models.base.ResultModel import Result
+from typing import Optional, List
 
-def getDataValues(mainSection:str,section:str, subSection:str, year=int, month=int):
+
+def getValues(
+    mainSection: str,
+    section: str,
+    subSection: Optional[str] = None,
+    year: Optional[int] = None,
+    month: Optional[List[int]] = None,
+):
     try:
+        # Initialize total and data as an empty list by default
         total = 0
+        data = []
 
-        print(mainSection,section,subSection,"path")
+        if mainSection == "KPIs":
+            total = retreiveKPIsValue(section, subSection, month, year).Data
 
-        if month == 0:
-            month = None
-        
-        data = financialData.get(mainSection, {}).get(section, {}).get(subSection, [])
-
-        if month is None and year is None:
-            total = 0
-        else:
-            for entry in data:
-                if (year is None or entry.get("Year") == year) and (month is None or entry.get("Month") == month):
-                    total += entry.get("Value", 0)
-
-        return Result(Data=round(total,2), Status=1, Message="SUCCESS")
-
-    except Exception as ex:
-        message = f"Error occurred in get_data_values: {ex}"
-        print(f"{datetime.now()} {message}")
-        return Result(Status=0, Message=message)
-
-
-from helper.LoadJsonData import financialData
-from datetime import datetime
-from core.models.base.ResultModel import Result
-
-def getTestValues(mainSection:str,section:str, subSection:str, year=int, month=int):
-    try:
-        total = 0
-
-        # BalanceSheet ,CURRENT ASSETS ,Cash path
-
-        if month == 0:
+        # Normalize month value if it's zero
+        if month == [0]:
             month = None
 
+        # Check if it's a "Chart of Accounts" main section
         if mainSection == "Chart of Accounts":
-            data = []
-
-            # Check IncomeStatements first
-            section_income = financialDataTest.get("IncomeStatements", {}).get(section, {})
+            # Check PROFIT & LOSS first
+            section_income = financialDataTest.get("PROFIT & LOSS", {}).get(section, {})
             income_lineitems = section_income.get("LineItems", {})
-            
+
             if subSection in income_lineitems:
                 data = income_lineitems.get(subSection, [])
             else:
                 # Fallback to BalanceSheet
-                section_balance = financialDataTest.get("BalanceSheet", {}).get(section, {})
+                section_balance = financialDataTest.get("BalanceSheet", {}).get(
+                    section, {}
+                )
                 balance_lineitems = section_balance.get("LineItems", {})
                 data = balance_lineitems.get(subSection, [])
-
         else:
-            data = financialDataTest.get(mainSection, {}).get(section, {}).get("Classification", {}).get(subSection,[])
+            # Handling other sections or cases
+            if subSection is None:
+                data = (
+                    financialDataTest.get(mainSection, {})
+                    .get(section, {})
+                    .get("Total", [])
+                )
+            else:
+                data = (
+                    financialDataTest.get(mainSection, {})
+                    .get(section, {})
+                    .get("Classification", {})
+                    .get(subSection, [])
+                )
 
-        if month is None and year is None:
-            total = 0
-        else:
-            for entry in data:
-                if (year is None or entry.get("Year") == year) and (month is None or entry.get("Month") == month):
-                    total += entry.get("Value", 0)
+        # Calculate total only if we have data and year/month is provided
+        if data:
+            total = sum(
+                entry.get("Value", 0)
+                for entry in data
+                if (entry.get("Year") == year)
+                and (month is None or entry.get("Month") in month)
+            )
 
-        return Result(Data=round(total,2), Status=1, Message="SUCCESS")
+        # Return the result
+        return Result(Data=round(total, 0), Status=1, Message="SUCCESS")
 
     except Exception as ex:
-        message = f"Error occurred in get_data_values: {ex}"
-        print(f"{datetime.now()} {message}")
-        return Result(Status=0, Message=message)
-
+        error_message = f"Error occurred in getTestValues: {ex}"
+        print(f"{datetime.now()} {error_message}")
+        return Result(Status=0, Message=error_message)

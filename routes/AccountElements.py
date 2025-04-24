@@ -1,7 +1,9 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Body
 from services.GetFinancialsNames import retreiveFinacialsNames
-from services.GetFinancialsValues import retreiveFinacialsValues
-from services.retriveData import getDataValues,getTestValues
+from services.retriveData import getValues
+from typing import Optional, List
+from services.calculations.RevenueCalculation import grossProfitMargin
+from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
 
@@ -9,29 +11,27 @@ Account = APIRouter()
 
 # Get  Account Names
 @Account.get("/get/Names")
-def getAccountNames( 
-    year: int = None,
-    month: int = None) -> Result:
-    return retreiveFinacialsNames(year,month)
+def getAccountNames(year: int = None, month: int = None) -> Result:
+    return retreiveFinacialsNames(year, month)
 
-
-# Get  Account Values
-@Account.get("/get/Values")
-def getReportValues() -> Result:
-    return retreiveFinacialsValues()
-
-# Get  Account Values
-@Account.get("/get/data/{mainSection}/{section}/{sub_section}")
+# Get the values for dropdown options
+@Account.post("/get/data/{mainSection}/{section}")
+@Account.post("/get/data/{mainSection}/{section}/{subSection}")
 def get_report_values(
     mainSection: str,
     section: str,
-    sub_section: str,
-    year: int = None,
-    month: int = None
+    subSection: Optional[str] = None,
+    payload: DateFilter = Body(...),
 ) -> Result:
-    return getTestValues(mainSection, section, sub_section, year, month)
+    return getValues(mainSection, section, subSection, payload.Year, payload.Month)
 
 
+# Get the dataRange of Report
 @Account.get("/get/reportDescription")
 def getReportDescription() -> Result:
     return retriveDataRange()
+
+# Test the calulation
+@Account.get("/get/Calculations")
+def calculation() -> Result:
+    return grossProfitMargin(month=1, year=2022)

@@ -5,12 +5,11 @@ from helper.getMonthName import getMonthName
 from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 
-# Recursively nested defaultdict
+
 def nested_dict():
     return defaultdict(nested_dict)
 
 
-# Convert nested defaultdicts to plain dict
 def convert_defaultdict(d):
     if isinstance(d, defaultdict):
         d = {k: convert_defaultdict(v) for k, v in d.items()}
@@ -19,37 +18,14 @@ def convert_defaultdict(d):
     return d
 
 
-# Analyze the data
-from helper.readExcel import readExcelFile
-from datetime import datetime
-from collections import defaultdict
-from helper.getMonthName import getMonthName
-from config.variable import variableMapping
-from core.models.base.ResultModel import Result
-
-def nested_dict():
-    return defaultdict(nested_dict)
-
-def convert_defaultdict(d):
-    if isinstance(d, defaultdict):
-        d = {k: convert_defaultdict(v) for k, v in d.items()}
-    elif isinstance(d, dict):
-        d = {k: convert_defaultdict(v) for k, v in d.items()}
-    return d
-
-def retriveCOAValues(category: str, month=4, year=2023):
+def retriveCOAValues(data, category: str, month=4, year=2023):
     try:
-        filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
-        excelData = readExcelFile(filePath)
-        data = excelData.Data
         cleanedData = data[~data["Classification"].isnull()]
         BSData = variableMapping[category]
 
-        result = defaultdict(lambda: {
-            "Classification": {},
-            "LineItems": {},
-            "Total": []
-        })
+        result = defaultdict(
+            lambda: {"Classification": {}, "LineItems": {}, "Total": []}
+        )
 
         for section, categories in BSData.items():
             sectionLineItems = {}
@@ -60,7 +36,9 @@ def retriveCOAValues(category: str, month=4, year=2023):
 
                 # --- Classification Total ---
                 matches = cleanedData[cleanedData["Classification"] == classification]
-                matches = matches.drop(columns=["Classification", "Account Name"], errors='ignore')
+                matches = matches.drop(
+                    columns=["Classification", "Account Name"], errors="ignore"
+                )
                 month_cols = list(matches.columns)
 
                 classificationTotal = []
@@ -68,11 +46,13 @@ def retriveCOAValues(category: str, month=4, year=2023):
                     try:
                         value = matches[month].fillna(0).sum()
                         date_obj = datetime.strptime(month, "%b %Y")
-                        classificationTotal.append({
-                            "Month": date_obj.month,
-                            "Year": date_obj.year,
-                            "Value": round(value, 2),
-                        })
+                        classificationTotal.append(
+                            {
+                                "Month": date_obj.month,
+                                "Year": date_obj.year,
+                                "Value": round(value, 2),
+                            }
+                        )
                     except:
                         continue
 
@@ -84,8 +64,12 @@ def retriveCOAValues(category: str, month=4, year=2023):
 
                     for _, row in matches.iterrows():
                         accountName = row["Account Name"]
-                        item_matches = cleanedData[cleanedData["Account Name"] == accountName]
-                        item_matches = item_matches.drop(columns=["Classification", "Account Name"], errors='ignore')
+                        item_matches = cleanedData[
+                            cleanedData["Account Name"] == accountName
+                        ]
+                        item_matches = item_matches.drop(
+                            columns=["Classification", "Account Name"], errors="ignore"
+                        )
 
                         month_cols = list(item_matches.columns)
                         lineItemsTotal = []
@@ -94,11 +78,13 @@ def retriveCOAValues(category: str, month=4, year=2023):
                             try:
                                 value = item_matches[month].fillna(0).sum()
                                 date_obj = datetime.strptime(month, "%b %Y")
-                                lineItemsTotal.append({
-                                    "Month": date_obj.month,
-                                    "Year": date_obj.year,
-                                    "Value": round(value, 2),
-                                })
+                                lineItemsTotal.append(
+                                    {
+                                        "Month": date_obj.month,
+                                        "Year": date_obj.year,
+                                        "Value": round(value, 2),
+                                    }
+                                )
                             except:
                                 continue
 
@@ -117,11 +103,9 @@ def retriveCOAValues(category: str, month=4, year=2023):
             sectionTotal = []
             for key, value in total_by_month.items():
                 month, year = map(int, key.split("-"))
-                sectionTotal.append({
-                    "Month": month,
-                    "Year": year,
-                    "Value": round(value, 2)
-                })
+                sectionTotal.append(
+                    {"Month": month, "Year": year, "Value": round(value, 2)}
+                )
 
             result[section]["Total"] = sectionTotal
 

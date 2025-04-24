@@ -7,8 +7,8 @@ variableMapping = {
             {"DEP": "Depreciation"},
         ],
         "EXPENSES": [
-            {"FEXP": "Variable Cost"},
-            {"VEXP": "Fixed Cost"},
+            {"FEXP": "Variable Expenses"},
+            {"VEXP": "Fixed Expenses"},
             {"DA": "Depreciation"},
         ],
         "OTHER INCOME": [{"IINC": "Investment Income"}, {"AINC": "Additional Income"}],
