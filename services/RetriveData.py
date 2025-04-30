@@ -1,6 +1,6 @@
 from helper.LoadJsonData import financialDataTest
 from datetime import datetime
-from services.calculations.GetKPIsData import retreiveKPIsValue
+from services.GetKPIsData import retreiveKPIsValue
 from core.models.base.ResultModel import Result
 from typing import Optional, List
 

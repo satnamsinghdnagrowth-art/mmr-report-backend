@@ -1,7 +1,6 @@
 from datetime import datetime
 from helper.getMonthName import getMonthName
 from helper.getMonthName import getQuarterMonthsFromMonth
-from services.calculations.RevenueCalculation import totalRevenue
 from core.models.base.ResultModel import Result
 
 

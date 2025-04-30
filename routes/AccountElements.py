@@ -1,18 +1,24 @@
 from fastapi import APIRouter, Body
 from services.GetFinancialsNames import retreiveFinacialsNames
-from services.retriveData import getValues
+from services.RetriveData import getValues
+from services.calculations.Revenue import totalRevenue,revenueGrowth
+from services.calculations.NetIncome import netIncome
 from typing import Optional, List
-from services.calculations.RevenueCalculation import grossProfitMargin
+from services.reportSection.financialHeights.tables.RevenueBreakDown import getRevenueTable
+from services.calculations.OtherIncome import otherIncome
 from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
 
+
 Account = APIRouter()
+
 
 # Get  Account Names
 @Account.get("/get/Names")
-def getAccountNames(year: int = None, month: int = None) -> Result:
+def getAccountNames(year: int , month: int ) -> Result:
     return retreiveFinacialsNames(year, month)
+
 
 # Get the values for dropdown options
 @Account.post("/get/data/{mainSection}/{section}")
@@ -31,7 +37,8 @@ def get_report_values(
 def getReportDescription() -> Result:
     return retriveDataRange()
 
+
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return grossProfitMargin(month=1, year=2022)
+    return revenueGrowth( 2023,[1,2])

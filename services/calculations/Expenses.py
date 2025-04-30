@@ -1,0 +1,135 @@
+from datetime import datetime
+from config.variable import variableMapping
+from core.models.base.ResultModel import Result
+from services.calculations.Revenue import totalRevenue
+from helper.LoadJsonData import financialDataTest
+
+# Get Direct Expenses (Total Cost of Sales)
+def directExpenses(month, year: int):
+    try:
+        VCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
+            "Classification"
+        ]["Variable Cost"]
+
+        VCOSFilter = [
+            item for item in VCOSdata
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+        
+        totalVCOS = sum(item["Value"] for item in VCOSFilter)
+
+        FCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
+            "Classification"
+        ]["Fixed Cost"]
+
+        FCOSFilter = [
+            item for item in FCOSdata
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+        
+
+        totalFCOS = sum(item["Value"] for item in FCOSFilter)
+        
+
+        totalDirectExpenses = totalFCOS + totalVCOS
+
+        return Result(
+            Data=round(totalDirectExpenses,2),
+            Status=1,
+            Message="Month-wise DirectExpenses calculated successfully",
+        )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at directExpenses: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=0, Status=0, Message=message)
+
+    except Exception as ex:
+        message = f"Error occur at directExpenses: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
+
+
+# Get Total Operating Expenses (Operating Expenses)
+def totalOperatingExpenses(month, year: int):
+    try:
+        FEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+            "Variable Expenses"
+        ]
+
+        FEXPFilter = [
+            item for item in FEXPdata
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+
+        totalFEXP = sum(item["Value"] for item in FEXPFilter)
+
+        VEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+            "Fixed Expenses"
+        ]
+
+        VEXPFilter = [
+            item for item in VEXPdata
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+
+        totalVEXP = sum(item["Value"] for item in VEXPFilter)
+
+        VEXPDA = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+            "Depreciation"
+        ]
+
+        DAFilter = [
+            item for item in VEXPDA
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+
+        totalDA = sum(item["Value"] for item in DAFilter)
+
+        totalOperatingCost = totalFEXP + totalVEXP + totalDA
+
+        return Result(
+            Data=round(totalOperatingCost,2),
+            Status=1,
+            Message="Month-wise Total OperatingCost calculated successfully",
+        )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at totalOperatingExpenses: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=0, Status=0, Message=message)
+
+    except Exception as ex:
+        message = f"Error occur at totalRevenue: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
+
+
+
+# Get Expenses To Revenue Ratio
+def expensesToRevenueRatio(year: int, month):
+    try:
+        operatingExp = totalOperatingExpenses(month, year).Data
+        directExp = directExpenses(month, year).Data
+        totalRev = totalRevenue(year, month).Data
+
+        totalExpenses = operatingExp + directExp
+
+        expToRevRation = (totalExpenses / totalRev)*100
+
+        return Result(
+            Data=round(expToRevRation,2),
+            Status=1,
+            Message="Expenses to Revenue Ratio calculated successfully",
+        )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at expensesToRevenueRatio: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=0, Status=0, Message=message)
+
+    except Exception as ex:
+        message = f"Error occur at expensesToRevenueRation: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
+

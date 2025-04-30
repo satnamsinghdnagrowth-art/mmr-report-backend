@@ -1,5 +1,6 @@
 # main.py
 from server.init import app
+from helper.LoadJsonData import load_section_configs
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -13,11 +14,15 @@ app.add_middleware(
 )
 
 
+@app.on_event("startup")
+def startup_event():
+    load_section_configs()
+    
+
 def runServer():
     try:
-        uvicorn.run(app,  port=8080)
+        uvicorn.run(app, host="0.0.0.0", port=8080)
     except Exception as ex:
         print(f"Error: {ex}")
-
         
 

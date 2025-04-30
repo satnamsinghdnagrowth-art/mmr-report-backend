@@ -3,14 +3,11 @@ from services.accountNames.RetrieveCOANames import retriveCOANames
 from services.accountNames.RetrieveBSAccountName import retriveBSAccountNames
 from services.accountNames.RetrieveKPIsNames import retriveKPIsNames
 from core.models.base.ResultModel import Result
-from services.calculations.RevenueCalculation import (
-    expensesToRevenueRatio,
-    EBITMargin,
-    totalRevenue,
-    grossProfit,
-    grossProfitMargin,
-    EBIT,
-)
+from services.calculations.Expenses import expensesToRevenueRatio
+from services.calculations.Revenue import totalRevenue
+from services.calculations.Ebit import EBIT,EBITMargin
+from services.calculations.GrossProfit import grossProfit,grossProfitMargin
+
 
 
 # Analyze the data

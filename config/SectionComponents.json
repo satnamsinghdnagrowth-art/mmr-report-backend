@@ -1,0 +1,148 @@
+{
+    "Financial Heights": {
+        "cards": [
+            {
+                "title": "Total Revenue",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "grossProfit"
+            },
+            {
+                "title": "Total Revenue",
+                "mainFunction": "grossProfit",
+                "comparisonFunction": "totalRevenue"
+            },
+            {
+                "title": "Total Revenue",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "totalRevenue"
+            },
+            {
+                "title": "Total Rev",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "totalRevenue"
+            },
+            {
+                "title": "Total Rev",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "totalRevenue"
+            }
+        ],
+        "charts": [
+            {
+                "title": "Revenue Growth",
+                "data": [
+                    {
+                        "label":"Revenue",
+                        "type":"Bar",
+                        "funcName":"totalRevenue"
+                    },
+                    {
+                        "label": "Prev Year",
+                        "type": "Bar",
+                        "funcName": "totalRevenue"
+                    },
+                    {
+                        "label": "Revenue Growth",
+                        "type": "Line",
+                        "funcName": "revenueGrowth"
+                    }
+                
+                ],
+                "indexAxis": "x"
+            }
+        ],
+        "tables": [
+            {
+                "title": "Revenue Breakdown",
+                "columns": [
+                    "Income Statement",
+                    "This Month",
+                    "Last Month",
+                    "This month vs last month($)",
+                    "This month vs last month(%)"
+                ],
+                "rows": [
+                    {
+                        "label": "Revenue",
+                        "func": "totalRevenue"
+                    },
+                    {
+                        "label": "Cost of Sales",
+                        "func": "directExpenses"
+                    },
+                    {
+                        "label": "Gross Profit",
+                        "func": "grossProfit"
+                    },
+                    {
+                        "label": "Gross Profit Margin",
+                        "func": "grossProfitMargin"
+                    },
+                    {
+                        "label": "Operating Profit",
+                        "func": "ebit"
+                    },
+                    {
+                        "label": "Operating Profit Margin (%)",
+                        "func": "ebitMargin"
+                    },
+                    {
+                        "label": "Other Income",
+                        "func": "otherIncome"
+                    },
+                    {
+                        "label": "Earnings Before Interest & Tax",
+                        "func": "earningBeforeInterestandTax"
+                    },
+                    {
+                        "label": "Interest Income",
+                        "func": "interestIncome"
+                    },
+                    {
+                        "label": "Earnings Before Tax",
+                        "func": "earningBeforeTax"
+                    },
+
+                    {
+                        "label": "Net Income",
+                        "func": "netIncome"
+                    },
+                    {
+                        "label": "Net Income Margin (%)",
+                        "func": "netIncomeMargin"
+                    }
+                ]
+            }
+        ]
+    },
+    "operations": {
+        "cards": [
+            {
+                "title": "Order Volume",
+                "numerator": "orders",
+                "denominator": "totalOrders"
+            }
+        ],
+        "charts": [
+            {
+                "type": "bar",
+                "title": "Orders vs Revenue",
+                "data": [
+                    "orders",
+                    "revenue"
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "title": "Orders Summary",
+                "columns": [
+                    "Order ID",
+                    "Customer",
+                    "Amount"
+                ],
+                "data_source": "orderData"
+            }
+        ]
+    }
+}
