@@ -2,20 +2,21 @@ from datetime import datetime
 from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Ebit import EBIT
-from services.calculations.OtherIncome import otherIncome,interestIncome
+from services.calculations.OtherIncome import otherIncome, interestIncome
 from helper.LoadJsonData import financialDataTest
+
 
 # Operating Profit
 def earningBeforeInterestandTax(year: int, month):
     try:
-        ebit = EBIT(year,month).Data
+        ebit = EBIT(year, month).Data
 
-        otherIC = otherIncome(year,month).Data
+        otherIC = otherIncome(year, month).Data
 
-        result = ebit+otherIC
+        result = ebit + otherIC
 
         return Result(
-            Data=round(result,2),
+            Data=round(result, 2),
             Status=1,
             Message="Total EBIT calculated successfully",
         )
@@ -29,20 +30,18 @@ def earningBeforeInterestandTax(year: int, month):
         message = f"Error occur at earningBeforeInterestandTax: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
+
 
 def earningBeforeTax(year: int, month):
     try:
-        ebit = earningBeforeInterestandTax(year,month).Data
+        ebit = earningBeforeInterestandTax(year, month).Data
 
-        interestIC = interestIncome(year,month).Data
-
-        print(ebit,interestIC)
+        interestIC = interestIncome(year, month).Data
 
         result = ebit + interestIC
 
         return Result(
-            Data=round(result,2),
+            Data=round(result, 2),
             Status=1,
             Message="Total EBIT calculated successfully",
         )

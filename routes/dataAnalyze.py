@@ -8,4 +8,3 @@ Analyze = APIRouter()
 @Analyze.get("/")
 def analyzeData():
     return retriveDataRange()
-

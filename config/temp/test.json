@@ -1,0 +1,46 @@
+{
+    "Title": "Total Revenue",
+    "Content": {
+        "value":45648658,
+        "isNegative":True,
+        "Currency":"$"
+    },
+    "footer":{
+    "ComparisonValue": {
+        "value": 45648658,
+        "isNegative":True,
+        "Currency": "$"
+    },
+    "ComparisonText": "From Prev Year",
+    "TrendLine": {
+        "Xaxis": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ],
+        "Yaxis": [
+            57892.83,
+            60880.48,
+            59169.47,
+            59215.2,
+            87400.11,
+            87521.03,
+            88820.09,
+            92165.09,
+            94944.59,
+            97861.75,
+            102676.01,
+            108669.76
+        ]
+    }
+}
+}

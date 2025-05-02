@@ -9,7 +9,7 @@ from helper.LoadJsonData import financialDataTest
 def totalRevenue(year: int, month):
     try:
         data = financialDataTest["PROFIT & LOSS"]["REVENUE"]["Total"]
-        
+
         totalRevenue = 0
 
         filteredData = [
@@ -22,7 +22,7 @@ def totalRevenue(year: int, month):
         totalRevenue = sum(item["Value"] for item in filteredData)
 
         return Result(
-            Data=round(totalRevenue,2),
+            Data=round(totalRevenue, 2),
             Status=1,
             Message="Month-wise calculated successfully",
         )
@@ -36,7 +36,6 @@ def totalRevenue(year: int, month):
         message = f"Error occur at totalRevenue: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-
 
 
 def revenueGrowth(year: int, month: list):
@@ -61,9 +60,13 @@ def revenueGrowth(year: int, month: list):
         prevMonthRevenue = totalRevenue(prevYear, [prevMonth]).Data
 
         if prevMonthRevenue == 0:
-            raise ZeroDivisionError("Previous month revenue is zero, cannot calculate growth.")
+            raise ZeroDivisionError(
+                "Previous month revenue is zero, cannot calculate growth."
+            )
 
-        revGrowth = ((thisMonthRevenue - prevMonthRevenue) / abs(prevMonthRevenue)) * 100
+        revGrowth = (
+            (thisMonthRevenue - prevMonthRevenue) / abs(prevMonthRevenue)
+        ) * 100
 
         return Result(
             Data=round(revGrowth, 2),

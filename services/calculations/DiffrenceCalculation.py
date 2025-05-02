@@ -9,9 +9,8 @@ def diffrenceAndPercentage(this_month_value, prev_month_value):
         diff = this_month_value - prev_month_value
         percentChange = 0
         if prev_month_value != 0:
-            percentChange = round((diff / prev_month_value) * 100, 2)
-        resultData = {"Diffrence":round(diff,2),"PercentChange":percentChange}
-        
+            percentChange = round((diff / abs(prev_month_value)) * 100, 2)
+        resultData = {"Diffrence": round(diff, 2), "PercentChange": percentChange}
 
         return Result(
             Data=resultData,

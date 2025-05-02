@@ -4,15 +4,22 @@ from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from services.visuals.card.retrieveCard import retrieveCard
 from datetime import datetime
 
+
 # Get the sections cards
-def getSectionCards(year:int,months:list[int],reportType:str,section:str):
+def getSectionCards(year: int, months: list[int], reportType: str, section: str):
     try:
-        comparedTo = "From Prev Year" if reportType.lower() == "yearly" else "From Prev Month"
+        comparedTo = (
+            "From Prev Year" if reportType.lower() == "yearly" else "From Prev Month"
+        )
 
         configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs:
-            return Result(Data=[], Status=1, Message=f"No cards configured for section '{section}'")
+            return Result(
+                Data=[],
+                Status=1,
+                Message=f"No cards configured for section '{section}'",
+            )
 
         cards = []
 
@@ -23,14 +30,12 @@ def getSectionCards(year:int,months:list[int],reportType:str,section:str):
                 title=config["title"],
                 functionName=config["mainFunction"],
                 comparisonFunc=config["comparisonFunction"],
-                comparedTo=comparedTo
+                comparedTo=comparedTo,
             )
             cards.append(card.Data)
-         
+
         return Result(
-            Data=cards,
-            Status=1,
-            Message="Revenue Card calculated successfully"
+            Data=cards, Status=1, Message="Revenue Card calculated successfully"
         )
 
     except ZeroDivisionError as ex:
@@ -42,4 +47,3 @@ def getSectionCards(year:int,months:list[int],reportType:str,section:str):
         message = f"Error occurred at getFHSectionCards: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Data=None, Status=0, Message=message)
-    

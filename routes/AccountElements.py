@@ -1,10 +1,12 @@
 from fastapi import APIRouter, Body
 from services.GetFinancialsNames import retreiveFinacialsNames
 from services.RetriveData import getValues
-from services.calculations.Revenue import totalRevenue,revenueGrowth
+from services.calculations.Revenue import totalRevenue, revenueGrowth
 from services.calculations.NetIncome import netIncome
 from typing import Optional, List
-from services.reportSection.financialHeights.tables.RevenueBreakDown import getRevenueTable
+from services.reportSection.financialHeights.tables.RevenueBreakDown import (
+    getRevenueTable,
+)
 from services.calculations.OtherIncome import otherIncome
 from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
@@ -16,7 +18,7 @@ Account = APIRouter()
 
 # Get  Account Names
 @Account.get("/get/Names")
-def getAccountNames(year: int , month: int ) -> Result:
+def getAccountNames(year: int, month: int) -> Result:
     return retreiveFinacialsNames(year, month)
 
 
@@ -41,4 +43,4 @@ def getReportDescription() -> Result:
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return revenueGrowth( 2023,[1,2])
+    return revenueGrowth(2023, [1, 2])

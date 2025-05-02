@@ -3,7 +3,7 @@ from core.models.base.ResultModel import Result
 from services.GetFinancialsValues import formatFinancialData
 
 
-dataFormat =  APIRouter()
+dataFormat = APIRouter()
 
 
 # Format Excel Data

@@ -1,0 +1,862 @@
+{
+    "Cards": [
+        {
+            "Title": "Total Revenue",
+            "Content": {
+                "Value": 997216.41,
+                "isPositive": true,
+                "Type": "currency",
+                "Symbol": "$"
+            },
+            "Footer": {
+                "ComparisonValue": {
+                    "Value": 956077.08,
+                    "isPositive": true,
+                    "Type": "currency",
+                    "Symbol": "$"
+                },
+                "ComparisonText": "From Prev Year",
+                "TrendLine": {
+                    "Xaxis": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "Yaxis": [
+                        57892.83,
+                        60880.48,
+                        59169.47,
+                        59215.2,
+                        87400.11,
+                        87521.03,
+                        88820.09,
+                        92165.09,
+                        94944.59,
+                        97861.75,
+                        102676.01,
+                        108669.76
+                    ]
+                }
+            }
+        },
+        {
+            "Title": "Gross Profit",
+            "Content": {
+                "Value": 664990.23,
+                "isPositive": true,
+                "Type": "currency",
+                "Symbol": "$"
+            },
+            "Footer": {
+                "ComparisonValue": {
+                    "Value": 991360.19,
+                    "isPositive": true,
+                    "Type": "currency",
+                    "Symbol": "$"
+                },
+                "ComparisonText": "From Prev Year",
+                "TrendLine": {
+                    "Xaxis": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "Yaxis": [
+                        48325.03,
+                        52686.98,
+                        54245.22,
+                        38865.2,
+                        75111.61,
+                        56085.78,
+                        83722.34,
+                        -23711.41,
+                        79264.09,
+                        40760.25,
+                        56719.26,
+                        102915.88
+                    ]
+                }
+            }
+        },
+        {
+            "Title": "Expenses",
+            "Content": {
+                "Value": 332226.18,
+                "isPositive": false,
+                "Type": "currency",
+                "Symbol": "$"
+            },
+            "Footer": {
+                "ComparisonValue": {
+                    "Value": 991360.19,
+                    "isPositive": false,
+                    "Type": "currency",
+                    "Symbol": "$"
+                },
+                "ComparisonText": "From Prev Year",
+                "TrendLine": {
+                    "Xaxis": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "Yaxis": [
+                        9567.8,
+                        8193.5,
+                        4924.25,
+                        20350.0,
+                        12288.5,
+                        31435.25,
+                        5097.75,
+                        115876.5,
+                        15680.5,
+                        57101.5,
+                        45956.75,
+                        5753.88
+                    ]
+                }
+            }
+        },
+        {
+            "Title": "EBIT",
+            "Content": {
+                "Value": -864364.53,
+                "isPositive": false,
+                "Type": "currency",
+                "Symbol": "$"
+            },
+            "Footer": {
+                "ComparisonValue": {
+                    "Value": 991360.19,
+                    "isPositive": true,
+                    "Type": "currency",
+                    "Symbol": "$"
+                },
+                "ComparisonText": "From Prev Year",
+                "TrendLine": {
+                    "Xaxis": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "Yaxis": [
+                        -70158.74,
+                        -73476.48,
+                        -68147.92,
+                        -116098.59,
+                        -36432.0,
+                        -61832.77,
+                        -41823.98,
+                        -162424.47,
+                        -41712.14,
+                        -106598.74,
+                        -76991.99,
+                        -8666.71
+                    ]
+                }
+            }
+        },
+        {
+            "Title": "Net Income",
+            "Content": {
+                "Value": -840359.89,
+                "isPositive": true,
+                "Type": "currency",
+                "Symbol": "$"
+            },
+            "Footer": {
+                "ComparisonValue": {
+                    "Value": 991360.19,
+                    "isPositive": false,
+                    "Type": "currency",
+                    "Symbol": "$"
+                },
+                "ComparisonText": "From Prev Year",
+                "TrendLine": {
+                    "Xaxis": [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
+                    ],
+                    "Yaxis": [
+                        -69337.08,
+                        -72753.44,
+                        -67424.03,
+                        -115417.25,
+                        -32674.44,
+                        -58878.72,
+                        -41326.63,
+                        -161973.84,
+                        -31245.96,
+                        -106132.01,
+                        -74946.1,
+                        -8250.39
+                    ]
+                }
+            }
+        }
+    ],
+    "Charts": [
+        {
+            "Title": "Revenue Growth",
+            "Xaxis": [
+                "Jan 2024",
+                "Feb 2024",
+                "Mar 2024",
+                "Apr 2024",
+                "May 2024",
+                "Jun 2024",
+                "Jul 2024",
+                "Aug 2024",
+                "Sep 2024",
+                "Oct 2024",
+                "Nov 2024",
+                "Dec 2024"
+            ],
+            "YaxisSeries": [
+                {
+                    "Title": "Revenue",
+                    "Type": "Bar",
+                    "Values": [
+                        57892.83,
+                        60880.48,
+                        59169.47,
+                        59215.2,
+                        87400.11,
+                        87521.03,
+                        88820.09,
+                        92165.09,
+                        94944.59,
+                        97861.75,
+                        102676.01,
+                        108669.76
+                    ]
+                },
+                {
+                    "Title": "Prev Year",
+                    "Type": "Bar",
+                    "Values": [
+                        27800.66,
+                        10272.0,
+                        217581.0,
+                        111561.0,
+                        56968.0,
+                        87709.0,
+                        158479.0,
+                        129726.0,
+                        40048.6,
+                        69661.0,
+                        103073.0,
+                        -21519.07
+                    ]
+                },
+                {
+                    "Title": "Revenue Growth",
+                    "Type": "Line",
+                    "Values": [
+                        369.03,
+                        5.16,
+                        -2.81,
+                        0.08,
+                        47.6,
+                        0.14,
+                        1.48,
+                        3.77,
+                        3.02,
+                        3.07,
+                        4.92,
+                        5.84
+                    ]
+                }
+            ],
+            "IndexAxis": "x"
+        },
+        {
+            "Title": "Revenue BreakDown",
+            "Xaxis": [
+                "Club - New",
+                "Club - Renewals",
+                "High School -New",
+                "High School - Renewals",
+                "Districts - New",
+                "Districts - Renewals",
+                "Individual CARE Plan",
+                "College - New",
+                "College - Renewals",
+                "Counseling Service"
+            ],
+            "YaxisSeries": [
+                {
+                    "Title": "Revenue",
+                    "Type": "bar",
+                    "Values": [
+                        6234.57,
+                        17750.66,
+                        183603.65,
+                        128406.51,
+                        212162.76,
+                        364787.81,
+                        1639.45,
+                        47099.64,
+                        31916.36,
+                        3615.0
+                    ]
+                }
+            ],
+            "IndexAxis": "y"
+        }
+    ],
+    "Tables": [
+        {
+            "Title": "Income Statement",
+            "Column": [
+                "Income Statement",
+                "This Month",
+                "Last Month",
+                "This month vs last month($)",
+                "This month vs last month(%)"
+            ],
+            "Rows": [
+                [
+                    {
+                        "Value": "Revenue",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": 997216.41,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 991360.19,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 5856.22,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 0.59,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Cost of Sales",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": 332226.18,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 35283.11,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 296943.07,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 841.6,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Gross Profit",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": 664990.23,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 956077.08,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -291086.85,
+                        "isPositive": false,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -30.45,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Gross Profit Margin",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": 66.68,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": 96.44,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": -29.76,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": -30.86,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Operating Profit",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": -864364.53,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -571961.16,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -292403.37,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 51.12,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Operating Profit Margin (%)",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": -86.68,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": -57.69,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": -28.99,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": 50.25,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Other Income",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": 17273.16,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 3656.61,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 13616.55,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 372.38,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Earnings Before Interest & Tax",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": -847091.37,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -568304.55,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -278786.82,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 49.06,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Interest Income",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": 6731.48,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 7409.0,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -677.52,
+                        "isPositive": false,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -9.14,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Earnings Before Tax",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": -840359.89,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -560895.55,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -279464.34,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 49.82,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Net Income",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": -840359.89,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -560895.55,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": -279464.34,
+                        "isPositive": true,
+                        "Type": "currency",
+                        "Symbol": "$"
+                    },
+                    {
+                        "Value": 49.82,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ],
+                [
+                    {
+                        "Value": "Net Income Margin (%)",
+                        "isPositive": true,
+                        "Type": "",
+                        "Symbol": ""
+                    },
+                    {
+                        "Value": -84.27,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": -56.58,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": -27.69,
+                        "isPositive": true,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    },
+                    {
+                        "Value": 48.94,
+                        "isPositive": false,
+                        "Type": "percentage",
+                        "Symbol": "%"
+                    }
+                ]
+            ]
+        },
+        {
+            "Title": "Revneue Channels Comparison",
+            "Column": [
+                "REVENUE",
+                "2024",
+                "2023",
+                "This Year VS Prev Year($)",
+                "Variance"
+            ],
+            "Rows": [
+                [
+                    "Club - New",
+                    "6234.57",
+                    "5625.0",
+                    "609.57",
+                    "10.84%"
+                ],
+                [
+                    "Club - Renewals",
+                    "17750.66",
+                    "26558.66",
+                    "-8808.0",
+                    "-33.16%"
+                ],
+                [
+                    "High School -New",
+                    "183603.65",
+                    "210502.0",
+                    "-26898.35",
+                    "-12.78%"
+                ],
+                [
+                    "High School - Renewals",
+                    "128406.51",
+                    "114018.6",
+                    "14387.91",
+                    "12.62%"
+                ],
+                [
+                    "Districts - New",
+                    "212162.76",
+                    "242475.0",
+                    "-30312.24",
+                    "-12.5%"
+                ],
+                [
+                    "Districts - Renewals",
+                    "364787.81",
+                    "343360.0",
+                    "21427.81",
+                    "6.24%"
+                ],
+                [
+                    "Individual CARE Plan",
+                    "1639.45",
+                    "2205.93",
+                    "-566.48",
+                    "-25.68%"
+                ],
+                [
+                    "College - New",
+                    "47099.64",
+                    "35000.0",
+                    "12099.64",
+                    "34.57%"
+                ],
+                [
+                    "College - Renewals",
+                    "31916.36",
+                    "3500.0",
+                    "28416.36",
+                    "811.9%"
+                ],
+                [
+                    "Counseling Service",
+                    "3615.0",
+                    "4708.0",
+                    "-1093.0",
+                    "-23.22%"
+                ],
+                [
+                    "Sponsorship",
+                    "0.0",
+                    "21600.0",
+                    "-21600.0",
+                    "-100.0%"
+                ],
+                [
+                    "Sales Discount",
+                    "0.0",
+                    "-688.0",
+                    "688.0",
+                    "-100.0%"
+                ],
+                [
+                    "Discounts given",
+                    "0.0",
+                    "-17505.0",
+                    "17505.0",
+                    "-100.0%"
+                ],
+                [
+                    "Total Revenue",
+                    "997216.41",
+                    "991360.19",
+                    "5856.22",
+                    "0.59%"
+                ]
+            ]
+        }
+    ]
+}

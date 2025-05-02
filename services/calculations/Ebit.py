@@ -6,17 +6,16 @@ from services.calculations.GrossProfit import grossProfit
 from services.calculations.Expenses import totalOperatingExpenses
 
 
-
 def EBIT(year: int, month):
     try:
         GP = grossProfit(year, month).Data
 
-        operatingCost = totalOperatingExpenses(month, year).Data
+        operatingCost = totalOperatingExpenses(year, month).Data
 
         totalEBIT = GP - operatingCost
 
         return Result(
-            Data=round(totalEBIT,2),
+            Data=round(totalEBIT, 2),
             Status=1,
             Message="Total EBIT calculated successfully",
         )
@@ -38,12 +37,10 @@ def EBITMargin(year: int, month):
         totalRev = totalRevenue(year, month).Data
         totalEBIT = EBIT(year, month).Data
 
-        ebitMargin = (totalEBIT / totalRev)*100
-
-        print(f"Ebit Margin : {ebitMargin}")
+        ebitMargin = (totalEBIT / totalRev) * 100
 
         return Result(
-            Data=round(ebitMargin,2),
+            Data=round(ebitMargin, 2),
             Status=1,
             Message="EBIT Margin calculated successfully",
         )
@@ -57,4 +54,3 @@ def EBITMargin(year: int, month):
         message = f"Error occur at totalRevenue: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-

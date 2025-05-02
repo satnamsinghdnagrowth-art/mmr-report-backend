@@ -4,27 +4,22 @@
             {
                 "title": "Total Revenue",
                 "mainFunction": "totalRevenue",
-                "comparisonFunction": "grossProfit"
-            },
-            {
-                "title": "Total Revenue",
-                "mainFunction": "grossProfit",
                 "comparisonFunction": "totalRevenue"
             },
             {
-                "title": "Total Revenue",
-                "mainFunction": "totalRevenue",
+                "title": "Cost of Sales",
+                "mainFunction": "directExpenses",
+                "comparisonFunction": "directExpenses"
+            },
+            {
+                "title": "Expenses",
+                "mainFunction": "totalOperatingExpenses",
                 "comparisonFunction": "totalRevenue"
             },
             {
-                "title": "Total Rev",
-                "mainFunction": "totalRevenue",
-                "comparisonFunction": "totalRevenue"
-            },
-            {
-                "title": "Total Rev",
-                "mainFunction": "totalRevenue",
-                "comparisonFunction": "totalRevenue"
+                "title": "Net Income",
+                "mainFunction": "netIncome",
+                "comparisonFunction": "netIncome"
             }
         ],
         "charts": [
@@ -58,8 +53,8 @@
                     "Income Statement",
                     "This Month",
                     "Last Month",
-                    "This month vs last month($)",
-                    "This month vs last month(%)"
+                    "This Month vs last Month($)",
+                    "This Month vs last Month(%)"
                 ],
                 "rows": [
                     {
@@ -67,7 +62,7 @@
                         "func": "totalRevenue"
                     },
                     {
-                        "label": "Cost of Sales",
+                        "label": "Cost of Goods Sold",
                         "func": "directExpenses"
                     },
                     {
@@ -77,6 +72,10 @@
                     {
                         "label": "Gross Profit Margin",
                         "func": "grossProfitMargin"
+                    },
+                    {
+                        "label": "Expenses",
+                        "func": "totalOperatingExpenses"
                     },
                     {
                         "label": "Operating Profit",

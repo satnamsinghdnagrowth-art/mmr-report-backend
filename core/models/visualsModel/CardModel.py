@@ -1,25 +1,46 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from core.models.visualsModel.ValueObject import ValueObjectModel
+
 
 # Data Transfer Objects
 class TrendLineChart(BaseModel):
-    Xaxis: List[str]             
-    Yaxis: List[float]      
+    Xaxis: List[str]
+    Yaxis: List[float]
+
+
+class FooterModel(BaseModel):
+    ComparisonValue: ValueObjectModel
+    ComparisonText: str
+    TrendLine: Optional[TrendLineChart]
 
 
 class CardDataModel(BaseModel):
-    Title: str                     
-    Content : str
-    ComparisonValue : str
-    ComparisonText : str
-    TrendLine: Optional[TrendLineChart]    
+    Title: str
+    Content: ValueObjectModel
+    Footer: FooterModel
+
+
+# Data Transfer Objects
+# class TrendLineChart(BaseModel):
+#     Xaxis: List[str]
+#     Yaxis: List[float]
+
+
+# class CardDataModel(BaseModel):
+#     Title: str
+#     Content : str
+#     ComparisonValue : str
+#     ComparisonText : str
+#     TrendLine: Optional[TrendLineChart]
 
 
 # Request Body
 class TrendRequestBody(BaseModel):
     FunctionName: str
     ComparedTo: str
-  
+
+
 class CardRequestBody(BaseModel):
     Title: str
     Year: int

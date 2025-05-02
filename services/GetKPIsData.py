@@ -5,9 +5,8 @@ from services.accountNames.RetrieveKPIsNames import retriveKPIsNames
 from core.models.base.ResultModel import Result
 from services.calculations.Expenses import expensesToRevenueRatio
 from services.calculations.Revenue import totalRevenue
-from services.calculations.Ebit import EBIT,EBITMargin
-from services.calculations.GrossProfit import grossProfit,grossProfitMargin
-
+from services.calculations.Ebit import EBIT, EBITMargin
+from services.calculations.GrossProfit import grossProfit, grossProfitMargin
 
 
 # Analyze the data

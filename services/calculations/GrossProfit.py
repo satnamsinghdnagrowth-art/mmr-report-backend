@@ -4,14 +4,15 @@ from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from services.calculations.Expenses import directExpenses
 
+
 # Get Gross Profit
 def grossProfit(year: int, month):
     try:
         totalRev = totalRevenue(year, month).Data
-        grossProfit = totalRev - directExpenses(month, year).Data
+        grossProfit = totalRev - directExpenses(year, month).Data
 
         return Result(
-            Data=round(grossProfit,2),
+            Data=round(grossProfit, 2),
             Status=1,
             Message="Gross Profit calculated successfully",
         )
@@ -32,10 +33,10 @@ def grossProfitMargin(year: int, month):
     try:
         totalRev = totalRevenue(year, month).Data
         GP = grossProfit(year, month).Data
-        GPM = (GP / totalRev)*100
-        
+        GPM = (GP / totalRev) * 100
+
         return Result(
-            Data=round(GPM,2),
+            Data=round(GPM, 2),
             Status=1,
             Message="Gross Profit calculated successfully",
         )

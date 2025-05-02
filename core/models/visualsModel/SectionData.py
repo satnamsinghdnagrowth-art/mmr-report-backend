@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional ,List
+from typing import Optional, List
 from core.models.visualsModel.CardModel import CardDataModel
 from core.models.visualsModel.ChartModel import ChartDataModel
 from core.models.visualsModel.TableModel import TableModel
