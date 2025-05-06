@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from core.models.base.ResultModel import Result
-from services.reportSection.financialHeights.SectionData import getSectionData
-from services.reportSection.financialHeights.cardsKPIs import getSectionCards
-from services.reportSection.financialHeights.chartsKPIs import getSectionCharts
+from services.reportSection.financialHeights.sectionData.SectionData import getSectionData
+from services.reportSection.financialHeights.cards.cardsKPIs import getSectionCards
+from services.reportSection.financialHeights.charts.chartsKPIs import getSectionCharts
 from core.models.base.SectionDataRequestBody import SectionChartRequestData
 from services.reportSection.financialHeights.tables.IncomeStatementTablesKPI import (
     getISTable,

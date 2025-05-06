@@ -3,6 +3,7 @@ from services.calculations.GrossProfit import grossProfit, grossProfitMargin
 from services.calculations.NetProfit import netProfit, netProfitMargin
 from services.calculations.Ebit import EBIT, EBITMargin
 from services.calculations.NetIncome import netIncome, netIncomeMargin
+from services.calculations.Expenses import expensesToRevenueRatio
 from services.calculations.OtherIncome import otherIncome, interestIncome
 from services.calculations.EarningBefore import (
     earningBeforeInterestandTax,
@@ -28,4 +29,5 @@ functionRegistry = {
     "netIncome": netIncome,
     "netIncomeMargin": netIncomeMargin,
     "revenueGrowth": revenueGrowth,
+    "expensesToRevenueRatio":expensesToRevenueRatio
 }

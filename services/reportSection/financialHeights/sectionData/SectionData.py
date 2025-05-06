@@ -1,8 +1,8 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from datetime import datetime
-from services.reportSection.financialHeights.cardsKPIs import getSectionCards
-from services.reportSection.financialHeights.chartsKPIs import getSectionCharts
+from services.reportSection.financialHeights.cards.cardsKPIs import getSectionCards
+from services.reportSection.financialHeights.charts.chartsKPIs import getSectionCharts
 from core.models.visualsModel.SectionData import SectionData
 from services.reportSection.financialHeights.tables.IncomeStatementTablesKPI import (
     getISTable,

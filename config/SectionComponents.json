@@ -48,7 +48,7 @@
         ],
         "tables": [
             {
-                "title": "Revenue Breakdown",
+                "title": "Income Statement",
                 "columns": [
                     "Income Statement",
                     "This Month",
@@ -114,34 +114,183 @@
             }
         ]
     },
-    "operations": {
+    "ProfitAbility": {
         "cards": [
-            {
-                "title": "Order Volume",
-                "numerator": "orders",
-                "denominator": "totalOrders"
-            }
+            
         ],
         "charts": [
             {
-                "type": "bar",
-                "title": "Orders vs Revenue",
+                "title": "Profitability Chart",
                 "data": [
-                    "orders",
-                    "revenue"
-                ]
+                    {
+                        "label":"Gross Profit",
+                        "type":"Line",
+                        "funcName":"grossProfit"
+                    },
+                    {
+                        "label": "Operating Profit",
+                        "type": "Line",
+                        "funcName": "ebit"
+                    }
+                
+                ],
+                "indexAxis": "x"
+            },
+            {
+                "title": "Gross Profit Margin",
+                "data": [
+                    {
+                        "label":"Gross Profit (%)",
+                        "type":"Bar",
+                        "funcName":"grossProfitMargin"
+                    },
+                    {
+                        "label": "Prev Year",
+                        "type": "Line",
+                        "funcName": "grossProfitMargin"
+                    }
+                
+                ],
+                "indexAxis": "x"
             }
         ],
         "tables": [
             {
-                "title": "Orders Summary",
+                "title": "Profitability",
                 "columns": [
-                    "Order ID",
-                    "Customer",
-                    "Amount"
+                    "Profitability",
+                    "This Month",
+                    "Last Month",
+                    "This Month vs last Month($)",
+                    "This Month vs last Month(%)"
                 ],
-                "data_source": "orderData"
+                "rows": [
+                    {
+                        "label": "Gross Profit",
+                        "func": "grossProfit"
+                    },
+                    {
+                        "label": "Gross Profit Margin",
+                        "func": "grossProfitMargin"
+                    },
+                    {
+                        "label": "Operating Profit",
+                        "func": "ebit"
+                    },
+                    {
+                        "label": "Operating Profit Margin (%)",
+                        "func": "ebitMargin"
+                    },
+                    {
+                        "label": "Earnings Before Interest & Tax",
+                        "func": "earningBeforeInterestandTax"
+                    },
+                    {
+                        "label": "Earnings Before Tax",
+                        "func": "earningBeforeTax"
+                    },
+                    {
+                        "label": "Net Profit After Tax Margin (%)",
+                        "func": "netIncomeMargin"
+                    }
+                ]
             }
+        ]
+    },
+    "Expenses Analysis": {
+        "cards": [
+            
+        ],
+        "charts": [
+            {
+                "title": "Key Metrices",
+                "data": [
+                    {
+                        "label":"Revenue",
+                        "type":"Bar",
+                        "funcName":"totalRevenue"
+                    },
+                    {
+                        "label": "Cost of Goods",
+                        "type": "Line",
+                        "funcName": "directExpenses"
+                    },
+                    {
+                        "label": "Operating Expenses",
+                        "type": "Line",
+                        "funcName": "totalOperatingExpenses"
+                    }
+                
+                ],
+                "indexAxis": "x"
+            },
+            {
+                "title": "Ratios",
+                "data": [
+                    {
+                        "label":"Expenses to Revenue Ratio",
+                        "type":"Line",
+                        "funcName":"expensesToRevenueRatio"
+                    },
+                    {
+                        "label": "Prev Year",
+                        "type": "Line",
+                        "funcName": "expensesToRevenueRatio"
+                    }
+                
+                ],
+                "indexAxis": "x"
+            }
+        ],
+        "tables": [
+        ]
+    },
+    "Breakeven-Analysis": {
+        "cards": [
+            {
+                "title": "Revenue",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "totalRevenue"
+            },
+            {
+                "title": "Expense-to-Revenue Ratio",
+                "mainFunction": "expensesToRevenueRatio",
+                "comparisonFunction": "expensesToRevenueRatio"
+            },
+            {
+                "title": "Breakeven Margin of Safety",
+                "mainFunction": "totalOperatingExpenses",
+                "comparisonFunction": "totalRevenue"
+            }
+        ],
+        "charts": [
+        ],
+        "tables": [
+        ]
+    },
+    "Cash Flow Analysis": {
+        "cards": [
+            {
+                "title": "Operating Cash Flow",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "totalRevenue"
+            },
+            {
+                "title": "Free Cash Flow",
+                "mainFunction": "directExpenses",
+                "comparisonFunction": "directExpenses"
+            },
+            {
+                "title": "Cash on Hand",
+                "mainFunction": "totalOperatingExpenses",
+                "comparisonFunction": "totalRevenue"
+            }
+        ],
+        "charts": [
+        ],
+        "tables": [
+           
+            
         ]
     }
 }

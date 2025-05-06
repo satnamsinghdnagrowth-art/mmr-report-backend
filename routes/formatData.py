@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body
 from core.models.base.ResultModel import Result
-from services.GetFinancialsValues import formatFinancialData
+from services.accountValues.GetFinancialsValues import formatFinancialData
 
 
 dataFormat = APIRouter()

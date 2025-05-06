@@ -31,7 +31,6 @@ def retreiveKPIsValue(section, subSection, month, year: int):
 
         if subSection == "Expenses To Revenue Ration":
             value = expensesToRevenueRatio(year, month).Data
-            print(value, "fdgbfdbgj")
 
         return Result(Data=value, Status=1, Message="Success")
 

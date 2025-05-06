@@ -26,6 +26,8 @@ def retrieveChart(
 
             localYear = year - 1 if "Prev Year" in label else year
 
+            print(year,localYear,"year Comparioson")
+
             for month in months:
                 try:
                     result = func(localYear, [month])
