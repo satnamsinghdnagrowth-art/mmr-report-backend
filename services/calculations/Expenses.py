@@ -112,7 +112,7 @@ def totalOperatingExpenses(year, month):
 # Get Expenses To Revenue Ratio
 def expensesToRevenueRatio(year: int, month):
     try:
-        operatingExp = totalOperatingExpenses(month, year).Data
+        operatingExp = totalOperatingExpenses(year, month).Data
         directExp = directExpenses(year, month).Data
         totalRev = totalRevenue(year, month).Data
 

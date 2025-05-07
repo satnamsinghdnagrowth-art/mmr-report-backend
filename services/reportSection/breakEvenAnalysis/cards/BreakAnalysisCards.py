@@ -6,10 +6,10 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getSectionCards(year: int, months: list[int], reportType: str, section: str):
+def getBACards(year: int, months: list[int], reportType: str, section: str):
     try:
         comparedTo = (
-            "From Prev Year" if reportType.lower() == "yearly" else "From Prev Month"
+            "From Prev Year" if reportType.lower() == "Year" else "From Prev Month"
         )
 
         configs = SECTION_CARD_CONFIGS.get(section)
@@ -37,11 +37,6 @@ def getSectionCards(year: int, months: list[int], reportType: str, section: str)
         return Result(
             Data=cards, Status=1, Message="Revenue Card calculated successfully"
         )
-
-    except ZeroDivisionError as ex:
-        message = f"Error occurred at getFHSectionCards: {ex}"
-        print(f"{datetime.now()} {message}")
-        return Result(Data=None, Status=0, Message=message)
 
     except Exception as ex:
         message = f"Error occurred at getFHSectionCards: {ex}"

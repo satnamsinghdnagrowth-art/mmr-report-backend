@@ -10,6 +10,7 @@ from services.calculations.EarningBefore import (
     earningBeforeTax,
 )
 from services.calculations.Expenses import directExpenses, totalOperatingExpenses
+from services.calculations.BreakEvenMargin import breakEvenMarginSafety
 
 
 functionRegistry = {
@@ -29,5 +30,6 @@ functionRegistry = {
     "netIncome": netIncome,
     "netIncomeMargin": netIncomeMargin,
     "revenueGrowth": revenueGrowth,
-    "expensesToRevenueRatio":expensesToRevenueRatio
+    "expensesToRevenueRatio": expensesToRevenueRatio,
+    "breakEvenMarginSafety":breakEvenMarginSafety
 }

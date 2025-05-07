@@ -4,7 +4,7 @@ from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from core.models.visualsModel.TableModel import TableModel
-from services.reportSection.financialHeights.tables.RevenueBreakDown import (
+from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
     getRevenueTable,
 )
 from config.FunctionMaping import functionRegistry
@@ -27,11 +27,13 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
 
         tables = []
 
+        
+
         for config in configs.get("tables"):
             Headers = config["columns"]
 
-            if reportType == "Yearly":
-                # Replace "Monthly" with "Yearly" in headers if reportType is "Yearly"
+            if reportType == "Year":
+                # Replace "Monthly" with "Year" in headers if reportType is "Year"
                 Headers = [
                     "Income Statement",
                     "This Year",
@@ -43,6 +45,10 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
             rows = []
 
             for entry in config["rows"]:
+
+                currentyear = year
+                currentMonths = months
+
                 valueData = getValueSymbol(entry["label"])
 
                 valueType = valueData["type"]
@@ -58,8 +64,24 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
                 func = functionRegistry.get(entry["func"])
 
                 thisMonthValue = func(year=year, month=months).Data
-                prevMonthValue = func(year=year - 1, month=months).Data
 
+                print(currentyear,currentMonths,"before")
+
+                if reportType and reportType.lower() == "month":
+                    if months[0] == 1:
+                        # If current month is January, adjust to December and change the year
+                        currentMonths = [12]
+                        currentyear -= 1  # Move to the previous year
+                    else:
+                        # Otherwise, just subtract 1 from the month(s)
+                        currentMonths = [currentMonths[0] - 1]
+
+                # Fetch previous month's value for the first metric
+                prevMonthValue = func(year=currentyear, month=currentMonths).Data
+
+                print(currentyear,currentMonths,"after")
+
+                
                 row.append(
                     ValueObjectModel(
                         Value=thisMonthValue,

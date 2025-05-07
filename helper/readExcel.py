@@ -1,29 +1,38 @@
 import pandas as pd
-from datetime import datetime
 from core.models.base.ResultModel import Result
+import numpy as np
 
 
-# Read the excel File
 def readExcelFile(filepath) -> Result:
     try:
-        excelData = pd.read_excel(filepath, header=4)
+        # Step 1: Read the entire file without headers to extract metadata
+        excelData = pd.read_excel(filepath, header=None)
 
-        # reportName = excelData.iloc[0, 1]
-        # financialYear = excelData.iloc[1, 1]
+        # Step 2: Extract the report name and financial year from the first two rows
+        reportName = excelData.iloc[0, 1]
+        financialYear = excelData.iloc[1, 1]
 
-        # header = excelData.iloc[3]
-        # data = excelData.iloc[4:].reset_index(drop=True)
-        # data.columns = header  # Set proper headers
+        # Step 3: Set the header row from row 4 (index 4) and reset the dataframe
+        headers = excelData.iloc[4]
 
-        # response = {
-        #     "Company Name":reportName,
-        #     "Financial Year":financialYear,
-        #     "Financial Data":data
-        # }
+        data = excelData.iloc[5:].reset_index(drop=True)
 
-        return Result(Data=excelData, Status=0, Message="SUCCESS")
+        # Step 4: Assign the headers to the dataframe
+        data.columns = headers
+
+        data = data.applymap(lambda x: x.item() if isinstance(x, (np.int64, np.float64)) else x)
+
+        # Step 5: Build the response with extracted metadata and data
+        response = {
+            "Company Name": reportName,
+            "Financial Year": financialYear,
+            "Financial Data": data
+        }
+
+        return Result(Data=response, Status=1, Message="SUCCESS")
 
     except Exception as ex:
-        message = f"Error occur at readExcelFile: {ex}"
-        print(f"{datetime.now()} {message}")
+        message = f"Error occurred at readExcelFile: {ex}"
         return Result(Status=0, Message=message)
+
+

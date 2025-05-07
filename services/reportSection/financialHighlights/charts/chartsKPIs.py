@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getEACharts(year: int, months: list[int], reportType: str, section: str):
+def getSectionCharts(year: int, months: list[int], reportType: str, section: str):
     try:
         configs = SECTION_CARD_CONFIGS.get(section)
 
@@ -29,12 +29,21 @@ def getEACharts(year: int, months: list[int], reportType: str, section: str):
                 title=config["title"],
                 chartData=config["data"],
                 axisChoice=config["indexAxis"],
+                reportType = reportType
+
             )
             charts.append(card.Data)
+
+        charts.append(getRevenueBreakdownChart(year, months).Data)
 
         return Result(
             Data=charts, Status=1, Message="Revenue Card calculated successfully"
         )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at getFHSectionCards: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=None, Status=0, Message=message)
 
     except Exception as ex:
         message = f"Error occurred at getFHSectionCards: {ex}"

@@ -7,26 +7,23 @@ from services.reportSection.profitAbility.sectionData.SectionData import getSect
 
 ProfitAbility = APIRouter()
 
-
 # # Get Financial Higlights Section All Data
-@ProfitAbility.get("/get/sectionData")
-def getCards()->Result:
+@ProfitAbility.post("/get/sectionData")
+def getSection(payload: SectionChartRequestData) -> Result:
     return getSectionData(
-        year=2024,
-        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        reportType="Yearly",
-        section="Financial Heights",
+        year=payload.Year,
+        months=payload.Months,
+        reportType=payload.ReportType,
+        section=payload.SectionName,
     )
 
 
-# # Get Financial Higlights Section Cards
-# @ProfitAbility.post("/get/profitability/cards")
-# def getCards(payload: SectionChartRequestData)-> Result:
-#     return getSectionCards(
-#         year=payload.Year,
-#         months=payload.Months,
-#         reportType=payload.ReportType,
-#         section=payload.SectionName,
+# def getCards()->Result:
+#     return getSectionData(
+#         year=2024,
+#         months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+#         reportType="Year",
+#         section="Financial Heights",
 #     )
 
 

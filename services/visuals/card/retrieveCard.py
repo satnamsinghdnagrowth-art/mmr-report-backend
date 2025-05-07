@@ -79,14 +79,6 @@ def retrieveCard(
 
         cardData = CardDataModel(Title=title, Content=contentValueObj, Footer=footerObj)
 
-        # cardData = CardDataModel(
-        #     Title=title,
-        #     Content=str(mainFunc(year, months).Data) ,
-        #     ComparisonValue = str(previous),
-        #     ComparisonText=comparedTo,
-        #     TrendLine=trendLineData,
-        # )
-
         return Result(
             Data=cardData, Status=1, Message="Revenue Card calculated successfully"
         )

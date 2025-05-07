@@ -1,16 +1,17 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 import calendar
-from typing import Any
+from typing import Optional
 from config.FunctionMaping import functionRegistry
 from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 
 
 def retrieveChart(
-    year: int, months: list[int], title: str, chartData: list[dict], axisChoice: str
+    year: int, months: list[int], title: str, chartData: list[dict], axisChoice: str,reportType : Optional[str]=None
 ) -> Result:
     try:
-        xAxis = [f"{calendar.month_abbr[m]} {year}" for m in months]
+        staticMonths  = [1,2,3,4,5,6,7,8,9,10,11,12]
+        xAxis = [f"{calendar.month_abbr[m]} {year}" for m in staticMonths]
         yAxisSeries = []
 
         for metric in chartData:
@@ -25,8 +26,6 @@ def retrieveChart(
             values = []
 
             localYear = year - 1 if "Prev Year" in label else year
-
-            print(year,localYear,"year Comparioson")
 
             for month in months:
                 try:

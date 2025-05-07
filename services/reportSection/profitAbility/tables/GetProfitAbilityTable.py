@@ -4,7 +4,7 @@ from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from core.models.visualsModel.TableModel import TableModel
-from services.reportSection.financialHeights.tables.RevenueBreakDown import (
+from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
     getRevenueTable,
 )
 from config.FunctionMaping import functionRegistry
@@ -16,7 +16,7 @@ from datetime import datetime
 # Get the sections cards
 def getPATable(year: int, months: list[int], reportType: str, section: str):
     try:
-        configs = SECTION_CARD_CONFIGS.get("ProfitAbility")
+        configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs:
             return Result(
@@ -30,8 +30,8 @@ def getPATable(year: int, months: list[int], reportType: str, section: str):
         for config in configs.get("tables"):
             Headers = config["columns"]
 
-            if reportType == "Yearly":
-                # Replace "Monthly" with "Yearly" in headers if reportType is "Yearly"
+            if reportType == "Year":
+                # Replace "Monthly" with "Year" in headers if reportType is "Year"
                 Headers = [
                     "Profitability",
                     "This Year",

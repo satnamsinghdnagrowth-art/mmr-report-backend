@@ -13,9 +13,8 @@ from datetime import datetime
 
 # Get the sections cards
 def getTopOpeatingExpenses(year: int, months: list[int], reportType: str, section: str):
-    
     try:
-        configs = SECTION_CARD_CONFIGS.get("Expenses Analysis")
+        configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs:
             return Result(
@@ -27,15 +26,20 @@ def getTopOpeatingExpenses(year: int, months: list[int], reportType: str, sectio
         tables = []
         Headers = ["Expenses Names", "Total"]
 
-        expensesdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["LineItems"].keys()
+        expensesdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"][
+            "LineItems"
+        ].keys()
         expenses_with_totals = []
 
         # Step 1: Calculate total per expense
         for expenses in expensesdata:
-            itemData = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["LineItems"][expenses]
+            itemData = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["LineItems"][
+                expenses
+            ]
 
             filterData = [
-                item for item in itemData
+                item
+                for item in itemData
                 if (item["Year"] == year and (0 in months or item["Month"] in months))
             ]
 
@@ -64,16 +68,20 @@ def getTopOpeatingExpenses(year: int, months: list[int], reportType: str, sectio
                     isPositive=True,
                     Type="currency",
                     Symbol="$",
-                )
+                ),
             ]
             rows.append(row)
 
         # Step 5: Wrap in table object
-        tableObj = TableModel(Title="Top 10 Operating Expenses", Column=Headers, Rows=rows)
+        tableObj = TableModel(
+            Title="Top 10 Operating Expenses", Column=Headers, Rows=rows
+        )
         tables.append(tableObj)
 
         return Result(
-            Data=tables, Status=1, Message="Top 10 Operating Expenses calculated successfully"
+            Data=tables,
+            Status=1,
+            Message="Top 10 Operating Expenses calculated successfully",
         )
 
     except ZeroDivisionError as ex:

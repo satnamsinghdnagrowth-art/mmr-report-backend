@@ -259,7 +259,7 @@
             },
             {
                 "title": "Breakeven Margin of Safety",
-                "mainFunction": "totalOperatingExpenses",
+                "mainFunction": "breakEvenMarginSafety",
                 "comparisonFunction": "totalRevenue"
             }
         ],
