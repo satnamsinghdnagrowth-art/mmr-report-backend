@@ -1,9 +1,14 @@
-[
-    {
-        "Report Id":1234567,
-        "Report Name" : "Honest Game Corporation",
-        "FileName":"FileOutputTest.json",
-        "Currency" : "US Dollar"
+{
+    "12345": {
+      "Report Name": "Honest Game Corporation",
+      "FileName": "report1.json",
+      "Currency": "US Dollar"
+    },
+    
+    "1234568": {
+      "Report Name": "Another Corp",
+      "FileName": "AnotherFile.json",
+      "Currency": "Euro"
     }
-]
-
+  }
+  

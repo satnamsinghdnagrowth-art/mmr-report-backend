@@ -3,15 +3,22 @@ from core.models.base.ResultModel import Result
 from services.calculations.Ebit import EBIT
 from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
+from typing import Optional
+from helper.GetFileByReportId import getReportData
 
 
 # Get Total Revenue
-def netProfit(year: int, month):
-    try:
+def netProfit(year: int, month,reportId:Optional[int]=None):
+    try: 
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
         ebit = EBIT(year, month).Data
 
         # Interest Expenses
-        IEXPdata = financialDataTest["PROFIT & LOSS"]["OTHER EXPENSES"][
+        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"][
             "Classification"
         ]["Interest Expense"]
 
@@ -24,7 +31,7 @@ def netProfit(year: int, month):
         totalIEXP = IEXPFilter[0]["Value"] if IEXPFilter else 0
 
         # Tax Expenses
-        TEXPdata = financialDataTest["PROFIT & LOSS"]["OTHER EXPENSES"][
+        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"][
             "Classification"
         ]["Interest Expense"]
 
@@ -58,11 +65,11 @@ def netProfit(year: int, month):
 
 
 #  Get Total Revenue
-def netProfitMargin(year: int, month):
+def netProfitMargin(year: int, month,reportId:Optional[int]=None):
     try:
-        netprofit = netProfit(year, month).Data
+        netprofit = netProfit(year, month,reportId).Data
 
-        totalRev = totalRevenue(year, month).Data
+        totalRev = totalRevenue(year, month,reportId).Data
 
         netProfitMargin = (netprofit / totalRev) * 100
 

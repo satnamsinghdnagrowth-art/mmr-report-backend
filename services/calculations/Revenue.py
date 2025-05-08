@@ -1,14 +1,20 @@
 from datetime import datetime
-from config.variable import variableMapping
+from typing import Optional
 from core.models.base.ResultModel import Result
 from helper.readExcel import readExcelFile
+from helper.GetFileByReportId import getReportData
 from helper.LoadJsonData import financialDataTest
 
 
 # Get Total Revenue
-def totalRevenue(year: int, month):
+def totalRevenue(year: int, month,reportId:Optional[int]=None):
     try:
-        data = financialDataTest["PROFIT & LOSS"]["REVENUE"]["Total"]
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
+        data = financialData["PROFIT & LOSS"]["REVENUE"]["Total"]
 
         totalRevenue = 0
 
@@ -20,6 +26,7 @@ def totalRevenue(year: int, month):
             totalRevenue = 0
 
         totalRevenue = sum(item["Value"] for item in filteredData)
+
 
         return Result(
             Data=round(totalRevenue, 2),
@@ -38,7 +45,7 @@ def totalRevenue(year: int, month):
         return Result(Status=0, Message=message)
 
 
-def revenueGrowth(year: int, month: list):
+def revenueGrowth(year: int, month: list,reportId:Optional[int]=None):
     try:
         if not month or len(month) != 1:
             raise ValueError("Only one month should be provided in a list.")
@@ -46,7 +53,7 @@ def revenueGrowth(year: int, month: list):
         monthValue = month[0]
 
         # Calculate current month revenue
-        thisMonthRevenue = totalRevenue(year, [monthValue]).Data
+        thisMonthRevenue = totalRevenue(year, [monthValue],reportId).Data
 
         # Determine previous month and year
         if monthValue == 1:
@@ -57,7 +64,7 @@ def revenueGrowth(year: int, month: list):
             prevYear = year
 
         # Calculate previous month revenue
-        prevMonthRevenue = totalRevenue(prevYear, [prevMonth]).Data
+        prevMonthRevenue = totalRevenue(prevYear, [prevMonth],reportId).Data
 
         if prevMonthRevenue == 0:
             raise ZeroDivisionError(

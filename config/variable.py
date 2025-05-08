@@ -44,6 +44,8 @@ variableMapping = {
             {"DTAX": "Deferred Tax"},
             {"ONCL": "Other Non-Current Liabilities"},
         ],
+    },
+    "EQUITY":{
         "EQUITY": [
             {"RE": "Retained Earnings"},
             {"CE": "Common Equity"},

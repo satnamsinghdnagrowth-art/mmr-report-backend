@@ -12,6 +12,7 @@ from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI 
     getISTable,
 )
 
+
 FinancialHighlights = APIRouter()
 
 # for testing
@@ -22,9 +23,10 @@ section = "Financial Heights"
 
 
 
-@FinancialHighlights.post("/get/sectionData/")
-def getSection(payload: SectionChartRequestData) -> Result:
+@FinancialHighlights.post("/get/report/{reportId}/sectionData/")
+def getSection(reportId:int,payload: SectionChartRequestData) -> Result:
     return getSectionData(
+        reportId=reportId,
         year=payload.Year,
         months=payload.Months,
         reportType=payload.ReportType,
@@ -43,9 +45,10 @@ def getSection(payload: SectionChartRequestData) -> Result:
 
 
 # Get Financial Higlights Section Cards
-@FinancialHighlights.post("/get/financialHeights/cards")
-def getCards(payload: SectionChartRequestData) -> Result:
+@FinancialHighlights.post("/get/report/{reportId}/financialHeights/cards")
+def getCards(reportId:int,payload: SectionChartRequestData) -> Result:
     return getSectionCards(
+        reportId=reportId,
         year=payload.Year,
         months=payload.Months,
         reportType=payload.ReportType,
@@ -54,9 +57,10 @@ def getCards(payload: SectionChartRequestData) -> Result:
 
 
 # Get Financial Higlights Section Charts
-@FinancialHighlights.post("/get/financialHeights/charts")
-def getCards(payload: SectionChartRequestData) -> Result:
+@FinancialHighlights.post("/get/report/{reportId}/financialHeights/charts")
+def getCards(reportId:int,payload: SectionChartRequestData) -> Result:
     return getSectionCharts(
+        reportId=reportId,
         year=payload.Year,
         months=payload.Months,
         reportType=payload.ReportType,
@@ -65,9 +69,10 @@ def getCards(payload: SectionChartRequestData) -> Result:
 
 
 # Get Financial Higlights Section Tables
-@FinancialHighlights.post("/get/financialHeights/tables")
-def getTables(payload: SectionChartRequestData) -> Result:
+@FinancialHighlights.post("/get/report/{reportId}/financialHeights/tables")
+def getTables(reportId:int,payload: SectionChartRequestData) -> Result:
     return getISTable(
+        reportId=reportId,
         year=payload.Year,
         months=payload.Months,
         reportType=payload.ReportType,

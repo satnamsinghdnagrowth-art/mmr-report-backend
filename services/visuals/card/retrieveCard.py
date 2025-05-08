@@ -16,6 +16,7 @@ from helper.metricCheck import isMetricPositive
 
 
 def retrieveCard(
+    reportId:int,
     year: int,
     months: list[int],
     title: str,
@@ -24,6 +25,7 @@ def retrieveCard(
     comparedTo: str,
 ):
     try:
+        
         valueData = getValueSymbol(title)
 
         valueType = valueData["type"]
@@ -37,17 +39,17 @@ def retrieveCard(
             prev_year, prev_month = (
                 (year - 1, 12) if months[0] == 1 else (year, months[0] - 1)
             )
-            previous = trendFunc(prev_year, [0]).Data
+            previous = trendFunc(prev_year, [0],reportId).Data
 
         elif comparedTo.lower() in ["from prev year", "from lastyear"]:
-            previous = trendFunc(year - 1, months).Data
+            previous = trendFunc(year - 1, months,reportId).Data
 
         else:
             previous = None  # or handle as needed
 
         trendLineXaxis = [calendar.month_abbr[m] for m in range(1, 13)]
 
-        trendLineYaxis = [mainFunc(year, [m]).Data for m in range(1, 13)]
+        trendLineYaxis = [mainFunc(year, [m],reportId).Data for m in range(1, 13)]
 
         trendLineData = TrendLineChart(Xaxis=trendLineXaxis, Yaxis=trendLineYaxis)
 

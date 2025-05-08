@@ -14,7 +14,7 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getISTable(year: int, months: list[int], reportType: str, section: str):
+def getISTable(year: int, months: list[int], reportType: str, section: str,reportId):
     try:
         configs = SECTION_CARD_CONFIGS.get(section)
 
@@ -26,8 +26,6 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
             )
 
         tables = []
-
-        
 
         for config in configs.get("tables"):
             Headers = config["columns"]
@@ -63,9 +61,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
 
                 func = functionRegistry.get(entry["func"])
 
-                thisMonthValue = func(year=year, month=months).Data
-
-                print(currentyear,currentMonths,"before")
+                thisMonthValue = func(year=year, month=months,reportId=reportId).Data
 
                 if reportType and reportType.lower() == "month":
                     if months[0] == 1:
@@ -77,10 +73,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
                         currentMonths = [currentMonths[0] - 1]
 
                 # Fetch previous month's value for the first metric
-                prevMonthValue = func(year=currentyear, month=currentMonths).Data
-
-                print(currentyear,currentMonths,"after")
-
+                prevMonthValue = func(year=currentyear, month=currentMonths,reportId=reportId).Data
                 
                 row.append(
                     ValueObjectModel(
@@ -130,7 +123,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str):
 
             tables.append(tableObj)
 
-        tables.append(getRevenueTable(year, months).Data)
+        tables.append(getRevenueTable(year, months,reportId).Data)
 
         return Result(
             Data=tables, Status=1, Message="Revenue Card calculated successfully"

@@ -1,11 +1,11 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
-from config.FunctionMaping import functionRegistry
+from typing import Optional
 
 
 # Get Gross Profit
-def growthRate(year: int, month, funName="totalRevenue"):
+def growthRate(year: int, month,reportId:Optional[int]=None):
     try:
         if not month or len(month) != 1:
             raise ValueError("Only one month should be provided in a list.")
@@ -13,7 +13,7 @@ def growthRate(year: int, month, funName="totalRevenue"):
         monthValue = month[0]
 
         # Calculate current month revenue
-        thisMonthRevenue = totalRevenue(year, [monthValue]).Data
+        thisMonthRevenue = totalRevenue(year, [monthValue],reportId).Data
 
         # Determine previous month and year
         if monthValue == 1:
@@ -24,7 +24,7 @@ def growthRate(year: int, month, funName="totalRevenue"):
             prevYear = year
 
         # Calculate previous month revenue
-        prevMonthRevenue = totalRevenue(prevYear, [prevMonth]).Data
+        prevMonthRevenue = totalRevenue(prevYear, [prevMonth],reportId).Data
 
         if prevMonthRevenue == 0:
             raise ZeroDivisionError(

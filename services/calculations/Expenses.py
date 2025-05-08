@@ -1,14 +1,21 @@
 from datetime import datetime
-from config.variable import variableMapping
+from typing import Optional
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
+from typing import Optional
+from helper.GetFileByReportId import getReportData
 
 
 # Get Direct Expenses (Total Cost of Sales)
-def directExpenses(year: int, month):
+def directExpenses(year: int, month,reportId:Optional[int]=None):
     try:
-        VCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
+        VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
             "Classification"
         ]["Variable Cost"]
 
@@ -20,7 +27,7 @@ def directExpenses(year: int, month):
 
         totalVCOS = sum(item["Value"] for item in VCOSFilter)
 
-        FCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
+        FCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
             "Classification"
         ]["Fixed Cost"]
 
@@ -52,9 +59,14 @@ def directExpenses(year: int, month):
 
 
 # Get Total Operating Expenses (Operating Expenses)
-def totalOperatingExpenses(year, month):
+def totalOperatingExpenses(year, month,reportId:Optional[int]=None):
     try:
-        FEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
+        FEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Variable Expenses"
         ]
 
@@ -66,7 +78,7 @@ def totalOperatingExpenses(year, month):
 
         totalFEXP = sum(item["Value"] for item in FEXPFilter)
 
-        VEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+        VEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Fixed Expenses"
         ]
 
@@ -78,7 +90,7 @@ def totalOperatingExpenses(year, month):
 
         totalVEXP = sum(item["Value"] for item in VEXPFilter)
 
-        VEXPDA = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+        VEXPDA = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Depreciation"
         ]
 
@@ -110,7 +122,7 @@ def totalOperatingExpenses(year, month):
 
 
 # Get Expenses To Revenue Ratio
-def expensesToRevenueRatio(year: int, month):
+def expensesToRevenueRatio(year: int, month,reportId:Optional[int]=None):
     try:
         operatingExp = totalOperatingExpenses(year, month).Data
         directExp = directExpenses(year, month).Data

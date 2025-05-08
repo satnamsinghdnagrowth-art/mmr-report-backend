@@ -1,15 +1,20 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
-from services.calculations.Ebit import EBIT
-from services.calculations.Revenue import totalRevenue
+from helper.GetFileByReportId import getReportData
 from helper.LoadJsonData import financialDataTest
+from typing import Optional
 
 
 # Get Total Revenue
-def otherIncome(year: int, month):
+def otherIncome(year: int, month,reportId:Optional[int]=None):
     try:
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
         # Another Expenses
-        AINCdata = financialDataTest["PROFIT & LOSS"]["OTHER INCOME"]["Classification"][
+        AINCdata = financialData["PROFIT & LOSS"]["OTHER INCOME"]["Classification"][
             "Additional Income"
         ]
 
@@ -41,10 +46,15 @@ def otherIncome(year: int, month):
 
 
 #  Get Total Revenue
-def interestIncome(year: int, month):
+def interestIncome(year: int, month,reportId:Optional[int]=None):
     try:
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+             
         # Interest Expenses
-        interestIncomedata = financialDataTest["PROFIT & LOSS"]["OTHER INCOME"][
+        interestIncomedata = financialData["PROFIT & LOSS"]["OTHER INCOME"][
             "Classification"
         ]["Investment Income"]
 

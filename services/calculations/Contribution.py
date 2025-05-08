@@ -3,14 +3,21 @@ from core.models.base.ResultModel import Result
 from services.calculations.Ebit import EBIT
 from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
+from helper.GetFileByReportId import getReportData
+from typing import Optional
 
 
 # Operating Profit
-def contribution(year: int, month):
+def contribution(year: int, month,reportId:Optional[int]=None):
     try:
-        totalRev = totalRevenue(year, month).Data
+        financialData = financialDataTest
 
-        VCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
+        totalRev = totalRevenue(year, month,reportId).Data
+
+        VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
             "Classification"
         ]["Variable Cost"]
 
@@ -22,7 +29,7 @@ def contribution(year: int, month):
 
         totalVCOS = sum(item["Value"] for item in VCOSFilter)
 
-        VEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+        VEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Fixed Expenses"
         ]
 
@@ -48,11 +55,11 @@ def contribution(year: int, month):
         return Result(Status=0, Message=message)
 
 
-def contributionMargin(year: int, month):
+def contributionMargin(year: int, month,reportId:Optional[int]=None):
     try:
-        totalContribution = contribution(year, month).Data
+        totalContribution = contribution(year, month,reportId).Data
 
-        totalRev = totalRevenue(year, month).Data
+        totalRev = totalRevenue(year, month,reportId).Data
 
         totalContributionMargin = (totalContribution / totalRev) * 100
         

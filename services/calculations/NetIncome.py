@@ -6,14 +6,21 @@ from services.calculations.EarningBefore import (
     earningBeforeInterestandTax,
     earningBeforeTax,
 )
+from typing import Optional
 from services.calculations.OtherIncome import interestIncome
 from helper.LoadJsonData import financialDataTest
+from helper.GetFileByReportId import getReportData
 
 
 # Operating Profit
-def netIncome(year: int, month):
+def netIncome(year: int, month,reportId:Optional[int]=None):
     try:
-        TEXPdata = financialDataTest["PROFIT & LOSS"]["OTHER EXPENSES"][
+        financialData = financialDataTest
+
+        if reportId is not  None:
+             financialData = getReportData(reportId)
+
+        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"][
             "Classification"
         ]["Tax Expense"]
 
@@ -25,7 +32,7 @@ def netIncome(year: int, month):
 
         totalTEXP = sum(item["Value"] for item in TEXPFilter)
 
-        ebt = earningBeforeTax(year, month).Data
+        ebt = earningBeforeTax(year, month,reportId).Data
 
         result = ebt - totalTEXP
 
@@ -46,11 +53,11 @@ def netIncome(year: int, month):
         return Result(Status=0, Message=message)
 
 
-def netIncomeMargin(year: int, month):
+def netIncomeMargin(year: int, month,reportId:Optional[int]=None):
     try:
-        totalRev = totalRevenue(year, month).Data
+        totalRev = totalRevenue(year, month,reportId).Data
 
-        NIC = netIncome(year, month).Data
+        NIC = netIncome(year, month,reportId).Data
 
         netICMargin = (NIC / totalRev) * 100
 

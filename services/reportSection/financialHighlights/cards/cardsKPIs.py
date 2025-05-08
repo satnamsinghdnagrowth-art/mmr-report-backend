@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getSectionCards(year: int, months: list[int], reportType: str, section: str):
+def getSectionCards(year: int, months: list[int], reportType: str, section: str,reportId:int):
     try:
         comparedTo = (
             "From Prev Year" if reportType.lower() == "Year" else "From Prev Month"
@@ -25,6 +25,7 @@ def getSectionCards(year: int, months: list[int], reportType: str, section: str)
 
         for config in configs.get("cards"):
             card = retrieveCard(
+                reportId=reportId,
                 year=year,
                 months=months,
                 title=config["title"],

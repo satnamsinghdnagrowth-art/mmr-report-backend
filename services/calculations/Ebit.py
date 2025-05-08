@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
@@ -6,11 +7,11 @@ from services.calculations.GrossProfit import grossProfit
 from services.calculations.Expenses import totalOperatingExpenses
 
 
-def EBIT(year: int, month):
+def EBIT(year: int, month,reportId:Optional[int]=None):
     try:
-        GP = grossProfit(year, month).Data
+        GP = grossProfit(year, month,reportId).Data
 
-        operatingCost = totalOperatingExpenses(year, month).Data
+        operatingCost = totalOperatingExpenses(year, month,reportId).Data
 
         totalEBIT = GP - operatingCost
 
@@ -32,10 +33,10 @@ def EBIT(year: int, month):
 
 
 # Get EBIT Margin
-def EBITMargin(year: int, month):
+def EBITMargin(year: int, month,reportId:Optional[int]=None):
     try:
-        totalRev = totalRevenue(year, month).Data
-        totalEBIT = EBIT(year, month).Data
+        totalRev = totalRevenue(year, month,reportId).Data
+        totalEBIT = EBIT(year, month,reportId).Data
 
         ebitMargin = (totalEBIT / totalRev) * 100
 

@@ -1,6 +1,6 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
-
+from typing import Optional
 # Helper function to calculate differences and percentage change
 
 

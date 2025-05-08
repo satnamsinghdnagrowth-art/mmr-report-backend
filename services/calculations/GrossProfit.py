@@ -3,13 +3,13 @@ from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from services.calculations.Expenses import directExpenses
-
+from typing import Optional
 
 # Get Gross Profit
-def grossProfit(year: int, month):
+def grossProfit(year: int, month,reportId:Optional[int]=None):
     try:
-        totalRev = totalRevenue(year, month).Data
-        grossProfit = totalRev - directExpenses(year, month).Data
+        totalRev = totalRevenue(year, month,reportId).Data
+        grossProfit = totalRev - directExpenses(year, month,reportId).Data
 
         return Result(
             Data=round(grossProfit, 2),
@@ -29,10 +29,10 @@ def grossProfit(year: int, month):
 
 
 # Get Gross Profit Margin
-def grossProfitMargin(year: int, month):
+def grossProfitMargin(year: int, month,reportId:Optional[int]=None):
     try:
-        totalRev = totalRevenue(year, month).Data
-        GP = grossProfit(year, month).Data
+        totalRev = totalRevenue(year, month,reportId).Data
+        GP = grossProfit(year, month,reportId).Data
         GPM = (GP / totalRev) * 100
 
         return Result(
