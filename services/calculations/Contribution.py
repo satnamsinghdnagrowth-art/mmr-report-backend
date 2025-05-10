@@ -8,18 +8,18 @@ from typing import Optional
 
 
 # Operating Profit
-def contribution(year: int, month,reportId:Optional[int]=None):
+def contribution(year: int, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
-        totalRev = totalRevenue(year, month,reportId).Data
+        totalRev = totalRevenue(year, month, reportId).Data
 
-        VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
-            "Classification"
-        ]["Variable Cost"]
+        VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"]["Classification"][
+            "Variable Cost"
+        ]
 
         VCOSFilter = [
             item
@@ -55,14 +55,14 @@ def contribution(year: int, month,reportId:Optional[int]=None):
         return Result(Status=0, Message=message)
 
 
-def contributionMargin(year: int, month,reportId:Optional[int]=None):
+def contributionMargin(year: int, month, reportId: Optional[int] = None):
     try:
-        totalContribution = contribution(year, month,reportId).Data
+        totalContribution = contribution(year, month, reportId).Data
 
-        totalRev = totalRevenue(year, month,reportId).Data
+        totalRev = totalRevenue(year, month, reportId).Data
 
         totalContributionMargin = (totalContribution / totalRev) * 100
-        
+
         return Result(
             Data=round(totalContributionMargin, 2),
             Status=1,

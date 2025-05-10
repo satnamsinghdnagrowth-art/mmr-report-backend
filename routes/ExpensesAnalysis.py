@@ -9,9 +9,10 @@ ExpensesAnalysis = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@ExpensesAnalysis.post("/get/sectionData")
-def getSection(payload: SectionChartRequestData) -> Result:
+@ExpensesAnalysis.post("/get/report/{reportId}/sectionData")
+def getSection(reportId: int, payload: SectionChartRequestData) -> Result:
     return getSectionData(
+        reportId=reportId,
         year=payload.Year,
         months=payload.Months,
         reportType=payload.ReportType,

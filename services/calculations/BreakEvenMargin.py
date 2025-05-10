@@ -1,12 +1,13 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
-from services.calculations.Contribution import contribution,contributionMargin
+from services.calculations.Contribution import contribution, contributionMargin
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
 
-# Break Even   
-def breakEven(year: int, months,reportId:Optional[int]=None):
+
+# Break Even
+def breakEven(year: int, months, reportId: Optional[int] = None):
     try:
         FEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Variable Expenses"
@@ -32,7 +33,9 @@ def breakEven(year: int, months,reportId:Optional[int]=None):
 
         totalFCOS = sum(item["Value"] for item in FCOSFilter)
 
-        breakEvenPoint = ((totalFEXP + totalFCOS) / contributionMargin(year,months).Data)*100
+        breakEvenPoint = (
+            (totalFEXP + totalFCOS) / contributionMargin(year, months).Data
+        ) * 100
 
         return Result(
             Data=round(breakEvenPoint, 2),
@@ -51,11 +54,11 @@ def breakEven(year: int, months,reportId:Optional[int]=None):
         return Result(Status=0, Message=message)
 
 
-def breakEvenMarginSafety(year: int, months,reportId:Optional[int]=None):
+def breakEvenMarginSafety(year: int, months, reportId: Optional[int] = None):
     try:
-        breakEvenValue  = breakEven(year,months).Data
+        breakEvenValue = breakEven(year, months).Data
 
-        totalRev = totalRevenue(year,months).Data
+        totalRev = totalRevenue(year, months).Data
 
         BEMarginSafety = totalRev - breakEvenValue
 

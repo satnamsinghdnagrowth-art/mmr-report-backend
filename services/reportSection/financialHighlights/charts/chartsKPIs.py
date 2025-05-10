@@ -9,7 +9,9 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getSectionCharts(year: int, months: list[int], reportType: str, section: str,reportId:int):
+def getSectionCharts(
+    year: int, months: list[int], reportType: str, section: str, reportId: int
+):
     try:
         configs = SECTION_CARD_CONFIGS.get(section)
 
@@ -30,8 +32,7 @@ def getSectionCharts(year: int, months: list[int], reportType: str, section: str
                 title=config["title"],
                 chartData=config["data"],
                 axisChoice=config["indexAxis"],
-                reportType = reportType
-
+                reportType=reportType,
             )
             charts.append(card.Data)
 

@@ -13,10 +13,11 @@ from config.FunctionMaping import functionRegistry
 from datetime import datetime
 from helper.GetValueSymbol import getValueSymbol
 from helper.metricCheck import isMetricPositive
+from services.calculations.GrowthRate import dataGrowthRate
 
 
 def retrieveCard(
-    reportId:int,
+    reportId: int,
     year: int,
     months: list[int],
     title: str,
@@ -25,38 +26,44 @@ def retrieveCard(
     comparedTo: str,
 ):
     try:
-        
         valueData = getValueSymbol(title)
 
         valueType = valueData["type"]
         valueSymbol = valueData["symbol"]
 
+        # Main Content Cards Funtion
         mainFunc = functionRegistry.get(functionName)
 
-        trendFunc = functionRegistry.get(comparisonFunc)
+        # Current Value
+        mainValue = mainFunc(year, months).Data
 
+        previousValue = 0
+
+
+        # previousValue value
         if comparedTo.lower() in ["from prev month", "from lastmonth"]:
             prev_year, prev_month = (
                 (year - 1, 12) if months[0] == 1 else (year, months[0] - 1)
             )
-            previous = trendFunc(prev_year, [0],reportId).Data
+
+            previousValue = mainFunc(prev_year, [prev_month], reportId).Data
 
         elif comparedTo.lower() in ["from prev year", "from lastyear"]:
-            previous = trendFunc(year - 1, months,reportId).Data
+            previousValue = mainFunc(year - 1, months, reportId).Data
 
         else:
-            previous = None  # or handle as needed
+            previousValue = None  #  handle as needed
 
+        # TrendLine Data
         trendLineXaxis = [calendar.month_abbr[m] for m in range(1, 13)]
 
-        trendLineYaxis = [mainFunc(year, [m],reportId).Data for m in range(1, 13)]
+        trendLineYaxis = [mainFunc(year, [m], reportId).Data for m in range(1, 13)]
 
         trendLineData = TrendLineChart(Xaxis=trendLineXaxis, Yaxis=trendLineYaxis)
 
-        mainValue = mainFunc(year, months).Data
-
         mainValuePositiveCheck = isMetricPositive(title, mainValue)
 
+        # Main Content Value Object
         contentValueObj = ValueObjectModel(
             Value=mainValue,
             isPositive=mainValuePositiveCheck,
@@ -64,13 +71,19 @@ def retrieveCard(
             Symbol=valueSymbol,
         )
 
-        prevValuePositiveCheck = isMetricPositive(title, previous)
+        prevValuePositiveCheck = isMetricPositive(title, previousValue)
 
+        if comparisonFunc.lower() == "growthrate":
+            comparisonValue = dataGrowthRate(mainValue, previousValue).Data
+        else:
+            comparisonValue = previousValue
+
+        # Footer Content Value Object
         compValueObj = ValueObjectModel(
-            Value=previous,
+            Value=comparisonValue,
             isPositive=prevValuePositiveCheck,
-            Type=valueType,
-            Symbol=valueSymbol,
+            Type="percentage",
+            Symbol="%",
         )
 
         footerObj = FooterModel(

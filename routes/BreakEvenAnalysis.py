@@ -9,9 +9,10 @@ BreakEvenAnaysis = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@BreakEvenAnaysis.get("/get/sectionData")
-def getSection(payload: SectionChartRequestData) -> Result:
+@BreakEvenAnaysis.post("/get/report/{reportId}/sectionData")
+def getSection(reportId, payload: SectionChartRequestData) -> Result:
     return getSectionData(
+        reportId=reportId,
         year=payload.Year,
         months=payload.Months,
         reportType=payload.ReportType,

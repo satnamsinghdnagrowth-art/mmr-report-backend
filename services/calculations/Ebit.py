@@ -7,11 +7,11 @@ from services.calculations.GrossProfit import grossProfit
 from services.calculations.Expenses import totalOperatingExpenses
 
 
-def EBIT(year: int, month,reportId:Optional[int]=None):
+def EBIT(year: int, month, reportId: Optional[int] = None):
     try:
-        GP = grossProfit(year, month,reportId).Data
+        GP = grossProfit(year, month, reportId).Data
 
-        operatingCost = totalOperatingExpenses(year, month,reportId).Data
+        operatingCost = totalOperatingExpenses(year, month, reportId).Data
 
         totalEBIT = GP - operatingCost
 
@@ -33,10 +33,10 @@ def EBIT(year: int, month,reportId:Optional[int]=None):
 
 
 # Get EBIT Margin
-def EBITMargin(year: int, month,reportId:Optional[int]=None):
+def EBITMargin(year: int, month, reportId: Optional[int] = None):
     try:
-        totalRev = totalRevenue(year, month,reportId).Data
-        totalEBIT = EBIT(year, month,reportId).Data
+        totalRev = totalRevenue(year, month, reportId).Data
+        totalEBIT = EBIT(year, month, reportId).Data
 
         ebitMargin = (totalEBIT / totalRev) * 100
 

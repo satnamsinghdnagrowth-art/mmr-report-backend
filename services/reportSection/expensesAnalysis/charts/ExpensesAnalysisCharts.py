@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getEACharts(year: int, months: list[int], reportType: str, section: str):
+def getEACharts(year: int, months: list[int], reportType: str, section: str, reportId):
     try:
         configs = SECTION_CARD_CONFIGS.get(section)
 

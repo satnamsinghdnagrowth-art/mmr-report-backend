@@ -4,11 +4,17 @@ from services.accountValues.RetriveData import getValues
 from services.calculations.Revenue import totalRevenue, revenueGrowth
 from services.calculations.NetIncome import netIncome
 from typing import Optional, List
-from services.calculations.BreakEvenMargin import breakEven,breakEvenMarginSafety
+from services.reportSection.cashFlowAnalysis.charts.CashFlowCharts import getCashFlowCharts
 from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
     getRevenueTable,
 )
 from services.calculations.OtherIncome import otherIncome
+from services.calculations.CurrentAssestAndLiabilities import (
+    getTotalCurrentLiabilities,
+    getTotalCurrentAssets,
+)
+from services.calculations.CashFlowStatements import getOperatingActivitiesCashFlow,getCashOnHand
+from services.reportSection.detailedSheet.table import getTable
 from core.models.base.DateFilterModel import DateFilter
 from services.reportSection.expensesAnalysis.tables.TopOperatingExpenses import (
     getTopOpeatingExpenses,
@@ -47,9 +53,13 @@ def getReportDescription() -> Result:
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return breakEvenMarginSafety(
-        year=2024,
-        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-        # reportType="Year",
-        # section="Financial Heights",
+    return getCashFlowCharts(year=2024,
+        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        reportId=12345
     )
+    # return getCashOnHand(
+    #     year=2024,
+    #     months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    #     # reportType="Year",
+    #     # section="Financial Heights",
+    # )

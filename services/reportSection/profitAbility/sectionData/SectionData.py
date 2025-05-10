@@ -10,13 +10,15 @@ from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI 
 
 
 # Get the sections cards
-def getSectionData(year: int, months: list[int], reportType: str, section: str):
+def getSectionData(
+    year: int, months: list[int], reportType: str, section: str, reportId
+):
     try:
         if reportType == "Year":
-            months = [1,2,3,4,5,6,7,8,9,10,11,12]
+            months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         cardsData = []
-        chartsData = getPACharts(year, months, reportType, section).Data
-        tablesData = getPATable(year, months, reportType, section).Data
+        chartsData = getPACharts(year, months, reportType, section, reportId).Data
+        tablesData = getPATable(year, months, reportType, section, reportId).Data
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 
         return Result(

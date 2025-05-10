@@ -14,7 +14,9 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getPATable(year: int, months: list[int], reportType: str, section: str):
+def getPATable(
+    year: int, months: list[int], reportType: str, section: str, reportId: int
+):
     try:
         configs = SECTION_CARD_CONFIGS.get(section)
 

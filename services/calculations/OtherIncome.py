@@ -6,12 +6,12 @@ from typing import Optional
 
 
 # Get Total Revenue
-def otherIncome(year: int, month,reportId:Optional[int]=None):
+def otherIncome(year: int, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
         # Another Expenses
         AINCdata = financialData["PROFIT & LOSS"]["OTHER INCOME"]["Classification"][
@@ -46,17 +46,17 @@ def otherIncome(year: int, month,reportId:Optional[int]=None):
 
 
 #  Get Total Revenue
-def interestIncome(year: int, month,reportId:Optional[int]=None):
+def interestIncome(year: int, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
-             
+        if reportId is not None:
+            financialData = getReportData(reportId)
+
         # Interest Expenses
         interestIncomedata = financialData["PROFIT & LOSS"]["OTHER INCOME"][
             "Classification"
-        ]["Investment Income"]
+        ]["Interest Income"]
 
         IINCFilter = [
             item

@@ -4,22 +4,22 @@
             {
                 "title": "Total Revenue",
                 "mainFunction": "totalRevenue",
-                "comparisonFunction": "totalRevenue"
+                "comparisonFunction": "growthRate"
             },
             {
                 "title": "Cost of Sales",
                 "mainFunction": "directExpenses",
-                "comparisonFunction": "directExpenses"
+                "comparisonFunction": "growthRate"
             },
             {
                 "title": "Expenses",
                 "mainFunction": "totalOperatingExpenses",
-                "comparisonFunction": "totalRevenue"
+                "comparisonFunction": "growthRate"
             },
             {
                 "title": "Net Income",
                 "mainFunction": "netIncome",
-                "comparisonFunction": "netIncome"
+                "comparisonFunction": "growthRate"
             }
         ],
         "charts": [
@@ -250,20 +250,36 @@
             {
                 "title": "Revenue",
                 "mainFunction": "totalRevenue",
-                "comparisonFunction": "totalRevenue"
+                "comparisonFunction": "growthRate"
             },
             {
                 "title": "Expense-to-Revenue Ratio",
                 "mainFunction": "expensesToRevenueRatio",
-                "comparisonFunction": "expensesToRevenueRatio"
+                "comparisonFunction": "growthRate"
             },
             {
-                "title": "Breakeven Margin of Safety",
+                "title": "Breakeven-Gap of Safety",
                 "mainFunction": "breakEvenMarginSafety",
-                "comparisonFunction": "totalRevenue"
+                "comparisonFunction": "growthRate"
             }
         ],
         "charts": [
+            {
+                "title": "Profitability Chart",
+                "data": [
+                    {
+                        "label": "Gross Profit",
+                        "type": "Line",
+                        "funcName": "grossProfit"
+                    },
+                    {
+                        "label": "Operating Profit",
+                        "type": "Line",
+                        "funcName": "ebit"
+                    }
+                ],
+                "indexAxis": "x"
+            }
         ],
         "tables": [
         ]
@@ -282,8 +298,8 @@
             },
             {
                 "title": "Cash on Hand",
-                "mainFunction": "totalOperatingExpenses",
-                "comparisonFunction": "totalRevenue"
+                "mainFunction": "getCashOnHand",
+                "comparisonFunction": "growthRate"
             }
         ],
         "charts": [

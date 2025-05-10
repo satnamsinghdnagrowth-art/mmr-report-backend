@@ -4,41 +4,99 @@ from services.calculations.Ebit import EBIT
 from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
+from helper.GetFileByReportId import getReportData
+from services.calculations.NetIncome import netIncome
+from services.calculations.CurrentAssestAndLiabilities import (
+    getTotalCurrentLiabilities,
+    getTotalCurrentAssets,
+)
+from services.calculations.NetProfit import netProfit
+from helper.GetValueSum import getValueSum
 
 
 # Operating Profit
-def getTotalCurrentLiabilities(year: int, month,reportId:Optional[int]=None):
+def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
     try:
-        totalRev = totalRevenue(year, month).Data
+        financialData = getReportData(reportId) if reportId else financialDataTest
 
-        VCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
-            "Classification"
-        ]["Variable Cost"]
+        totalInterestIncome = getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Interest Income"],
+            year,
+            months,
+        ).Data
 
-        VCOSFilter = [
+        print(totalInterestIncome,"cvbjvcb")
+
+        totalDepreciation = getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "EXPENSES", "Classification", "Depreciation"],
+            year,
+            months,
+        ).Data
+
+        totalInterestExpense = getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "OTHER EXPENSES", "Classification", "Interest Expense"],
+            year,
+            months,
+        ).Data
+
+
+        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+            "Tax Expense"
+        ]
+
+        TEXPFilter = [
             item
-            for item in VCOSdata
-            if (item["Year"] == year and (0 in month or item["Month"] in month))
+            for item in TEXPdata
+            if (item["Year"] == year and (0 in months or item["Month"] in months))
         ]
 
-        totalVCOS = sum(item["Value"] for item in VCOSFilter)
+        totalTEXP = sum(item["Value"] for item in TEXPFilter)
 
-        VEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
-            "Fixed Expenses"
-        ]
+        netProfitTotal = netIncome(year, months, reportId).Data
+        changeInCa = (
+            getTotalCurrentAssets(year, [months[-1]]).Data
+            - getTotalCurrentAssets(year - 1, [months[-1]]).Data
+        )
+        changeInCl = (
+            getTotalCurrentLiabilities(year, [months[-1]]).Data
+            - getTotalCurrentLiabilities(year - 1, [months[-1]]).Data
+        )
 
-        VEXPFilter = [
-            item
-            for item in VEXPdata
-            if (item["Year"] == year and (0 in month or item["Month"] in month))
-        ]
+        print(f"Tax:{totalTEXP} in CL:{changeInCl},change in CA :{changeInCa},netProfit :{netProfitTotal},DP:{totalDepreciation},interst Ee:{totalInterestExpense},tot Interrs Incomr{totalInterestIncome}")
 
-        totalVEXP = sum(item["Value"] for item in VEXPFilter)
-
-        totalContribution = totalRev - totalVCOS - totalVEXP
+        cashFlow =  (netProfitTotal+ totalDepreciation+ totalInterestExpense - totalInterestIncome +totalTEXP)+ (changeInCl + changeInCa)
+        
 
         return Result(
-            Data=round(totalContribution, 2),
+            Data=round(cashFlow, 2),
+            Status=1,
+            Message="Total contribution calculated successfully",
+        )
+
+    except Exception as ex:
+        message = f"Error occur at contribution: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
+    
+
+def getCashOnHand(year: int, months, reportId: Optional[int] = None):
+    try:
+        financialData = getReportData(reportId) if reportId else financialDataTest
+
+        totalCash = getValueSum(
+            financialData,
+            ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+            year,
+            [months[-1]],
+        ).Data
+
+
+
+        return Result(
+            Data=round(totalCash, 2),
             Status=1,
             Message="Total contribution calculated successfully",
         )

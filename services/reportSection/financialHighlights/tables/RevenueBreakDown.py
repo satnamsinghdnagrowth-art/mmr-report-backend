@@ -5,22 +5,41 @@ from helper.LoadJsonData import financialDataTest
 from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from helper.metricCheck import isMetricPositive
 from helper.GetFileByReportId import getReportData
+import calendar
+from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 from core.models.visualsModel.ValueObject import ValueObjectModel
 
 
-# Get the sections cards
-def getRevenueTable(year: int, months,reportId):
+# Get the sections tables
+def getRevenueTable(year: int, months, reportId, reportType):
     try:
         financialData = financialDataTest
-
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
         title = "Revenue Channels Comparison"
-
         revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]
 
-        Headers = ["REVENUE", "2024", "2023", "This Year VS Prev Year($)", "Variance"]
+        currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
+            year, months, reportType
+        )
+
+        if reportType.lower() == "year":
+            Headers = [
+                "Income Statement",
+                f"{currentYear} Year",
+                f"{prevYear} Year",
+                "This Year vs Last Year($)",
+                "This Year vs Last Year(%)",
+            ]
+        else:
+            Headers = [
+                "Income Statement",
+                f"{calendar.month_abbr[currentMonths[0]]} Month",
+                f"{calendar.month_abbr[prevMonths[0]]} Month",
+                "This Month vs Last Month($)",
+                "This Month vs Last Month(%)",
+            ]
         rows = []
 
         totalCurrentData = 0
@@ -30,27 +49,25 @@ def getRevenueTable(year: int, months,reportId):
             filteredDataCurrent = [
                 entry
                 for entry in data
-                if entry["Year"] == year and entry["Month"] in months
+                if entry["Year"] == currentYear and entry["Month"] in currentMonths
             ]
             totalSum = sum(item["Value"] for item in filteredDataCurrent)
 
             filteredDataPrev = [
                 entry
                 for entry in data
-                if entry["Year"] == year - 1 and entry["Month"] in months
+                if entry["Year"] == prevYear and entry["Month"] in prevMonths
             ]
             totalSumPrev = sum(item["Value"] for item in filteredDataPrev)
 
-            result = diffrenceAndPercentage(totalSum, totalSumPrev).Data
-
-            # Skip the row if both current and previous sums are zero
             if totalSum == 0.0 and totalSumPrev == 0.0:
                 continue
 
             totalCurrentData += totalSum
             totalPrevData += totalSumPrev
 
-            # Create rows in the required format with ValueObjectModel instances
+            result = diffrenceAndPercentage(totalSum, totalSumPrev).Data
+
             rows.append(
                 [
                     ValueObjectModel(Value=key, isPositive=True, Type="", Symbol=""),
@@ -81,7 +98,6 @@ def getRevenueTable(year: int, months,reportId):
                 ]
             )
 
-        # Calculate total values and append them to the rows
         totalValueresult = diffrenceAndPercentage(totalCurrentData, totalPrevData).Data
 
         rows.append(
@@ -118,13 +134,10 @@ def getRevenueTable(year: int, months,reportId):
             ]
         )
 
-        # Create and return the table object
-        tableObj = TableModel(
-            Title="Revenue Channels Comparison", Column=Headers, Rows=rows
-        )
-
         return Result(
-            Data=tableObj, Status=1, Message="Revenue Card calculated successfully"
+            Data=TableModel(Title=title, Column=Headers, Rows=rows),
+            Status=1,
+            Message="Revenue Card calculated successfully",
         )
 
     except Exception as ex:

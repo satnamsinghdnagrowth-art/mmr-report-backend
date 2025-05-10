@@ -8,16 +8,16 @@ from helper.GetFileByReportId import getReportData
 
 
 # Get Direct Expenses (Total Cost of Sales)
-def directExpenses(year: int, month,reportId:Optional[int]=None):
+def directExpenses(year: int, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
-        VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
-            "Classification"
-        ]["Variable Cost"]
+        VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"]["Classification"][
+            "Variable Cost"
+        ]
 
         VCOSFilter = [
             item
@@ -27,9 +27,9 @@ def directExpenses(year: int, month,reportId:Optional[int]=None):
 
         totalVCOS = sum(item["Value"] for item in VCOSFilter)
 
-        FCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
-            "Classification"
-        ]["Fixed Cost"]
+        FCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"]["Classification"][
+            "Fixed Cost"
+        ]
 
         FCOSFilter = [
             item
@@ -59,12 +59,12 @@ def directExpenses(year: int, month,reportId:Optional[int]=None):
 
 
 # Get Total Operating Expenses (Operating Expenses)
-def totalOperatingExpenses(year, month,reportId:Optional[int]=None):
+def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
         FEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Variable Expenses"
@@ -122,7 +122,7 @@ def totalOperatingExpenses(year, month,reportId:Optional[int]=None):
 
 
 # Get Expenses To Revenue Ratio
-def expensesToRevenueRatio(year: int, month,reportId:Optional[int]=None):
+def expensesToRevenueRatio(year: int, month, reportId: Optional[int] = None):
     try:
         operatingExp = totalOperatingExpenses(year, month).Data
         directExp = directExpenses(year, month).Data

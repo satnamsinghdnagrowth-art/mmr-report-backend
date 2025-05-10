@@ -6,14 +6,21 @@ from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from core.models.visualsModel.TableModel import TableModel
 from helper.LoadJsonData import financialDataTest
 from config.FunctionMaping import functionRegistry
+from helper.GetFileByReportId import getReportData
 from helper.GetValueSymbol import getValueSymbol
 from helper.metricCheck import isMetricPositive
 from datetime import datetime
 
 
 # Get the sections cards
-def getTopOpeatingExpenses(year: int, months: list[int], reportType: str, section: str):
+def getTopOpeatingExpenses(
+    year: int, months: list[int], reportType: str, section: str, reportId: int
+):
     try:
+        financialData = financialDataTest
+        if reportId is not None:
+            financialData = getReportData(reportId)
+
         configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs:
@@ -26,16 +33,12 @@ def getTopOpeatingExpenses(year: int, months: list[int], reportType: str, sectio
         tables = []
         Headers = ["Expenses Names", "Total"]
 
-        expensesdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"][
-            "LineItems"
-        ].keys()
+        expensesdata = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"].keys()
         expenses_with_totals = []
 
         # Step 1: Calculate total per expense
         for expenses in expensesdata:
-            itemData = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["LineItems"][
-                expenses
-            ]
+            itemData = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"][expenses]
 
             filterData = [
                 item

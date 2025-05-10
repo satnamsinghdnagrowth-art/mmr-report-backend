@@ -11,7 +11,7 @@ variableMapping = {
             {"VEXP": "Fixed Expenses"},
             {"DA": "Depreciation"},
         ],
-        "OTHER INCOME": [{"IINC": "Investment Income"}, {"AINC": "Additional Income"}],
+        "OTHER INCOME": [{"IINC": "Interest Income"}, {"AINC": "Additional Income"}],
         "OTHER EXPENSES": [
             {"IEXP": "Interest Expense"},
             {"TEXP": "Tax Expense"},
@@ -45,7 +45,7 @@ variableMapping = {
             {"ONCL": "Other Non-Current Liabilities"},
         ],
     },
-    "EQUITY":{
+    "EQUITY": {
         "EQUITY": [
             {"RE": "Retained Earnings"},
             {"CE": "Common Equity"},

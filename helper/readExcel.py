@@ -20,13 +20,15 @@ def readExcelFile(filepath) -> Result:
         # Step 4: Assign the headers to the dataframe
         data.columns = headers
 
-        data = data.applymap(lambda x: x.item() if isinstance(x, (np.int64, np.float64)) else x)
+        data = data.applymap(
+            lambda x: x.item() if isinstance(x, (np.int64, np.float64)) else x
+        )
 
         # Step 5: Build the response with extracted metadata and data
         response = {
             "Company Name": reportName,
             "Financial Year": financialYear,
-            "Financial Data": data
+            "Financial Data": data,
         }
 
         return Result(Data=response, Status=1, Message="SUCCESS")
@@ -34,5 +36,3 @@ def readExcelFile(filepath) -> Result:
     except Exception as ex:
         message = f"Error occurred at readExcelFile: {ex}"
         return Result(Status=0, Message=message)
-
-

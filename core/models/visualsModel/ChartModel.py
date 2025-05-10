@@ -1,11 +1,14 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List,Optional
+from core.models.visualsModel.ValueObject import DisplayObj
 
 
 # Data Transfer Objects
 class YAxisSeriesModel(BaseModel):
     Title: str
     Type: str
+    # Type: Optional[DisplayObj] = DisplayObj.empty
+    # Symbol : str
     Values: List[float]
 
 
@@ -14,6 +17,7 @@ class ChartDataModel(BaseModel):
     Xaxis: List[str]
     YaxisSeries: List[YAxisSeriesModel]
     IndexAxis: str
+    Labels : str
 
 
 # Request Body

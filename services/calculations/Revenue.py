@@ -7,12 +7,12 @@ from helper.LoadJsonData import financialDataTest
 
 
 # Get Total Revenue
-def totalRevenue(year: int, month,reportId:Optional[int]=None):
+def totalRevenue(year: int, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
         data = financialData["PROFIT & LOSS"]["REVENUE"]["Total"]
 
@@ -26,7 +26,6 @@ def totalRevenue(year: int, month,reportId:Optional[int]=None):
             totalRevenue = 0
 
         totalRevenue = sum(item["Value"] for item in filteredData)
-
 
         return Result(
             Data=round(totalRevenue, 2),
@@ -45,7 +44,7 @@ def totalRevenue(year: int, month,reportId:Optional[int]=None):
         return Result(Status=0, Message=message)
 
 
-def revenueGrowth(year: int, month: list,reportId:Optional[int]=None):
+def revenueGrowth(year: int, month: list, reportId: Optional[int] = None):
     try:
         if not month or len(month) != 1:
             raise ValueError("Only one month should be provided in a list.")
@@ -53,7 +52,7 @@ def revenueGrowth(year: int, month: list,reportId:Optional[int]=None):
         monthValue = month[0]
 
         # Calculate current month revenue
-        thisMonthRevenue = totalRevenue(year, [monthValue],reportId).Data
+        thisMonthRevenue = totalRevenue(year, [monthValue], reportId).Data
 
         # Determine previous month and year
         if monthValue == 1:
@@ -64,7 +63,7 @@ def revenueGrowth(year: int, month: list,reportId:Optional[int]=None):
             prevYear = year
 
         # Calculate previous month revenue
-        prevMonthRevenue = totalRevenue(prevYear, [prevMonth],reportId).Data
+        prevMonthRevenue = totalRevenue(prevYear, [prevMonth], reportId).Data
 
         if prevMonthRevenue == 0:
             raise ZeroDivisionError(

@@ -9,12 +9,11 @@ from helper.GetFileByReportId import getReportData
 
 
 # Operating Profit
-def earningBeforeInterestandTax(year: int, month,reportId:Optional[int]=None):
+def earningBeforeInterestandTax(year: int, month, reportId: Optional[int] = None):
     try:
+        ebit = EBIT(year, month, reportId).Data
 
-        ebit = EBIT(year, month,reportId).Data
-
-        otherIC = otherIncome(year, month,reportId).Data
+        otherIC = otherIncome(year, month, reportId).Data
 
         result = ebit + otherIC
 
@@ -35,11 +34,11 @@ def earningBeforeInterestandTax(year: int, month,reportId:Optional[int]=None):
         return Result(Status=0, Message=message)
 
 
-def earningBeforeTax(year: int, month,reportId:Optional[int]=None):
+def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
     try:
-        ebit = earningBeforeInterestandTax(year, month,reportId).Data
+        ebit = earningBeforeInterestandTax(year, month, reportId).Data
 
-        interestIC = interestIncome(year, month,reportId).Data
+        interestIC = interestIncome(year, month, reportId).Data
 
         result = ebit + interestIC
 

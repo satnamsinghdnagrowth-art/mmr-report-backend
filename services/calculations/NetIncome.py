@@ -6,6 +6,8 @@ from services.calculations.EarningBefore import (
     earningBeforeInterestandTax,
     earningBeforeTax,
 )
+
+from helper.GetValueSum import getValueSum
 from typing import Optional
 from services.calculations.OtherIncome import interestIncome
 from helper.LoadJsonData import financialDataTest
@@ -13,16 +15,16 @@ from helper.GetFileByReportId import getReportData
 
 
 # Operating Profit
-def netIncome(year: int, month,reportId:Optional[int]=None):
+def netIncome(year: int, month, reportId: Optional[int] = None):
     try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
-        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"][
-            "Classification"
-        ]["Tax Expense"]
+        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+            "Tax Expense"
+        ]
 
         TEXPFilter = [
             item
@@ -32,9 +34,10 @@ def netIncome(year: int, month,reportId:Optional[int]=None):
 
         totalTEXP = sum(item["Value"] for item in TEXPFilter)
 
-        ebt = earningBeforeTax(year, month,reportId).Data
+        ebt = earningBeforeTax(year, month, reportId).Data
 
         result = ebt - totalTEXP
+
 
         return Result(
             Data=round(result, 2),
@@ -53,16 +56,44 @@ def netIncome(year: int, month,reportId:Optional[int]=None):
         return Result(Status=0, Message=message)
 
 
-def netIncomeMargin(year: int, month,reportId:Optional[int]=None):
+def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
     try:
-        totalRev = totalRevenue(year, month,reportId).Data
+        totalRev = totalRevenue(year, month, reportId).Data
 
-        NIC = netIncome(year, month,reportId).Data
+        NIC = netIncome(year, month, reportId).Data
 
         netICMargin = (NIC / totalRev) * 100
 
         return Result(
             Data=round(netICMargin, 2),
+            Status=1,
+            Message="Total netIncomeMargin calculated successfully",
+        )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at netIncomeMargin: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=0, Status=0, Message=message)
+
+    except Exception as ex:
+        message = f"Error occur at netIncomeMargin: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
+    
+def otherIncome(year: int, months, reportId: Optional[int] = None):
+    try:
+        financialData = getReportData(reportId) if reportId else financialDataTest
+         
+        #  Income without interest
+        totaltherIncome= getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Additional Income"],
+            year,
+            months,
+        ).Data
+
+        return Result(
+            Data=round(totaltherIncome, 2),
             Status=1,
             Message="Total netIncomeMargin calculated successfully",
         )

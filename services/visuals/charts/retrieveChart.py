@@ -7,10 +7,16 @@ from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 
 
 def retrieveChart(
-    year: int, months: list[int], title: str, chartData: list[dict], axisChoice: str,reportType : Optional[str]=None,reportId : Optional[int]=None
+    year: int,
+    months: list[int],
+    title: str,
+    chartData: list[dict],
+    axisChoice: str,
+    reportType: Optional[str] = None,
+    reportId: Optional[int] = None,
 ) -> Result:
     try:
-        staticMonths  = [1,2,3,4,5,6,7,8,9,10,11,12]
+        staticMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         xAxis = [f"{calendar.month_abbr[m]} {year}" for m in staticMonths]
         yAxisSeries = []
 
@@ -29,7 +35,7 @@ def retrieveChart(
 
             for month in months:
                 try:
-                    result = func(localYear, [month],reportId)
+                    result = func(localYear, [month], reportId)
                     data = result.Data
                 except Exception as error:
                     data = 0  # fallback if error

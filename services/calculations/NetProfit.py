@@ -8,19 +8,19 @@ from helper.GetFileByReportId import getReportData
 
 
 # Get Total Revenue
-def netProfit(year: int, month,reportId:Optional[int]=None):
-    try: 
+def netProfit(year: int, month, reportId: Optional[int] = None):
+    try:
         financialData = financialDataTest
 
-        if reportId is not  None:
-             financialData = getReportData(reportId)
+        if reportId is not None:
+            financialData = getReportData(reportId)
 
         ebit = EBIT(year, month).Data
 
         # Interest Expenses
-        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"][
-            "Classification"
-        ]["Interest Expense"]
+        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+            "Interest Expense"
+        ]
 
         IEXPFilter = [
             item
@@ -31,9 +31,9 @@ def netProfit(year: int, month,reportId:Optional[int]=None):
         totalIEXP = IEXPFilter[0]["Value"] if IEXPFilter else 0
 
         # Tax Expenses
-        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"][
-            "Classification"
-        ]["Interest Expense"]
+        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+            "Interest Expense"
+        ]
 
         TEXPFilter = [
             item
@@ -46,6 +46,8 @@ def netProfit(year: int, month,reportId:Optional[int]=None):
         otherExpenses = totalIEXP + totalTEXP
 
         netProfit = ebit - otherExpenses
+
+        print(f"Net Profit:{netProfit}")
 
         return Result(
             Data=round(netProfit, 2),
@@ -65,11 +67,11 @@ def netProfit(year: int, month,reportId:Optional[int]=None):
 
 
 #  Get Total Revenue
-def netProfitMargin(year: int, month,reportId:Optional[int]=None):
+def netProfitMargin(year: int, month, reportId: Optional[int] = None):
     try:
-        netprofit = netProfit(year, month,reportId).Data
+        netprofit = netProfit(year, month, reportId).Data
 
-        totalRev = totalRevenue(year, month,reportId).Data
+        totalRev = totalRevenue(year, month, reportId).Data
 
         netProfitMargin = (netprofit / totalRev) * 100
 

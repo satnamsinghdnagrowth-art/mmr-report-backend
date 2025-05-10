@@ -6,10 +6,12 @@ from datetime import datetime
 
 
 # Get the sections cards
-def getSectionCards(year: int, months: list[int], reportType: str, section: str,reportId:int):
+def getSectionCards(
+    year: int, months: list[int], reportType: str, section: str, reportId: int
+):
     try:
         comparedTo = (
-            "From Prev Year" if reportType.lower() == "Year" else "From Prev Month"
+            "From Prev Year" if reportType.lower() == "year" else "From Prev Month"
         )
 
         configs = SECTION_CARD_CONFIGS.get(section)
