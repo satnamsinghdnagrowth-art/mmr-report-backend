@@ -4,8 +4,10 @@ from datetime import datetime
 from services.reportSection.breakEvenAnalysis.cards.BreakAnalysisCards import getBACards
 from core.models.visualsModel.SectionData import SectionData
 from services.reportSection.financialHighlights.cards.cardsKPIs import getSectionCards
-from services.reportSection.cashFlowAnalysis.charts.CashFlowCharts import getCashFlowCharts
-from services.reportSection.detailedSheet.table import getTable
+from services.reportSection.breakEvenAnalysis.charts.BACharts import getBACharts
+from services.reportSection.detailedSheet.table import getDetailedTable
+from services.reportSection.detailedSheet.cashFlowTable import getCashFlowTable
+import time
 
 
 # Get the sections cards
@@ -16,10 +18,19 @@ def getSectionData(
         if reportType == "Year":
             months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+        startTime = time.time()
+
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
         chartsData = []
-        tablesData = [getTable(2024,"PROFIT & LOSS").Data,getTable(2024,"BalanceSheet").Data]
+        tablesData = [
+            getDetailedTable(year, "PROFIT & LOSS").Data,
+            getDetailedTable(year, "BalanceSheet").Data,
+            getDetailedTable(year, "EQUITY").Data,
+            getCashFlowTable(year).Data,
+        ]
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
+
+        endTime = time.time()
 
         return Result(
             Data=sectionData, Status=1, Message="Section Data retrieved Successfully"

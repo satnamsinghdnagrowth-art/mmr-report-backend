@@ -33,17 +33,6 @@ def getSection(reportId: int, payload: SectionChartRequestData) -> Result:
     )
 
 
-# Get Financial Higlights Section All Data
-# @FinancialHighlights.post("/get/report/{reportId}/sectionData/")
-# def getSection(payload: SectionChartRequestData) -> Result:
-#     return getSectionData(
-#         year=payload.Year,
-#         months=payload.Months,
-#         reportType=payload.ReportType,
-#         section=payload.SectionName,
-#     )
-
-
 # Get Financial Higlights Section Cards
 @FinancialHighlights.post("/get/report/{reportId}/cards")
 def getCards(reportId: int, payload: SectionChartRequestData) -> Result:

@@ -18,6 +18,10 @@ def convert_defaultdict(d):
     return d
 
 
+from collections import defaultdict
+from datetime import datetime
+
+
 def retriveCOAValues(data, category: str, month=4, year=2023):
     try:
         cleanedData = data[~data["Classification"].isnull()]
@@ -42,10 +46,10 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                 month_cols = list(matches.columns)
 
                 classificationTotal = []
-                for month in month_cols:
+                for m in month_cols:
                     try:
-                        value = matches[month].fillna(0).sum()
-                        date_obj = datetime.strptime(month, "%b %Y")
+                        value = matches[m].fillna(0).sum()
+                        date_obj = datetime.strptime(m, "%b %Y")
                         classificationTotal.append(
                             {
                                 "Month": date_obj.month,
@@ -57,6 +61,9 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                         continue
 
                 result[section]["Classification"][displayname] = classificationTotal
+
+                if displayname not in sectionLineItems:
+                    sectionLineItems[displayname] = {}
 
                 # --- Line Items ---
                 for code in category:
@@ -74,10 +81,10 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                         month_cols = list(item_matches.columns)
                         lineItemsTotal = []
 
-                        for month in month_cols:
+                        for m in month_cols:
                             try:
-                                value = item_matches[month].fillna(0).sum()
-                                date_obj = datetime.strptime(month, "%b %Y")
+                                value = item_matches[m].fillna(0).sum()
+                                date_obj = datetime.strptime(m, "%b %Y")
                                 lineItemsTotal.append(
                                     {
                                         "Month": date_obj.month,
@@ -88,17 +95,22 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                             except:
                                 continue
 
-                        sectionLineItems[accountName] = lineItemsTotal
+                        sectionLineItems[displayname][accountName] = lineItemsTotal
 
             # Add all line items to result
             result[section]["LineItems"] = sectionLineItems
 
             # --- Total at section level ---
             total_by_month = defaultdict(float)
-            for items in sectionLineItems.values():
-                for item in items:
-                    key = f"{item['Month']:02d}-{item['Year']}"
-                    total_by_month[key] += item["Value"]
+            for accounts in (
+                sectionLineItems.values()
+            ):  # accounts: dict of accountName -> [monthly dicts]
+                for item_list in accounts.values():
+                    for item in item_list:
+                        if not isinstance(item, dict):
+                            continue
+                        key = f"{item['Month']:02d}-{item['Year']}"
+                        total_by_month[key] += item["Value"]
 
             sectionTotal = []
             for key, value in total_by_month.items():

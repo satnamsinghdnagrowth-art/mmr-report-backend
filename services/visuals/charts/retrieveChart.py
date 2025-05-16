@@ -2,6 +2,7 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 import calendar
 from typing import Optional
+from helper.GetValueSymbol import getValueSymbol
 from config.FunctionMaping import functionRegistry
 from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 
@@ -11,6 +12,7 @@ def retrieveChart(
     months: list[int],
     title: str,
     chartData: list[dict],
+    rigthYaxis: str,
     axisChoice: str,
     reportType: Optional[str] = None,
     reportId: Optional[int] = None,
@@ -23,6 +25,11 @@ def retrieveChart(
         for metric in chartData:
             label = metric["label"]
             functionName = metric["funcName"]
+
+            valueData = getValueSymbol(label)
+
+            valueType = valueData["type"]
+            valueSymbol = valueData["symbol"]
 
             # Get the function from the registry
             func = functionRegistry.get(functionName)
@@ -45,11 +52,22 @@ def retrieveChart(
                 values.append(data)
 
             yAxisSeries.append(
-                YAxisSeriesModel(Title=label, Values=values, Type=metric["type"])
+                YAxisSeriesModel(
+                    Title=label,
+                    Values=values,
+                    Type=metric["type"],
+                    UnitType=valueType,
+                    Symbol=valueSymbol,
+                    AreaFill=metric["AreaFill"],
+                )
             )
 
         chartData = ChartDataModel(
-            Title=title, Xaxis=xAxis, YaxisSeries=yAxisSeries, IndexAxis=axisChoice
+            Title=title,
+            Xaxis=xAxis,
+            YaxisSeries=yAxisSeries,
+            IndexAxis=axisChoice,
+            RightYaxis=rigthYaxis,
         )
 
         return Result(

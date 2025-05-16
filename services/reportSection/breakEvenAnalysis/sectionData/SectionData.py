@@ -3,7 +3,7 @@ from core.models.base.ResultModel import Result
 from datetime import datetime
 from services.reportSection.breakEvenAnalysis.cards.BreakAnalysisCards import getBACards
 from core.models.visualsModel.SectionData import SectionData
-from services.reportSection.cashFlowAnalysis.charts.CashFlowCharts import getCashFlowCharts
+from services.reportSection.breakEvenAnalysis.charts.BACharts import getBACharts
 from services.reportSection.expensesAnalysis.tables.TopOperatingExpenses import (
     getTopOpeatingExpenses,
 )
@@ -17,7 +17,7 @@ def getSectionData(
         if reportType == "Year":
             months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         cardsData = getBACards(year, months, reportType, section, reportId).Data
-        chartsData = getCashFlowCharts(year, months, reportId).Data
+        chartsData = getBACharts(year, months, reportId).Data
         tablesData = []
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 

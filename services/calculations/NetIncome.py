@@ -3,13 +3,11 @@ from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from services.calculations.EarningBefore import (
-    earningBeforeInterestandTax,
     earningBeforeTax,
 )
 
 from helper.GetValueSum import getValueSum
 from typing import Optional
-from services.calculations.OtherIncome import interestIncome
 from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
 
@@ -37,7 +35,6 @@ def netIncome(year: int, month, reportId: Optional[int] = None):
         ebt = earningBeforeTax(year, month, reportId).Data
 
         result = ebt - totalTEXP
-
 
         return Result(
             Data=round(result, 2),
@@ -79,13 +76,14 @@ def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
         message = f"Error occur at netIncomeMargin: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
+
+
 def otherIncome(year: int, months, reportId: Optional[int] = None):
     try:
         financialData = getReportData(reportId) if reportId else financialDataTest
-         
+
         #  Income without interest
-        totaltherIncome= getValueSum(
+        totaltherIncome = getValueSum(
             financialData,
             ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Additional Income"],
             year,

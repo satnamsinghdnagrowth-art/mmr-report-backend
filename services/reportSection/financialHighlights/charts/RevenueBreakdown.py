@@ -3,6 +3,8 @@ from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 from helper.LoadJsonData import financialDataTest
+from helper.GetFileByReportId import getReportData
+from helper.GetValueSymbol import getValueSymbol
 from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from config.FunctionMaping import functionRegistry
 from datetime import datetime
@@ -10,9 +12,14 @@ from typing import List
 
 
 # Get the sections cards
-def getRevenueBreakdownChart(year: int, months: list[int]):
+def getRevenueBreakdownChart(year: int, months: list[int], reportId: int):
     try:
-        revenueData = financialDataTest["PROFIT & LOSS"]["REVENUE"]["LineItems"]
+        financialData = financialDataTest
+
+        if reportId is not None:
+            financialData = getReportData(reportId)
+
+        revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"]
 
         xAxis = []
 
@@ -33,13 +40,25 @@ def getRevenueBreakdownChart(year: int, months: list[int]):
             yAxis.append(totalSum)
             xAxis.append(key)
 
-        yAxisObj = YAxisSeriesModel(Title="Revenue", Type="bar", Values=yAxis)
+        valueData = getValueSymbol("Revenue")
+
+        valueType = valueData["type"]
+        valueSymbol = valueData["symbol"]
+
+        yAxisObj = YAxisSeriesModel(
+            Title="Revenue",
+            Type="bar",
+            Values=yAxis,
+            UnitType=valueType,
+            Symbol=valueSymbol,
+        )
 
         chartObj = ChartDataModel(
             Title="Revenue BreakDown",
             Xaxis=xAxis,
             YaxisSeries=[yAxisObj],
             IndexAxis="y",
+            RightYaxis=False,
         )
 
         return Result(

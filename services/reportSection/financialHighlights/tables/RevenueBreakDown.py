@@ -18,7 +18,7 @@ def getRevenueTable(year: int, months, reportId, reportType):
             financialData = getReportData(reportId)
 
         title = "Revenue Channels Comparison"
-        revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]
+        revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"]
 
         currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
             year, months, reportType

@@ -27,6 +27,7 @@ def getEACharts(year: int, months: list[int], reportType: str, section: str, rep
                 year=year,
                 months=months,
                 title=config["title"],
+                rigthYaxis=config["rigthYaxis"],
                 chartData=config["data"],
                 axisChoice=config["indexAxis"],
             )

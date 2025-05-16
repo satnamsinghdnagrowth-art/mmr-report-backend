@@ -1,7 +1,9 @@
 from fastapi import APIRouter
 from core.models.base.ResultModel import Result
 from core.models.base.SectionDataRequestBody import SectionChartRequestData
-from services.reportSection.cashFlowAnalysis.sectionData.SectionData import getSectionData
+from services.reportSection.cashFlowAnalysis.sectionData.SectionData import (
+    getSectionData,
+)
 
 CashFlow = APIRouter()
 

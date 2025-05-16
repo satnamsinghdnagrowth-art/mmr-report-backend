@@ -21,20 +21,6 @@ class CardDataModel(BaseModel):
     Footer: FooterModel
 
 
-# Data Transfer Objects
-# class TrendLineChart(BaseModel):
-#     Xaxis: List[str]
-#     Yaxis: List[float]
-
-
-# class CardDataModel(BaseModel):
-#     Title: str
-#     Content : str
-#     ComparisonValue : str
-#     ComparisonText : str
-#     TrendLine: Optional[TrendLineChart]
-
-
 # Request Body
 class TrendRequestBody(BaseModel):
     FunctionName: str

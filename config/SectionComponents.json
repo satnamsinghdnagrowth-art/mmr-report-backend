@@ -25,21 +25,25 @@
         "charts": [
             {
                 "title": "Revenue Growth",
+                "rigthYaxis":true,
                 "data": [
                     {
                         "label":"Revenue",
                         "type":"Bar",
-                        "funcName":"totalRevenue"
+                        "funcName":"totalRevenue",
+                        "AreaFill":false
                     },
                     {
                         "label": "Prev Year",
                         "type": "Bar",
-                        "funcName": "totalRevenue"
+                        "funcName": "totalRevenue",
+                        "AreaFill": false
                     },
                     {
                         "label": "Revenue Growth",
                         "type": "Line",
-                        "funcName": "revenueGrowth"
+                        "funcName": "revenueGrowth",
+                        "AreaFill": true
                     }
                 
                 ],
@@ -121,16 +125,20 @@
         "charts": [
             {
                 "title": "Profitability Chart",
+                "rigthYaxis":false,
                 "data": [
                     {
                         "label":"Gross Profit",
                         "type":"Line",
-                        "funcName":"grossProfit"
+                        "funcName":"grossProfit",
+                        "AreaFill": false
+                        
                     },
                     {
                         "label": "Operating Profit",
                         "type": "Line",
-                        "funcName": "ebit"
+                        "funcName": "ebit",
+                        "AreaFill": false
                     }
                 
                 ],
@@ -138,16 +146,21 @@
             },
             {
                 "title": "Gross Profit Margin",
+                "rigthYaxis": false,
                 "data": [
                     {
-                        "label":"Gross Profit (%)",
+                        "label":"Gross Profit Margin (%)",
                         "type":"Bar",
-                        "funcName":"grossProfitMargin"
+                        "funcName":"grossProfitMargin",
+
+                        "AreaFill": false
                     },
                     {
-                        "label": "Prev Year",
+                        "label": "Prev Year Margin",
                         "type": "Line",
-                        "funcName": "grossProfitMargin"
+                        "funcName": "grossProfitMargin",
+
+                        "AreaFill": true
                     }
                 
                 ],
@@ -204,38 +217,45 @@
         "charts": [
             {
                 "title": "Key Metrices",
+                "rigthYaxis": false,
                 "data": [
                     {
                         "label":"Revenue",
                         "type":"Bar",
-                        "funcName":"totalRevenue"
+                        "funcName":"totalRevenue",
+                        "AreaFill": false
                     },
                     {
                         "label": "Cost of Goods",
                         "type": "Line",
-                        "funcName": "directExpenses"
+                        "funcName": "directExpenses",
+                        "AreaFill": false
                     },
                     {
                         "label": "Operating Expenses",
                         "type": "Line",
-                        "funcName": "totalOperatingExpenses"
+                        "funcName": "totalOperatingExpenses",
+                        "AreaFill": false
                     }
                 
                 ],
                 "indexAxis": "x"
             },
             {
-                "title": "Ratios",
+                "title": "Expenses to Revenue Ratio",
+                "rigthYaxis": false,
                 "data": [
                     {
                         "label":"Expenses to Revenue Ratio",
                         "type":"Line",
-                        "funcName":"expensesToRevenueRatio"
+                        "funcName":"expensesToRevenueRatio",
+                        "AreaFill": false
                     },
                     {
                         "label": "Prev Year",
                         "type": "Line",
-                        "funcName": "expensesToRevenueRatio"
+                        "funcName": "expensesToRevenueRatio",
+                        "AreaFill": true
                     }
                 
                 ],
@@ -266,16 +286,19 @@
         "charts": [
             {
                 "title": "Profitability Chart",
+                "rigthYaxis": false,
                 "data": [
                     {
                         "label": "Gross Profit",
                         "type": "Line",
-                        "funcName": "grossProfit"
+                        "funcName": "grossProfit",
+                        "AreaFill": false
                     },
                     {
                         "label": "Operating Profit",
                         "type": "Line",
-                        "funcName": "ebit"
+                        "funcName": "ebit",
+                        "AreaFill": false
                     }
                 ],
                 "indexAxis": "x"
@@ -288,13 +311,13 @@
         "cards": [
             {
                 "title": "Operating Cash Flow",
-                "mainFunction": "totalRevenue",
-                "comparisonFunction": "totalRevenue"
+                "mainFunction": "getOperatingActivitiesCashFlow",
+                "comparisonFunction": "growthRate"
             },
             {
                 "title": "Free Cash Flow",
-                "mainFunction": "directExpenses",
-                "comparisonFunction": "directExpenses"
+                "mainFunction": "getFreeCashFlow",
+                "comparisonFunction": "growthRate"
             },
             {
                 "title": "Cash on Hand",
@@ -305,8 +328,7 @@
         "charts": [
         ],
         "tables": [
-           
-            
+                
         ]
     }
 }

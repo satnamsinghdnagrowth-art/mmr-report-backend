@@ -33,12 +33,16 @@ def getTopOpeatingExpenses(
         tables = []
         Headers = ["Expenses Names", "Total"]
 
-        expensesdata = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"].keys()
+        expensesdata = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"][
+            "Fixed Expenses"
+        ].keys()
         expenses_with_totals = []
 
         # Step 1: Calculate total per expense
         for expenses in expensesdata:
-            itemData = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"][expenses]
+            itemData = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"][
+                "Fixed Expenses"
+            ][expenses]
 
             filterData = [
                 item

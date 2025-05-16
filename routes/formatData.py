@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body,UploadFile,File
 from core.models.base.ResultModel import Result
 from services.accountValues.GetFinancialsValues import formatFinancialData
+from services.fileUploadHandling.FileUpload import fileUpload
 
 
 dataFormat = APIRouter()
@@ -10,3 +11,9 @@ dataFormat = APIRouter()
 @dataFormat.get("/excel")
 def formatReportData() -> Result:
     return formatFinancialData()
+
+
+@dataFormat.post("/upload")
+def formatReportData(file: UploadFile = File(...)) -> Result:
+    return fileUpload(file)
+

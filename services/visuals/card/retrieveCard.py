@@ -39,7 +39,6 @@ def retrieveCard(
 
         previousValue = 0
 
-
         # previousValue value
         if comparedTo.lower() in ["from prev month", "from lastmonth"]:
             prev_year, prev_month = (

@@ -21,8 +21,7 @@ def getSectionData(
     reportId: Optional[int] = None,
 ):
     try:
-        if reportType == "Year":
-            months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        print(year,months,"-------------------")
 
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
         chartsData = getSectionCharts(year, months, reportType, section, reportId).Data

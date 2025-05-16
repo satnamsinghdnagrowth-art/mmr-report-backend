@@ -15,7 +15,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
         if reportId is not None:
             financialData = getReportData(reportId)
 
-        STDdata = financialDataTest["BalanceSheet"]["CURRENT LIABILITIES"][
+        STDdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
         ]["Short-term Debt"]
 
@@ -63,16 +63,16 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalOCL = sum(item["Value"] for item in OCLFilter)
 
-        totalCL = totalSTD + totalAP + totalTL + totalOCL
+        totalCL =   totalAP  + totalOCL
 
         return Result(
             Data=round(totalCL, 2),
             Status=1,
-            Message="Total contribution calculated successfully",
+            Message="Total CurrentLiabilities calculated successfully",
         )
 
     except Exception as ex:
-        message = f"Error occur at contribution: {ex}"
+        message = f"Error occur at getTotalCurrentLiabilities: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
 
@@ -127,12 +127,7 @@ def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
 
         totalOCA = sum(item["Value"] for item in OCAFilter)
 
-        print(totalAR,totalINV,totalOCA,"Balance Sheet")
-
-
-        totalCA = totalAR + totalOCA + totalINV 
-        print(year,totalCA,months,"curren Assets")
-
+        totalCA = totalAR + totalOCA + totalINV
         return Result(
             Data=round(totalCA, 2),
             Status=1,

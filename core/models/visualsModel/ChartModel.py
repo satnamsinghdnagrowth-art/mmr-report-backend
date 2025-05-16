@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List,Optional
+from typing import List, Optional, Literal, Any
 from core.models.visualsModel.ValueObject import DisplayObj
 
 
@@ -7,9 +7,22 @@ from core.models.visualsModel.ValueObject import DisplayObj
 class YAxisSeriesModel(BaseModel):
     Title: str
     Type: str
-    # Type: Optional[DisplayObj] = DisplayObj.empty
-    # Symbol : str
+    UnitType: Optional[DisplayObj] = DisplayObj.empty
+    Symbol: str
+    AreaFill: Optional[bool] = False
     Values: List[float]
+
+
+class MarkerModel(BaseModel):
+    Label: str
+    Xvalue: float  # match Xaxis label
+    Yvalue: float
+    Color: str
+    Shape: Optional[Literal["circle", "square", "diamond", "triangle", "bullseye"]] = (
+        "circle"
+    )
+    Size: Optional[int] = 8
+    Description: Optional[Any] = None
 
 
 class ChartDataModel(BaseModel):
@@ -17,7 +30,8 @@ class ChartDataModel(BaseModel):
     Xaxis: List[str]
     YaxisSeries: List[YAxisSeriesModel]
     IndexAxis: str
-    Labels : str
+    RightYaxis: bool
+    Markers: Optional[List[MarkerModel]] = []
 
 
 # Request Body

@@ -1,24 +1,11 @@
 from fastapi import APIRouter, Body
 from services.accountNames.GetFinancialsNames import retreiveFinacialsNames
 from services.accountValues.RetriveData import getValues
-from services.calculations.Revenue import totalRevenue, revenueGrowth
-from services.calculations.NetIncome import netIncome
+from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow,getInvestigatingActivitiesCashFlow
 from typing import Optional, List
-from services.reportSection.cashFlowAnalysis.charts.CashFlowCharts import getCashFlowCharts
-from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
-    getRevenueTable,
-)
-from services.calculations.OtherIncome import otherIncome
-from services.calculations.CurrentAssestAndLiabilities import (
-    getTotalCurrentLiabilities,
-    getTotalCurrentAssets,
-)
-from services.calculations.CashFlowStatements import getOperatingActivitiesCashFlow,getCashOnHand
-from services.reportSection.detailedSheet.table import getTable
+from services.calculations.CashFlowStatements import getFreeCashFlow
+from services.reportSection.cashFlowAnalysis.charts.cashFlowChart import getEACharts
 from core.models.base.DateFilterModel import DateFilter
-from services.reportSection.expensesAnalysis.tables.TopOperatingExpenses import (
-    getTopOpeatingExpenses,
-)
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
 
@@ -53,10 +40,9 @@ def getReportDescription() -> Result:
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return getCashFlowCharts(year=2024,
-        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        reportId=12345
-    )
+    return getFreeCashFlow(year=2024,
+        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],reportId=12345)
+    # return getCashFlowTable(year=2024, tableType="bj")
     # return getCashOnHand(
     #     year=2024,
     #     months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],

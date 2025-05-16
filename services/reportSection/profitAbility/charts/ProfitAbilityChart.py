@@ -13,6 +13,10 @@ def getPACharts(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
+
+        if reportType == "Year":
+            months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+            
         configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs:
@@ -30,6 +34,7 @@ def getPACharts(
                 year=year,
                 months=months,
                 title=config["title"],
+                rigthYaxis=config["rigthYaxis"],
                 chartData=config["data"],
                 axisChoice=config["indexAxis"],
             )
