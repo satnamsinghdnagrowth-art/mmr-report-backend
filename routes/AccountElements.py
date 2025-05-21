@@ -1,7 +1,10 @@
 from fastapi import APIRouter, Body
 from services.accountNames.GetFinancialsNames import retreiveFinacialsNames
 from services.accountValues.RetriveData import getValues
-from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow,getInvestigatingActivitiesCashFlow
+from services.calculations.CashFlowActivities import (
+    getOperatingActivitiesCashFlow,
+    getInvestigatingActivitiesCashFlow,
+)
 from typing import Optional, List
 from services.calculations.CashFlowStatements import getFreeCashFlow
 from services.reportSection.cashFlowAnalysis.charts.cashFlowChart import getEACharts
@@ -40,8 +43,9 @@ def getReportDescription() -> Result:
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return getFreeCashFlow(year=2024,
-        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],reportId=12345)
+    return getEACharts(
+        year=2024, months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], reportId=12345
+    )
     # return getCashFlowTable(year=2024, tableType="bj")
     # return getCashOnHand(
     #     year=2024,

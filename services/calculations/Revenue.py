@@ -16,8 +16,6 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
 
         data = financialData["PROFIT & LOSS"]["REVENUE"]["Total"]
 
-        totalRevenue = 0
-
         filteredData = [
             item for item in data if item["Month"] in month and item["Year"] == year
         ]
@@ -25,10 +23,10 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
         if not filteredData:
             totalRevenue = 0
 
-        totalRevenue = sum(item["Value"] for item in filteredData)
+        totalRev = sum(item["Value"] for item in filteredData)
 
         return Result(
-            Data=round(totalRevenue, 2),
+            Data=round(totalRev, 2),
             Status=1,
             Message="Month-wise calculated successfully",
         )

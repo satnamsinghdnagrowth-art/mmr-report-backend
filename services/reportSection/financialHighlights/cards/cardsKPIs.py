@@ -1,52 +1,45 @@
 from datetime import datetime
+from typing import List
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from services.visuals.card.retrieveCard import retrieveCard
-from datetime import datetime
 
 
-# Get the sections cards
 def getSectionCards(
-    year: int, months: list[int], reportType: str, section: str, reportId: int
-):
+    year: int, months: List[int], reportType: str, section: str, reportId: int
+) -> Result:
     try:
-        comparedTo = (
+        compared_to = (
             "From Prev Year" if reportType.lower() == "year" else "From Prev Month"
         )
-
         configs = SECTION_CARD_CONFIGS.get(section)
 
-        if not configs:
+        if not configs or "cards" not in configs:
             return Result(
                 Data=[],
                 Status=1,
                 Message=f"No cards configured for section '{section}'",
             )
 
-        cards = []
-
-        for config in configs.get("cards"):
-            card = retrieveCard(
+        # Retrieve card data for each configured card
+        section_cards = []
+        for config in configs["cards"]:
+            card_result = retrieveCard(
                 reportId=reportId,
                 year=year,
                 months=months,
                 title=config["title"],
                 functionName=config["mainFunction"],
                 comparisonFunc=config["comparisonFunction"],
-                comparedTo=comparedTo,
+                comparedTo=compared_to,
             )
-            cards.append(card.Data)
+            section_cards.append(card_result.Data)
 
         return Result(
-            Data=cards, Status=1, Message="Revenue Card calculated successfully"
+            Data=section_cards, Status=1, Message="Section cards retrieved successfully"
         )
 
-    except ZeroDivisionError as ex:
-        message = f"Error occurred at getFHSectionCards: {ex}"
-        print(f"{datetime.now()} {message}")
-        return Result(Data=None, Status=0, Message=message)
-
     except Exception as ex:
-        message = f"Error occurred at getFHSectionCards: {ex}"
+        message = f"Error occurred in getSectionCards: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Data=None, Status=0, Message=message)

@@ -18,7 +18,7 @@ from datetime import datetime
 # Get the sections cards
 def getISTable(year: int, months: list[int], reportType: str, section: str, reportId):
     try:
-        print(months,"---------")
+        print(months, "---------")
         configs = SECTION_CARD_CONFIGS.get(section)
         if not configs:
             return Result(

@@ -26,7 +26,6 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
             months,
         ).Data
 
-
         totalDepreciation = getValueSum(
             financialData,
             ["PROFIT & LOSS", "EXPENSES", "Classification", "Depreciation"],
@@ -55,7 +54,7 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
         netProfitTotal = netIncome(year, months, reportId).Data
         changeInCa = (
-            getTotalCurrentAssets(year-1, [months[-1]]).Data
+            getTotalCurrentAssets(year - 1, [months[-1]]).Data
             - getTotalCurrentAssets(year, [months[-1]]).Data
         )
         changeInCl = (
@@ -63,12 +62,13 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
             - getTotalCurrentLiabilities(year - 1, [months[-1]]).Data
         )
 
-        netIncomeAfterAdjustment = (netProfitTotal
+        netIncomeAfterAdjustment = (
+            netProfitTotal
             + totalDepreciation
             + totalInterestExpense
-            - totalInterestIncome)
-    
-        
+            - totalInterestIncome
+        )
+
         operatingActivitesCashFlow = netIncomeAfterAdjustment + changeInCl + changeInCa
 
         return Result(
@@ -81,68 +81,99 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
         message = f"Error occur at getOperatingActivitiesCashFlow: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
 
-def getInvestigatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
+
+def getInvestigatingActivitiesCashFlow(
+    year: int, months, reportId: Optional[int] = None
+):
     try:
         financialData = getReportData(reportId) if reportId else financialDataTest
 
-        changeInFA = getValueSum(
-            financialData,
-            ["BalanceSheet","NON-CURRENT ASSETS","Classification",
-            "Fixed Assets"],
-            year-1,
-            [months[-1]],
-        ).Data - getValueSum(
-            financialData,
-            ["BalanceSheet","NON-CURRENT ASSETS","Classification",
-            "Fixed Assets"],
-            year,
-            [months[-1]],
-        ).Data
+        changeInFA = (
+            getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Fixed Assets",
+                ],
+                year - 1,
+                [months[-1]],
+            ).Data
+            - getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Fixed Assets",
+                ],
+                year,
+                [months[-1]],
+            ).Data
+        )
 
-        changeInIA = getValueSum(
-            financialData,
-            ["BalanceSheet","NON-CURRENT ASSETS","Classification",
-            "Intangible Assets"],
-            year-1,
-            [months[-1]],
+        changeInIA = (
+            getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Intangible Assets",
+                ],
+                year - 1,
+                [months[-1]],
+            ).Data
+            - getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Intangible Assets",
+                ],
+                year,
+                [months[-1]],
+            ).Data
+        )
 
-        ).Data - getValueSum(
-            financialData,
-            ["BalanceSheet","NON-CURRENT ASSETS","Classification",
-            "Intangible Assets"],
-            year,
-            [months[-1]],
-        ).Data
-
-        changeInONCA = getValueSum(
-            financialData,
-            ["BalanceSheet","NON-CURRENT ASSETS","Classification",
-            "Other Non-Current Assets"],
-            year-1,
-            [months[-1]],
-
-        ).Data - getValueSum(
-            financialData,
-            ["BalanceSheet","NON-CURRENT ASSETS","Classification",
-            "Other Non-Current Assets"],
-            year,
-            [months[-1]],
-        ).Data
-
+        changeInONCA = (
+            getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Other Non-Current Assets",
+                ],
+                year - 1,
+                [months[-1]],
+            ).Data
+            - getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Other Non-Current Assets",
+                ],
+                year,
+                [months[-1]],
+            ).Data
+        )
 
         totalInterestExpense = getValueSum(
             financialData,
             ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Interest Income"],
             year,
             months,
-        ).Data 
+        ).Data
 
-
-        investigatingActivitiesCashFlow = changeInFA + changeInIA  + changeInONCA + totalInterestExpense
-
-        print(changeInFA,changeInIA ,changeInONCA , totalInterestExpense)
+        investigatingActivitiesCashFlow = (
+            changeInFA + changeInIA + changeInONCA + totalInterestExpense
+        )
 
         return Result(
             Data=round(investigatingActivitiesCashFlow, 2),
@@ -154,8 +185,3 @@ def getInvestigatingActivitiesCashFlow(year: int, months, reportId: Optional[int
         message = f"Error occur at getInvestigatingActivitiesCashFlow: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
-
-
-
-

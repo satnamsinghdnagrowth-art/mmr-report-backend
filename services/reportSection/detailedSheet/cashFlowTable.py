@@ -19,7 +19,6 @@ def generateChangeRow(title, financialData, pathKeys, year, staticMonths, isAsse
             year, [m], "month"
         )
 
-
         sumThis = getValueSum(financialData, pathKeys, currentYear, currentMonths).Data
         sumPrev = getValueSum(financialData, pathKeys, prevYear, prevMonths).Data
 
@@ -51,16 +50,12 @@ def calculateSectionTotal(section_rows, staticMonths):
                     col_sum += val
         totals.append(col_sum)
 
-    total_row = (
-        [ValueObjectModel(Value="Total", isPositive=True, Type="", Symbol="")]
-        + [
-            ValueObjectModel(
-                Value=val, isPositive=(val >= 0), Type="currency", Symbol="$"
-            )
-            for val in totals
-        ]
-        
-    )
+    total_row = [
+        ValueObjectModel(Value="Total", isPositive=True, Type="", Symbol="")
+    ] + [
+        ValueObjectModel(Value=val, isPositive=(val >= 0), Type="currency", Symbol="$")
+        for val in totals
+    ]
     return total_row
 
 
@@ -70,10 +65,9 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
 
         staticMonths = range(1, 13)
 
-        Headers = (
-            [tableType]
-            + [f"{calendar.month_abbr[m]} {year}" for m in staticMonths]
-        )
+        Headers = [tableType] + [
+            f"{calendar.month_abbr[m]} {year}" for m in staticMonths
+        ]
 
         rows = []
 
@@ -102,7 +96,6 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
                     Value=thisMonth, isPositive=True, Type="currency", Symbol="$"
                 )
             )
-
 
         operating_rows.append(row)
 
@@ -179,7 +172,7 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
             staticMonths,
             isAsset=True,  # Fixed Assets is also an asset
         )
-        
+
         investing_rows.append(row)
 
         rows.extend(investing_rows)
@@ -217,7 +210,7 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
             row = generateChangeRow(
                 title, financialData, keys, year, staticMonths, isAsset=isAsset
             )
-           
+
             financing_rows.append(row)
 
         rows.extend(financing_rows)
@@ -231,45 +224,59 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
                 ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
                 True,
             ),
-            
         ]
 
         for title, keys, isAsset in finance_change_rows:
             row = generateChangeRow(
                 title, financialData, keys, year, staticMonths, isAsset=isAsset
             )
-            
+
             financing_rows.append(row)
-         
-        
+
         rows.extend(financing_rows)
 
+        OpenRows = [
+            ValueObjectModel(
+                Value="Cash & Equivalents, Opening Balance",
+                isPositive=True,
+                Type="",
+                Symbol="",
+            )
+        ]
 
-        OpenRows = [ ValueObjectModel(
-                    Value="Cash & Equivalents, Opening Balance", isPositive=True, Type="", Symbol=""
-                )] 
-        
-        closeRows = [ ValueObjectModel(
-                    Value="Cash & Equivalents, Closing Balance", isPositive=True, Type="", Symbol=""
-                )] 
+        closeRows = [
+            ValueObjectModel(
+                Value="Cash & Equivalents, Closing Balance",
+                isPositive=True,
+                Type="",
+                Symbol="",
+            )
+        ]
         for m in staticMonths:
-
-            currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
-                year, [m], "month"
+            currentYear, currentMonths, prevYear, prevMonths = (
+                getCurrentAndPreviousPeriods(year, [m], "month")
             )
 
-            result = getValueSum(financialData,["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],prevYear,prevMonths).Data
-            result2 = getValueSum(financialData,["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],year,[m]).Data
-            OpenRows.append(ValueObjectModel(
-                    Value=result, isPositive=True, Type="", Symbol=""
-                ))
-            closeRows.append(ValueObjectModel(
-                    Value=result2, isPositive=True, Type="", Symbol=""
-                ))
+            result = getValueSum(
+                financialData,
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+                prevYear,
+                prevMonths,
+            ).Data
+            result2 = getValueSum(
+                financialData,
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+                year,
+                [m],
+            ).Data
+            OpenRows.append(
+                ValueObjectModel(Value=result, isPositive=True, Type="", Symbol="")
+            )
+            closeRows.append(
+                ValueObjectModel(Value=result2, isPositive=True, Type="", Symbol="")
+            )
 
-        rows.extend([OpenRows,closeRows])
-
-
+        rows.extend([OpenRows, closeRows])
 
         # ---------------- Final Table ----------------
         tableObj = TableModel(Title="CASH FLOW STATEMENT", Column=Headers, Rows=rows)
@@ -289,4 +296,3 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
         message = f"Error occurred at getCashFlowTable: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Data=None, Status=0, Message=message)
-

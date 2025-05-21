@@ -3,15 +3,19 @@ from core.models.base.ResultModel import Result
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
 from helper.GetFileByReportId import getReportData
-from services.calculations.CashFlowActivities import getInvestigatingActivitiesCashFlow,getOperatingActivitiesCashFlow
+from services.calculations.CashFlowActivities import (
+    getInvestigatingActivitiesCashFlow,
+    getOperatingActivitiesCashFlow,
+)
 from helper.GetValueSum import getValueSum
-
 
 
 def getFreeCashFlow(year: int, months, reportId: Optional[int] = None):
     try:
-        
-        freeCashFlow = getOperatingActivitiesCashFlow(year,months,reportId).Data + getInvestigatingActivitiesCashFlow(year,months,reportId).Data
+        freeCashFlow = (
+            getOperatingActivitiesCashFlow(year, months, reportId).Data
+            + getInvestigatingActivitiesCashFlow(year, months, reportId).Data
+        )
 
         return Result(
             Data=round(freeCashFlow, 2),

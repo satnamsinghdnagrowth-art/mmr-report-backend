@@ -35,7 +35,7 @@ def retrieveCard(
         mainFunc = functionRegistry.get(functionName)
 
         # Current Value
-        mainValue = mainFunc(year, months).Data
+        mainValue = mainFunc(year, months, reportId).Data
 
         previousValue = 0
 

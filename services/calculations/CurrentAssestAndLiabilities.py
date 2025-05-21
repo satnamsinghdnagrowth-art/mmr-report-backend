@@ -63,7 +63,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalOCL = sum(item["Value"] for item in OCLFilter)
 
-        totalCL =   totalAP  + totalOCL
+        totalCL = totalAP + totalOCL
 
         return Result(
             Data=round(totalCL, 2),

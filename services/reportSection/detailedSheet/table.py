@@ -35,28 +35,43 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
 
             sectionMonthlyTotals = {m: 0.0 for m in staticMonths}
 
-            for subSectionName, subSectionContent in sectionContent["LineItems"].items():
+            for subSectionName, subSectionContent in sectionContent[
+                "LineItems"
+            ].items():
                 monthlyTotals = {m: 0.0 for m in staticMonths}
                 if tableType.lower() in ["balancesheet", "equity"]:
-                    sectionRows.append([
-                        ValueObjectModel(
-                            Value=subSectionName,
-                            isPositive=True,
-                            Type="",
-                            Symbol="",
-                        )
-                    ])
+                    sectionRows.append(
+                        [
+                            ValueObjectModel(
+                                Value=subSectionName,
+                                isPositive=True,
+                                Type="",
+                                Symbol="",
+                            )
+                        ]
+                    )
 
                 for itemLabel, itemData in subSectionContent.items():
                     rowData = [
-                        ValueObjectModel(Value=itemLabel, isPositive=True, Type="", Symbol="")
+                        ValueObjectModel(
+                            Value=itemLabel, isPositive=True, Type="", Symbol=""
+                        )
                     ]
 
-                    filteredYearData = [item for item in itemData if item["Year"] == year]
+                    filteredYearData = [
+                        item for item in itemData if item["Year"] == year
+                    ]
                     monthlySum = 0.0
 
                     for month in staticMonths:
-                        val = next((item["Value"] for item in filteredYearData if item["Month"] == month), 0.0)
+                        val = next(
+                            (
+                                item["Value"]
+                                for item in filteredYearData
+                                if item["Month"] == month
+                            ),
+                            0.0,
+                        )
                         monthlySum += val
                         monthlyTotals[month] += val
                         sectionMonthlyTotals[month] += val
@@ -86,7 +101,10 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
                 if tableType.lower() in ["balancesheet", "equity"]:
                     totalRow = [
                         ValueObjectModel(
-                            Value=f"Total {subSectionName}", isPositive=True, Type="", Symbol=""
+                            Value=f"Total {subSectionName}",
+                            isPositive=True,
+                            Type="",
+                            Symbol="",
                         )
                     ]
                     grandTotal = 0.0
@@ -116,14 +134,14 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
             if sectionGrandTotal == 0.0:
                 continue
 
-            sectionRows.insert(0, [
-                ValueObjectModel(
-                    Value=sectionName,
-                    isPositive=True,
-                    Type="",
-                    Symbol="",
-                )
-            ])
+            sectionRows[0:0] = [
+                [
+                    ValueObjectModel(
+                        Value=sectionName, isPositive=True, Type="", Symbol=""
+                    )
+                    # ... add as many as needed
+                ]
+            ]
 
             totalSectionRow = [
                 ValueObjectModel(
@@ -165,7 +183,8 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
                         "Operating Profit",
                         year,
                         staticMonths,
-                        lambda y, m: grossProfit(y, [m], reportId).Data - totalOperatingExpenses(y, [m], "12345").Data,
+                        lambda y, m: grossProfit(y, [m], reportId).Data
+                        - totalOperatingExpenses(y, [m], "12345").Data,
                     )
                 )
 
@@ -179,14 +198,16 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
                     )
                 )
 
-                sectionRows.append([
-                    ValueObjectModel(
-                        Value="Interest Income",
-                        isPositive=True,
-                        Type="currency",
-                        Symbol="$",
-                    )
-                ])
+                sectionRows.append(
+                    [
+                        ValueObjectModel(
+                            Value="Interest Income",
+                            isPositive=True,
+                            Type="currency",
+                            Symbol="$",
+                        )
+                    ]
+                )
 
                 interestIncome = [
                     ValueObjectModel(
@@ -197,13 +218,20 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
                     )
                 ]
                 for month in staticMonths:
-                    result = getValueSum(financialData, ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Interest Income"], year, [month]).Data
+                    result = getValueSum(
+                        financialData,
+                        [
+                            "PROFIT & LOSS",
+                            "OTHER INCOME",
+                            "Classification",
+                            "Interest Income",
+                        ],
+                        year,
+                        [month],
+                    ).Data
                     interestIncome.append(
                         ValueObjectModel(
-                            Value=result,
-                            isPositive=True,
-                            Type="currency",
-                            Symbol="$"
+                            Value=result, isPositive=True, Type="currency", Symbol="$"
                         )
                     )
                 sectionRows.append(interestIncome)
@@ -229,7 +257,9 @@ def getDetailedTable(year: int, tableType: str, reportId=12345):
             rows.extend(sectionRows)
 
         tableObj = TableModel(Title=f"{tableType} Statement", Column=headers, Rows=rows)
-        return Result(Data=tableObj, Status=1, Message="Revenue Card calculated successfully")
+        return Result(
+            Data=tableObj, Status=1, Message="Revenue Card calculated successfully"
+        )
 
     except ZeroDivisionError as ex:
         message = f"Error occurred at getFHSectionCards: {ex}"

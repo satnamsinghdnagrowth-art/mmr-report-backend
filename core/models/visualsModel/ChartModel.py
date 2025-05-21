@@ -11,6 +11,7 @@ class YAxisSeriesModel(BaseModel):
     Symbol: str
     AreaFill: Optional[bool] = False
     Values: List[float]
+    # BarTypes: Optional[List[Literal["relative", "total", "subtotal"]]] = None  # Add this for waterfall chart
 
 
 class MarkerModel(BaseModel):

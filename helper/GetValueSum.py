@@ -17,6 +17,9 @@ def getValueSum(
             if item["Year"] == year and (0 in months or item["Month"] in months)
         )
 
+        if "Prepaid Expenses" in path:
+            print(totalValue, year, months)
+
         return Result(
             Data=round(totalValue, 2),
             Status=1,

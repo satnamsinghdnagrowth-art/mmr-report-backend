@@ -4,7 +4,9 @@ from typing import Optional
 # Helper function to calculate differences and percentage change
 
 
-def diffrenceAndPercentage(this_month_value, prev_month_value,assets:Optional[bool]=False):
+def diffrenceAndPercentage(
+    this_month_value, prev_month_value, assets: Optional[bool] = False
+):
     try:
         diff = this_month_value - prev_month_value
         percentChange = 0

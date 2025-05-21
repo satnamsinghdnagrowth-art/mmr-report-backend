@@ -16,6 +16,7 @@ from services.accountValues.GetFinancialsValues import formatFinancialData
 
 UPLOAD_DIR = "database/uploadedFiles"
 
+
 # Operating Profit
 def fileUpload(file):
     try:
@@ -25,12 +26,12 @@ def fileUpload(file):
 
         fileExtension = fileFullName[1]
 
-        # Accepts Only Excel File 
-        if fileExtension not in [".xlsx","xls"]:
-            return Result(Status=0,Message="Please Upload an Excel File..........")
+        # Accepts Only Excel File
+        if fileExtension not in [".xlsx", "xls"]:
+            return Result(Status=0, Message="Please Upload an Excel File..........")
 
         fileNameOnly = fileFullName[0]
-        
+
         savedFileName = f"{fileNameOnly}_{timeStamp}{fileExtension}"
 
         filePath = os.path.join(UPLOAD_DIR, savedFileName)
@@ -39,9 +40,7 @@ def fileUpload(file):
         with open(filePath, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        dataFormat = formatFinancialData(filePath,fileNameOnly)
-
-        
+        dataFormat = formatFinancialData(filePath, fileNameOnly)
 
         return Result(
             Data="fileUpload",

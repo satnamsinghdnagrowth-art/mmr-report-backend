@@ -8,6 +8,7 @@ from services.reportSection.breakEvenAnalysis.charts.BACharts import getBACharts
 from services.reportSection.detailedSheet.table import getDetailedTable
 from services.reportSection.detailedSheet.cashFlowTable import getCashFlowTable
 import time
+from services.reportSection.cashFlowAnalysis.charts.cashFlowChart import getEACharts
 
 
 # Get the sections cards
@@ -21,7 +22,7 @@ def getSectionData(
         startTime = time.time()
 
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
-        chartsData = []
+        chartsData = getEACharts(year, months, reportId).Data
         tablesData = [
             getDetailedTable(year, "PROFIT & LOSS").Data,
             getDetailedTable(year, "BalanceSheet").Data,

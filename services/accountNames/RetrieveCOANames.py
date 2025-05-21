@@ -5,30 +5,19 @@ from helper.getMonthName import getMonthName
 from config.variable import variableMapping
 from helper.getMonthName import getQuarterMonthsFromMonth
 from core.models.base.ResultModel import Result
+from helper.LoadJsonData import financialDataTest
 
 
 # Analyze the data
 def retriveCOANames(year, month):
     try:
-        filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
-
-        excelData = readExcelFile(filePath)
-
-        data = excelData.Data
-
         result = defaultdict(dict)
 
-        cleanedData = data[~data["Classification"].isnull()]
+        data = financialDataTest
 
-        for section, categories in variableMapping.items():
-            for main, category in categories.items():
-                for code in category:
-                    matches = cleanedData[
-                        cleanedData["Classification"] == list(code.keys())[0]
-                    ]
-
-                    for _, row in matches.iterrows():
-                        accountName = row["Account Name"]
+        for section, content in data.items():
+            for main, mainCategory in content.items():
+                for  accountNames in mainCategory["LineItems"]:
 
                         monthly_totals = [
                             {
@@ -89,7 +78,7 @@ def retriveCOANames(year, month):
                             },
                         ]
 
-                        result[main][accountName] = monthly_totals
+                        result[main][accountNames] = monthly_totals
 
         return Result(Data=result, Status=1, Message="Success")
 

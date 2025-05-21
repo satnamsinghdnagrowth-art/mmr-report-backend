@@ -14,7 +14,6 @@ def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId
 ):
     try:
-
         cardsData = []
         chartsData = getPACharts(year, months, reportType, section, reportId).Data
         tablesData = getPATable(year, months, reportType, section, reportId).Data

@@ -3,6 +3,7 @@ from datetime import datetime
 from collections import defaultdict
 from helper.getMonthName import getMonthName
 from config.variable import variableMapping
+from helper.LoadJsonData import financialDataTest
 from core.models.base.ResultModel import Result
 
 
@@ -16,10 +17,6 @@ def convert_defaultdict(d):
     elif isinstance(d, dict):
         d = {k: convert_defaultdict(v) for k, v in d.items()}
     return d
-
-
-from collections import defaultdict
-from datetime import datetime
 
 
 def retriveCOAValues(data, category: str, month=4, year=2023):

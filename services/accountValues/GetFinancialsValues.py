@@ -8,11 +8,12 @@ import random
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
+
 # Analyze the data
-def formatFinancialData(filePath,fileName):
+def formatFinancialData(filePath, fileName):
     try:
         # filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
-        
+
         excelData = readExcelFile(filePath)
         data = excelData.Data["Financial Data"]
 
@@ -25,7 +26,6 @@ def formatFinancialData(filePath,fileName):
         with open(f"database/reportsDataFiles/{fileName}.json", "w") as f:
             json.dump(data, f, indent=4)
 
-
         reportId = str(random.randint(10000, 99999))
 
         # 📦 Metadata object
@@ -33,7 +33,7 @@ def formatFinancialData(filePath,fileName):
             reportId: {
                 "Report Name": fileName.replace("_", " "),
                 "FileName": f"{fileName}.json",
-                "Currency": "US Dollar"
+                "Currency": "US Dollar",
             }
         }
 
@@ -47,7 +47,6 @@ def formatFinancialData(filePath,fileName):
 
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)
-
 
         return Result(Data=data, Status=1, Message="Success")
 

@@ -11,7 +11,7 @@ from services.calculations.EarningBefore import (
 )
 from services.calculations.Expenses import directExpenses, totalOperatingExpenses
 from services.calculations.BreakEvenMargin import breakEvenMarginSafety
-from services.calculations.CashFlowStatements import getCashOnHand,getFreeCashFlow
+from services.calculations.CashFlowStatements import getCashOnHand, getFreeCashFlow
 from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow
 
 
@@ -36,6 +36,6 @@ functionRegistry = {
     "breakEvenMarginSafety": breakEvenMarginSafety,
     "getCashOnHand": getCashOnHand,
     "otherIncome": otherIncome,
-    "getFreeCashFlow":getFreeCashFlow,
-    "getOperatingActivitiesCashFlow":getOperatingActivitiesCashFlow
+    "getFreeCashFlow": getFreeCashFlow,
+    "getOperatingActivitiesCashFlow": getOperatingActivitiesCashFlow,
 }

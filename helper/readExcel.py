@@ -20,6 +20,7 @@ def readExcelFile(filepath) -> Result:
         # Step 4: Assign the headers to the dataframe
         data.columns = headers
 
+
         data = data.applymap(
             lambda x: x.item() if isinstance(x, (np.int64, np.float64)) else x
         )

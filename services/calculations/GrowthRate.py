@@ -54,8 +54,6 @@ def growthRate(year: int, month, reportId: Optional[int] = None):
 
 def dataGrowthRate(thisMonthValue, prevMonthValue):
     try:
-        print(thisMonthValue, prevMonthValue)
-
         growthRate = ((thisMonthValue - prevMonthValue) / abs(prevMonthValue)) * 100
 
         return Result(
