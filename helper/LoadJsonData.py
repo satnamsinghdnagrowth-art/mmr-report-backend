@@ -30,3 +30,5 @@ with open("config/FileOutput.json", "r") as f:
 
 with open("config/FileOutputTest.json", "r") as f:
     financialDataTest = json.load(f)
+
+# financialDataTest = jsonData["Financial Data"]

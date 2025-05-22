@@ -26,6 +26,7 @@ class FinancialHighlightSectionDataService:
         reportId: Optional[int] = None,
         months: Optional[List[int]] = None,
     ):
+        
         """
         Initialize with basic parameters. If months are not provided,
         it defaults to all months in a year or October (for single-month reports).

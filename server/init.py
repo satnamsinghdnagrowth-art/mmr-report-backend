@@ -11,7 +11,7 @@ from routes.CashFlowAnalysis import CashFlow
 app = FastAPI()
 
 # Routes Prefix
-app.include_router(dataFormat, prefix="/api/v1/format")
+app.include_router(dataFormat, prefix="/api/v1/file")
 app.include_router(Analyze, prefix="/api/v1/dataAnalysis")
 app.include_router(Account, prefix="/api/v1/Account")
 

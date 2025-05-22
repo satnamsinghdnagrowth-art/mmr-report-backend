@@ -5,6 +5,8 @@ from helper.readExcel import readExcelFile
 import json
 import os
 import random
+from fastapi.encoders import jsonable_encoder
+
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
@@ -15,18 +17,30 @@ def formatFinancialData(filePath, fileName):
         # filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
 
         excelData = readExcelFile(filePath)
-        data = excelData.Data["Financial Data"]
+        
+        formattedData = excelData.Data
+
+        reportDetails = formattedData["Report Details"]
+
+        financialData = formattedData["Financial Data"]
+
+        
+
+        reportId = str(random.randint(10000, 99999))
 
         data = {
-            "PROFIT & LOSS": retriveCOAValues(data, category="PROFIT & LOSS").Data,
-            "BalanceSheet": retriveCOAValues(data, category="BALANCE SHEET").Data,
-            "EQUITY": retriveCOAValues(data, category="EQUITY").Data,
+            "ReportId":reportId,
+            "Report Details": reportDetails,
+            "Financial Data":{
+                "PROFIT & LOSS": retriveCOAValues(financialData, category="PROFIT & LOSS").Data,
+                "BalanceSheet": retriveCOAValues(financialData, category="BALANCE SHEET").Data,
+                "EQUITY": retriveCOAValues(financialData, category="EQUITY").Data
+            }
         }
 
         with open(f"database/reportsDataFiles/{fileName}.json", "w") as f:
-            json.dump(data, f, indent=4)
-
-        reportId = str(random.randint(10000, 99999))
+            # json.dump(data, f, indent=4)
+            json.dump(jsonable_encoder(data), f, indent=4)
 
         # 📦 Metadata object
         report_metadata = {

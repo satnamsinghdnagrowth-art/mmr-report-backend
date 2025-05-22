@@ -9,6 +9,7 @@ from typing import Optional
 # Break Even
 def breakEven(year: int, months, reportId: Optional[int] = None):
     try:
+        
         FEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Variable Expenses"
         ]

@@ -40,12 +40,16 @@ def fileUpload(file):
         with open(filePath, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        dataFormat = formatFinancialData(filePath, fileNameOnly)
+        result = formatFinancialData(filePath, fileNameOnly).Data
+
+        response = {
+            "ReportId":result["ReportId"]
+        }
 
         return Result(
-            Data="fileUpload",
+            Data=response,
             Status=1,
-            Message="File upladed Successfully",
+            Message="File uploaded Successfully",
         )
 
     except Exception as ex:

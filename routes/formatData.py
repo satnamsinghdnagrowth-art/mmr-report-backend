@@ -8,7 +8,7 @@ dataFormat = APIRouter()
 
 
 # Format Excel Data
-@dataFormat.get("/excel")
+@dataFormat.get("/format/excel")
 def formatReportData() -> Result:
     filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
     return formatFinancialData(filePath, "HonestGameData")

@@ -9,6 +9,8 @@ def getSectionCards(
     year: int, months: List[int], reportType: str, section: str, reportId: int
 ) -> Result:
     try:
+        months = [i for i in range(1, 13)] if reportType.lower() == "year" else months
+
         compared_to = (
             "From Prev Year" if reportType.lower() == "year" else "From Prev Month"
         )
