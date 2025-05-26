@@ -35,9 +35,9 @@ class FinancialHighlightSectionDataService:
         self.reportType = reportType
         self.section = section
         self.reportId = reportId
-        self.months = months or (
-            [i for i in range(1, 13)] if reportType.lower() == "year" else months
-        )
+        self.months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
+
+        
 
     # Complete  Section
     def get(self) -> Result:

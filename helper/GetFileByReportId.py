@@ -7,25 +7,29 @@ report_data = {}
 Report_Table_File_Path = os.path.join("database", "ReportTable.json")
 
 
-def getFileNameByReportId(
-    reportId: int, filePath: str = Report_Table_File_Path
-) -> Optional[str]:
+def getFileNameByReportId(reportId: int) -> Optional[str]:
     try:
-        with open(filePath, "r") as f:
-            raw_data = json.load(f)
+        with open(Report_Table_File_Path, "r") as f:
+            reports = json.load(f)
 
-        data = {str(k): v for k, v in raw_data.items()}
+        print(type(reportId))
 
-        return data.get(str(reportId), {}).get("FileName")
+        for report in reports:
+            if report.get("ReportId") == int(reportId):
+                return report.get("FileName")
+
+        return None  # Not found
 
     except (FileNotFoundError, ValueError, json.JSONDecodeError) as e:
         print(f"Error: {e}")
         return None
 
 
-def getReportData(reportId: int):
+
+def getReportData(reportId: int,reportDetail:Optional[bool]= False):
     if reportId not in report_data:
         fileName = getFileNameByReportId(reportId)
+
 
         if not fileName:
             raise ValueError(f"No file name found for report ID {reportId}")
@@ -36,7 +40,13 @@ def getReportData(reportId: int):
         if not os.path.exists(filePath):
             raise FileNotFoundError(f"Report file not found at: {filePath}")
 
-        with open(filePath, "r") as f:
-            report_data[reportId] = json.load(f)
+        try:
+            with open(filePath, "r") as f:
+                data = json.load(f)
+                
+        except json.JSONDecodeError:
+            raise ValueError(f"Invalid JSON in report file: {filePath}")
+        
+        report_data[reportId] = data["Financial Data"]
 
     return report_data[reportId]

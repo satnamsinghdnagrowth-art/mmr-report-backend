@@ -16,10 +16,7 @@ def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-        if reportType == "Year":
-            months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-        startTime = time.time()
+        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
 
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
         chartsData = getEACharts(year, months, reportId).Data
@@ -30,8 +27,6 @@ def getSectionData(
             getCashFlowTable(year).Data,
         ]
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
-
-        endTime = time.time()
 
         return Result(
             Data=sectionData, Status=1, Message="Section Data retrieved Successfully"

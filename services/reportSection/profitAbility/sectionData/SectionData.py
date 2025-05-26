@@ -14,6 +14,7 @@ def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId
 ):
     try:
+        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
         cardsData = []
         chartsData = getPACharts(year, months, reportType, section, reportId).Data
         tablesData = getPATable(year, months, reportType, section, reportId).Data

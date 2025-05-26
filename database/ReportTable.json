@@ -1,27 +1,23 @@
-{
-    "12345": {
-        "Report Name": "Honest Game Corporation",
-        "FileName": "HonestGameCorporation.json",
-        "Currency": "US Dollar"
-    },
-    "85008": {
-        "Report Name": "Marines Plumbing LLC Mar 2025 (1)",
-        "FileName": "Marines Plumbing LLC Mar 2025 (1).json",
-        "Currency": "US Dollar"
-    },
-    "92723": {
-        "Report Name": "testfile",
+[
+    {
+        "ReportId": 73363,
+        "ReportName": "testfile",
         "FileName": "testfile.json",
-        "Currency": "US Dollar"
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-05-23T10:57:46.347640"
     },
-    "25714": {
-        "Report Name": "testfile",
-        "FileName": "testfile.json",
-        "Currency": "US Dollar"
+    {
+        "ReportId": 12345,
+        "ReportName": "Honest Game Jan 2025",
+        "FileName": "Honest Game Jan 2025.json",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-05-23T11:09:03.902804"
     },
-    "79432": {
-        "Report Name": "testfile",
-        "FileName": "testfile.json",
-        "Currency": "US Dollar"
+    {
+        "ReportId": 68313,
+        "ReportName": "BaseFile 68313 20250526113744.xlsx",
+        "FileName": "BaseFile_68313_20250526113744.xlsx.json",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-05-26T11:37:46.405973"
     }
-}
+]

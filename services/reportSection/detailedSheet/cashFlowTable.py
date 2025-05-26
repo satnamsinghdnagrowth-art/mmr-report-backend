@@ -6,59 +6,13 @@ from core.models.visualsModel.TableModel import TableModel
 from datetime import datetime
 from services.calculations.NetIncome import netIncome
 from helper.GetValueSum import getValueSum
+from helper.GenerateRowsData import generateChangeRow,calculateSectionTotal
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 import calendar
 
 
-def generateChangeRow(title, financialData, pathKeys, year, staticMonths, isAsset):
-    row = [ValueObjectModel(Value=title, isPositive=True, Type="", Symbol="")]
-
-    for m in staticMonths:
-        currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
-            year, [m], "month"
-        )
-
-        sumThis = getValueSum(financialData, pathKeys, currentYear, currentMonths).Data
-        sumPrev = getValueSum(financialData, pathKeys, prevYear, prevMonths).Data
-
-        result = sumThis - sumPrev
-
-        if isAsset:
-            result = -result  # reverse for asset
-
-        row.append(
-            ValueObjectModel(
-                Value=result,
-                isPositive=True,
-                Type="currency",
-                Symbol="$",
-            )
-        )
-
-    return row
-
-
-def calculateSectionTotal(section_rows, staticMonths):
-    totals = []
-    for col_index in range(1, len(staticMonths) + 1):
-        col_sum = 0
-        for row in section_rows:
-            if len(row) > col_index:
-                val = row[col_index].Value
-                if isinstance(val, (int, float)):
-                    col_sum += val
-        totals.append(col_sum)
-
-    total_row = [
-        ValueObjectModel(Value="Total", isPositive=True, Type="", Symbol="")
-    ] + [
-        ValueObjectModel(Value=val, isPositive=(val >= 0), Type="currency", Symbol="$")
-        for val in totals
-    ]
-    return total_row
-
-
+# Generate Cash flow Table
 def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
     try:
         financialData = getReportData(reportId) if reportId else financialDataTest
@@ -188,12 +142,101 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
         )
         financing_rows = []
 
+        row = [
+                ValueObjectModel(
+                    Value="change In other Equity", isPositive=True, Type="", Symbol=""
+                )
+            ]
+
+        for month in staticMonths:
+
+            currentYear, currentMonths, prevYear, prevMonths = (
+                getCurrentAndPreviousPeriods(year, [month], "month")
+            )
+
+            chaneInOEQ  = (
+                getValueSum(
+                    financialData,
+                    [
+                        "EQUITY",
+                        "EQUITY",
+                        "Classification",
+                        "Other Equity",
+                    ],
+                    currentYear,
+                    currentMonths,
+                ).Data
+                - getValueSum(
+                    financialData,
+                    [
+                        "EQUITY",
+                        "EQUITY",
+                        "Classification",
+                        "Other Equity",
+                    ],
+                    prevYear,
+                    prevMonths,
+                ).Data
+            )
+
+
+            chaneInRE  = (
+                getValueSum(
+                    financialData,
+                    [
+                        "EQUITY",
+                        "EQUITY",
+                        "Classification",
+                        "Retained Earnings",
+                    ],
+                    currentYear,
+                    currentMonths,
+                ).Data
+                - getValueSum(
+                    financialData,
+                    [
+                        "EQUITY",
+                        "EQUITY",
+                        "Classification",
+                        "Retained Earnings",
+                    ],
+                    prevYear,
+                    prevMonths,
+                ).Data
+            )
+
+
+            netinc  = getValueSum(
+                    financialData,
+                    [
+                        "EQUITY",
+                        "EQUITY",
+                        "Classification",
+                        "Common Equity",
+                    ],
+                    prevYear,
+                    prevMonths,
+                ).Data
+            
+            print(chaneInOEQ,chaneInRE,netinc)
+
+            if month == 1:
+                netIncomeValue = netinc
+            else:
+                netIncomeValue  = 0
+
+            
+            result = chaneInOEQ + (chaneInRE - netIncomeValue)
+
+            row.append(
+                ValueObjectModel(
+                    Value=result, isPositive=True, Type="", Symbol=""
+                )
+            )
+
+        financing_rows.append(row)
+
         finance_change_rows = [
-            (
-                "Change in Other Equity",
-                ["EQUITY", "EQUITY", "Classification", "Other Equity"],
-                False,
-            ),
             (
                 "Change in Short Term Debt",
                 [
@@ -213,7 +256,11 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
 
             financing_rows.append(row)
 
+        
+
+
         rows.extend(financing_rows)
+        
         rows.append(calculateSectionTotal(financing_rows, staticMonths))
 
         financing_rows = []
@@ -286,11 +333,6 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
             Status=1,
             Message="Cash Flow Statement calculated successfully",
         )
-
-    except ZeroDivisionError as ex:
-        message = f"Error occurred at getCashFlowTable: {ex}"
-        print(f"{datetime.now()} {message}")
-        return Result(Data=None, Status=0, Message=message)
 
     except Exception as ex:
         message = f"Error occurred at getCashFlowTable: {ex}"

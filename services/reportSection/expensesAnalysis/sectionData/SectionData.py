@@ -16,8 +16,7 @@ def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-        if reportType == "Year":
-            months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
         cardsData = []
         chartsData = getEACharts(year, months, reportType, section, reportId).Data
         tablesData = getTopOpeatingExpenses(

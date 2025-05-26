@@ -10,47 +10,53 @@ import shutil
 from datetime import datetime
 import random
 import json
-
-
+import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
+from helper.Base64FileHandler import handleBase64File
+from helper.FileUploadHandler import handleUploadFile
+
 
 UPLOAD_DIR = "database/uploadedFiles"
 
 
-# Operating Profit
-def fileUpload(file):
+def fileUpload(file,fileBase64Str):
     try:
-        timeStamp = datetime.now()
 
-        fileFullName = os.path.splitext(file.filename)
+        reportId = random.randint(10000, 99999)
 
-        fileExtension = fileFullName[1]
+        fileNameOnly = f"BaseFile_{reportId}"
 
-        # Accepts Only Excel File
-        if fileExtension not in [".xlsx", "xls"]:
-            return Result(Status=0, Message="Please Upload an Excel File..........")
+        fileExtension = ".xlsx"  # or parse from `header` if possible
 
-        fileNameOnly = fileFullName[0]
+        # === CASE 1: Uploaded File ===
+        if file is not None:
+            savedFilePath = handleUploadFile(file,fileNameOnly,fileExtension).Data
 
-        savedFileName = f"{fileNameOnly}_{timeStamp}{fileExtension}"
+        # === CASE 2: Base64 File ===
+        if fileBase64Str is not None:
+            savedFilePath = handleBase64File(fileBase64Str,fileNameOnly,fileExtension).Data
 
-        filePath = os.path.join(UPLOAD_DIR, savedFileName)
+        result = formatFinancialData(savedFilePath, reportId)
 
-        # Save the file
-        with open(filePath, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+        if result.Status == 1 :
 
-        result = formatFinancialData(filePath, fileNameOnly).Data
+            response = {
+                "ReportId": result.Data["ReportId"]
+            }
 
-        response = {
-            "ReportId":result["ReportId"]
-        }
-
+            return Result(
+                Data=response,
+                Status=1,
+                Message="File uploaded Successfully",
+            )
+        
+        if os.path.exists(savedFilePath):
+            os.remove(savedFilePath)
+        
         return Result(
-            Data=response,
-            Status=1,
-            Message="File uploaded Successfully",
-        )
+                Status=0,
+                Message="Please Uplaoded the correct file format.",
+            ) 
 
     except Exception as ex:
         message = f"Error occur at fileUpload: {ex}"

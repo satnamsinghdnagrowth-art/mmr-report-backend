@@ -5,17 +5,17 @@ from core.models.Accounts.ReportDescriptionModel import (
     DateObject,
 )
 from helper.readExcel import readExcelFile
+from typing import Optional
 from core.models.base.ResultModel import Result
-
 from helper.GetFileByReportId import getReportData
 
-       
-
-
-def retriveDataRange():
-
+def retriveDataRange(reportId:Optional[int]=12345):
     try:
 
+        # reportData = getReportData(reportId)
+
+        # print(reportData.keys())
+        
         # financialData = getReportData(reportId) if reportId else financialData
         filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
 

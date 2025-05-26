@@ -7,14 +7,13 @@ import os
 import random
 from fastapi.encoders import jsonable_encoder
 
-
 REPORT_JSON_PATH = "database/ReportTable.json"
 
 
 # Analyze the data
-def formatFinancialData(filePath, fileName):
+def formatFinancialData(filePath,reportId:int):
     try:
-        # filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
+        fileName = os.path.basename(filePath)
 
         excelData = readExcelFile(filePath)
         
@@ -23,10 +22,6 @@ def formatFinancialData(filePath, fileName):
         reportDetails = formattedData["Report Details"]
 
         financialData = formattedData["Financial Data"]
-
-        
-
-        reportId = str(random.randint(10000, 99999))
 
         data = {
             "ReportId":reportId,
@@ -43,21 +38,26 @@ def formatFinancialData(filePath, fileName):
             json.dump(jsonable_encoder(data), f, indent=4)
 
         # 📦 Metadata object
-        report_metadata = {
-            reportId: {
-                "Report Name": fileName.replace("_", " "),
-                "FileName": f"{fileName}.json",
-                "Currency": "US Dollar",
-            }
+        reportMetadata = {
+            "ReportId": reportId,
+            "ReportName": fileName.replace("_", " "),
+            "FileName": f"{fileName}.json",
+            "Currency": "US Dollar",
+            "CreatedOn":datetime.now().isoformat()
         }
 
         if os.path.exists(REPORT_JSON_PATH):
             with open(REPORT_JSON_PATH, "r") as f:
-                existing_data = json.load(f)
+                existing_data = json.load(f)  # existing_data should be a list
         else:
-            existing_data = {}
+            existing_data = []
 
-        existing_data.update(report_metadata)
+        # Append new report metadata
+        existing_data.append(reportMetadata)
+
+        with open(REPORT_JSON_PATH, "w") as f:
+            json.dump(existing_data, f, indent=4)
+
 
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)

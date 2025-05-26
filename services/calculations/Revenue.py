@@ -38,7 +38,7 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
 
     except Exception as ex:
         message = f"Error occur at totalRevenue: {ex}"
-        print(f"{datetime.now()} {message}")
+        # print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
 
 
