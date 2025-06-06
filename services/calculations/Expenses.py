@@ -13,7 +13,7 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"]["Classification"][
             "Variable Cost"
@@ -64,7 +64,7 @@ def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         FEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Variable Expenses"

@@ -17,8 +17,12 @@ def handleUploadFile(file:str,fileNameOnly:str,fileExtension:SystemError):
         savedFileName = f"{fileNameOnly}_{timeStamp}{fileExtension}"
         filePath = os.path.join(UPLOAD_DIR, savedFileName)
 
+        
+
         with open(filePath, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
+
+        print(filePath,"---------------------")
 
 
         return Result(

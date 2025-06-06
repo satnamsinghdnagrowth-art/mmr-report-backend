@@ -48,7 +48,7 @@ variableMapping = {
     "EQUITY": {
         "EQUITY": [
             {"RE": "Retained Earnings"},
-            {"CE": "Common Equity"},
+            {"CE": "Current Earnings"},
             {"OEQ": "Other Equity"},
         ],
     },

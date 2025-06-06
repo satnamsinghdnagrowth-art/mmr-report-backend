@@ -13,14 +13,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.on_event("startup")
 def startup_event():
-    load_section_configs()
+    load_section_configs() 
 
 
 def runServer():
     try:
-        uvicorn.run(app, host="0.0.0.0", port=8080)
+        uvicorn.run(app, host="0.0.0.0", port=8000)
     except Exception as ex:
         print(f"Error: {ex}")

@@ -17,7 +17,7 @@ def getRevenueBreakdownChart(year: int, months: list[int], reportId: int):
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"]
 

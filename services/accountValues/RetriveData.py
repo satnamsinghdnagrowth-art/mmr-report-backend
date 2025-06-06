@@ -3,11 +3,13 @@ from datetime import datetime
 from services.accountValues.GetKPIsData import retreiveKPIsValue
 from core.models.base.ResultModel import Result
 from typing import Optional, List
+from helper.GetFileByReportId import getReportData
 
 
 def getValues(
     mainSection: str,
     section: str,
+    reportId:int,
     subSection: Optional[str] = None,
     year: Optional[int] = None,
     month: Optional[List[int]] = None,
@@ -27,11 +29,20 @@ def getValues(
         # Check if it's a "Chart of Accounts" main section
         if mainSection == "Chart of Accounts":
             # Check PROFIT & LOSS first
-            section_income = financialDataTest.get("PROFIT & LOSS", {}).get(section, {})
+            data = getReportData(reportId)["Financial Data"]
+            section_income = data.get("PROFIT & LOSS", {}).get(section, {})
             income_lineitems = section_income.get("LineItems", {})
 
-            if subSection in income_lineitems:
-                data = income_lineitems.get(subSection, [])
+            for item_group in income_lineitems.values():
+
+                # item_group might be Variable Cost dict → {"Data Contractors": [...]}
+                if subSection in item_group:
+                    data = item_group[subSection]  # This will be a list of dicts
+                    break
+
+                    
+            # if subSection in income_lineitems:
+            #     data = income_lineitems.get(subSection, [])
             else:
                 # Fallback to BalanceSheet
                 section_balance = financialDataTest.get("BalanceSheet", {}).get(
@@ -53,10 +64,11 @@ def getValues(
                     .get(section, {})
                     .get("Classification", {})
                     .get(subSection, [])
-                )
 
+                )
         # Calculate total only if we have data and year/month is provided
         if data:
+
             total = sum(
                 entry.get("Value", 0)
                 for entry in data

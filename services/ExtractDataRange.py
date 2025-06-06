@@ -9,21 +9,12 @@ from typing import Optional
 from core.models.base.ResultModel import Result
 from helper.GetFileByReportId import getReportData
 
-def retriveDataRange(reportId:Optional[int]=12345):
+def retriveDataRange(reportId:Optional[int]=None):
     try:
 
-        # reportData = getReportData(reportId)
+        reportData = getReportData(reportId)
 
-        # print(reportData.keys())
-        
-        # financialData = getReportData(reportId) if reportId else financialData
-        filePath = "tempFiles/Honest Game Corporation Jan 2025 (4).xlsx"
-
-        excelData = pd.read_excel(filePath, header=None)
-
-        data = readExcelFile(filePath).Data
-
-        reportDetails = data["Report Details"]
+        reportDetails = reportData["Report Details"]
 
         companyName = reportDetails["Company Name"]
 

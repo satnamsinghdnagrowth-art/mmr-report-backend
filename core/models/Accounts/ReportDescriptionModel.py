@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class DateObject(BaseModel):
-    Month: str
+    Month: int
 
     Year: int
 

@@ -6,65 +6,71 @@ from core.models.base.ResultModel import Result
 
 def retriveKPIsNames(year: int, month):
     try:
+        next_month = 1 if month == 12 else month + 1
+        next_month_year = year + 1 if month == 12 else year
+
+        prev_month = 12 if month == 1 else month - 1
+        prev_month_year = year - 1 if month == 1 else year
+        
         monthly_totals = [
             {
-                "Label": f"This Month-{getMonthName(month)} {year}",
-                "Month": [month],  # Only the current month
+                "Label": f"This Month - {getMonthName(month)} {year}",
+                "Month": [month],
                 "Year": year,
             },
             {
-                "Label": f"Next Month-{getMonthName(month + 1)} {year}",
-                "Month": [month + 1],  # Only the next month
-                "Year": year,
+                "Label": f"Next Month - {getMonthName(next_month)} {next_month_year}",
+                "Month": [next_month],
+                "Year": next_month_year,
             },
             {
-                "Label": f"Prev Month-{getMonthName(month - 1)} {year}",
-                "Month": [month - 1],  # Only the previous month
-                "Year": year,
+                "Label": f"Prev Month - {getMonthName(prev_month)} {prev_month_year}",
+                "Month": [prev_month],
+                "Year": prev_month_year,
             },
             {
-                "Label": f"This Year-{year}",
+                "Label": f"This Year - {year}",
                 "Month": 0,
                 "Year": year,
-            },  # All months in the current year
+            },
             {
-                "Label": f"Next Year-{year + 1}",
-                "Month": [0],  # All months in the next year
+                "Label": f"Next Year - {year + 1}",
+                "Month": [0],
                 "Year": year + 1,
             },
             {
-                "Label": f"Prev Year {year - 1}",
-                "Month": [0],  # All months in the previous year
+                "Label": f"Prev Year - {year - 1}",
+                "Month": [0],
                 "Year": year - 1,
             },
             {
-                "Label": f"This Quarter",
-                "Month": getQuarterMonthsFromMonth(month),  # All months in Q1
+                "Label": "This Quarter",
+                "Month": getQuarterMonthsFromMonth(month),
                 "Year": year,
             },
             {
-                "Label": f"Prev Quarter",
-                "Month": getQuarterMonthsFromMonth(month - 3),  # All months in Q2
+                "Label": "Prev Quarter",
+                "Month": getQuarterMonthsFromMonth(month - 3),
                 "Year": year,
             },
             {
-                "Label": f"Next Quarter",
-                "Month": getQuarterMonthsFromMonth(month + 3),  # All months in Q3
+                "Label": "Next Quarter",
+                "Month": getQuarterMonthsFromMonth(month + 3),
                 "Year": year,
             },
             {
-                "Label": f"This Year YTD-{year}",
+                "Label": f"This Year ytd - {year}",
                 "Month": [1, 2, 3, 4],
                 "Year": year,
-            },  # All months in the current year
+            },
             {
-                "Label": f"Next Year- YTD{year + 1}",
-                "Month": [1, 2, 3, 4],  # All months in the next year
+                "Label": f"Next Year ytd - {year + 1}",
+                "Month": [1, 2, 3, 4],
                 "Year": year + 1,
             },
             {
-                "Label": f"Prev Year YTD{year - 1}",
-                "Month": [1, 2, 3, 4],  # All months in the previous year
+                "Label": f"Prev Year ytd - {year - 1}",
+                "Month": [1, 2, 3, 4],
                 "Year": year - 1,
             },
         ]

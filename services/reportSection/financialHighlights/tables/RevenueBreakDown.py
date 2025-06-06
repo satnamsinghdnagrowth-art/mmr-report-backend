@@ -15,7 +15,7 @@ def getRevenueTable(year: int, months, reportId, reportType):
     try:
         financialData = financialDataTest
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         title = "Revenue Channels Comparison"
         revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"]

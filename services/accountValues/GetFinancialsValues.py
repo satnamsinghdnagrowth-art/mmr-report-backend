@@ -13,7 +13,8 @@ REPORT_JSON_PATH = "database/ReportTable.json"
 # Analyze the data
 def formatFinancialData(filePath,reportId:int):
     try:
-        fileName = os.path.basename(filePath)
+        
+        fileName = os.path.splitext(os.path.basename(filePath))[0]
 
         excelData = readExcelFile(filePath)
         

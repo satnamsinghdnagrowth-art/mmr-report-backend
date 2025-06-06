@@ -17,7 +17,7 @@ from helper.GetValueSum import getValueSum
 # Operating Profit
 def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
     try:
-        financialData = getReportData(reportId) if reportId else financialDataTest
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         totalInterestIncome = getValueSum(
             financialData,
@@ -87,7 +87,7 @@ def getInvestigatingActivitiesCashFlow(
     year: int, months, reportId: Optional[int] = None
 ):
     try:
-        financialData = getReportData(reportId) if reportId else financialDataTest
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         changeInFA = (
             getValueSum(

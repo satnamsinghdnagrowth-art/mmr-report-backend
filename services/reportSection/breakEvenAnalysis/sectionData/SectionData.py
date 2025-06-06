@@ -17,7 +17,8 @@ def getSectionData(
         months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
         
         cardsData = getBACards(year, months, reportType, section, reportId).Data
-        chartsData = getBACharts(year, months, reportId).Data
+        chartsData = []
+        # chartsData = getBACharts(year, months, reportId).Data
         tablesData = []
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 

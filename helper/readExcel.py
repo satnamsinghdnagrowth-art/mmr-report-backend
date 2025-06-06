@@ -10,6 +10,7 @@ def readExcelFile(
     filePath: str
 ) -> Result:
     try:
+        pd.set_option('future.no_silent_downcasting', True)
         # Step 1: Read raw Excel without headers to extract metadata
         excelData = pd.read_excel(filePath, header=None)
 
@@ -37,7 +38,7 @@ def readExcelFile(
 
         converted_data_range = [
             DateObject(
-                Month=datetime.strptime(label, "%b %Y").strftime("%B")[0:3],
+                Month=datetime.strptime(label, "%b %Y").month,
                     # if monthAsString else datetime.strptime(label, "%b %Y").strftime("%b")),
                 Year=datetime.strptime(label, "%b %Y").year,
             )

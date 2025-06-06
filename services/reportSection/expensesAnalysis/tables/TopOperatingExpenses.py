@@ -19,7 +19,7 @@ def getTopOpeatingExpenses(
     try:
         financialData = financialDataTest
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         configs = SECTION_CARD_CONFIGS.get(section)
 

@@ -47,6 +47,6 @@ def getReportData(reportId: int,reportDetail:Optional[bool]= False):
         except json.JSONDecodeError:
             raise ValueError(f"Invalid JSON in report file: {filePath}")
         
-        report_data[reportId] = data["Financial Data"]
+        report_data[reportId] = data
 
     return report_data[reportId]

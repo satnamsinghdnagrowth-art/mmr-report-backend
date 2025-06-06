@@ -19,6 +19,8 @@ def generateSummaryRow(
             )
         )
 
+        
+
     row.append(
         ValueObjectModel(
             Value=grand_total,

@@ -17,26 +17,27 @@ Account = APIRouter()
 
 
 # Get  Account Names
-@Account.get("/get/Names")
-def getAccountNames(year: int, month: int) -> Result:
-    return retreiveFinacialsNames(year, month)
+@Account.get("/get/Names/report/{reportId}",response_model=Result)
+def getAccountNames(year: int, month: int,reportId:int) -> Result:
+    return retreiveFinacialsNames(year, month,reportId)
 
 
 # Get the values for dropdown options
-@Account.post("/get/data/{mainSection}/{section}")
-@Account.post("/get/data/{mainSection}/{section}/{subSection}")
+@Account.post("/get/data/report/{reportId}/{mainSection}/{section}",response_model=Result)
+@Account.post("/get/data/report/{reportId}/{mainSection}/{section}/{subSection}",response_model=Result)
 def get_report_values(
     mainSection: str,
     section: str,
+    reportId:int,
     subSection: Optional[str] = None,
     payload: DateFilter = Body(...),
-) -> Result:
-    return getValues(mainSection, section, subSection, payload.Year, payload.Month)
+):
+    return getValues(mainSection, section, reportId,subSection,payload.Year, payload.Month)
 
 
 # Get the dataRange of Report
-@Account.get("/get/reportDescription")
-def getReportDescription() -> Result:
+@Account.get("/get/reportDescription",response_model=Result)
+def getReportDescription():
     return retriveDataRange()
 
 
@@ -44,7 +45,7 @@ def getReportDescription() -> Result:
 @Account.get("/get/Calculations")
 def calculation() -> Result:
     return getEACharts(
-        year=2024, months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], reportId=12345
+        year=2024, months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], reportId=12345,response_model=Result
     )
     # return getCashFlowTable(year=2024, tableType="bj")
     # return getCashOnHand(

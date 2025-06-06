@@ -19,12 +19,13 @@ def getSectionData(
         months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
 
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
-        chartsData = getEACharts(year, months, reportId).Data
+        chartsData =[]
+        # chartsData = getEACharts(year, months, reportId).Data
         tablesData = [
-            getDetailedTable(year, "PROFIT & LOSS").Data,
-            getDetailedTable(year, "BalanceSheet").Data,
-            getDetailedTable(year, "EQUITY").Data,
-            getCashFlowTable(year).Data,
+            getDetailedTable(year, "PROFIT & LOSS",reportId).Data,
+            getDetailedTable(year, "BalanceSheet",reportId).Data,
+            getDetailedTable(year, "EQUITY",reportId).Data,
+            getCashFlowTable(year,reportId).Data,
         ]
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 

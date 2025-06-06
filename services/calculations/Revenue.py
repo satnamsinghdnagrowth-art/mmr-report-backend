@@ -12,7 +12,7 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         data = financialData["PROFIT & LOSS"]["REVENUE"]["Total"]
 

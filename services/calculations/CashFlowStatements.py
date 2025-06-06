@@ -31,7 +31,7 @@ def getFreeCashFlow(year: int, months, reportId: Optional[int] = None):
 
 def getCashOnHand(year: int, months, reportId: Optional[int] = None):
     try:
-        financialData = getReportData(reportId) if reportId else financialDataTest
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         totalCash = getValueSum(
             financialData,

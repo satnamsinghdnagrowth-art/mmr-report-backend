@@ -13,7 +13,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         STDdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"

@@ -11,7 +11,7 @@ def otherIncome(year: int, month, reportId: Optional[int] = None):
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         # Another Expenses
         AINCdata = financialData["PROFIT & LOSS"]["OTHER INCOME"]["Classification"][
@@ -51,7 +51,7 @@ def interestIncome(year: int, month, reportId: Optional[int] = None):
         financialData = financialDataTest
 
         if reportId is not None:
-            financialData = getReportData(reportId)
+            financialData = getReportData(reportId)["Financial Data"]
 
         # Interest Expenses
         interestIncomedata = financialData["PROFIT & LOSS"]["OTHER INCOME"][

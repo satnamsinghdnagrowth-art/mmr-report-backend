@@ -13,9 +13,9 @@ import calendar
 
 
 # Generate Cash flow Table
-def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
+def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
     try:
-        financialData = getReportData(reportId) if reportId else financialDataTest
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         staticMonths = range(1, 13)
 
@@ -212,7 +212,7 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
                         "EQUITY",
                         "EQUITY",
                         "Classification",
-                        "Common Equity",
+                        "Current Earnings",
                     ],
                     prevYear,
                     prevMonths,
@@ -269,13 +269,13 @@ def getCashFlowTable(year: int, tableType="CashFlow Table", reportId=12345):
             (
                 "Change in Cash & Equivalent",
                 ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
-                True,
+                False,
             ),
         ]
 
         for title, keys, isAsset in finance_change_rows:
             row = generateChangeRow(
-                title, financialData, keys, year, staticMonths, isAsset=isAsset
+                title, financialData, keys, year, staticMonths, isAsset
             )
 
             financing_rows.append(row)
