@@ -21,7 +21,7 @@ def getDetailedTable(year: int, tableType: str, reportId):
         financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         data = financialData[tableType]
 
-        staticMonths = range(1, 13)
+        staticMonths = range(1, 7)
 
         if tableType == "PROFIT & LOSS":
             headers = (
