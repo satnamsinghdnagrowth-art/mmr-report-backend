@@ -19,7 +19,8 @@ def retrieveChart(
 ) -> Result:
     try:
         staticMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-        xAxis = [f"{calendar.month_abbr[m]} {year}" for m in staticMonths]
+        xAxis = [f"{calendar.month_abbr[m]}" for m in staticMonths]
+        # xAxis = [f"{calendar.month_abbr[m]} {year}" for m in staticMonths]
         yAxisSeries = []
 
         for metric in chartData:

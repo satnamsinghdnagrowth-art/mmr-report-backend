@@ -9,8 +9,8 @@ ProfitAbility = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@ProfitAbility.post("/get/report/{reportId}/sectionData")
-def getSection(reportId: int, payload: SectionChartRequestData) -> Result:
+@ProfitAbility.post("/get/report/{reportId}/sectionData",response_model=Result)
+def getSection(reportId: int, payload: SectionChartRequestData):
     return getSectionData(
         reportId=reportId,
         year=payload.Year,
@@ -30,8 +30,8 @@ def getSection(reportId: int, payload: SectionChartRequestData) -> Result:
 
 
 # # Get Financial Higlights Section Charts
-@ProfitAbility.post("/get/charts")
-def getCards(payload: SectionChartRequestData) -> Result:
+@ProfitAbility.post("/get/charts",response_model=Result)
+def getCards(payload: SectionChartRequestData):
     return getPACharts(
         year=payload.Year,
         months=payload.Months,
@@ -41,8 +41,8 @@ def getCards(payload: SectionChartRequestData) -> Result:
 
 
 # Get Financial Higlights Section Tables
-@ProfitAbility.post("/get/tables")
-def getTables(payload: SectionChartRequestData) -> Result:
+@ProfitAbility.post("/get/tables",response_model=Result)
+def getTables(payload: SectionChartRequestData):
     return getPATable(
         year=payload.Year,
         months=payload.Months,

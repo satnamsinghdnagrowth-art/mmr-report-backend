@@ -218,7 +218,6 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
                     prevMonths,
                 ).Data
             
-            print(chaneInOEQ,chaneInRE,netinc)
 
             if month == 1:
                 netIncomeValue = netinc

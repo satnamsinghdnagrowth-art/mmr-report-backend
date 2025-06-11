@@ -44,8 +44,8 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
             else:
                 Headers = [
                     "Income Statement",
-                    f"{calendar.month_abbr[currentMonths[0]]} Month",
-                    f"{calendar.month_abbr[prevMonths[0]]} Month",
+                    f"{calendar.month_abbr[currentMonths[0]]} {year}",
+                    f"{calendar.month_abbr[prevMonths[0]]} {year}",
                     "This Month vs Last Month($)",
                     "This Month vs Last Month(%)",
                 ]

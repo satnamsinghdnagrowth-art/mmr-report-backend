@@ -9,8 +9,8 @@ CashFlow = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@CashFlow.post("/get/report/{reportId}/sectionData")
-def getSection(reportId: int, payload: SectionChartRequestData) -> Result:
+@CashFlow.post("/get/report/{reportId}/sectionData",response_model=Result)
+def getSection(reportId: int, payload: SectionChartRequestData):
     return getSectionData(
         reportId=reportId,
         year=payload.Year,
