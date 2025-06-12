@@ -13,7 +13,7 @@ def getPACharts(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-       
+        months = range(1,months[0]+1)
 
         configs = SECTION_CARD_CONFIGS.get(section)
 
