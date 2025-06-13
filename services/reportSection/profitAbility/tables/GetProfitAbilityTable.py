@@ -115,7 +115,7 @@ def getPATable(
 
         
                 # Create TableModel and return result
-            tableObj = TableModel(Title="ProfitAbility", Column=Headers, Rows=rows)
+            tableObj = TableModel(Title="Variance Analysis", Column=Headers, Rows=rows)
 
             tables.append(tableObj)
 
