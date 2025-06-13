@@ -14,7 +14,6 @@ def getSectionCharts(
 ):
     try:
         
-        
 
         configs = SECTION_CARD_CONFIGS.get(section)
 
@@ -40,7 +39,7 @@ def getSectionCharts(
             )
             charts.append(card.Data)
 
-        charts.append(getRevenueBreakdownChart(year, months, reportId).Data)
+        # charts.append(getRevenueBreakdownChart(year, months, reportId).Data)
 
         return Result(
             Data=charts, Status=1, Message="Revenue Card calculated successfully"

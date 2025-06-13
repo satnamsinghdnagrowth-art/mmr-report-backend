@@ -4,9 +4,8 @@ from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from core.models.visualsModel.TableModel import TableModel
-from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
-    getRevenueTable,
-)
+from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
+import calendar
 from config.FunctionMaping import functionRegistry
 from helper.GetValueSymbol import getValueSymbol
 from helper.metricCheck import isMetricPositive
@@ -29,26 +28,32 @@ def getPATable(
 
         tables = []
 
-        for config in configs.get("tables"):
-            Headers = config["columns"]
+        currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
+            year, months, reportType
+        )
 
-            if reportType == "Year":
-                # Replace "Monthly" with "Year" in headers if reportType is "Year"
+        for config in configs.get("tables"):
+            if reportType.lower() == "year":
                 Headers = [
-                    "Profitability",
-                    "This Year",
-                    "Last Year",
+                    "Income Statement",
+                    f"{currentYear} Year",
+                    f"{prevYear} Year",
                     "This Year vs Last Year($)",
                     "This Year vs Last Year(%)",
                 ]
+            else:
+                Headers = [
+                    "Income Statement",
+                    f"{calendar.month_abbr[currentMonths[0]]} {year}",
+                    f"{calendar.month_abbr[prevMonths[0]]} {year}",
+                    "This Month vs Last Month($)",
+                    "This Month vs Last Month(%)",
+                ]
 
             rows = []
-
             for entry in config["rows"]:
                 valueData = getValueSymbol(entry["label"])
-
                 valueType = valueData["type"]
-
                 valueSymbol = valueData["symbol"]
 
                 row = [
@@ -59,8 +64,12 @@ def getPATable(
 
                 func = functionRegistry.get(entry["func"])
 
-                thisMonthValue = func(year=year, month=months).Data
-                prevMonthValue = func(year=year - 1, month=months).Data
+                thisMonthValue = func(
+                    year=currentYear, month=currentMonths, reportId=reportId
+                ).Data
+                prevMonthValue = func(
+                    year=prevYear, month=prevMonths, reportId=reportId
+                ).Data
 
                 row.append(
                     ValueObjectModel(
@@ -91,7 +100,6 @@ def getPATable(
                         Symbol=valueSymbol,
                     )
                 )
-
                 row.append(
                     ValueObjectModel(
                         Value=result["PercentChange"],
@@ -105,6 +113,7 @@ def getPATable(
 
                 rows.append(row)
 
+        
                 # Create TableModel and return result
             tableObj = TableModel(Title="ProfitAbility", Column=Headers, Rows=rows)
 

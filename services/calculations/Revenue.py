@@ -20,10 +20,12 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
             item for item in data if item["Month"] in month and item["Year"] == year
         ]
 
+
         if not filteredData:
             totalRevenue = 0
 
         totalRev = sum(item["Value"] for item in filteredData)
+
 
         return Result(
             Data=round(totalRev, 2),

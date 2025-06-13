@@ -20,7 +20,7 @@ def getValues(
         data = []
 
         if mainSection == "KPIs":
-            total = retreiveKPIsValue(section, subSection, month, year).Data
+            total = retreiveKPIsValue(section, subSection, month, year,reportId).Data
 
         # Normalize month value if it's zero
         if month == [0]:
@@ -35,37 +35,53 @@ def getValues(
 
             for item_group in income_lineitems.values():
 
+
                 # item_group might be Variable Cost dict → {"Data Contractors": [...]}
-                if subSection in item_group:
+                if subSection in list(item_group.keys()):
+
                     data = item_group[subSection]  # This will be a list of dicts
+
                     break
 
-                    
             # if subSection in income_lineitems:
             #     data = income_lineitems.get(subSection, [])
             else:
                 # Fallback to BalanceSheet
-                section_balance = financialDataTest.get("BalanceSheet", {}).get(
+                data = getReportData(reportId)["Financial Data"]
+                section_balance = data.get("BalanceSheet", {}).get(
                     section, {}
                 )
+
                 balance_lineitems = section_balance.get("LineItems", {})
-                data = balance_lineitems.get(subSection, [])
+
+                for item_group in balance_lineitems.values():
+
+                    # item_group might be Variable Cost dict → {"Data Contractors": [...]}
+                    if subSection in list(item_group.keys()):
+
+                        data = item_group[subSection]  # This will be a list of dicts
+
+                        break
+
+             
         else:
             # Handling other sections or cases
             if subSection is None:
+                financeData = getReportData(reportId)["Financial Data"]
                 data = (
-                    financialDataTest.get(mainSection, {})
+                    financeData.get(mainSection, {})
                     .get(section, {})
                     .get("Total", [])
                 )
+                
             else:
+                financeData = getReportData(reportId)["Financial Data"]
                 data = (
-                    financialDataTest.get(mainSection, {})
+                    financeData.get(mainSection, {})
                     .get(section, {})
-                    .get("Classification", {})
-                    .get(subSection, [])
-
+                    .get("Total", [])
                 )
+
         # Calculate total only if we have data and year/month is provided
         if data:
 

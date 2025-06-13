@@ -147,7 +147,6 @@ html = """
 
   </body>
 </html>
-
 """
 
 HTML(string=html).write_pdf("svg_chart_output.pdf")

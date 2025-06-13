@@ -25,7 +25,7 @@ def retrieveChart(
         if reportType and reportType.lower() == "month":
             current_month = months[0]  # assume latest month is passed
             last_six_months = []
-            for i in range(11, -1, -1):
+            for i in range(4, -1, -1):
                 month = current_month - i
                 y = year
                 if month <= 0:

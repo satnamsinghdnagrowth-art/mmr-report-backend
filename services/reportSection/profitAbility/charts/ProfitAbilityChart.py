@@ -2,9 +2,7 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from services.visuals.charts.retrieveChart import retrieveChart
-from services.reportSection.financialHighlights.charts.RevenueBreakdown import (
-    getRevenueBreakdownChart,
-)
+
 from datetime import datetime
 
 
@@ -13,8 +11,6 @@ def getPACharts(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-        months = range(1,months[0]+1)
-
         configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs:
@@ -35,6 +31,7 @@ def getPACharts(
                 rigthYaxis=config["rigthYaxis"],
                 chartData=config["data"],
                 axisChoice=config["indexAxis"],
+                reportType=reportType
             )
             charts.append(card.Data)
 

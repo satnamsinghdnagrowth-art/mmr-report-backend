@@ -10,27 +10,29 @@ from services.calculations.GrossProfit import grossProfit, grossProfitMargin
 
 
 # Analyze the data
-def retreiveKPIsValue(section, subSection, month, year: int):
+def retreiveKPIsValue(section, subSection, month, year: int,reportId:int):
     try:
+
+        print(year,month,subSection)
         value = 0
         if subSection == "TotalRevenue":
-            value = totalRevenue(year, month).Data
+            value = totalRevenue(year, month,reportId).Data
 
         if subSection == "Gross Profit":
-            value = grossProfit(year, month).Data
+            value = grossProfit(year, month,reportId).Data
             print(value)
 
         if subSection == "Gross Profit Margin":
-            value = grossProfitMargin(year, month).Data
+            value = grossProfitMargin(year, month,reportId).Data
 
         if subSection == "EBIT":
-            value = EBIT(year, month).Data
+            value = EBIT(year, month,reportId).Data
 
         if subSection == "EBIT Margin":
-            value = EBITMargin(year, month).Data
+            value = EBITMargin(year, month,reportId).Data
 
         if subSection == "Expenses To Revenue Ration":
-            value = expensesToRevenueRatio(year, month).Data
+            value = expensesToRevenueRatio(year, month,reportId).Data
 
         return Result(Data=value, Status=1, Message="Success")
 

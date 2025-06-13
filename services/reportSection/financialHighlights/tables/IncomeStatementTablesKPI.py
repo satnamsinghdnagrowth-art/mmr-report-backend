@@ -116,9 +116,9 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
             tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows)
             tables.append(tableObj)
 
-        tables.append(
-            getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
-        )
+        # tables.append(
+        #     getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
+        # )
 
         return Result(
             Data=tables, Status=1, Message="Revenue Card calculated successfully"

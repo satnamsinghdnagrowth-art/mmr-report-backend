@@ -22,9 +22,8 @@ def getSectionData(
         chartsData =[]
         # chartsData = getEACharts(year, months, reportId).Data
         tablesData = [
-            getDetailedTable(year, "PROFIT & LOSS",reportId).Data,
-            getDetailedTable(year, "BalanceSheet",reportId).Data,
-            getDetailedTable(year, "EQUITY",reportId).Data,
+            getDetailedTable(year, ["PROFIT & LOSS"],reportId).Data,
+            getDetailedTable(year, ["BalanceSheet","EQUITY"],reportId).Data,
             getCashFlowTable(year,reportId).Data,
         ]
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)

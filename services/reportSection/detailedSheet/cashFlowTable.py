@@ -17,7 +17,7 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
     try:
         financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
-        staticMonths = range(1, 7)
+        staticMonths = range(2, 6)
 
         Headers = [tableType] + [
             f"{calendar.month_abbr[m]} {year}" for m in staticMonths
