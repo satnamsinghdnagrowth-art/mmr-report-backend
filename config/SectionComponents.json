@@ -28,18 +28,21 @@
                 "rigthYaxis":true,
                 "data": [
                     {
-                        "label":"Revenue",
+                        "valueFunc":"Revenue",
+                        "label":"Current Year",
                         "type":"Bar",
                         "funcName":"totalRevenue",
                         "AreaFill":false
                     },
                     {
-                        "label": "Prev Year",
+                        "valueFunc":"Last Year",
+                        "label": "Last Year",
                         "type": "Bar",
                         "funcName": "totalRevenue",
                         "AreaFill": false
                     },
                     {
+                        "valueFunc":"Revenue Growth",
                         "label": "Revenue Growth",
                         "type": "Line",
                         "funcName": "revenueGrowth",
@@ -128,6 +131,7 @@
                 "rigthYaxis":false,
                 "data": [
                     {
+                        "valueFunc":"Gross Profit",
                         "label":"Gross Profit",
                         "type":"Line",
                         "funcName":"grossProfit",
@@ -135,7 +139,8 @@
                         
                     },
                     {
-                        "label": "Operating Profit",
+                        "valueFunc":"Operating Profit",
+                        "label":"Operating Profit",
                         "type": "Line",
                         "funcName": "ebit",
                         "AreaFill": false
@@ -149,14 +154,15 @@
                 "rigthYaxis": false,
                 "data": [
                     {
-                        "label":"Gross Profit Margin (%)",
+                        "valueFunc":"Gross Profit Margin (%)",
+                        "label":"Current Year",
                         "type":"Bar",
                         "funcName":"grossProfitMargin",
-
                         "AreaFill": false
                     },
                     {
-                        "label": "Prev Year Margin",
+                        "valueFunc":"Last Year Margin",
+                        "label":"Last Year",
                         "type": "Line",
                         "funcName": "grossProfitMargin",
 
@@ -220,18 +226,21 @@
                 "rigthYaxis": false,
                 "data": [
                     {
+                        "valueFunc":"Revenue",
                         "label":"Revenue",
                         "type":"Bar",
                         "funcName":"totalRevenue",
                         "AreaFill": false
                     },
                     {
+                        "valueFunc":"Cost of Goods",
                         "label": "Cost of Goods",
                         "type": "Line",
                         "funcName": "directExpenses",
                         "AreaFill": false
                     },
                     {
+                        "valueFunc":"Operating Expenses",
                         "label": "Operating Expenses",
                         "type": "Line",
                         "funcName": "totalOperatingExpenses",
@@ -246,13 +255,15 @@
                 "rigthYaxis": false,
                 "data": [
                     {
-                        "label":"Expenses to Revenue Ratio",
+                        "valueFunc":"Expenses to Revenue Ratio",
+                        "label":"Current Year",
                         "type":"Line",
                         "funcName":"expensesToRevenueRatio",
                         "AreaFill": false
                     },
                     {
-                        "label": "Prev Year",
+                        "valueFunc":"Last Year",
+                        "label": "Last Year",
                         "type": "Line",
                         "funcName": "expensesToRevenueRatio",
                         "AreaFill": true
@@ -289,12 +300,14 @@
                 "rigthYaxis": false,
                 "data": [
                     {
+                        "valueFunc":"Gross Profit",
                         "label": "Gross Profit",
                         "type": "Line",
                         "funcName": "grossProfit",
                         "AreaFill": false
                     },
                     {
+                        "valueFunc":"Operating Profit",
                         "label": "Operating Profit",
                         "type": "Line",
                         "funcName": "ebit",
