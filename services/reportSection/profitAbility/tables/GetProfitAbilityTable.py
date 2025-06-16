@@ -35,19 +35,20 @@ def getPATable(
         for config in configs.get("tables"):
             if reportType.lower() == "year":
                 Headers = [
-                    "Income Statement",
+                    "Particulars",
                     f"{currentYear} Year",
                     f"{prevYear} Year",
-                    "This Year vs Last Year($)",
                     "This Year vs Last Year(%)",
+                    "This Year vs Last Year($)",
                 ]
             else:
                 Headers = [
-                    "Income Statement",
+                    "Particulars",
                     f"{calendar.month_abbr[currentMonths[0]]} {year}",
                     f"{calendar.month_abbr[prevMonths[0]]} {year}",
-                    "This Month vs Last Month($)",
+
                     "This Month vs Last Month(%)",
+                    "This Month vs Last Month($)",
                 ]
 
             rows = []
@@ -92,16 +93,6 @@ def getPATable(
 
                 row.append(
                     ValueObjectModel(
-                        Value=result["Diffrence"],
-                        isPositive=isMetricPositive(
-                            entry["label"], result["Diffrence"]
-                        ),
-                        Type=valueType,
-                        Symbol=valueSymbol,
-                    )
-                )
-                row.append(
-                    ValueObjectModel(
                         Value=result["PercentChange"],
                         isPositive=isMetricPositive(
                             entry["label"], result["PercentChange"]
@@ -111,11 +102,23 @@ def getPATable(
                     )
                 )
 
+                row.append(
+                    ValueObjectModel(
+                        Value=result["Diffrence"],
+                        isPositive=isMetricPositive(
+                            entry["label"], result["Diffrence"]
+                        ),
+                        Type=valueType,
+                        Symbol=valueSymbol,
+                    )
+                )
+                
+
                 rows.append(row)
 
         
                 # Create TableModel and return result
-            tableObj = TableModel(Title="Variance Analysis", Column=Headers, Rows=rows)
+            tableObj = TableModel(Title="Variance Analysis - Income Statements", Column=Headers, Rows=rows)
 
             tables.append(tableObj)
 

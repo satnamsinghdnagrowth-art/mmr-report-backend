@@ -48,6 +48,7 @@ def retrieveChart(
         yAxisSeries = []
 
         for metric in chartData:
+
             valueFunc = metric["valueFunc"]
             
             label = metric["label"]
@@ -92,6 +93,7 @@ def retrieveChart(
             IndexAxis=axisChoice,
             RightYaxis=rigthYaxis,
         )
+
 
         return Result(
             Data=chartData,

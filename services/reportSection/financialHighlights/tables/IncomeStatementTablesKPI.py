@@ -35,19 +35,19 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
         for config in configs.get("tables"):
             if reportType.lower() == "year":
                 Headers = [
-                    "Income Statement",
+                    "Particulars",
                     f"{currentYear} Year",
                     f"{prevYear} Year",
-                    "This Year vs Last Year($)",
                     "This Year vs Last Year(%)",
+                    "This Year vs Last Year($)",
                 ]
             else:
                 Headers = [
-                    "Income Statement",
+                    "Particulars",
                     f"{calendar.month_abbr[currentMonths[0]]} {year}",
                     f"{calendar.month_abbr[prevMonths[0]]} {year}",
-                    "This Month vs Last Month($)",
                     "This Month vs Last Month(%)",
+                    "This Month vs Last Month($)",
                 ]
 
             rows = []
@@ -56,11 +56,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 valueType = valueData["type"]
                 valueSymbol = valueData["symbol"]
 
-                row = [
-                    ValueObjectModel(
-                        Value=entry["label"], isPositive=True, Type="", Symbol=""
-                    )
-                ]
+                
 
                 func = functionRegistry.get(entry["func"])
 
@@ -70,6 +66,17 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 prevMonthValue = func(
                     year=prevYear, month=prevMonths, reportId=reportId
                 ).Data
+
+                result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
+
+                if result["Diffrence"] == 0:
+                    continue
+
+                row = [
+                    ValueObjectModel(
+                        Value=entry["label"], isPositive=True, Type="", Symbol=""
+                    )
+                ]
 
                 row.append(
                     ValueObjectModel(
@@ -88,7 +95,17 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                     )
                 )
 
-                result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
+
+                row.append(
+                    ValueObjectModel(
+                        Value=result["PercentChange"],
+                        isPositive=isMetricPositive(
+                            entry["label"], result["PercentChange"]
+                        ),
+                        Type="percentage",
+                        Symbol="%",
+                    )
+                )
 
                 row.append(
                     ValueObjectModel(
@@ -100,16 +117,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         Symbol=valueSymbol,
                     )
                 )
-                row.append(
-                    ValueObjectModel(
-                        Value=result["PercentChange"],
-                        isPositive=isMetricPositive(
-                            entry["label"], result["PercentChange"]
-                        ),
-                        Type="percentage",
-                        Symbol="%",
-                    )
-                )
+                
 
                 rows.append(row)
 

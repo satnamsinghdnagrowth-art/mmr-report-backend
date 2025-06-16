@@ -57,11 +57,11 @@
             {
                 "title": "Income Statement",
                 "columns": [
-                    "Income Statement",
+                    "Particulars",
                     "This Month",
                     "Last Month",
-                    "This Month vs last Month($)",
-                    "This Month vs last Month(%)"
+                    "This Month vs last Month(%)",
+                    "This Month vs last Month($)"
                 ],
                 "rows": [
                     {
@@ -76,10 +76,7 @@
                         "label": "Gross Profit",
                         "func": "grossProfit"
                     },
-                    {
-                        "label": "Gross Profit Margin",
-                        "func": "grossProfitMargin"
-                    },
+                   
                     {
                         "label": "Expenses",
                         "func": "totalOperatingExpenses"
@@ -88,10 +85,7 @@
                         "label": "Operating Profit",
                         "func": "ebit"
                     },
-                    {
-                        "label": "Operating Profit Margin (%)",
-                        "func": "ebitMargin"
-                    },
+                    
                     {
                         "label": "Other Income",
                         "func": "otherIncome"
@@ -112,11 +106,8 @@
                     {
                         "label": "Net Income",
                         "func": "netIncome"
-                    },
-                    {
-                        "label": "Net Income Margin (%)",
-                        "func": "netIncomeMargin"
                     }
+                    
                 ]
             }
         ]
@@ -177,11 +168,11 @@
             {
                 "title": "Profitability",
                 "columns": [
-                    "Profitability",
+                    "Particulars",
                     "This Month",
                     "Last Month",
-                    "This Month vs last Month($)",
-                    "This Month vs last Month(%)"
+                    "This Month vs last Month(%)",
+                    "This Month vs last Month($)"
                 ],
                 "rows": [
                     {
@@ -262,7 +253,7 @@
                         "AreaFill": false
                     },
                     {
-                        "valueFunc":"Last Year",
+                        "valueFunc":"Expenses to Revenue Ratio",
                         "label": "Last Year",
                         "type": "Line",
                         "funcName": "expensesToRevenueRatio",
