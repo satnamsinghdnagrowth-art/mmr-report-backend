@@ -54,12 +54,12 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
         netProfitTotal = netIncome(year, months, reportId).Data
         changeInCa = (
-            getTotalCurrentAssets(year - 1, [months[-1]]).Data
-            - getTotalCurrentAssets(year, [months[-1]]).Data
+            getTotalCurrentAssets(year - 1, [months[-1]],reportId).Data
+            - getTotalCurrentAssets(year, [months[-1]],reportId).Data
         )
         changeInCl = (
-            getTotalCurrentLiabilities(year, [months[-1]]).Data
-            - getTotalCurrentLiabilities(year - 1, [months[-1]]).Data
+            getTotalCurrentLiabilities(year, [months[-1]],reportId).Data
+            - getTotalCurrentLiabilities(year - 1, [months[-1]],reportId).Data
         )
 
         netIncomeAfterAdjustment = (

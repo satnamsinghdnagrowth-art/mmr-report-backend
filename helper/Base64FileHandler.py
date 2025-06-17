@@ -3,8 +3,7 @@ from core.models.base.ResultModel import Result
 import os
 import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
-
-UPLOAD_DIR = "database/uploadedFiles"
+from config.FilesBaseDIR import UPLOAD_DIR
 
 def handleBase64File(base64str:str,fileNameOnly:str,fileExtension:str):
     try:

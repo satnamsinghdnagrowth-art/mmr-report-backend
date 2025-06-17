@@ -4,8 +4,7 @@ import os
 import shutil
 import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
-
-UPLOAD_DIR = "database/uploadedFiles"
+from config.FilesBaseDIR import UPLOAD_DIR
 
 def handleUploadFile(file:str,fileNameOnly:str,fileExtension:SystemError):
     try:
@@ -17,12 +16,8 @@ def handleUploadFile(file:str,fileNameOnly:str,fileExtension:SystemError):
         savedFileName = f"{fileNameOnly}_{timeStamp}{fileExtension}"
         filePath = os.path.join(UPLOAD_DIR, savedFileName)
 
-        
-
         with open(filePath, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
-
-        print(filePath,"---------------------")
 
 
         return Result(

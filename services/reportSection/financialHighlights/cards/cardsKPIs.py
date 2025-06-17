@@ -9,10 +9,9 @@ def getSectionCards(
     year: int, months: List[int], reportType: str, section: str, reportId: int
 ) -> Result:
     try:
-        
 
         compared_to = (
-            "From Prev Year" if reportType.lower() == "year" else "From Prev Month"
+            "From Last Year" if reportType.lower() == "year" else "From Last Month"
         )
         configs = SECTION_CARD_CONFIGS.get(section)
 

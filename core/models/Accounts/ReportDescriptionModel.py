@@ -15,5 +15,5 @@ class TimeValueObject(BaseModel):
 
 class ReportDescriptionsModel(BaseModel):
     ReportName: str
-    FinancialYear: str
+    FinancialYear: int
     DataRange: list[DateObject]

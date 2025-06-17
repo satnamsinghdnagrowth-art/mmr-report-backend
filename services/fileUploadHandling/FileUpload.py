@@ -14,12 +14,10 @@ import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
 from helper.Base64FileHandler import handleBase64File
 from helper.FileUploadHandler import handleUploadFile
+from config.FilesBaseDIR import UPLOAD_DIR
 
 
-UPLOAD_DIR = "database/uploadedFiles"
-
-
-def fileUpload(file,fileBase64Str):
+def fileUpload(file,fileBase64Str,CompanyLogo):
     try:
 
         reportId = random.randint(10000, 99999)
@@ -36,7 +34,7 @@ def fileUpload(file,fileBase64Str):
         if fileBase64Str is not None:
             savedFilePath = handleBase64File(fileBase64Str,fileNameOnly,fileExtension).Data
 
-        result = formatFinancialData(savedFilePath, reportId)
+        result = formatFinancialData(savedFilePath, reportId,CompanyLogo)
 
         if result.Status == 1 :
 

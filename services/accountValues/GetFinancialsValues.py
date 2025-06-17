@@ -5,13 +5,14 @@ from helper.readExcel import readExcelFile
 import json
 import os
 import random
+import shutil
 from fastapi.encoders import jsonable_encoder
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
 
 # Analyze the data
-def formatFinancialData(filePath,reportId:int):
+def formatFinancialData(filePath,reportId:int,companyLogo):
     try:
         
         fileName = os.path.splitext(os.path.basename(filePath))[0]
@@ -23,6 +24,21 @@ def formatFinancialData(filePath,reportId:int):
         reportDetails = formattedData["Report Details"]
 
         financialData = formattedData["Financial Data"]
+
+        if companyLogo is not None:
+
+            logoFileName = f"logo_{reportId}"
+            fileExtension = ".png"
+            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S") 
+            
+            savedFileName = f"{logoFileName}_{timeStamp}{fileExtension}"
+            logoFilePath = os.path.join("database","companyLogos", savedFileName)
+
+            with open(logoFilePath, "wb") as buffer:
+                shutil.copyfileobj(companyLogo.file, buffer)
+
+        else:
+            logoFilePath = None
 
         data = {
             "ReportId":reportId,
@@ -43,6 +59,7 @@ def formatFinancialData(filePath,reportId:int):
             "ReportId": reportId,
             "ReportName": fileName.replace("_", " "),
             "FileName": f"{fileName}.json",
+            "CompanyLogoFilePath":logoFilePath,
             "Currency": "US Dollar",
             "CreatedOn":datetime.now().isoformat()
         }

@@ -24,10 +24,6 @@ def reload_section_configs():
         SECTION_CARD_CONFIGS = json.load(file)
 
 
-with open("config/FileOutput.json", "r") as f:
-    financialData = json.load(f)
-
-
 with open("config/FileOutputTest.json", "r") as f:
     financialDataTest = json.load(f)
 

@@ -4,6 +4,7 @@ import numpy as np
 from datetime import datetime
 from core.models.Accounts.ReportDescriptionModel import ReportDescriptionsModel, DateObject
 from core.models.base.ResultModel import Result
+import calendar
 
 
 def readExcelFile(
@@ -16,7 +17,9 @@ def readExcelFile(
 
         # Step 2: Extract metadata
         reportName = excelData.iloc[0, 1]
-        financialYear = excelData.iloc[1, 1]
+        financialMonth = excelData.iloc[1, 1]
+
+        financialMonthNumber =  datetime.strptime(financialMonth, "%B").month
 
         # Step 3: Extract headers and data
         headers = excelData.iloc[4]
@@ -48,7 +51,7 @@ def readExcelFile(
         response = {
             "Report Details": {
                 "Company Name": reportName,
-                "Financial Year": financialYear,
+                "Financial Year": financialMonthNumber,
                 "Data Range": converted_data_range,
             },
             "Financial Data": data,

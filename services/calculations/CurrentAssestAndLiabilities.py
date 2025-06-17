@@ -10,10 +10,7 @@ from typing import Optional
 # Operating Profit
 def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         STDdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
@@ -27,7 +24,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalSTD = sum(item["Value"] for item in STDFilter)
 
-        APdata = financialDataTest["BalanceSheet"]["CURRENT LIABILITIES"][
+        APdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
         ]["Accounts Payable"]
 
@@ -39,7 +36,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalAP = sum(item["Value"] for item in APFilter)
 
-        TLdata = financialDataTest["BalanceSheet"]["CURRENT LIABILITIES"][
+        TLdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
         ]["Taxes & Levies"]
 
@@ -51,7 +48,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalTL = sum(item["Value"] for item in TLFilter)
 
-        OCLdata = financialDataTest["BalanceSheet"]["CURRENT LIABILITIES"][
+        OCLdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
         ]["Other Current Liabilities"]
 
@@ -79,7 +76,10 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
 def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
     try:
-        ARdata = financialDataTest["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
+
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+
+        ARdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Accounts Receivable"
         ]
 
@@ -91,7 +91,7 @@ def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
 
         totalAR = sum(item["Value"] for item in ARFilter)
 
-        INVdata = financialDataTest["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
+        INVdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Inventory"
         ]
 
@@ -103,7 +103,7 @@ def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
 
         totalINV = sum(item["Value"] for item in INVFilter)
 
-        WIPdata = financialDataTest["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
+        WIPdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Work In Progress"
         ]
 
@@ -115,7 +115,7 @@ def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
 
         totalWIP = sum(item["Value"] for item in WIPFilter)
 
-        OCAdata = financialDataTest["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
+        OCAdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Other Current Assets"
         ]
 

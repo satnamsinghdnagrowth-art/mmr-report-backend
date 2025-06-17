@@ -46,7 +46,7 @@
                         "label": "Revenue Growth",
                         "type": "Line",
                         "funcName": "revenueGrowth",
-                        "AreaFill": true
+                        "AreaFill": false
                     }
                 
                 ],

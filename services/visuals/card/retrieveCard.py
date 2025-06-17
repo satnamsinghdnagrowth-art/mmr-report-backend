@@ -14,6 +14,13 @@ from datetime import datetime
 from helper.GetValueSymbol import getValueSymbol
 from helper.metricCheck import isMetricPositive
 from services.calculations.GrowthRate import dataGrowthRate
+from helper.LoadJsonData import financialDataTest
+from helper.GetFileByReportId import getReportData
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+import os
+import calendar
+from dateutil.parser import parse
 
 
 def retrieveCard(
@@ -27,36 +34,56 @@ def retrieveCard(
 ):
     try:
         valueData = getValueSymbol(title)
-
         valueType = valueData["type"]
         valueSymbol = valueData["symbol"]
 
-        # Main Content Cards Funtion
+        financialData = getReportData(reportId)["Report Details"] if reportId else financialDataTest
+
+        startDataRange = financialData.get("Data Range")[0]
+
+
+        # Convert {'Month': 1, 'Year': 2025} into datetime
+        if isinstance(startDataRange, dict) and "Month" in startDataRange and "Year" in startDataRange:
+            startDate = datetime(startDataRange["Year"], startDataRange["Month"], 1)
+        elif isinstance(startDataRange, str):
+            startDate = parse(startDataRange)
+        else:
+            startDate = startDataRange  # fallback if already datetime
+
+
+        # Main Content Cards Function
         mainFunc = functionRegistry.get(functionName)
 
         # Current Value
         mainValue = mainFunc(year, months, reportId).Data
 
+        # Previous Value
         previousValue = 0
 
-        # previousValue value
-        if comparedTo.lower() in ["from prev month", "from lastmonth"]:
+        if comparedTo.lower() in ["from last month", "from lastmonth"]:
+            latest_month = months[0]
             prev_year, prev_month = (
-                (year - 1, 12) if months[0] == 1 else (year, months[0] - 1)
+                (year - 1, 12) if latest_month == 1 else (year, latest_month - 1)
             )
-
             previousValue = mainFunc(prev_year, [prev_month], reportId).Data
 
-        elif comparedTo.lower() in ["from prev year", "from lastyear"]:
+        elif comparedTo.lower() in ["from last year", "from lastyear"]:
             previousValue = mainFunc(year - 1, months, reportId).Data
-
         else:
-            previousValue = None  #  handle as needed
+            previousValue = None
 
-        # TrendLine Data
-        trendLineXaxis = [calendar.month_abbr[m] for m in range(1, 13)]
+        latest_month = max(months)
+        latest_date = datetime(year, latest_month, 1)
 
-        trendLineYaxis = [mainFunc(year, [m], reportId).Data for m in range(1, 13)]
+        trend_dates = []
+
+        for i in reversed(range(12)):
+            month_date = latest_date - relativedelta(months=i)
+            if month_date >= startDate:
+                trend_dates.append(month_date)
+
+        trendLineXaxis = [d.strftime("%b %Y") for d in trend_dates]
+        trendLineYaxis = [mainFunc(d.year, [d.month], reportId).Data for d in trend_dates]
 
         trendLineData = TrendLineChart(Xaxis=trendLineXaxis, Yaxis=trendLineYaxis)
 
@@ -70,6 +97,7 @@ def retrieveCard(
             Symbol=valueSymbol,
         )
 
+        # Comparison value calculation
         prevValuePositiveCheck = isMetricPositive(title, previousValue)
 
         if comparisonFunc.lower() == "growthrate":
@@ -77,7 +105,6 @@ def retrieveCard(
         else:
             comparisonValue = previousValue
 
-        # Footer Content Value Object
         compValueObj = ValueObjectModel(
             Value=comparisonValue,
             isPositive=prevValuePositiveCheck,
@@ -91,10 +118,16 @@ def retrieveCard(
             TrendLine=trendLineData,
         )
 
-        cardData = CardDataModel(Title=title, Content=contentValueObj, Footer=footerObj)
+        cardData = CardDataModel(
+            Title=title,
+            Content=contentValueObj,
+            Footer=footerObj
+        )
 
         return Result(
-            Data=cardData, Status=1, Message="Revenue Card calculated successfully"
+            Data=cardData,
+            Status=1,
+            Message="Card calculated successfully"
         )
 
     except ZeroDivisionError as ex:

@@ -1,8 +1,8 @@
 {
-    "ReportId": 21308,
+    "ReportId": 71565,
     "Report Details": {
         "Company Name": "Honest Game",
-        "Financial Year": "January",
+        "Financial Year": 1,
         "Data Range": [
             {
                 "Month": 1,
@@ -27939,943 +27939,567 @@
                         {
                             "Month": 1,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 2,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 3,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 4,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 5,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 6,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 7,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 8,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 9,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 10,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 11,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 12,
                             "Year": 2022,
-                            "Value": -1045936.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 1,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 2,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 3,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 4,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 5,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 6,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 7,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 8,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 9,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 10,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 11,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 12,
                             "Year": 2023,
-                            "Value": -2141466.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 1,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 2,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 3,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 4,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 5,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 6,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 7,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 8,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 9,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 10,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 11,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 12,
                             "Year": 2024,
-                            "Value": -3203353.6
+                            "Value": 0.0
                         },
                         {
                             "Month": 1,
                             "Year": 2025,
-                            "Value": -4043713.49
+                            "Value": 0.0
                         }
                     ],
                     "Current Earnings": [
                         {
                             "Month": 1,
                             "Year": 2022,
-                            "Value": 6376.68
+                            "Value": 0.0
                         },
                         {
                             "Month": 2,
                             "Year": 2022,
-                            "Value": -172909.64
+                            "Value": 0.0
                         },
                         {
                             "Month": 3,
                             "Year": 2022,
-                            "Value": -321991.79
+                            "Value": 0.0
                         },
                         {
                             "Month": 4,
                             "Year": 2022,
-                            "Value": -412498.9
+                            "Value": 0.0
                         },
                         {
                             "Month": 5,
                             "Year": 2022,
-                            "Value": -506340.48
+                            "Value": 0.0
                         },
                         {
                             "Month": 6,
                             "Year": 2022,
-                            "Value": -602517.87
+                            "Value": 0.0
                         },
                         {
                             "Month": 7,
                             "Year": 2022,
-                            "Value": -663245.69
+                            "Value": 0.0
                         },
                         {
                             "Month": 8,
                             "Year": 2022,
-                            "Value": -714601.62
+                            "Value": 0.0
                         },
                         {
                             "Month": 9,
                             "Year": 2022,
-                            "Value": -724544.93
+                            "Value": 0.0
                         },
                         {
                             "Month": 10,
                             "Year": 2022,
-                            "Value": -846420.71
+                            "Value": 0.0
                         },
                         {
                             "Month": 11,
                             "Year": 2022,
-                            "Value": -995468.99
+                            "Value": 0.0
                         },
                         {
                             "Month": 12,
                             "Year": 2022,
-                            "Value": -1095530.13
+                            "Value": 0.0
                         },
                         {
                             "Month": 1,
                             "Year": 2023,
-                            "Value": -110067.48
+                            "Value": 0.0
                         },
                         {
                             "Month": 2,
                             "Year": 2023,
-                            "Value": -220633.88
+                            "Value": 0.0
                         },
                         {
                             "Month": 3,
                             "Year": 2023,
-                            "Value": -129853.51
+                            "Value": 0.0
                         },
                         {
                             "Month": 4,
                             "Year": 2023,
-                            "Value": -112624.23
+                            "Value": 0.0
                         },
                         {
                             "Month": 5,
                             "Year": 2023,
-                            "Value": -181744.23
+                            "Value": 0.0
                         },
                         {
                             "Month": 6,
                             "Year": 2023,
-                            "Value": -229672.46
+                            "Value": 0.0
                         },
                         {
                             "Month": 7,
                             "Year": 2023,
-                            "Value": -196135.21
+                            "Value": 0.0
                         },
                         {
                             "Month": 8,
                             "Year": 2023,
-                            "Value": -200260.27
+                            "Value": 0.0
                         },
                         {
                             "Month": 9,
                             "Year": 2023,
-                            "Value": -306278.54
+                            "Value": 0.0
                         },
                         {
                             "Month": 10,
                             "Year": 2023,
-                            "Value": -364395.74
+                            "Value": 0.0
                         },
                         {
                             "Month": 11,
                             "Year": 2023,
-                            "Value": -385134.88
+                            "Value": 0.0
                         },
                         {
                             "Month": 12,
                             "Year": 2023,
-                            "Value": -560895.55
+                            "Value": 0.0
                         },
                         {
                             "Month": 1,
                             "Year": 2024,
-                            "Value": -69337.08
+                            "Value": 0.0
                         },
                         {
                             "Month": 2,
                             "Year": 2024,
-                            "Value": -142090.52
+                            "Value": 0.0
                         },
                         {
                             "Month": 3,
                             "Year": 2024,
-                            "Value": -209514.55
+                            "Value": 0.0
                         },
                         {
                             "Month": 4,
                             "Year": 2024,
-                            "Value": -324931.8
+                            "Value": 0.0
                         },
                         {
                             "Month": 5,
                             "Year": 2024,
-                            "Value": -357606.24
+                            "Value": 0.0
                         },
                         {
                             "Month": 6,
                             "Year": 2024,
-                            "Value": -416484.96
+                            "Value": 0.0
                         },
                         {
                             "Month": 7,
                             "Year": 2024,
-                            "Value": -457811.59
+                            "Value": 0.0
                         },
                         {
                             "Month": 8,
                             "Year": 2024,
-                            "Value": -619785.43
+                            "Value": 0.0
                         },
                         {
                             "Month": 9,
                             "Year": 2024,
-                            "Value": -651031.39
+                            "Value": 0.0
                         },
                         {
                             "Month": 10,
                             "Year": 2024,
-                            "Value": -757163.4
+                            "Value": 0.0
                         },
                         {
                             "Month": 11,
                             "Year": 2024,
-                            "Value": -832109.5
+                            "Value": 0.0
                         },
                         {
                             "Month": 12,
                             "Year": 2024,
-                            "Value": -840359.89
+                            "Value": 0.0
                         },
                         {
                             "Month": 1,
                             "Year": 2025,
-                            "Value": 121855.72
+                            "Value": 0.0
                         }
                     ],
                     "Other Equity": [
                         {
                             "Month": 1,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 1460440.17
                         },
                         {
                             "Month": 2,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 1281153.85
                         },
                         {
                             "Month": 3,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 1132071.7
                         },
                         {
                             "Month": 4,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 1041564.59
                         },
                         {
                             "Month": 5,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 947723.01
                         },
                         {
                             "Month": 6,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 851545.62
                         },
                         {
                             "Month": 7,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 790817.8
                         },
                         {
                             "Month": 8,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 739461.87
                         },
                         {
                             "Month": 9,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 729518.56
                         },
                         {
                             "Month": 10,
                             "Year": 2022,
-                            "Value": 2500000.0
+                            "Value": 607642.78
                         },
                         {
                             "Month": 11,
                             "Year": 2022,
-                            "Value": 2700000.0
+                            "Value": 658594.5
                         },
                         {
                             "Month": 12,
                             "Year": 2022,
-                            "Value": 2900000.0
+                            "Value": 758533.36
                         },
                         {
                             "Month": 1,
                             "Year": 2023,
-                            "Value": 2995000.0
+                            "Value": 743465.88
                         },
                         {
                             "Month": 2,
                             "Year": 2023,
-                            "Value": 2995000.0
+                            "Value": 632899.48
                         },
                         {
                             "Month": 3,
                             "Year": 2023,
-                            "Value": 2995000.0
+                            "Value": 723679.85
                         },
                         {
                             "Month": 4,
                             "Year": 2023,
-                            "Value": 2995000.0
+                            "Value": 740909.13
                         },
                         {
                             "Month": 5,
                             "Year": 2023,
-                            "Value": 3095000.0
+                            "Value": 771789.13
                         },
                         {
                             "Month": 6,
                             "Year": 2023,
-                            "Value": 3095000.0
+                            "Value": 723860.9
                         },
                         {
                             "Month": 7,
                             "Year": 2023,
-                            "Value": 3095000.0
+                            "Value": 757398.15
                         },
                         {
                             "Month": 8,
                             "Year": 2023,
-                            "Value": 3095000.0
+                            "Value": 753273.09
                         },
                         {
                             "Month": 9,
                             "Year": 2023,
-                            "Value": 3095000.0
+                            "Value": 647254.82
                         },
                         {
                             "Month": 10,
                             "Year": 2023,
-                            "Value": 3441766.0
+                            "Value": 935903.62
                         },
                         {
                             "Month": 11,
                             "Year": 2023,
-                            "Value": 3461766.0
+                            "Value": 935164.48
                         },
                         {
                             "Month": 12,
                             "Year": 2023,
-                            "Value": 3461766.0
+                            "Value": 759403.81
                         },
                         {
                             "Month": 1,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": 189075.32
                         },
                         {
                             "Month": 2,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": 116321.88
                         },
                         {
                             "Month": 3,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": 48897.85
                         },
                         {
                             "Month": 4,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": -66519.4
                         },
                         {
                             "Month": 5,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": -99193.84
                         },
                         {
                             "Month": 6,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": -158072.56
                         },
                         {
                             "Month": 7,
                             "Year": 2024,
-                            "Value": 3461766.0
+                            "Value": -199399.19
                         },
                         {
                             "Month": 8,
                             "Year": 2024,
-                            "Value": 3519766.0
+                            "Value": -303373.03
                         },
                         {
                             "Month": 9,
                             "Year": 2024,
-                            "Value": 3661766.0
+                            "Value": -192618.99
                         },
                         {
                             "Month": 10,
                             "Year": 2024,
-                            "Value": 3661766.0
+                            "Value": -298751.0
                         },
                         {
                             "Month": 11,
                             "Year": 2024,
-                            "Value": 3661766.0
+                            "Value": -373697.1
                         },
                         {
                             "Month": 12,
                             "Year": 2024,
-                            "Value": 3661766.0
+                            "Value": -381947.49
                         },
                         {
                             "Month": 1,
                             "Year": 2025,
-                            "Value": 3661766.0
+                            "Value": -260091.77
                         }
                     ]
                 },
                 "LineItems": {
-                    "Retained Earnings": {
-                        "Retained Earnings": [
-                            {
-                                "Month": 1,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 2,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 3,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 4,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 5,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 6,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 7,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 8,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 9,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 10,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 11,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 12,
-                                "Year": 2022,
-                                "Value": -1045936.51
-                            },
-                            {
-                                "Month": 1,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 2,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 3,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 4,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 5,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 6,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 7,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 8,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 9,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 10,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 11,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 12,
-                                "Year": 2023,
-                                "Value": -2141466.64
-                            },
-                            {
-                                "Month": 1,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 2,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 3,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 4,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 5,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 6,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 7,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 8,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 9,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 10,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 11,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 12,
-                                "Year": 2024,
-                                "Value": -3203353.6
-                            },
-                            {
-                                "Month": 1,
-                                "Year": 2025,
-                                "Value": -4043713.49
-                            }
-                        ]
-                    },
-                    "Current Earnings": {
-                        "Net Income": [
-                            {
-                                "Month": 1,
-                                "Year": 2022,
-                                "Value": 6376.68
-                            },
-                            {
-                                "Month": 2,
-                                "Year": 2022,
-                                "Value": -172909.64
-                            },
-                            {
-                                "Month": 3,
-                                "Year": 2022,
-                                "Value": -321991.79
-                            },
-                            {
-                                "Month": 4,
-                                "Year": 2022,
-                                "Value": -412498.9
-                            },
-                            {
-                                "Month": 5,
-                                "Year": 2022,
-                                "Value": -506340.48
-                            },
-                            {
-                                "Month": 6,
-                                "Year": 2022,
-                                "Value": -602517.87
-                            },
-                            {
-                                "Month": 7,
-                                "Year": 2022,
-                                "Value": -663245.69
-                            },
-                            {
-                                "Month": 8,
-                                "Year": 2022,
-                                "Value": -714601.62
-                            },
-                            {
-                                "Month": 9,
-                                "Year": 2022,
-                                "Value": -724544.93
-                            },
-                            {
-                                "Month": 10,
-                                "Year": 2022,
-                                "Value": -846420.71
-                            },
-                            {
-                                "Month": 11,
-                                "Year": 2022,
-                                "Value": -995468.99
-                            },
-                            {
-                                "Month": 12,
-                                "Year": 2022,
-                                "Value": -1095530.13
-                            },
-                            {
-                                "Month": 1,
-                                "Year": 2023,
-                                "Value": -110067.48
-                            },
-                            {
-                                "Month": 2,
-                                "Year": 2023,
-                                "Value": -220633.88
-                            },
-                            {
-                                "Month": 3,
-                                "Year": 2023,
-                                "Value": -129853.51
-                            },
-                            {
-                                "Month": 4,
-                                "Year": 2023,
-                                "Value": -112624.23
-                            },
-                            {
-                                "Month": 5,
-                                "Year": 2023,
-                                "Value": -181744.23
-                            },
-                            {
-                                "Month": 6,
-                                "Year": 2023,
-                                "Value": -229672.46
-                            },
-                            {
-                                "Month": 7,
-                                "Year": 2023,
-                                "Value": -196135.21
-                            },
-                            {
-                                "Month": 8,
-                                "Year": 2023,
-                                "Value": -200260.27
-                            },
-                            {
-                                "Month": 9,
-                                "Year": 2023,
-                                "Value": -306278.54
-                            },
-                            {
-                                "Month": 10,
-                                "Year": 2023,
-                                "Value": -364395.74
-                            },
-                            {
-                                "Month": 11,
-                                "Year": 2023,
-                                "Value": -385134.88
-                            },
-                            {
-                                "Month": 12,
-                                "Year": 2023,
-                                "Value": -560895.55
-                            },
-                            {
-                                "Month": 1,
-                                "Year": 2024,
-                                "Value": -69337.08
-                            },
-                            {
-                                "Month": 2,
-                                "Year": 2024,
-                                "Value": -142090.52
-                            },
-                            {
-                                "Month": 3,
-                                "Year": 2024,
-                                "Value": -209514.55
-                            },
-                            {
-                                "Month": 4,
-                                "Year": 2024,
-                                "Value": -324931.8
-                            },
-                            {
-                                "Month": 5,
-                                "Year": 2024,
-                                "Value": -357606.24
-                            },
-                            {
-                                "Month": 6,
-                                "Year": 2024,
-                                "Value": -416484.96
-                            },
-                            {
-                                "Month": 7,
-                                "Year": 2024,
-                                "Value": -457811.59
-                            },
-                            {
-                                "Month": 8,
-                                "Year": 2024,
-                                "Value": -619785.43
-                            },
-                            {
-                                "Month": 9,
-                                "Year": 2024,
-                                "Value": -651031.39
-                            },
-                            {
-                                "Month": 10,
-                                "Year": 2024,
-                                "Value": -757163.4
-                            },
-                            {
-                                "Month": 11,
-                                "Year": 2024,
-                                "Value": -832109.5
-                            },
-                            {
-                                "Month": 12,
-                                "Year": 2024,
-                                "Value": -840359.89
-                            },
-                            {
-                                "Month": 1,
-                                "Year": 2025,
-                                "Value": 121855.72
-                            }
-                        ]
-                    },
+                    "Retained Earnings": {},
+                    "Current Earnings": {},
                     "Other Equity": {
                         "Common Stock - Joyce": [
                             {
@@ -38599,6 +38223,380 @@
                                 "Month": 1,
                                 "Year": 2025,
                                 "Value": 37000.0
+                            }
+                        ],
+                        "Net Income": [
+                            {
+                                "Month": 1,
+                                "Year": 2022,
+                                "Value": 6376.68
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2022,
+                                "Value": -172909.64
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2022,
+                                "Value": -321991.79
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2022,
+                                "Value": -412498.9
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2022,
+                                "Value": -506340.48
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2022,
+                                "Value": -602517.87
+                            },
+                            {
+                                "Month": 7,
+                                "Year": 2022,
+                                "Value": -663245.69
+                            },
+                            {
+                                "Month": 8,
+                                "Year": 2022,
+                                "Value": -714601.62
+                            },
+                            {
+                                "Month": 9,
+                                "Year": 2022,
+                                "Value": -724544.93
+                            },
+                            {
+                                "Month": 10,
+                                "Year": 2022,
+                                "Value": -846420.71
+                            },
+                            {
+                                "Month": 11,
+                                "Year": 2022,
+                                "Value": -995468.99
+                            },
+                            {
+                                "Month": 12,
+                                "Year": 2022,
+                                "Value": -1095530.13
+                            },
+                            {
+                                "Month": 1,
+                                "Year": 2023,
+                                "Value": -110067.48
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2023,
+                                "Value": -220633.88
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2023,
+                                "Value": -129853.51
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2023,
+                                "Value": -112624.23
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2023,
+                                "Value": -181744.23
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2023,
+                                "Value": -229672.46
+                            },
+                            {
+                                "Month": 7,
+                                "Year": 2023,
+                                "Value": -196135.21
+                            },
+                            {
+                                "Month": 8,
+                                "Year": 2023,
+                                "Value": -200260.27
+                            },
+                            {
+                                "Month": 9,
+                                "Year": 2023,
+                                "Value": -306278.54
+                            },
+                            {
+                                "Month": 10,
+                                "Year": 2023,
+                                "Value": -364395.74
+                            },
+                            {
+                                "Month": 11,
+                                "Year": 2023,
+                                "Value": -385134.88
+                            },
+                            {
+                                "Month": 12,
+                                "Year": 2023,
+                                "Value": -560895.55
+                            },
+                            {
+                                "Month": 1,
+                                "Year": 2024,
+                                "Value": -69337.08
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2024,
+                                "Value": -142090.52
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2024,
+                                "Value": -209514.55
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2024,
+                                "Value": -324931.8
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2024,
+                                "Value": -357606.24
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2024,
+                                "Value": -416484.96
+                            },
+                            {
+                                "Month": 7,
+                                "Year": 2024,
+                                "Value": -457811.59
+                            },
+                            {
+                                "Month": 8,
+                                "Year": 2024,
+                                "Value": -619785.43
+                            },
+                            {
+                                "Month": 9,
+                                "Year": 2024,
+                                "Value": -651031.39
+                            },
+                            {
+                                "Month": 10,
+                                "Year": 2024,
+                                "Value": -757163.4
+                            },
+                            {
+                                "Month": 11,
+                                "Year": 2024,
+                                "Value": -832109.5
+                            },
+                            {
+                                "Month": 12,
+                                "Year": 2024,
+                                "Value": -840359.89
+                            },
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 121855.72
+                            }
+                        ],
+                        "Retained Earnings": [
+                            {
+                                "Month": 1,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 7,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 8,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 9,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 10,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 11,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 12,
+                                "Year": 2022,
+                                "Value": -1045936.51
+                            },
+                            {
+                                "Month": 1,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 7,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 8,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 9,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 10,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 11,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 12,
+                                "Year": 2023,
+                                "Value": -2141466.64
+                            },
+                            {
+                                "Month": 1,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 7,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 8,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 9,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 10,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 11,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 12,
+                                "Year": 2024,
+                                "Value": -3203353.6
+                            },
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": -4043713.49
                             }
                         ]
                     }
