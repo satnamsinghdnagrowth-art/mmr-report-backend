@@ -98,12 +98,13 @@ def retrieveCard(
         )
 
         # Comparison value calculation
-        prevValuePositiveCheck = isMetricPositive(title, previousValue)
 
         if comparisonFunc.lower() == "growthrate":
             comparisonValue = dataGrowthRate(mainValue, previousValue).Data
         else:
             comparisonValue = previousValue
+    
+        prevValuePositiveCheck = isMetricPositive(title, comparisonValue)
 
         compValueObj = ValueObjectModel(
             Value=comparisonValue,

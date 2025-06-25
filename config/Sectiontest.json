@@ -7,7 +7,7 @@
                 "comparisonFunction": "growthRate"
             },
             {
-                "title": "Cost of Goods Sold",
+                "title": "Cost of Sales",
                 "mainFunction": "directExpenses",
                 "comparisonFunction": "growthRate"
             },
@@ -81,14 +81,26 @@
                         "label": "Operating Expenses",
                         "func": "totalOperatingExpenses"
                     },
+                    {
+                        "label": "Operating Profit",
+                        "func": "ebit"
+                    },
                     
                     {
                         "label": "Other Income",
                         "func": "otherIncome"
                     },
                     {
+                        "label": "Earnings Before Interest & Tax",
+                        "func": "earningBeforeInterestandTax"
+                    },
+                    {
                         "label": "Interest Income",
                         "func": "interestIncome"
+                    },
+                    {
+                        "label": "Earnings Before Tax",
+                        "func": "earningBeforeTax"
                     },
 
                     {
@@ -153,6 +165,46 @@
             }
         ],
         "tables": [
+            {
+                "title": "Profitability",
+                "columns": [
+                    "Particulars",
+                    "This Month",
+                    "Last Month",
+                    "This Month vs last Month(%)",
+                    "This Month vs last Month($)"
+                ],
+                "rows": [
+                    {
+                        "label": "Gross Profit",
+                        "func": "grossProfit"
+                    },
+                    {
+                        "label": "Gross Profit Margin",
+                        "func": "grossProfitMargin"
+                    },
+                    {
+                        "label": "Operating Profit",
+                        "func": "ebit"
+                    },
+                    {
+                        "label": "Operating Profit Margin (%)",
+                        "func": "ebitMargin"
+                    },
+                    {
+                        "label": "Earnings Before Interest & Tax",
+                        "func": "earningBeforeInterestandTax"
+                    },
+                    {
+                        "label": "Earnings Before Tax",
+                        "func": "earningBeforeTax"
+                    },
+                    {
+                        "label": "Net Profit After Tax Margin (%)",
+                        "func": "netIncomeMargin"
+                    }
+                ]
+            }
         ]
     },
     "Expenses Analysis": {

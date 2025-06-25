@@ -7,16 +7,14 @@ report_data = {}
 Report_Table_File_Path = os.path.join("database", "ReportTable.json")
 
 
-def getFileNameByReportId(reportId: int) -> Optional[str]:
+def getReportMetaDatabyId(reportId: int) -> Optional[str]:
     try:
         with open(Report_Table_File_Path, "r") as f:
             reports = json.load(f)
 
-        print(type(reportId))
-
         for report in reports:
             if report.get("ReportId") == int(reportId):
-                return report.get("FileName")
+                return report
 
         return None  # Not found
 
@@ -25,11 +23,10 @@ def getFileNameByReportId(reportId: int) -> Optional[str]:
         return None
 
 
-
 def getReportData(reportId: int,reportDetail:Optional[bool]= False):
-    if reportId not in report_data:
-        fileName = getFileNameByReportId(reportId)
 
+    if reportId not in report_data:
+        fileName = getReportMetaDatabyId(reportId).get("FileName")
 
         if not fileName:
             raise ValueError(f"No file name found for report ID {reportId}")

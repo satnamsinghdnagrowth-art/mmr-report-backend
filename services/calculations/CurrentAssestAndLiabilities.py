@@ -17,7 +17,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
         ]["Short-term Debt"]
 
         STDFilter = [
-            item
+            item\
             for item in STDdata
             if (item["Year"] == year and (0 in months or item["Month"] in months))
         ]
@@ -62,6 +62,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalCL = totalAP + totalOCL
 
+
         return Result(
             Data=round(totalCL, 2),
             Status=1,
@@ -76,7 +77,7 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
 def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
     try:
-
+        
         financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         ARdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
@@ -128,6 +129,7 @@ def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
         totalOCA = sum(item["Value"] for item in OCAFilter)
 
         totalCA = totalAR + totalOCA + totalINV
+
         return Result(
             Data=round(totalCA, 2),
             Status=1,

@@ -106,7 +106,7 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
             operating_rows.append(row)
 
         rows.extend(operating_rows)
-        rows.append(calculateSectionTotal(operating_rows, staticMonths))
+        rows.append(calculateSectionTotal(operating_rows, staticMonths,"Operating Activities"))
 
         # ---------------- Investing Activities ----------------
         rows.append(
@@ -130,7 +130,7 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
         investing_rows.append(row)
 
         rows.extend(investing_rows)
-        rows.append(calculateSectionTotal(investing_rows, staticMonths))
+        rows.append(calculateSectionTotal(investing_rows, staticMonths,"Investing Activities"))
 
         # ---------------- Financing Activities ----------------
         rows.append(
@@ -260,7 +260,7 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
 
         rows.extend(financing_rows)
         
-        rows.append(calculateSectionTotal(financing_rows, staticMonths))
+        rows.append(calculateSectionTotal(financing_rows, staticMonths,"Financing Activities"))
 
         financing_rows = []
 
@@ -285,8 +285,8 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
             ValueObjectModel(
                 Value="Cash & Equivalents, Opening Balance",
                 isPositive=True,
-                Type="",
-                Symbol="",
+                Type="currency",
+                Symbol="$",
             )
         ]
 
@@ -294,8 +294,8 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
             ValueObjectModel(
                 Value="Cash & Equivalents, Closing Balance",
                 isPositive=True,
-                Type="",
-                Symbol="",
+                Type="currency",
+                Symbol="$",
             )
         ]
         for m in staticMonths:
@@ -316,10 +316,10 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
                 [m],
             ).Data
             OpenRows.append(
-                ValueObjectModel(Value=result, isPositive=True, Type="", Symbol="")
+                ValueObjectModel(Value=result, isPositive=True, Type="currency", Symbol="$")
             )
             closeRows.append(
-                ValueObjectModel(Value=result2, isPositive=True, Type="", Symbol="")
+                ValueObjectModel(Value=result2, isPositive=True, Type="currency", Symbol="$")
             )
 
         rows.extend([OpenRows, closeRows])

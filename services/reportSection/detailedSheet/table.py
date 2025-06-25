@@ -11,6 +11,7 @@ from services.calculations.EarningBefore import (
     earningBeforeTax,
 )
 from helper.GetValueSum import getValueSum
+from services.calculations.Ebit import EBIT
 from services.calculations.NetIncome import netIncome
 from core.models.visualsModel.ValueObject import ValueObjectModel
 import calendar
@@ -39,6 +40,7 @@ def getDetailedTable(year: int, tableTypes: list[str], reportId):
             rows = []
 
             for sectionName, sectionContent in data.items():
+
                 sectionRows = []
                 sectionMonthlyTotals = {m: 0.0 for m in staticMonths}
 
@@ -102,11 +104,11 @@ def getDetailedTable(year: int, tableTypes: list[str], reportId):
                         ValueObjectModel(Value=sectionMonthlyTotals[month], isPositive=True, Type="currency", Symbol="$")
                     )
 
-                if tableType == "PROFIT & LOSS":
-                    totalSectionRow.append(
-                        ValueObjectModel(Value=sectionGrandTotal, isPositive=True, Type="currency", Symbol="$")
-                    )
-                    sectionRows.append(totalSectionRow)
+                # if tableType == "PROFIT & LOSS":
+                totalSectionRow.append(
+                    ValueObjectModel(Value=sectionGrandTotal, isPositive=True, Type="currency", Symbol="$")
+                )
+                sectionRows.append(totalSectionRow)
 
                 if sectionName.upper() == "COST OF SALES":
                     sectionRows.append(generateSummaryRow("Gross Profit", year, staticMonths, lambda y, m: grossProfit(y, [m], reportId).Data))
@@ -124,6 +126,12 @@ def getDetailedTable(year: int, tableTypes: list[str], reportId):
 
                     sectionRows.append(generateSummaryRow("Earnings Before Tax", year, staticMonths, lambda y, m: earningBeforeTax(y, [m], reportId).Data))
                     sectionRows.append(generateSummaryRow("Total Net Income", year, staticMonths, lambda y, m: netIncome(y, [m], reportId).Data))
+
+                if sectionName.upper() == "EXPENSES":
+                    sectionRows.append(generateSummaryRow("Earning Before Interest & Tax", year, staticMonths, lambda y, m: EBIT(y, [m], reportId).Data))
+                    sectionRows.append(generateSummaryRow("Net Income", year, staticMonths, lambda y, m: netIncome(y, [m], reportId).Data))
+
+
 
                 rows.extend(sectionRows)
 

@@ -1,4 +1,4 @@
-NEGATIVE_METRICS = {"Cost of Sales", "Expenses","Cost of Goods Sold"}
+NEGATIVE_METRICS = { "Expenses","Cost of Goods Sold","Operating Expenses"}
 
 
 PERCENTAGE_METRICS = "Margin,Growth,"

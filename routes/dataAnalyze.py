@@ -12,11 +12,9 @@ class SummaryObject(BaseModel):
     Summary : str
 
 
-
 @Analyze.get("/{reportId}",response_model=Result)
 def analyzeData(reportId:int):
     return retriveDataRange(reportId)
-
 
 
 @Analyze.post("/saveSummary",response_model=Result)

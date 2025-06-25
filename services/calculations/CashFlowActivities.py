@@ -17,6 +17,12 @@ from helper.GetValueSum import getValueSum
 # Operating Profit
 def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
     try:
+        
+        if len(months) == 1 :
+            reportType = "Month"
+        else:
+            reportType = "Year"
+
         financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
 
         totalInterestIncome = getValueSum(
@@ -53,14 +59,30 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
         totalTEXP = sum(item["Value"] for item in TEXPFilter)
 
         netProfitTotal = netIncome(year, months, reportId).Data
-        changeInCa = (
-            getTotalCurrentAssets(year - 1, [months[-1]],reportId).Data
-            - getTotalCurrentAssets(year, [months[-1]],reportId).Data
-        )
-        changeInCl = (
-            getTotalCurrentLiabilities(year, [months[-1]],reportId).Data
-            - getTotalCurrentLiabilities(year - 1, [months[-1]],reportId).Data
-        )
+        if reportType.lower() == "year":
+            changeInCa = (
+                getTotalCurrentAssets(year-1, [months[-1]],reportId).Data
+                - getTotalCurrentAssets(year, [months[-1]],reportId).Data
+            )
+
+
+            changeInCl = (
+                getTotalCurrentLiabilities(year, [months[-1]],reportId).Data
+                - getTotalCurrentLiabilities(year-1 , [months[-1]],reportId).Data
+            )
+
+        else:
+            changeInCa = (
+                getTotalCurrentAssets(year, [months[-1]-1],reportId).Data
+                - getTotalCurrentAssets(year, [months[-1]],reportId).Data
+            )
+
+
+            changeInCl = (
+                getTotalCurrentLiabilities(year, [months[-1]],reportId).Data
+                - getTotalCurrentLiabilities(year , [months[-1]-1],reportId).Data
+            )
+
 
         netIncomeAfterAdjustment = (
             netProfitTotal
@@ -68,6 +90,7 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
             + totalInterestExpense
             - totalInterestIncome
         )
+
 
         operatingActivitesCashFlow = netIncomeAfterAdjustment + changeInCl + changeInCa
 

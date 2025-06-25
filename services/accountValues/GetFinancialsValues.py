@@ -38,7 +38,7 @@ def formatFinancialData(filePath,reportId:int,companyLogo):
                 shutil.copyfileobj(companyLogo.file, buffer)
 
         else:
-            logoFilePath = None
+            logoFilePath = "database/companyLogos/sample-logo.png"
 
         data = {
             "ReportId":reportId,
