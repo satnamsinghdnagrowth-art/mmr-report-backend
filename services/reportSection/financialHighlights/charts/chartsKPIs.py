@@ -31,13 +31,12 @@ def getSectionCharts(
                 reportId=reportId,
                 year=year,
                 months=months,
-                title=config["title"],
-                rigthYaxis=config["rigthYaxis"],
-                chartData=config["data"],
-                axisChoice=config["indexAxis"],
+                config = config,
                 reportType=reportType,
             )
             charts.append(card.Data)
+
+        
 
         # charts.append(getRevenueBreakdownChart(year, months, reportId).Data)
 

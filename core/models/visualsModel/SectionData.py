@@ -6,6 +6,6 @@ from core.models.visualsModel.TableModel import TableModel
 
 
 class SectionData(BaseModel):
-    Cards: List[CardDataModel]
-    Charts: List[ChartDataModel]
-    Tables: List[TableModel]
+    Cards: Optional[List[CardDataModel]] = []
+    Charts: Optional[List[ChartDataModel]] = []
+    Tables: Optional[List[TableModel]] = []

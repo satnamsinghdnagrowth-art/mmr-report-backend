@@ -4,7 +4,7 @@ import calendar
 from typing import Optional
 from helper.GetValueSymbol import getValueSymbol
 from config.FunctionMaping import functionRegistry
-from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
+from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel , YaxisControllerModel
 
 
 from typing import Optional
@@ -14,14 +14,16 @@ import calendar
 def retrieveChart(
     year: int,
     months: list[int],
-    title: str,
-    chartData: list[dict],
-    rigthYaxis: str,
-    axisChoice: str,
+    config:dict,
     reportType: Optional[str] = None,
     reportId: Optional[int] = None,
 ) -> Result:
     try:
+        title=config["title"]
+        rigthYaxis=config["rigthYaxis"]
+        chartData=config["data"]
+        axisChoice=config["indexAxis"]
+
         if reportType and reportType.lower() == "month":
             current_month = months[0]  # assume latest month is passed
             last_six_months = []
@@ -42,24 +44,28 @@ def retrieveChart(
             xAxis = [f"{calendar.month_abbr[m]}" for (y, m) in months]
         else:
             xAxis = [f"{calendar.month_abbr[m]} {y}" for (y, m) in months]
-
-
        
         yAxisSeries = []
+
+        symbolList = []
 
         for metric in chartData:
 
             valueFunc = metric["valueFunc"]
             
             label = metric["label"]
+
             functionName = metric["funcName"]
 
             valueData = getValueSymbol(valueFunc)
             valueType = valueData["type"]
             valueSymbol = valueData["symbol"]
 
-            func = functionRegistry.get(functionName) 
+            symbolList.append(valueSymbol)
+            
+            yaxisId = metric["yaxisId"]
 
+            func = functionRegistry.get(functionName) 
 
             if not func:
                 raise ValueError(f"Function '{functionName}' not found in registry.")
@@ -83,7 +89,28 @@ def retrieveChart(
                     UnitType=valueType,
                     Symbol=valueSymbol,
                     AreaFill=metric["AreaFill"],
+                    YaxisId=yaxisId
                 )
+            )
+        
+        # Deduplicate symbols
+        unique_symbols = set(symbolList)
+
+        yaxisControllers = []
+
+        if unique_symbols == {"%"} or unique_symbols == {"$"}:
+            # All values have the same unit
+            symbol = symbolList[0] if symbolList else "$"  # Default to "$" if empty
+            yaxisControllers.append(
+                YaxisControllerModel(Id="left", Orientation="left", Unit=symbol)
+            )
+        else:
+            # Mixed symbols: % and $
+            yaxisControllers.append(
+                YaxisControllerModel(Id="right", Orientation="right", Unit="%")
+            )
+            yaxisControllers.append(
+                YaxisControllerModel(Id="left", Orientation="left", Unit="$")
             )
 
         chartData = ChartDataModel(
@@ -92,6 +119,7 @@ def retrieveChart(
             YaxisSeries=yAxisSeries,
             IndexAxis=axisChoice,
             RightYaxis=rigthYaxis,
+            YaxisController=yaxisControllers
         )
 
 

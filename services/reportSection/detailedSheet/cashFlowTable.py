@@ -255,9 +255,6 @@ def getCashFlowTable(year: int,reportId, tableType="CashFlow Table"):
 
             financing_rows.append(row)
 
-        
-
-
         rows.extend(financing_rows)
         
         rows.append(calculateSectionTotal(financing_rows, staticMonths,"Financing Activities"))

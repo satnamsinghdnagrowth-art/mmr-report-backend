@@ -25,7 +25,13 @@ def formatReportData(
 def uploadLogo(reportId:int,CompanyLogo : Optional[UploadFile] = File(None)):
     return updateReportFields(reportId,CompanyLogo)
     
+import json
 
-@dataFormat.get("/{reportId}",response_model=Result)
-def analyzeData(reportId:int):
-    return (reportId)
+@dataFormat.post("/test",response_model=Result)
+def testData(base64str=Body(...)):
+    print(base64str)
+    with open("data.json", "w") as f:
+        json.dump(base64str, f, indent=2) 
+
+    return Result(Data = base64str,Status=0,Message="Done")
+

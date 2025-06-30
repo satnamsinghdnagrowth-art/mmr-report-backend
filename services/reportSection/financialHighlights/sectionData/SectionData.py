@@ -9,6 +9,9 @@ from typing import Optional
 from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI import (
     getISTable,
 )
+from core.models.visualsModel.CardModel import CardsListModel
+from core.models.visualsModel.ChartModel import ChartsListModel
+from core.models.visualsModel.TableModel import TableListModel
 from datetime import datetime
 from typing import Optional, List
 
@@ -83,7 +86,10 @@ class FinancialHighlightSectionDataService:
             cards = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
-            return Result(Data=cards, Status=1, Message="Cards retrieved successfully")
+
+            response = CardsListModel(Cards=cards)
+            
+            return Result(Data=response, Status=1, Message="Cards retrieved successfully")
 
         except Exception as ex:
             message = f"Exception in getCardsOnly(): {ex}"
@@ -99,6 +105,8 @@ class FinancialHighlightSectionDataService:
             charts = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+
+            response = ChartsListModel(Charts=charts)
             return Result(
                 Data=charts, Status=1, Message="Charts retrieved successfully"
             )
@@ -117,6 +125,7 @@ class FinancialHighlightSectionDataService:
             tables = getISTable(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+            tables = TableListModel(Tables=tables)
             return Result(
                 Data=tables, Status=1, Message="Tables retrieved successfully"
             )

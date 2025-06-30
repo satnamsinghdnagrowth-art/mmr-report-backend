@@ -7,3 +7,6 @@ class TableModel(BaseModel):
     Title: str
     Column: List[str]
     Rows: List[List[Any]]
+
+class TableListModel(BaseModel):
+    Tables : List[TableModel]

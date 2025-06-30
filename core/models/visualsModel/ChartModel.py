@@ -11,7 +11,8 @@ class YAxisSeriesModel(BaseModel):
     Symbol: str
     AreaFill: Optional[bool] = False
     Values: List[float]
-    # BarTypes: Optional[List[Literal["relative", "total", "subtotal"]]] = None  # Add this for waterfall chart
+    
+    YaxisId: Optional[str] = "left" #---------
 
 
 class MarkerModel(BaseModel):
@@ -25,6 +26,12 @@ class MarkerModel(BaseModel):
     Size: Optional[int] = 8
     Description: Optional[Any] = None
 
+#---------
+class YaxisControllerModel(BaseModel):
+    Id : Optional[str] = "left"
+    Orientation : Optional[str] = "left"
+    Unit:Optional[str] = "$"
+
 
 class ChartDataModel(BaseModel):
     Title: str
@@ -32,7 +39,10 @@ class ChartDataModel(BaseModel):
     YaxisSeries: List[YAxisSeriesModel]
     IndexAxis: str
     RightYaxis: bool
-    Markers: Optional[List[MarkerModel]] = []
+    YaxisController : List[YaxisControllerModel]
+
+class ChartsListModel(BaseModel):
+    Charts : List[ChartDataModel] 
 
 
 # Request Body

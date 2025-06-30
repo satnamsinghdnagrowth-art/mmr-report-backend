@@ -32,25 +32,29 @@
                         "label":"Current Year",
                         "type":"Bar",
                         "funcName":"totalRevenue",
-                        "AreaFill":false
+                        "AreaFill":false,
+                        "yaxisId":"left"
                     },
                     {
                         "valueFunc":"Last Year",
                         "label": "Last Year",
                         "type": "Bar",
                         "funcName": "totalRevenue",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     },
                     {
                         "valueFunc":"Revenue Growth",
                         "label": "Revenue Growth",
                         "type": "Line",
                         "funcName": "revenueGrowth",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"right"
                     }
                 
                 ],
-                "indexAxis": "x"
+                "indexAxis": "x",
+                "ShowBothSideAxes":true
             }
         ],
         "tables": [
@@ -114,7 +118,8 @@
                         "label":"Gross Profit",
                         "type":"Line",
                         "funcName":"grossProfit",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                         
                     },
                     {
@@ -122,11 +127,13 @@
                         "label":"Operating Profit",
                         "type": "Line",
                         "funcName": "ebit",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     }
                 
                 ],
-                "indexAxis": "x"
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
             },
             {
                 "title": "Gross Profit Margin",
@@ -137,7 +144,9 @@
                         "label":"Current Year",
                         "type":"Bar",
                         "funcName":"grossProfitMargin",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
+
                     },
                     {
                         "valueFunc":"Last Year Margin",
@@ -145,11 +154,14 @@
                         "type": "Line",
                         "funcName": "grossProfitMargin",
 
-                        "AreaFill": true
+                        "AreaFill": true,
+
+                        "yaxisId":"left"
                     }
                 
                 ],
-                "indexAxis": "x"
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
             }
         ],
         "tables": [
@@ -169,25 +181,29 @@
                         "label":"Revenue",
                         "type":"Bar",
                         "funcName":"totalRevenue",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     },
                     {
                         "valueFunc":"Cost of Goods",
                         "label": "Cost of Goods",
                         "type": "Line",
                         "funcName": "directExpenses",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     },
                     {
                         "valueFunc":"Operating Expenses",
                         "label": "Operating Expenses",
                         "type": "Line",
                         "funcName": "totalOperatingExpenses",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     }
                 
                 ],
-                "indexAxis": "x"
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
             },
             {
                 "title": "Expenses to Revenue Ratio",
@@ -198,18 +214,21 @@
                         "label":"Current Year",
                         "type":"Line",
                         "funcName":"expensesToRevenueRatio",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     },
                     {
                         "valueFunc":"Expenses to Revenue Ratio",
                         "label": "Last Year",
                         "type": "Line",
                         "funcName": "expensesToRevenueRatio",
-                        "AreaFill": true
+                        "AreaFill": true,
+                        "yaxisId":"left"
                     }
                 
                 ],
-                "indexAxis": "x"
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
             }
         ],
         "tables": [
@@ -243,17 +262,20 @@
                         "label": "Gross Profit",
                         "type": "Line",
                         "funcName": "grossProfit",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     },
                     {
                         "valueFunc":"Operating Profit",
                         "label": "Operating Profit",
                         "type": "Line",
                         "funcName": "ebit",
-                        "AreaFill": false
+                        "AreaFill": false,
+                        "yaxisId":"left"
                     }
                 ],
-                "indexAxis": "x"
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
             }
         ],
         "tables": [

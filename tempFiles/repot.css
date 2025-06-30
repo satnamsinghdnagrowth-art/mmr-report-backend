@@ -1,0 +1,35 @@
+@page :first {
+  counter-reset: page 0;
+  @top-right {
+    content: none;
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2pt;
+  line-height: 1.5;
+}
+
+@page {
+  @top-center {
+    content: "Company Report";
+    font-size: 14pt;
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+  }
+}
+
+
+@page {
+  margin-top: 3.5cm;
+  margin-right: 1cm;
+  margin-bottom: 3.5cm;
+  margin-left: 1cm;
+}
+
+@page {
+  background: url("../images/watermark.png") center center no-repeat;
+  background-size: 60%;
+}

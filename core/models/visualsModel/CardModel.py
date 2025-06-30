@@ -20,6 +20,9 @@ class CardDataModel(BaseModel):
     Content: ValueObjectModel
     Footer: FooterModel
 
+class CardsListModel(BaseModel):
+    Cards : List[CardDataModel]
+
 
 # Request Body
 class TrendRequestBody(BaseModel):
