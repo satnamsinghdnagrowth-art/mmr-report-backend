@@ -81,6 +81,10 @@ def retrieveChart(
                     print(f"{datetime.now()} Error fetchiwng '{label}' for {calendar.month_name[m]} {y}: {error}")
                 values.append(data)
 
+            if all(v == 0.0 for v in values):
+                print(f"Skipping '{label}' because all values are zero.")
+                continue
+
             yAxisSeries.append(
                 YAxisSeriesModel(
                     Title=label,

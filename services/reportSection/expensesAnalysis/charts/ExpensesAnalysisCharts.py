@@ -23,7 +23,7 @@ def getEACharts(year: int, months: list[int], reportType: str, section: str, rep
         charts = []
 
         for config in configs.get("charts"):
-            card = retrieveChart(
+            chart = retrieveChart(
                 year=year,
                 months=months,
                 config=config,
@@ -31,7 +31,7 @@ def getEACharts(year: int, months: list[int], reportType: str, section: str, rep
                 reportType=reportType
             )
             
-            charts.append(card.Data)
+            charts.append(chart.Data)
 
         return Result(
             Data=charts, Status=1, Message="Revenue Card calculated successfully"

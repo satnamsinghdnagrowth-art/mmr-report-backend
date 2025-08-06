@@ -6,6 +6,7 @@ from enum import Enum
 class DisplayObj(str, Enum):
     currency = "currency"
     percentage = "percentage"
+    months='months'
     empty = ""
 
 

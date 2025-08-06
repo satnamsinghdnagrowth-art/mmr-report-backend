@@ -7,6 +7,7 @@ from routes.ProfitablitySection import ProfitAbility
 from routes.ExpensesAnalysis import ExpensesAnalysis
 from routes.BreakEvenAnalysis import BreakEvenAnaysis
 from routes.CashFlowAnalysis import CashFlow
+from routes.BudgetSection import BudgetSectionRouter
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
@@ -21,7 +22,8 @@ app.include_router(FinancialHighlights, prefix="/api/v1/section/financialHighlig
 app.include_router(ProfitAbility, prefix="/api/v1/section/profitability")
 app.include_router(ExpensesAnalysis, prefix="/api/v1/section/expensesAnalysis")
 app.include_router(BreakEvenAnaysis, prefix="/api/v1/section/breakEvenAnalysis")
-app.include_router(CashFlow, prefix="/api/v1/section/cashflowaAnalysis")
+app.include_router(CashFlow, prefix="/api/v1/section/cashflowAnalysis")
+app.include_router(BudgetSectionRouter, prefix="/api/v1/section/budgetComparison")
 
 
 # Static Files handling

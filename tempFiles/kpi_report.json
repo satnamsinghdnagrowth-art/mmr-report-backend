@@ -1,0 +1,108 @@
+{
+  "Core Saas Metrics": [
+    {
+      "KPI": "MRR",
+      "This Month": 0.0,
+      "Last Month": 0.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 5665.0
+    },
+    {
+      "KPI": "ARR",
+      "This Month": 0.0,
+      "Last Month": 0.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 67980.0
+    }
+  ],
+  "Sales & Growth": [
+    {
+      "KPI": "CAC",
+      "This Month": 0.0,
+      "Last Month": 0.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 0.0
+    },
+    {
+      "KPI": "LTV",
+      "This Month": 328.0,
+      "Last Month": 328.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 0.0
+    },
+    {
+      "KPI": "LTV Ratio",
+      "This Month": 0.0,
+      "Last Month": 0.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 0.0
+    }
+  ],
+  "Go-to-Market": [
+    {
+      "KPI": "Total Customer Count",
+      "This Month": 16.0,
+      "Last Month": 16.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 16.0
+    },
+    {
+      "KPI": "Live",
+      "This Month": 16.0,
+      "Last Month": 16.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 16.0
+    },
+    {
+      "KPI": "Implementation",
+      "This Month": 0.0,
+      "Last Month": 0.0,
+      "Variance": 0.0,
+      "Variance %": 0.0,
+      "YTD": 0.0
+    }
+  ],
+  "Capital Efficiency": [
+    {
+      "KPI": "Cash RunWay",
+      "This Month": 6.0,
+      "Last Month": 3.0,
+      "Variance": 3.0,
+      "Variance %": 1.0,
+      "YTD": 1.0
+    },
+    {
+      "KPI": "Burn Rate",
+      "This Month": 358522.0,
+      "Last Month": 291420.0,
+      "Variance": 67102.0,
+      "Variance %": 0.230258733099993,
+      "YTD": 358522.0
+    }
+  ],
+  "Profitability": [
+    {
+      "KPI": "Gross Margin",
+      "This Month": -0.15,
+      "Last Month": -3.93,
+      "Variance": 3.78,
+      "Variance %": -0.961832061068702,
+      "YTD": 4.1075
+    },
+    {
+      "KPI": "Operating Margin",
+      "This Month": -4.25,
+      "Last Month": -16.34,
+      "Variance": 12.09,
+      "Variance %": -0.739902080783354,
+      "YTD": 15.0746
+    }
+  ]
+}

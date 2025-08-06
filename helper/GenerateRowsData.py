@@ -7,9 +7,9 @@ import calendar
 def generateChangeRow(title, financialData, pathKeys, year, staticMonths, isAsset):
     row = [ValueObjectModel(Value=title, isPositive=True, Type="", Symbol="")]
 
-    for m in staticMonths:
+    for m,y in staticMonths:
         currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
-            year, [m], "month"
+            y, [m], "month"
         )
 
         sumThis = getValueSum(financialData, pathKeys, currentYear, currentMonths).Data
@@ -44,7 +44,7 @@ def calculateSectionTotal(section_rows, staticMonths,title):
         totals.append(col_sum)
 
     total_row = [
-        ValueObjectModel(Value=f"Total {title}", isPositive=True, Type="", Symbol="")
+        ValueObjectModel(Value=f"Cash Flow from {title}", isPositive=True, Type="", Symbol="")
     ] + [
         ValueObjectModel(Value=val, isPositive=(val >= 0), Type="currency", Symbol="$")
         for val in totals

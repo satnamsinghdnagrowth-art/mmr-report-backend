@@ -9,6 +9,7 @@ from services.calculations.Expenses import totalOperatingExpenses
 
 def EBIT(year: int, month, reportId: Optional[int] = None):
     try:
+        
         GP = grossProfit(year, month, reportId).Data
 
         operatingCost = totalOperatingExpenses(year, month, reportId).Data

@@ -11,11 +11,9 @@ import calendar
 from config.FunctionMaping import functionRegistry
 from helper.GetValueSymbol import getValueSymbol
 from helper.metricCheck import isMetricPositive
-
 from helper.GetFileByReportId import getReportData
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 from datetime import datetime
-
 
 
 def getISTable(year: int, months: list[int], reportType: str, section: str, reportId):

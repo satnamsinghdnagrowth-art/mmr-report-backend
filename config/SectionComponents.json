@@ -304,5 +304,80 @@
         "tables": [
                 
         ]
+    },
+    "Budget Comparison":{
+        "cards":[
+            {
+                "title": "Monthly Recurring Revenue",
+                "mainFunction": "MRR",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Annual Recurring Revenue",
+                "mainFunction": "ARR",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Annual Recurring Revenue",
+                "mainFunction": "Cash RunWay",
+                "comparisonFunction": "growthRate"
+            }
+           ],
+        "charts":[],
+        "tables":[
+            {
+                "title": "",
+                "columns": [
+                    "Particulars",
+                    "This Month",
+                    "Last Month",
+                    "This Month vs last Month(%)",
+                    "This Month vs last Month($)"
+                ],
+                "rows": [
+                    {
+                        "label": "Revenue",
+                        "func": "LTV"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Sales & Growth "
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Go-to-Market"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Capital Efficiency"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Total Customer Count"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Live"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Burn Rate"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Profitability"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Gross Margin"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Operating Margin"
+                    }
+                ]
+            }
+
+        ]
     }
 }

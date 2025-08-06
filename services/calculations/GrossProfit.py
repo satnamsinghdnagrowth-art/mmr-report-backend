@@ -9,8 +9,10 @@ from typing import Optional
 # Get Gross Profit
 def grossProfit(year: int, month, reportId: Optional[int] = None):
     try:
+        
         totalRev = totalRevenue(year, month, reportId).Data
         grossProfit = totalRev - directExpenses(year, month, reportId).Data
+
 
         return Result(
             Data=round(grossProfit, 2),

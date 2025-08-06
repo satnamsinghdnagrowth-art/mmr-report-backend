@@ -27,16 +27,16 @@ def getSectionCharts(
         charts = []
 
         for config in configs.get("charts"):
-            card = retrieveChart(
+            chart = retrieveChart(
                 reportId=reportId,
                 year=year,
                 months=months,
                 config = config,
                 reportType=reportType,
             )
-            charts.append(card.Data)
 
-        
+            print(chart,"-------------------------")
+            charts.append(chart.Data)
 
         # charts.append(getRevenueBreakdownChart(year, months, reportId).Data)
 

@@ -1,18 +1,2 @@
 [
-    {
-        "ReportId": 60847,
-        "ReportName": "BaseFile 60847 20250625111332",
-        "FileName": "BaseFile_60847_20250625111332.json",
-        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
-        "Currency": "US Dollar",
-        "CreatedOn": "2025-06-25T11:13:32.829999"
-    },
-    {
-        "ReportId": 91884,
-        "ReportName": "BaseFile 91884 20250626124116",
-        "FileName": "BaseFile_91884_20250626124116.json",
-        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
-        "Currency": "US Dollar",
-        "CreatedOn": "2025-06-26T12:41:16.776799"
-    }
 ]

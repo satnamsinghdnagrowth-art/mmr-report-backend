@@ -12,7 +12,7 @@ class TrendLineChart(BaseModel):
 class FooterModel(BaseModel):
     ComparisonValue: ValueObjectModel
     ComparisonText: str
-    TrendLine: Optional[TrendLineChart]
+    TrendLine: Optional[TrendLineChart]=None
 
 
 class CardDataModel(BaseModel):
