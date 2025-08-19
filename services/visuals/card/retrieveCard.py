@@ -41,7 +41,6 @@ def retrieveCard(
 
         startDataRange = financialData.get("Data Range")[0]
 
-
         # Convert {'Month': 1, 'Year': 2025} into datetime
         if isinstance(startDataRange, dict) and "Month" in startDataRange and "Year" in startDataRange:
             startDate = datetime(startDataRange["Year"], startDataRange["Month"], 1)
@@ -49,7 +48,6 @@ def retrieveCard(
             startDate = parse(startDataRange)
         else:
             startDate = startDataRange  # fallback if already datetime
-
 
         # Main Content Cards Function
         mainFunc = functionRegistry.get(functionName)
@@ -69,6 +67,7 @@ def retrieveCard(
 
         elif comparedTo.lower() in ["from last year", "from lastyear"]:
             previousValue = mainFunc(year - 1, months, reportId).Data
+
         else:
             previousValue = None
 
@@ -98,6 +97,8 @@ def retrieveCard(
         )
 
         # Comparison value calculation
+
+        print(mainValue,previousValue,'dfghbnm,')
 
         if comparisonFunc.lower() == "growthrate":
             comparisonValue = dataGrowthRate(mainValue, previousValue).Data

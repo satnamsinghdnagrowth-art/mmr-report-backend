@@ -34,11 +34,9 @@ def getSectionCharts(
                 config = config,
                 reportType=reportType,
             )
-
-            print(chart,"-------------------------")
             charts.append(chart.Data)
 
-        # charts.append(getRevenueBreakdownChart(year, months, reportId).Data)
+        charts.append(getRevenueBreakdownChart(year, months, reportId).Data)
 
         return Result(
             Data=charts, Status=1, Message="Revenue Card calculated successfully"

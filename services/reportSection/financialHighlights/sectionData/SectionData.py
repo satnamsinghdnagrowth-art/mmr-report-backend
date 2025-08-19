@@ -15,7 +15,6 @@ from core.models.visualsModel.TableModel import TableListModel
 from datetime import datetime
 from typing import Optional, List
 
-
 class FinancialHighlightSectionDataService:
     """
     Service class to handle Financial Highlights data section-wise: Cards, Charts, and Tables.

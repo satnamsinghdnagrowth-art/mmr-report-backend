@@ -33,7 +33,7 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
         current_month = last_month
         current_year = year
 
-        for _ in range(6):
+        for _ in range(12):
             if (current_month, current_year) in available_months_set:
                 staticMonths.insert(0, (current_month, current_year))
             current_month -= 1

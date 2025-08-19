@@ -40,6 +40,7 @@ class ChartDataModel(BaseModel):
     IndexAxis: str
     RightYaxis: bool
     YaxisController : List[YaxisControllerModel]
+    Markers : Optional[List[MarkerModel]] = []
 
 class ChartsListModel(BaseModel):
     Charts : List[ChartDataModel] 

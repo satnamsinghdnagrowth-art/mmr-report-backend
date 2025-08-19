@@ -1,6 +1,7 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
+from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel , YaxisControllerModel
 from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
@@ -59,6 +60,8 @@ def getRevenueBreakdownChart(year: int, months: list[int], reportId: int):
             YaxisSeries=[yAxisObj],
             IndexAxis="y",
             RightYaxis=False,
+            YaxisController= [YaxisControllerModel(Id="left", Orientation="left", Unit='$')]
+            
         )
 
         return Result(

@@ -13,6 +13,7 @@ from core.models.visualsModel.ChartModel import (
     ChartDataModel,
     YAxisSeriesModel,
     MarkerModel,
+    YaxisControllerModel
 )
 
 
@@ -22,17 +23,33 @@ def getBACharts(
     reportId: Optional[int] = None,
 ) -> Result:
     try:
+
         totalRev = totalRevenue(year, months, reportId).Data
+
         fixedCost = totalOperatingExpenses(year, months, reportId).Data
+
         breakEvenValue = breakEven(year, months, reportId).Data
 
-        variableCost = 1 - (totalRev / fixedCost)
+        if totalRev == 0 or fixedCost == 0:
+            raise ValueError("Total Revenue or Fixed Cost is zero. Cannot build chart.")
 
-        revenue = list(range(0, 3200001, 200000))
+        # Calculate contribution margin
+        cm_percent = fixedCost / breakEvenValue
+        variable_cost_percent = 1 - cm_percent 
+
+        print()
+        
+        # Revenue range for X-axis
+        revenue = list(range(0, int(breakEvenValue * 2) + 1, 1500))
+
+        # Series calculations
         fixed_costs = [fixedCost] * len(revenue)
-        total_costs = [fixedCost + (variableCost * r) for r in revenue]
+        
+        # Calculate variable costs
+        total_costs = [fixedCost + (variable_cost_percent * r) for r in revenue]
 
         valueData = getValueSymbol("Revenue")
+
 
         valueType = valueData["type"]
         valueSymbol = valueData["symbol"]
@@ -74,6 +91,7 @@ def getBACharts(
             Size=8,
             Description=totalRev,
         )
+        
         markerObjTotalCost = MarkerModel(
             Label="total Cost",
             Xvalue=totalRev,
@@ -83,6 +101,7 @@ def getBACharts(
             Size=8,
             Description=fixedCost,
         )
+
         markerObjBreakPoint = MarkerModel(
             Label="BreakEven Point",
             Xvalue=breakEvenValue,
@@ -94,12 +113,13 @@ def getBACharts(
         )
 
         chartData = ChartDataModel(
-            Title="Cash Flow Chart",
+            Title="",
             Xaxis=xaxis_labels,
             YaxisSeries=yAxisSeries,
             IndexAxis="x",
             RightYaxis=False,
-            Markers=[markerObjRevenue, markerObjBreakPoint, markerObjTotalCost],
+            YaxisController= [YaxisControllerModel(Id="left", Orientation="left", Unit='$')],
+            Markers=[ markerObjBreakPoint],
         )
 
         return Result(

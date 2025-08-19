@@ -30,7 +30,7 @@ def contribution(year: int, month, reportId: Optional[int] = None):
         totalVCOS = sum(item["Value"] for item in VCOSFilter)
 
         VEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
-            "Fixed Expenses"
+            "Variable Expenses"
         ]
 
         VEXPFilter = [
@@ -42,6 +42,9 @@ def contribution(year: int, month, reportId: Optional[int] = None):
         totalVEXP = sum(item["Value"] for item in VEXPFilter)
 
         totalContribution = totalRev - totalVCOS - totalVEXP
+
+
+        print(year,month,totalContribution,'totalContribution')
 
         return Result(
             Data=round(totalContribution, 2),
@@ -63,8 +66,10 @@ def contributionMargin(year: int, month, reportId: Optional[int] = None):
 
         totalContributionMargin = (totalContribution / totalRev) * 100
 
+        print(totalContributionMargin,'totalContributionMargin')
+
         return Result(
-            Data=round(totalContributionMargin, 2),
+            Data=totalContributionMargin,
             Status=1,
             Message="Total contributionMargin calculated successfully",
         )

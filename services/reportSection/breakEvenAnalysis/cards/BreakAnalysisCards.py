@@ -11,10 +11,11 @@ def getBACards(
 ):
     try:
         comparedTo = (
-            "From Prev Year" if reportType.lower() == "year" else "From Prev Month"
+            "From Last Year" if reportType.lower() == "year" else "From Last Month"
         )
 
         configs = SECTION_CARD_CONFIGS.get(section)
+
 
         if not configs:
             return Result(

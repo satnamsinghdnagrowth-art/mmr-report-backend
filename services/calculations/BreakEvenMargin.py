@@ -5,13 +5,16 @@ from services.calculations.Contribution import contribution, contributionMargin
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
 
+from helper.GetFileByReportId import getReportData
+
 
 # Break Even
 def breakEven(year: int, months, reportId: Optional[int] = None):
     try:
+        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         
-        FEXPdata = financialDataTest["PROFIT & LOSS"]["EXPENSES"]["Classification"][
-            "Variable Expenses"
+        FEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+            "Fixed Expenses"
         ]
 
         FEXPFilter = [
@@ -22,7 +25,7 @@ def breakEven(year: int, months, reportId: Optional[int] = None):
 
         totalFEXP = sum(item["Value"] for item in FEXPFilter)
 
-        FCOSdata = financialDataTest["PROFIT & LOSS"]["COST OF SALES"][
+        FCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"][
             "Classification"
         ]["Fixed Cost"]
 
@@ -34,9 +37,11 @@ def breakEven(year: int, months, reportId: Optional[int] = None):
 
         totalFCOS = sum(item["Value"] for item in FCOSFilter)
 
+
         breakEvenPoint = (
-            (totalFEXP + totalFCOS) / contributionMargin(year, months).Data
+            (totalFEXP + totalFCOS) / contributionMargin(year, months,reportId).Data
         ) * 100
+
 
         return Result(
             Data=round(breakEvenPoint, 2),
@@ -57,9 +62,9 @@ def breakEven(year: int, months, reportId: Optional[int] = None):
 
 def breakEvenMarginSafety(year: int, months, reportId: Optional[int] = None):
     try:
-        breakEvenValue = breakEven(year, months).Data
+        breakEvenValue = breakEven(year, months,reportId).Data
 
-        totalRev = totalRevenue(year, months).Data
+        totalRev = totalRevenue(year, months,reportId).Data
 
         BEMarginSafety = totalRev - breakEvenValue
 

@@ -62,6 +62,7 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
 # Get Total Operating Expenses (Operating Expenses)
 def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
     try:
+
         financialData = financialDataTest
 
         if reportId is not None:
