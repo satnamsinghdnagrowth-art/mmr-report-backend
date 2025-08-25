@@ -2,16 +2,17 @@ import pandas as pd
 from core.models.base.ResultModel import Result
 import numpy as np
 from datetime import datetime
-from core.models.Accounts.ReportDescriptionModel import ReportDescriptionsModel, DateObject
+from core.models.Accounts.ReportDescriptionModel import (
+    ReportDescriptionsModel,
+    DateObject,
+)
 from core.models.base.ResultModel import Result
 import calendar
 
 
-def readExcelFile(
-    filePath: str
-) -> Result:
+def readExcelFile(filePath: str) -> Result:
     try:
-        pd.set_option('future.no_silent_downcasting', True)
+        pd.set_option("future.no_silent_downcasting", True)
         # Step 1: Read raw Excel without headers to extract metadata
         excelData = pd.read_excel(filePath, header=None)
 
@@ -19,7 +20,7 @@ def readExcelFile(
         reportName = excelData.iloc[0, 1]
         financialMonth = excelData.iloc[1, 1]
 
-        financialMonthNumber =  datetime.strptime(financialMonth, "%B").month
+        financialMonthNumber = datetime.strptime(financialMonth, "%B").month
 
         # Step 3: Extract headers and data
         headers = excelData.iloc[4]
@@ -38,11 +39,12 @@ def readExcelFile(
             columns=["Classification", "Account Name"], errors="ignore"
         )
         dataRange = list(dataRangeFrame.columns)
+        dataRange = [m for m in dataRange if pd.notna(m)]
 
         converted_data_range = [
             DateObject(
                 Month=datetime.strptime(label, "%b %Y").month,
-                    # if monthAsString else datetime.strptime(label, "%b %Y").strftime("%b")),
+                # if monthAsString else datetime.strptime(label, "%b %Y").strftime("%b")),
                 Year=datetime.strptime(label, "%b %Y").year,
             )
             for label in dataRange
@@ -57,7 +59,7 @@ def readExcelFile(
             "Financial Data": data,
         }
         return Result(Data=response, Status=1, Message="SUCCESS")
-            # return Result(Data=reportDescription, Status=1, Message="SUCCESS")
+    # return Result(Data=reportDescription, Status=1, Message="SUCCESS")
 
     except Exception as ex:
         message = f"Error occurred in extractExcelReportDetails: {ex}"

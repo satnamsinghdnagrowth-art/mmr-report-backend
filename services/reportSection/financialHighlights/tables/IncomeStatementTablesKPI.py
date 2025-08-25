@@ -19,7 +19,9 @@ from datetime import datetime
 def getISTable(year: int, months: list[int], reportType: str, section: str, reportId):
     try:
         financialData = getReportData(reportId)["Report Details"]
-        financialMonth = financialData["Financial Year"]  # Expected format: int (e.g., 4 for April)
+        financialMonth = financialData[
+            "Financial Year"
+        ]  # Expected format: int (e.g., 4 for April)
 
         configs = SECTION_CARD_CONFIGS.get(section)
         if not configs:
@@ -62,8 +64,12 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
 
                 func = functionRegistry.get(entry["func"])
 
-                thisMonthValue = func(year=currentYear, month=currentMonths, reportId=reportId).Data
-                prevMonthValue = func(year=prevYear, month=prevMonths, reportId=reportId).Data
+                thisMonthValue = func(
+                    year=currentYear, month=currentMonths, reportId=reportId
+                ).Data
+                prevMonthValue = func(
+                    year=prevYear, month=prevMonths, reportId=reportId
+                ).Data
 
                 # ✅ YTD months logic: span across years if needed
                 latest_month = currentMonths[0]  # assumed to be the latest month
@@ -81,10 +87,12 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ytd_months.append((currentYear, m))
 
                 # ✅ Compute YTD total
-                ytdValue = sum([
-                    func(year=y, month=[m], reportId=reportId).Data
-                    for y, m in ytd_months
-                ])
+                ytdValue = sum(
+                    [
+                        func(year=y, month=[m], reportId=reportId).Data
+                        for y, m in ytd_months
+                    ]
+                )
 
                 result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
 
@@ -92,7 +100,9 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                     continue
 
                 row = [
-                    ValueObjectModel(Value=entry["label"], isPositive=True, Type="", Symbol="")
+                    ValueObjectModel(
+                        Value=entry["label"], isPositive=True, Type="", Symbol=""
+                    )
                 ]
 
                 row.append(
@@ -114,7 +124,9 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 row.append(
                     ValueObjectModel(
                         Value=result["PercentChange"],
-                        isPositive=isMetricPositive(entry["label"], result["PercentChange"]),
+                        isPositive=isMetricPositive(
+                            entry["label"], result["PercentChange"]
+                        ),
                         Type="percentage",
                         Symbol="%",
                     )
@@ -122,7 +134,9 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 row.append(
                     ValueObjectModel(
                         Value=result["Diffrence"],
-                        isPositive=isMetricPositive(entry["label"], result["Diffrence"]),
+                        isPositive=isMetricPositive(
+                            entry["label"], result["Diffrence"]
+                        ),
                         Type=valueType,
                         Symbol=valueSymbol,
                     )
@@ -140,7 +154,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
 
             tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows)
             tables.append(tableObj)
-        
+
         tables.append(
             getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
         )
@@ -270,7 +284,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
 #                         Symbol=valueSymbol,
 #                     )
 #                 )
-                
+
 
 #                 rows.append(row)
 

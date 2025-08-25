@@ -86,7 +86,6 @@ def retriveBSAccountNames(year, month, category: str):
                     },
                 ]
 
-
                 result[main][displayname] = monthly_totals
 
         return Result(Data=result, Status=1, Message="Success")

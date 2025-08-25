@@ -6,7 +6,7 @@ from core.models.base.ResultModel import Result
 
 
 # Analyze the data
-def retreiveFinacialsNames(year: int, month: int,reportId:int):
+def retreiveFinacialsNames(year: int, month: int, reportId: int):
     try:
         data = {
             "KPIs": retriveKPIsNames(year, month).Data,
@@ -16,7 +16,7 @@ def retreiveFinacialsNames(year: int, month: int,reportId:int):
             "BalanceSheet": retriveBSAccountNames(
                 year, month, category="BALANCE SHEET"
             ).Data,
-            "Chart of Accounts": retriveCOANames(year, month,reportId).Data,
+            "Chart of Accounts": retriveCOANames(year, month, reportId).Data,
         }
 
         return Result(Data=data, Status=1, Message="Success")

@@ -2,21 +2,21 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from datetime import datetime
 from services.reportSection.profitAbility.tables.GetProfitAbilityTable import getPATable
-from services.reportSection.profitAbility.charts.ProfitAbilityChart import getPACharts
 from core.models.visualsModel.SectionData import SectionData
-from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI import (
-    getISTable,
-)
-
+from services.visuals.charts.GetSectionCharts import getSectionCharts
 
 # Get the sections cards
 def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId
 ):
     try:
-        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
+        months = (
+            [i for i in range(1, months[0] + 1)]
+            if reportType.lower() == "year"
+            else months
+        )
         cardsData = []
-        chartsData = getPACharts(year, months, reportType, section, reportId).Data
+        chartsData = getSectionCharts(year, months, reportType, section, reportId).Data
         tablesData = getPATable(year, months, reportType, section, reportId).Data
         sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 

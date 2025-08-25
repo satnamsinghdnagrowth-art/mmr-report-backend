@@ -1,12 +1,9 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from datetime import datetime
-from services.reportSection.breakEvenAnalysis.cards.BreakAnalysisCards import getBACards
+from services.visuals.card.GetSectionsCards import getSectionCards
 from core.models.visualsModel.SectionData import SectionData
 from services.reportSection.breakEvenAnalysis.charts.BACharts import getBACharts
-from services.reportSection.expensesAnalysis.tables.TopOperatingExpenses import (
-    getTopOpeatingExpenses,
-)
 
 
 # Get the sections cards
@@ -14,9 +11,13 @@ def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
-        
-        cardsData = getBACards(year, months, reportType, section, reportId).Data
+        months = (
+            [i for i in range(1, months[0] + 1)]
+            if reportType.lower() == "year"
+            else months
+        )
+
+        cardsData = getSectionCards(year, months, reportType, section, reportId).Data
         # chartsData = []
         chartsData = getBACharts(year, months, reportId).Data
         tablesData = []

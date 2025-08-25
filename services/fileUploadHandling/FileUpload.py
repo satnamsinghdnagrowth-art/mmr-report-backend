@@ -17,9 +17,8 @@ from helper.FileUploadHandler import handleUploadFile
 from config.FilesBaseDIR import UPLOAD_DIR
 
 
-def fileUpload(file,fileBase64Str,CompanyLogo):
+def fileUpload(file, fileBase64Str, CompanyLogo):
     try:
-
         reportId = random.randint(10000, 99999)
 
         fileNameOnly = f"BaseFile_{reportId}"
@@ -28,33 +27,32 @@ def fileUpload(file,fileBase64Str,CompanyLogo):
 
         # === CASE 1: Uploaded File ===
         if file is not None:
-            savedFilePath = handleUploadFile(file,fileNameOnly,fileExtension).Data
+            savedFilePath = handleUploadFile(file, fileNameOnly, fileExtension).Data
 
         # === CASE 2: Base64 File ===
         if fileBase64Str is not None:
-            savedFilePath = handleBase64File(fileBase64Str,fileNameOnly,fileExtension).Data
+            savedFilePath = handleBase64File(
+                fileBase64Str, fileNameOnly, fileExtension
+            ).Data
 
-        result = formatFinancialData(savedFilePath, reportId,CompanyLogo)
+        result = formatFinancialData(savedFilePath, reportId, CompanyLogo)
 
-        if result.Status == 1 :
-
-            response = {
-                "ReportId": result.Data["ReportId"]
-            }
+        if result.Status == 1:
+            response = {"ReportId": result.Data["ReportId"]}
 
             return Result(
                 Data=response,
                 Status=1,
                 Message="File uploaded Successfully",
             )
-        
+
         if os.path.exists(savedFilePath):
             os.remove(savedFilePath)
-        
+
         return Result(
-                Status=0,
-                Message="Please Uplaoded the correct file format.",
-            ) 
+            Status=0,
+            Message="Please Uplaoded the correct file format.",
+        )
 
     except Exception as ex:
         message = f"Error occur at fileUpload: {ex}"

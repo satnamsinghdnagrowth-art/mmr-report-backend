@@ -80,7 +80,9 @@ def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
 
 def otherIncome(year: int, months, reportId: Optional[int] = None):
     try:
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
 
         #  Income without interest
         totaltherIncome = getValueSum(

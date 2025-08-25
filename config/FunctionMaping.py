@@ -5,15 +5,11 @@ from services.calculations.Ebit import EBIT, EBITMargin
 from services.calculations.NetIncome import netIncome, netIncomeMargin, otherIncome
 from services.calculations.Expenses import expensesToRevenueRatio
 from services.calculations.OtherIncome import otherIncome, interestIncome
-from services.calculations.EarningBefore import (
-    earningBeforeInterestandTax,
-    earningBeforeTax,
-)
+from services.calculations.EarningBefore import earningBeforeInterestandTax,earningBeforeTax
 from services.calculations.Expenses import directExpenses, totalOperatingExpenses
-from services.calculations.BreakEvenMargin import breakEvenMarginSafety
-from services.calculations.CashFlowStatements import getCashOnHand, getFreeCashFlow
-from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow
-
+from services.calculations.BreakEvenMargin import breakEvenMarginSafety,breakEven
+from services.calculations.CashFlowStatements import getCashOnHand, getFreeCashFlow,getNetCashFlow
+from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow,getFinancingActivitiesCashFlow
 
 functionRegistry = {
     "totalRevenue": totalRevenue,
@@ -38,4 +34,7 @@ functionRegistry = {
     "otherIncome": otherIncome,
     "getFreeCashFlow": getFreeCashFlow,
     "getOperatingActivitiesCashFlow": getOperatingActivitiesCashFlow,
+    'getFinancingActivitiesCashFlow':getFinancingActivitiesCashFlow,
+    'getNetCashFlow':getNetCashFlow,
+    'breakEven':breakEven
 }

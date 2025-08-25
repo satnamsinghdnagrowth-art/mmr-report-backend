@@ -12,13 +12,12 @@ REPORT_JSON_PATH = "database/ReportTable.json"
 
 
 # Analyze the data
-def formatFinancialData(filePath,reportId:int,companyLogo):
+def formatFinancialData(filePath, reportId: int, companyLogo):
     try:
-        
         fileName = os.path.splitext(os.path.basename(filePath))[0]
 
         excelData = readExcelFile(filePath)
-        
+
         formattedData = excelData.Data
 
         reportDetails = formattedData["Report Details"]
@@ -26,13 +25,12 @@ def formatFinancialData(filePath,reportId:int,companyLogo):
         financialData = formattedData["Financial Data"]
 
         if companyLogo is not None:
-
             logoFileName = f"logo_{reportId}"
             fileExtension = ".png"
-            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S") 
-            
+            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S")
+
             savedFileName = f"{logoFileName}_{timeStamp}{fileExtension}"
-            logoFilePath = os.path.join("database","companyLogos", savedFileName)
+            logoFilePath = os.path.join("database", "companyLogos", savedFileName)
 
             with open(logoFilePath, "wb") as buffer:
                 shutil.copyfileobj(companyLogo.file, buffer)
@@ -41,13 +39,17 @@ def formatFinancialData(filePath,reportId:int,companyLogo):
             logoFilePath = "database/companyLogos/sample-logo.png"
 
         data = {
-            "ReportId":reportId,
+            "ReportId": reportId,
             "Report Details": reportDetails,
-            "Financial Data":{
-                "PROFIT & LOSS": retriveCOAValues(financialData, category="PROFIT & LOSS").Data,
-                "BalanceSheet": retriveCOAValues(financialData, category="BALANCE SHEET").Data,
-                "EQUITY": retriveCOAValues(financialData, category="EQUITY").Data
-            }
+            "Financial Data": {
+                "PROFIT & LOSS": retriveCOAValues(
+                    financialData, category="PROFIT & LOSS"
+                ).Data,
+                "BalanceSheet": retriveCOAValues(
+                    financialData, category="BALANCE SHEET"
+                ).Data,
+                "EQUITY": retriveCOAValues(financialData, category="EQUITY").Data,
+            },
         }
 
         with open(f"database/reportsDataFiles/{fileName}.json", "w") as f:
@@ -59,9 +61,9 @@ def formatFinancialData(filePath,reportId:int,companyLogo):
             "ReportId": reportId,
             "ReportName": fileName.replace("_", " "),
             "FileName": f"{fileName}.json",
-            "CompanyLogoFilePath":logoFilePath,
+            "CompanyLogoFilePath": logoFilePath,
             "Currency": "US Dollar",
-            "CreatedOn":datetime.now().isoformat()
+            "CreatedOn": datetime.now().isoformat(),
         }
 
         if os.path.exists(REPORT_JSON_PATH):
@@ -75,7 +77,6 @@ def formatFinancialData(filePath,reportId:int,companyLogo):
 
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)
-
 
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)

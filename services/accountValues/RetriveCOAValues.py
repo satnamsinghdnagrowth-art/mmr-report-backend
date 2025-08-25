@@ -21,7 +21,6 @@ def convert_defaultdict(d):
 
 def retriveCOAValues(data, category: str, month=4, year=2023):
     try:
-        
         cleanedData = data[~data["Classification"].isnull()]
         BSData = variableMapping[category]
 

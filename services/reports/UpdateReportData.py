@@ -45,11 +45,9 @@ def updateReportFields(reportId: int, companyLogo):
         with open(REPORT_JSON_PATH, "w") as file:
             json.dump(reports, file, indent=4)
 
-        response = {
-            "CompanyLogoPath":logoFilePath
-        }
+        response = {"CompanyLogoPath": logoFilePath}
 
-        return Result(Data=response,Status=1, Message="Uploaded successfully")
+        return Result(Data=response, Status=1, Message="Uploaded successfully")
 
     except Exception as ex:
         message = f"Error occurred at updateReportFields: {ex}"

@@ -37,12 +37,18 @@ def retrieveCard(
         valueType = valueData["type"]
         valueSymbol = valueData["symbol"]
 
-        financialData = getReportData(reportId)["Report Details"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Report Details"] if reportId else financialDataTest
+        )
 
         startDataRange = financialData.get("Data Range")[0]
 
         # Convert {'Month': 1, 'Year': 2025} into datetime
-        if isinstance(startDataRange, dict) and "Month" in startDataRange and "Year" in startDataRange:
+        if (
+            isinstance(startDataRange, dict)
+            and "Month" in startDataRange
+            and "Year" in startDataRange
+        ):
             startDate = datetime(startDataRange["Year"], startDataRange["Month"], 1)
         elif isinstance(startDataRange, str):
             startDate = parse(startDataRange)
@@ -82,7 +88,9 @@ def retrieveCard(
                 trend_dates.append(month_date)
 
         trendLineXaxis = [d.strftime("%b %Y") for d in trend_dates]
-        trendLineYaxis = [mainFunc(d.year, [d.month], reportId).Data for d in trend_dates]
+        trendLineYaxis = [
+            mainFunc(d.year, [d.month], reportId).Data for d in trend_dates
+        ]
 
         trendLineData = TrendLineChart(Xaxis=trendLineXaxis, Yaxis=trendLineYaxis)
 
@@ -98,13 +106,11 @@ def retrieveCard(
 
         # Comparison value calculation
 
-        print(mainValue,previousValue,'dfghbnm,')
-
         if comparisonFunc.lower() == "growthrate":
             comparisonValue = dataGrowthRate(mainValue, previousValue).Data
         else:
             comparisonValue = previousValue
-    
+
         prevValuePositiveCheck = isMetricPositive(title, comparisonValue)
 
         compValueObj = ValueObjectModel(
@@ -120,17 +126,9 @@ def retrieveCard(
             TrendLine=trendLineData,
         )
 
-        cardData = CardDataModel(
-            Title=title,
-            Content=contentValueObj,
-            Footer=footerObj
-        )
+        cardData = CardDataModel(Title=title, Content=contentValueObj, Footer=footerObj)
 
-        return Result(
-            Data=cardData,
-            Status=1,
-            Message="Card calculated successfully"
-        )
+        return Result(Data=cardData, Status=1, Message="Card calculated successfully")
 
     except ZeroDivisionError as ex:
         message = f"Error occurred at retrieveCard: {ex}"

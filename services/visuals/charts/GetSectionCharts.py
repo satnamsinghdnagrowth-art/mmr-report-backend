@@ -2,12 +2,11 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from services.visuals.charts.retrieveChart import retrieveChart
-
 from datetime import datetime
 
 
 # Get the sections cards
-def getPACharts(
+def getSectionCharts(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
@@ -23,19 +22,24 @@ def getPACharts(
         charts = []
 
         for config in configs.get("charts"):
-            card = retrieveChart(
+            chart = retrieveChart(
                 reportId=reportId,
                 year=year,
                 months=months,
-
                 config=config,
-                reportType=reportType
+                reportType=reportType,
             )
-            charts.append(card.Data)
+            charts.append(chart.Data)
+
 
         return Result(
             Data=charts, Status=1, Message="Revenue Card calculated successfully"
         )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at getFHSectionCards: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=None, Status=0, Message=message)
 
     except Exception as ex:
         message = f"Error occurred at getFHSectionCards: {ex}"

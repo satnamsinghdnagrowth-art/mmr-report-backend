@@ -13,7 +13,9 @@ from services.calculations.CurrentAssestAndLiabilities import getTotalCurrentLia
 # Get the sections cards
 def getEACharts(year: int, months: list[int], reportId):
     try:
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
 
         netProfitTotal = netIncome(year, months, reportId).Data
 
@@ -337,14 +339,14 @@ def getEACharts(year: int, months: list[int], reportId):
 
         openingCashBalance = getValueSum(
             financialData,
-            ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+            ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
             year - 1,
             [months[-1]],
         ).Data
 
         closingCashBalance = getValueSum(
             financialData,
-            ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+            ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
             year,
             [months[-1]],
         ).Data

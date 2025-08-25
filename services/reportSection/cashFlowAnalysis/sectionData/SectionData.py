@@ -1,36 +1,34 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from datetime import datetime
-from services.reportSection.breakEvenAnalysis.cards.BreakAnalysisCards import getBACards
 from core.models.visualsModel.SectionData import SectionData
-from services.reportSection.financialHighlights.cards.cardsKPIs import getSectionCards
-from services.reportSection.breakEvenAnalysis.charts.BACharts import getBACharts
 from services.reportSection.detailedSheet.table import getDetailedTable
 from services.reportSection.detailedSheet.cashFlowTable import getCashFlowTable
 import time
-from services.reportSection.cashFlowAnalysis.charts.cashFlowChart import getEACharts
-
+from services.visuals.card.GetSectionsCards import getSectionCards
+from services.visuals.charts.GetSectionCharts import getSectionCharts
 
 # Get the sections cards
 def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-
-        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
+        months = (
+            [i for i in range(1, months[0] + 1)]
+            if reportType.lower() == "year"
+            else months
+        )
 
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
-        chartsData =[]
-        # cardsData = []
-        # chartsData = getEACharts(year, months, reportId).Data
+        chartsData = getSectionCharts(year, months, reportType, section, reportId).Data
+        
         tablesData = [
-            getDetailedTable(year,months, ["PROFIT & LOSS"],reportId).Data,
-            getDetailedTable(year,months, ["BalanceSheet","EQUITY"],reportId).Data,
-            getCashFlowTable(year,months,reportId).Data,
+            getDetailedTable(year, months, ["PROFIT & LOSS"], reportId).Data,
+            getDetailedTable(year, months, ["BalanceSheet", "EQUITY"], reportId).Data,
+            getCashFlowTable(year, months, reportId).Data,
         ]
-        sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 
-        # print(sectionData,"--**************----")
+        sectionData = SectionData(Charts=chartsData, Cards=cardsData, Tables=tablesData)
 
         return Result(
             Data=sectionData, Status=1, Message="Section Data retrieved Successfully"

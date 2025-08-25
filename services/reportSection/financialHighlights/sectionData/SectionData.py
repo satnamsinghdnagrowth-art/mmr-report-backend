@@ -1,19 +1,21 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
-from services.reportSection.financialHighlights.cards.cardsKPIs import getSectionCards
-from services.reportSection.financialHighlights.charts.chartsKPIs import (
-    getSectionCharts,
-)
+from services.visuals.card.GetSectionsCards import getSectionCards
+from services.visuals.charts.GetSectionCharts import getSectionCharts
 from core.models.visualsModel.SectionData import SectionData
 from typing import Optional
 from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI import (
     getISTable,
+)
+from services.reportSection.financialHighlights.charts.RevenueBreakdown import (
+    getRevenueBreakdownChart,
 )
 from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
 from datetime import datetime
 from typing import Optional, List
+
 
 class FinancialHighlightSectionDataService:
     """
@@ -28,18 +30,21 @@ class FinancialHighlightSectionDataService:
         reportId: Optional[int] = None,
         months: Optional[List[int]] = None,
     ):
-        
         """
         Initialize with basic parameters. If months are not provided,
         it defaults to all months in a year or October (for single-month reports).
         """
+
         self.year = year
         self.reportType = reportType
         self.section = section
         self.reportId = reportId
-        self.months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
+        self.months = (
+            [i for i in range(1, months[-1] + 1)]
+            if reportType.lower() == "year"
+            else months
 
-        
+        )
 
     # Complete  Section
     def get(self) -> Result:
@@ -52,9 +57,14 @@ class FinancialHighlightSectionDataService:
             cards_data = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+
             charts_data = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+
+
+            charts_data.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
+
             tables_data = getISTable(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
@@ -87,8 +97,10 @@ class FinancialHighlightSectionDataService:
             ).Data
 
             response = CardsListModel(Cards=cards)
-            
-            return Result(Data=response, Status=1, Message="Cards retrieved successfully")
+
+            return Result(
+                Data=response, Status=1, Message="Cards retrieved successfully"
+            )
 
         except Exception as ex:
             message = f"Exception in getCardsOnly(): {ex}"
@@ -104,6 +116,9 @@ class FinancialHighlightSectionDataService:
             charts = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+
+
+            charts.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
 
             response = ChartsListModel(Charts=charts)
             return Result(

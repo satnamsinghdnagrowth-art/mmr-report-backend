@@ -1,29 +1,27 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
-from services.calculations.Ebit import EBIT
-from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
-from typing import Optional
+from typing import Optional,List
 from helper.GetFileByReportId import getReportData
 from services.calculations.NetIncome import netIncome
 from services.calculations.CurrentAssestAndLiabilities import (
     getTotalCurrentLiabilities,
     getTotalCurrentAssets,
-)
-from services.calculations.NetProfit import netProfit
+) 
+from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 from helper.GetValueSum import getValueSum
-
-
-# Operating Profit
+          
+# Operating Profit 
 def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
     try:
-        
-        if len(months) == 1 :
+        if len(months) == 1:
             reportType = "Month"
         else:
             reportType = "Year"
 
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
 
         totalInterestIncome = getValueSum(
             financialData,
@@ -61,38 +59,36 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
         netProfitTotal = netIncome(year, months, reportId).Data
         if reportType.lower() == "year":
             changeInCa = (
-                getTotalCurrentAssets(year-1, [months[-1]],reportId).Data
-                - getTotalCurrentAssets(year, [months[-1]],reportId).Data
+                getTotalCurrentAssets(year - 1, [months[-1]], reportId).Data
+                - getTotalCurrentAssets(year, [months[-1]], reportId).Data
             )
 
-
             changeInCl = (
-                getTotalCurrentLiabilities(year, [months[-1]],reportId).Data
-                - getTotalCurrentLiabilities(year-1 , [months[-1]],reportId).Data
+                getTotalCurrentLiabilities(year, [months[-1]], reportId).Data
+                - getTotalCurrentLiabilities(year - 1, [months[-1]], reportId).Data
             )
 
         else:
             changeInCa = (
-                getTotalCurrentAssets(year, [months[-1]-1],reportId).Data
-                - getTotalCurrentAssets(year, [months[-1]],reportId).Data
+                getTotalCurrentAssets(year, [months[-1] - 1], reportId).Data
+                - getTotalCurrentAssets(year, [months[-1]], reportId).Data
             )
-
 
             changeInCl = (
-                getTotalCurrentLiabilities(year, [months[-1]],reportId).Data
-                - getTotalCurrentLiabilities(year , [months[-1]-1],reportId).Data
+                getTotalCurrentLiabilities(year, [months[-1]], reportId).Data
+                - getTotalCurrentLiabilities(year, [months[-1] - 1], reportId).Data
             )
 
+        # netIncomeAfterAdjustment = (
+        #     netProfitTotal
+        #     + totalDepreciation
+        #     + totalInterestExpense
+        #     - totalInterestIncome
+        # )
 
-        netIncomeAfterAdjustment = (
-            netProfitTotal
-            + totalDepreciation
-            + totalInterestExpense
-            - totalInterestIncome
-        )
+        netIncomeValue = netIncome(year,months,reportId).Data
 
-
-        operatingActivitesCashFlow = netIncomeAfterAdjustment + changeInCl + changeInCa
+        operatingActivitesCashFlow = netIncomeValue + changeInCl + changeInCa
 
         return Result(
             Data=round(operatingActivitesCashFlow, 2),
@@ -110,7 +106,31 @@ def getInvestigatingActivitiesCashFlow(
     year: int, months, reportId: Optional[int] = None
 ):
     try:
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
+
+        print(year,months,getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Fixed Assets",
+                ],
+                year ,
+                [months[-1]-1],
+            ).Data,'*********',getValueSum(
+                financialData,
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT ASSETS",
+                    "Classification",
+                    "Fixed Assets",
+                ],
+                year,
+                [months[-1]],
+            ).Data)
 
         changeInFA = (
             getValueSum(
@@ -121,8 +141,8 @@ def getInvestigatingActivitiesCashFlow(
                     "Classification",
                     "Fixed Assets",
                 ],
-                year - 1,
-                [months[-1]],
+                year ,
+                [months[-1]-1],
             ).Data
             - getValueSum(
                 financialData,
@@ -194,14 +214,110 @@ def getInvestigatingActivitiesCashFlow(
             months,
         ).Data
 
+        print(year,months,changeInFA,changeInIA,changeInONCA,totalInterestExpense,'----------------------')
+
         investigatingActivitiesCashFlow = (
-            changeInFA + changeInIA + changeInONCA + totalInterestExpense
+            changeInFA + changeInIA + changeInONCA 
         )
 
         return Result(
             Data=round(investigatingActivitiesCashFlow, 2),
             Status=1,
             Message="Total operatingActivitesCashFlow calculated successfully",
+        )
+
+    except Exception as ex:
+        message = f"Error occur at getInvestigatingActivitiesCashFlow: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
+    
+
+def getFinancingActivitiesCashFlow(
+    year: int, months:List[int], reportId: Optional[int] = None
+):
+    try:
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
+
+        currentYear, currentMonths, prevYear, prevMonths = (
+                getCurrentAndPreviousPeriods(year, [months[-1]], "month")
+            )
+    
+
+        chaneInOEQ = (
+            getValueSum(
+                financialData,
+                [
+                    "EQUITY",
+                    "EQUITY",
+                    "Classification",
+                    "Other Equity",
+                ],
+                currentYear,
+                currentMonths,
+            ).Data
+            - getValueSum(
+                financialData,
+                [
+                    "EQUITY",
+                    "EQUITY",
+                    "Classification",
+                    "Other Equity",
+                ],
+                prevYear,
+                prevMonths,
+            ).Data
+        )
+
+        chaneInRE = (
+            getValueSum(
+                financialData,
+                [
+                    "EQUITY",
+                    "EQUITY",
+                    "Classification",
+                    "Retained Earnings",
+                ],
+                currentYear,
+                currentMonths,
+            ).Data
+            - getValueSum(
+                financialData,
+                [
+                    "EQUITY",
+                    "EQUITY",
+                    "Classification",
+                    "Retained Earnings",
+                ],
+                prevYear,
+                prevMonths,
+            ).Data
+        )
+
+        netinc = getValueSum(
+            financialData,
+            [
+                "EQUITY",
+                "EQUITY",
+                "Classification",
+                "Current Earnings",
+            ],
+            prevYear,
+            prevMonths,
+        ).Data
+
+        if months[0] == 1:
+            netIncomeValue = netinc
+        else:
+            netIncomeValue = 0
+
+        result = chaneInOEQ + (chaneInRE - netIncomeValue)
+
+        return Result(
+            Data=round(result, 2),
+            Status=1,
+            Message="Total financingActivitiesCashFlow calculated successfully",
         )
 
     except Exception as ex:

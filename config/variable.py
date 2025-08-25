@@ -22,7 +22,7 @@ variableMapping = {
     },
     "BALANCE SHEET": {
         "CURRENT ASSETS": [
-            {"CASH": "Cash"},
+            {"CASH": "Cash & Equivalents"},
             {"AR": "Accounts Receivable"},
             {"INV": "Inventory"},
             {"WIP": "Work In Progress"},

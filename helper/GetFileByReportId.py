@@ -9,7 +9,6 @@ Report_Table_File_Path = os.path.join("database", "ReportTable.json")
 
 def getReportMetaDatabyId(reportId: int) -> Optional[str]:
     try:
-        print(reportId,'dbvjdbvjfbdjv')
         with open(Report_Table_File_Path, "r") as f:
             reports = json.load(f)
 
@@ -24,8 +23,7 @@ def getReportMetaDatabyId(reportId: int) -> Optional[str]:
         return None
 
 
-def getReportData(reportId: int,reportDetail:Optional[bool]= False):
-
+def getReportData(reportId: int, reportDetail: Optional[bool] = False):
     if reportId not in report_data:
         fileName = getReportMetaDatabyId(reportId).get("FileName")
 
@@ -41,10 +39,10 @@ def getReportData(reportId: int,reportDetail:Optional[bool]= False):
         try:
             with open(filePath, "r") as f:
                 data = json.load(f)
-                
+
         except json.JSONDecodeError:
             raise ValueError(f"Invalid JSON in report file: {filePath}")
-        
+
         report_data[reportId] = data
 
     return report_data[reportId]

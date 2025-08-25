@@ -6,26 +6,27 @@ from core.models.visualsModel.TableModel import TableModel
 from datetime import datetime
 from services.calculations.NetIncome import netIncome
 from helper.GetValueSum import getValueSum
-from helper.GenerateRowsData import generateChangeRow,calculateSectionTotal
+from helper.GenerateRowsData import generateChangeRow, calculateSectionTotal
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 import calendar
 
 
 # Generate Cash flow Table
-def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
+def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
     try:
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
 
         reportDatarange = getReportData(reportId)["Report Details"]["Data Range"]
 
         available_months = sorted(
-
-            [(d['Month'], d['Year']) for d in reportDatarange],
-            key=lambda x: (x[1], x[0])  # Sort by year, then month
+            [(d["Month"], d["Year"]) for d in reportDatarange],
+            key=lambda x: (x[1], x[0]),  # Sort by year, then month
         )
 
-        available_months_set = set(available_months) 
+        available_months_set = set(available_months)
 
         staticMonths = []
 
@@ -41,14 +42,11 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
                 current_month = 12
                 current_year -= 1
 
-        print(f"Static months: {staticMonths}")
-
         # staticMonths = range(2, 6)
 
         Headers = [tableType] + [
-            f"{calendar.month_abbr[m]} {year}" for m,y in staticMonths
+            f"{calendar.month_abbr[m]} {year}" for m, y in staticMonths
         ]
-
 
         rows = []
 
@@ -67,7 +65,7 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
         row = [
             ValueObjectModel(Value="Net Income", isPositive=True, Type="", Symbol="")
         ]
-        for m ,y in staticMonths:
+        for m, y in staticMonths:
             currentYear, currentMonths, prevYear, prevMonths = (
                 getCurrentAndPreviousPeriods(y, [m], "month")
             )
@@ -133,7 +131,9 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
             operating_rows.append(row)
 
         rows.extend(operating_rows)
-        rows.append(calculateSectionTotal(operating_rows, staticMonths,"Operating Activities"))
+        rows.append(
+            calculateSectionTotal(operating_rows, staticMonths, "Operating Activities")
+        )
 
         # ---------------- Investing Activities ----------------
         rows.append(
@@ -157,7 +157,9 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
         investing_rows.append(row)
 
         rows.extend(investing_rows)
-        rows.append(calculateSectionTotal(investing_rows, staticMonths,"Investing Activities"))
+        rows.append(
+            calculateSectionTotal(investing_rows, staticMonths, "Investing Activities")
+        )
 
         # ---------------- Financing Activities ----------------
         rows.append(
@@ -170,18 +172,17 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
         financing_rows = []
 
         row = [
-                ValueObjectModel(
-                    Value="change In other Equity", isPositive=True, Type="", Symbol=""
-                )
-            ]
+            ValueObjectModel(
+                Value="change In other Equity", isPositive=True, Type="", Symbol=""
+            )
+        ]
 
-        for month,year in staticMonths:
-
+        for month, year in staticMonths:
             currentYear, currentMonths, prevYear, prevMonths = (
                 getCurrentAndPreviousPeriods(year, [month], "month")
             )
 
-            chaneInOEQ  = (
+            chaneInOEQ = (
                 getValueSum(
                     financialData,
                     [
@@ -206,8 +207,7 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
                 ).Data
             )
 
-
-            chaneInRE  = (
+            chaneInRE = (
                 getValueSum(
                     financialData,
                     [
@@ -232,32 +232,27 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
                 ).Data
             )
 
-
-            netinc  = getValueSum(
-                    financialData,
-                    [
-                        "EQUITY",
-                        "EQUITY",
-                        "Classification",
-                        "Current Earnings",
-                    ],
-                    prevYear,
-                    prevMonths,
-                ).Data
-            
+            netinc = getValueSum(
+                financialData,
+                [
+                    "EQUITY",
+                    "EQUITY",
+                    "Classification",
+                    "Current Earnings",
+                ],
+                prevYear,
+                prevMonths,
+            ).Data
 
             if month == 1:
                 netIncomeValue = netinc
             else:
-                netIncomeValue  = 0
+                netIncomeValue = 0
 
-            
             result = chaneInOEQ + (chaneInRE - netIncomeValue)
 
             row.append(
-                ValueObjectModel(
-                    Value=result, isPositive=True, Type="", Symbol=""
-                )
+                ValueObjectModel(Value=result, isPositive=True, Type="", Symbol="")
             )
 
         financing_rows.append(row)
@@ -283,15 +278,17 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
             financing_rows.append(row)
 
         rows.extend(financing_rows)
-        
-        rows.append(calculateSectionTotal(financing_rows, staticMonths,"Financing Activities"))
+
+        rows.append(
+            calculateSectionTotal(financing_rows, staticMonths, "Financing Activities")
+        )
 
         financing_rows = []
 
         finance_change_rows = [
             (
                 "Change in Cash & Equivalent",
-                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
                 False,
             ),
         ]
@@ -322,28 +319,32 @@ def getCashFlowTable(year: int,months,reportId, tableType="CashFlow Table"):
                 Symbol="$",
             )
         ]
-        for m,y in staticMonths:
+        for m, y in staticMonths:
             currentYear, currentMonths, prevYear, prevMonths = (
                 getCurrentAndPreviousPeriods(y, [m], "month")
             )
 
             result = getValueSum(
                 financialData,
-                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
                 prevYear,
                 prevMonths,
             ).Data
             result2 = getValueSum(
                 financialData,
-                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash"],
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
                 y,
                 [m],
             ).Data
             OpenRows.append(
-                ValueObjectModel(Value=result, isPositive=True, Type="currency", Symbol="$")
+                ValueObjectModel(
+                    Value=result, isPositive=True, Type="currency", Symbol="$"
+                )
             )
             closeRows.append(
-                ValueObjectModel(Value=result2, isPositive=True, Type="currency", Symbol="$")
+                ValueObjectModel(
+                    Value=result2, isPositive=True, Type="currency", Symbol="$"
+                )
             )
 
         rows.extend([OpenRows, closeRows])

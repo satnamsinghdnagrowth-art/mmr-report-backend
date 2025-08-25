@@ -11,8 +11,8 @@ class YAxisSeriesModel(BaseModel):
     Symbol: str
     AreaFill: Optional[bool] = False
     Values: List[float]
-    
-    YaxisId: Optional[str] = "left" #---------
+
+    YaxisId: Optional[str] = "left"  # ---------
 
 
 class MarkerModel(BaseModel):
@@ -26,11 +26,12 @@ class MarkerModel(BaseModel):
     Size: Optional[int] = 8
     Description: Optional[Any] = None
 
-#---------
+
+# ---------
 class YaxisControllerModel(BaseModel):
-    Id : Optional[str] = "left"
-    Orientation : Optional[str] = "left"
-    Unit:Optional[str] = "$"
+    Id: Optional[str] = "left"
+    Orientation: Optional[str] = "left"
+    Unit: Optional[str] = "$"
 
 
 class ChartDataModel(BaseModel):
@@ -39,11 +40,13 @@ class ChartDataModel(BaseModel):
     YaxisSeries: List[YAxisSeriesModel]
     IndexAxis: str
     RightYaxis: bool
-    YaxisController : List[YaxisControllerModel]
-    Markers : Optional[List[MarkerModel]] = []
+    YaxisController: List[YaxisControllerModel]
+    Markers: Optional[List[MarkerModel]] = []
+    Visibility : Optional[bool] = True
+
 
 class ChartsListModel(BaseModel):
-    Charts : List[ChartDataModel] 
+    Charts: List[ChartDataModel]
 
 
 # Request Body

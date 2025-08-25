@@ -6,9 +6,12 @@ import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
 from config.FilesBaseDIR import UPLOAD_DIR
 
-def handleUploadFile(file:str,fileNameOnly:str,fileExtension:SystemError):
+
+def handleUploadFile(file: str, fileNameOnly: str, fileExtension: SystemError):
     try:
-        timeStamp = datetime.now().strftime("%Y%m%d%H%M%S")  # Format timestamp for filename safety
+        timeStamp = datetime.now().strftime(
+            "%Y%m%d%H%M%S"
+        )  # Format timestamp for filename safety
 
         if fileExtension.lower() not in [".xlsx", ".xls"]:
             return Result(Status=0, Message="Please upload an Excel file.")
@@ -18,7 +21,6 @@ def handleUploadFile(file:str,fileNameOnly:str,fileExtension:SystemError):
 
         with open(filePath, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
-
 
         return Result(
             Data=filePath,

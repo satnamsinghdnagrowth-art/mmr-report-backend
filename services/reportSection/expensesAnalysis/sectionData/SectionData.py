@@ -1,24 +1,25 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from datetime import datetime
-from services.reportSection.expensesAnalysis.charts.ExpensesAnalysisCharts import (
-    getEACharts,
-)
+from services.visuals.charts.GetSectionCharts import getSectionCharts
 from core.models.visualsModel.SectionData import SectionData
 from typing import Optional
 from services.reportSection.expensesAnalysis.tables.TopOperatingExpenses import (
     getTopOpeatingExpenses,
 )
 
-
 # Get the sections cards
 def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
     try:
-        months = [i for i in range(1, months[0]+1)] if reportType.lower() == "year" else months
+        months = (
+            [i for i in range(1, months[0] + 1)]
+            if reportType.lower() == "year"
+            else months
+        )
         cardsData = []
-        chartsData = getEACharts(year, months, reportType, section, reportId).Data
+        chartsData = getSectionCharts(year, months, reportType, section, reportId).Data
         tablesData = getTopOpeatingExpenses(
             year, months, reportType, section, reportId
         ).Data

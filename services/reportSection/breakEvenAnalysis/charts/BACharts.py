@@ -13,7 +13,7 @@ from core.models.visualsModel.ChartModel import (
     ChartDataModel,
     YAxisSeriesModel,
     MarkerModel,
-    YaxisControllerModel
+    YaxisControllerModel,
 )
 
 
@@ -23,7 +23,6 @@ def getBACharts(
     reportId: Optional[int] = None,
 ) -> Result:
     try:
-
         totalRev = totalRevenue(year, months, reportId).Data
 
         fixedCost = totalOperatingExpenses(year, months, reportId).Data
@@ -35,21 +34,20 @@ def getBACharts(
 
         # Calculate contribution margin
         cm_percent = fixedCost / breakEvenValue
-        variable_cost_percent = 1 - cm_percent 
+        variable_cost_percent = 1 - cm_percent
 
         print()
-        
+
         # Revenue range for X-axis
         revenue = list(range(0, int(breakEvenValue * 2) + 1, 1500))
 
         # Series calculations
         fixed_costs = [fixedCost] * len(revenue)
-        
+
         # Calculate variable costs
         total_costs = [fixedCost + (variable_cost_percent * r) for r in revenue]
 
         valueData = getValueSymbol("Revenue")
-
 
         valueType = valueData["type"]
         valueSymbol = valueData["symbol"]
@@ -91,7 +89,7 @@ def getBACharts(
             Size=8,
             Description=totalRev,
         )
-        
+
         markerObjTotalCost = MarkerModel(
             Label="total Cost",
             Xvalue=totalRev,
@@ -118,8 +116,10 @@ def getBACharts(
             YaxisSeries=yAxisSeries,
             IndexAxis="x",
             RightYaxis=False,
-            YaxisController= [YaxisControllerModel(Id="left", Orientation="left", Unit='$')],
-            Markers=[ markerObjBreakPoint],
+            YaxisController=[
+                YaxisControllerModel(Id="left", Orientation="left", Unit="$")
+            ],
+            Markers=[markerObjBreakPoint],
         )
 
         return Result(

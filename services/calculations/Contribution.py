@@ -44,8 +44,6 @@ def contribution(year: int, month, reportId: Optional[int] = None):
         totalContribution = totalRev - totalVCOS - totalVEXP
 
 
-        print(year,month,totalContribution,'totalContribution')
-
         return Result(
             Data=round(totalContribution, 2),
             Status=1,
@@ -65,8 +63,6 @@ def contributionMargin(year: int, month, reportId: Optional[int] = None):
         totalRev = totalRevenue(year, month, reportId).Data
 
         totalContributionMargin = (totalContribution / totalRev) * 100
-
-        print(totalContributionMargin,'totalContributionMargin')
 
         return Result(
             Data=totalContributionMargin,

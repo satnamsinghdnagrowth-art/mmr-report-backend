@@ -36,11 +36,31 @@ def earningBeforeInterestandTax(year: int, month, reportId: Optional[int] = None
 
 def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
     try:
+
+        financialData = financialDataTest
+
+        if reportId is not None:
+            financialData = getReportData(reportId)["Financial Data"]
         ebit = earningBeforeInterestandTax(year, month, reportId).Data
 
         interestIC = interestIncome(year, month, reportId).Data
 
-        result = ebit + interestIC
+        # Interest Expenses
+        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+            "Interest Expense"
+        ]
+
+        IEXPFilter = [
+            item
+            for item in IEXPdata
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+
+        totalIEXP = IEXPFilter[0]["Value"] if IEXPFilter else 0
+
+        
+
+        result = (ebit + interestIC)-totalIEXP
 
         return Result(
             Data=round(result, 2),

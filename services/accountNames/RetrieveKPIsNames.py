@@ -11,7 +11,7 @@ def retriveKPIsNames(year: int, month):
 
         prev_month = 12 if month == 1 else month - 1
         prev_month_year = year - 1 if month == 1 else year
-        
+
         monthly_totals = [
             {
                 "Label": f"This Month - {getMonthName(month)} {year}",

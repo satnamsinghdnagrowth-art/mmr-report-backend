@@ -1,19 +1,11 @@
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetValueSymbol import getValueSymbol
 
+
 def generateSummaryRow(
     label: str, year: int, staticMonths: list, calc_function
 ) -> list:
-    print("Static months:", staticMonths)
-
-    row = [
-        ValueObjectModel(
-            Value=label,
-            isPositive=True,
-            Type="",
-            Symbol=""
-        )
-    ]
+    row = [ValueObjectModel(Value=label, isPositive=True, Type="", Symbol="")]
 
     grand_total = 0.0
 

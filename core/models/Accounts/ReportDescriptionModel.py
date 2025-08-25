@@ -18,5 +18,4 @@ class ReportDescriptionsModel(BaseModel):
     ReportName: str
     FinancialYear: int
     DataRange: list[DateObject]
-    CompanyLogoPath : Optional[str] = None
-
+    CompanyLogoPath: Optional[str] = None

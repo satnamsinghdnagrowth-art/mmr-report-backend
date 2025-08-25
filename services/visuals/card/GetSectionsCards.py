@@ -9,10 +9,10 @@ def getSectionCards(
     year: int, months: List[int], reportType: str, section: str, reportId: int
 ) -> Result:
     try:
-
         compared_to = (
             "From Last Year" if reportType.lower() == "year" else "From Last Month"
         )
+
         configs = SECTION_CARD_CONFIGS.get(section)
 
         if not configs or "cards" not in configs:
@@ -34,6 +34,7 @@ def getSectionCards(
                 comparisonFunc=config["comparisonFunction"],
                 comparedTo=compared_to,
             )
+            
             section_cards.append(card_result.Data)
 
         return Result(

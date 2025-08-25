@@ -17,15 +17,13 @@ def reportProgressSave(payloadData):
         else:
             existing_data = []
 
-
         # Append new report metadata
         existing_data.append(payloadData.dict())
-        
+
         with open(PROGRESS_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)
 
-        return Result( Status=1, Message="Executive Summary Saved Successfully"
-        )
+        return Result(Status=1, Message="Executive Summary Saved Successfully")
 
     except Exception as ex:
         message = f"Error occurred at getFHSectionCards: {ex}"

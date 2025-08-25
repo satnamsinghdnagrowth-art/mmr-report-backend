@@ -29,7 +29,7 @@
                 "data": [
                     {
                         "valueFunc":"Revenue",
-                        "label":"Current Year",
+                        "label":"Revenue",
                         "type":"Bar",
                         "funcName":"totalRevenue",
                         "AreaFill":false,
@@ -85,14 +85,26 @@
                         "label": "Operating Expenses",
                         "func": "totalOperatingExpenses"
                     },
+                    {
+                        "label": "Operating Profit",
+                        "func": "ebit"
+                    },
                     
                     {
                         "label": "Other Income",
                         "func": "otherIncome"
                     },
                     {
+                        "label": "Earnings Before Interest & Tax",
+                        "func": "earningBeforeInterestandTax"
+                    },
+                    {
                         "label": "Interest Income",
                         "func": "interestIncome"
+                    },
+                    {
+                        "label": "Earnings Before Tax",
+                        "func": "earningBeforeTax"
                     },
 
                     {
@@ -250,6 +262,11 @@
                 "title": "Breakeven-Gap of Safety",
                 "mainFunction": "breakEvenMarginSafety",
                 "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Breakeven-Point",
+                "mainFunction": "breakEven",
+                "comparisonFunction": "growthRate"
             }
         ],
         "charts": [
@@ -300,6 +317,46 @@
             }
         ],
         "charts": [
+            {
+                "title": "Cash Position",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Cash on Hand",
+                        "label": "Cash on Hand",
+                        "type": "Bar",
+                        "funcName": "getCashOnHand",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Net Cash Flow",
+                        "label": "Net Cash Flow",
+                        "type": "Bar",
+                        "funcName": "getNetCashFlow",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            },
+            {
+                "title": "Free Cash Flow",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Free Cash Flow ",
+                        "label": "Free Cash Flow",
+                        "type": "Bar",
+                        "funcName": "getFreeCashFlow",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            }
         ],
         "tables": [
                 

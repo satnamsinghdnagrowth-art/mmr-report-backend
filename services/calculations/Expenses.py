@@ -15,7 +15,6 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
         if reportId is not None:
             financialData = getReportData(reportId)["Financial Data"]
 
-
         VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"]["Classification"][
             "Variable Cost"
         ]
@@ -62,7 +61,6 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
 # Get Total Operating Expenses (Operating Expenses)
 def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
     try:
-
         financialData = financialDataTest
 
         if reportId is not None:
@@ -126,10 +124,9 @@ def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
 # Get Expenses To Revenue Ratio
 def expensesToRevenueRatio(year: int, month, reportId: Optional[int] = None):
     try:
-
-        operatingExp = totalOperatingExpenses(year, month,reportId).Data
-        directExp = directExpenses(year, month,reportId).Data
-        totalRev = totalRevenue(year, month,reportId).Data
+        operatingExp = totalOperatingExpenses(year, month, reportId).Data
+        directExp = directExpenses(year, month, reportId).Data
+        totalRev = totalRevenue(year, month, reportId).Data
 
         totalExpenses = operatingExp + directExp
 

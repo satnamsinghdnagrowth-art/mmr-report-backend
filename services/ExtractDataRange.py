@@ -10,14 +10,17 @@ from core.models.base.ResultModel import Result
 from helper.GetFileByReportId import getReportData
 from helper.GetFileByReportId import getReportMetaDatabyId
 
-def retriveDataRange(reportId:Optional[int]=None):
-    try:
 
+def retriveDataRange(reportId: Optional[int] = None):
+    try:
         reportData = getReportData(reportId)
 
         companyLogoPath = getReportMetaDatabyId(reportId).get("CompanyLogoFilePath")
 
-        print(getReportMetaDatabyId(reportId),getReportMetaDatabyId(reportId).get("CompanyLogoFilePath"))
+        print(
+            getReportMetaDatabyId(reportId),
+            getReportMetaDatabyId(reportId).get("CompanyLogoFilePath"),
+        )
 
         reportDetails = reportData["Report Details"]
 
@@ -32,8 +35,7 @@ def retriveDataRange(reportId:Optional[int]=None):
             ReportName=companyName,
             FinancialYear=finacialYear,
             DataRange=dateRange,
-            CompanyLogoPath=companyLogoPath
-
+            CompanyLogoPath=companyLogoPath,
         )
 
         return Result(Data=reportDescription, Status=1, Message="Success")
@@ -42,4 +44,3 @@ def retriveDataRange(reportId:Optional[int]=None):
         message = f"Error occurred in retriveDataRange: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-

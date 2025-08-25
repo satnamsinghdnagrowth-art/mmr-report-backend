@@ -13,9 +13,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.on_event("startup")
 def startup_event():
-    load_section_configs() 
+    load_section_configs()
 
 
 def runServer():

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Body, UploadFile, File,Form
+from fastapi import APIRouter, Body, UploadFile, File, Form
 from core.models.base.ResultModel import Result
 from services.accountValues.GetFinancialsValues import formatFinancialData
 from services.fileUploadHandling.FileUpload import fileUpload
@@ -8,29 +8,29 @@ from weasyprint import HTML
 
 dataFormat = APIRouter()
 
+
 # File upload endpoint
-@dataFormat.post("/upload",response_model=Result)
+@dataFormat.post("/upload", response_model=Result)
 def formatReportData(
     file: Optional[UploadFile] = File(None),
     FileBase64Str: Optional[str] = Form(None),
-    CompanyLogo : Optional[UploadFile] = File(None)
+    CompanyLogo: Optional[UploadFile] = File(None),
 ):
     if not file and not FileBase64Str:
-        return Result(Status=400, Message="Either file or FileBase64Str must be provided.")
-    
-    return fileUpload(file,FileBase64Str,CompanyLogo)
+        return Result(
+            Status=400, Message="Either file or FileBase64Str must be provided."
+        )
 
+    return fileUpload(file, FileBase64Str, CompanyLogo)
 
 
 @dataFormat.patch("/update/report/{reportId}/")
-def uploadLogo(reportId:int,CompanyLogo : Optional[UploadFile] = File(None)):
-    return updateReportFields(reportId,CompanyLogo)
+def uploadLogo(reportId: int, CompanyLogo: Optional[UploadFile] = File(None)):
+    return updateReportFields(reportId, CompanyLogo)
 
-    
-
-@dataFormat.post("/test",response_model=Result)
+# downloadPDF
+@dataFormat.post("/test", response_model=Result)
 def testData(base64str=Body(...)):
-
     htmlContent = base64str["base64str"]
 
     # Save PDF to a file path
@@ -40,7 +40,7 @@ def testData(base64str=Body(...)):
     html.write_pdf(file_path)
 
     return Result(
-        Data= "/database/ReportsPdf/test.pdf",
+        Data="/database/ReportsPdf/test.pdf",
         Status=0,
-        Message="PDF generated and ready for download"
+        Message="PDF generated and ready for download",
     )

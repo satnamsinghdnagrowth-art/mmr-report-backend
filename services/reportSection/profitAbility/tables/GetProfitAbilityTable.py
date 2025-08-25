@@ -46,7 +46,6 @@ def getPATable(
                     "Particulars",
                     f"{calendar.month_abbr[currentMonths[0]]} {year}",
                     f"{calendar.month_abbr[prevMonths[0]]} {year}",
-
                     "This Month vs Last Month(%)",
                     "This Month vs Last Month($)",
                 ]
@@ -112,13 +111,13 @@ def getPATable(
                         Symbol=valueSymbol,
                     )
                 )
-                
 
                 rows.append(row)
 
-        
                 # Create TableModel and return result
-            tableObj = TableModel(Title="Variance Analysis - Income Statements", Column=Headers, Rows=rows)
+            tableObj = TableModel(
+                Title="Variance Analysis - Income Statements", Column=Headers, Rows=rows
+            )
 
             tables.append(tableObj)
 

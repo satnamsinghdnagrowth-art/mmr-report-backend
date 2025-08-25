@@ -10,23 +10,25 @@ from typing import Optional
 # Operating Profit
 def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None):
     try:
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
 
         STDdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
         ]["Short-term Debt"]
 
         STDFilter = [
-            item\
+            item
             for item in STDdata
             if (item["Year"] == year and (0 in months or item["Month"] in months))
         ]
 
         totalSTD = sum(item["Value"] for item in STDFilter)
 
-        APdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
-            "Classification"
-        ]["Accounts Payable"]
+        APdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"]["Classification"][
+            "Accounts Payable"
+        ]
 
         APFilter = [
             item
@@ -36,9 +38,9 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalAP = sum(item["Value"] for item in APFilter)
 
-        TLdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
-            "Classification"
-        ]["Taxes & Levies"]
+        TLdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"]["Classification"][
+            "Taxes & Levies"
+        ]
 
         TLFilter = [
             item
@@ -62,7 +64,6 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
         totalCL = totalAP + totalOCL
 
-
         return Result(
             Data=round(totalCL, 2),
             Status=1,
@@ -77,8 +78,9 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
 
 def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
     try:
-        
-        financialData = getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        financialData = (
+            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
+        )
 
         ARdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Accounts Receivable"
