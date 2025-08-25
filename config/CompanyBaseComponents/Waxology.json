@@ -1,0 +1,440 @@
+{
+    "Financial Heights": {
+        "cards": [
+            {
+                "title": "Total Revenue",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Cost of Goods Sold",
+                "mainFunction": "directExpenses",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Operating Expenses",
+                "mainFunction": "totalOperatingExpenses",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Net Income",
+                "mainFunction": "netIncome",
+                "comparisonFunction": "growthRate"
+            }
+        ],
+        "charts": [
+            {
+                "title": "Revenue Growth",
+                "rigthYaxis":true,
+                "data": [
+                    {
+                        "valueFunc":"Revenue",
+                        "label":"Revenue",
+                        "type":"Bar",
+                        "funcName":"totalRevenue",
+                        "AreaFill":false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Last Year",
+                        "label": "Last Year",
+                        "type": "Bar",
+                        "funcName": "totalRevenue",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Revenue Growth",
+                        "label": "Revenue Growth",
+                        "type": "Line",
+                        "funcName": "revenueGrowth",
+                        "AreaFill": false,
+                        "yaxisId":"right"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":true
+            }
+        ],
+        "tables": [
+            {
+                "title": "Income Statement",
+                "columns": [
+                    "Particulars",
+                    "This Month",
+                    "Last Month",
+                    "This Month vs last Month(%)",
+                    "This Month vs last Month($)"
+                ],
+                "rows": [
+                    {
+                        "label": "Revenue",
+                        "func": "totalRevenue"
+                    },
+                    {
+                        "label": "Cost of Goods Sold",
+                        "func": "directExpenses"
+                    },
+                    {
+                        "label": "Gross Profit",
+                        "func": "grossProfit"
+                    },
+                   
+                    {
+                        "label": "Operating Expenses",
+                        "func": "totalOperatingExpenses"
+                    },
+                    {
+                        "label": "Operating Profit",
+                        "func": "ebit"
+                    },
+                    
+                    {
+                        "label": "Other Income",
+                        "func": "otherIncome"
+                    },
+                    {
+                        "label": "Earnings Before Interest & Tax",
+                        "func": "earningBeforeInterestandTax"
+                    },
+                    {
+                        "label": "Interest Income",
+                        "func": "interestIncome"
+                    },
+                    {
+                        "label": "Earnings Before Tax",
+                        "func": "earningBeforeTax"
+                    },
+
+                    {
+                        "label": "Net Income",
+                        "func": "netIncome"
+                    }
+                    
+                ]
+            }
+        ]
+    },
+    "ProfitAbility": {
+        "cards": [
+            
+        ],
+        "charts": [
+            {
+                "title": "Profitability Chart",
+                "rigthYaxis":false,
+                "data": [
+                    {
+                        "valueFunc":"Gross Profit",
+                        "label":"Gross Profit",
+                        "type":"Line",
+                        "funcName":"grossProfit",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                        
+                    },
+                    {
+                        "valueFunc":"Operating Profit",
+                        "label":"Operating Profit",
+                        "type": "Line",
+                        "funcName": "ebit",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            },
+            {
+                "title": "Gross Profit Margin",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Gross Profit Margin (%)",
+                        "label":"Current Year",
+                        "type":"Bar",
+                        "funcName":"grossProfitMargin",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+
+                    },
+                    {
+                        "valueFunc":"Last Year Margin",
+                        "label":"Last Year",
+                        "type": "Line",
+                        "funcName": "grossProfitMargin",
+
+                        "AreaFill": true,
+
+                        "yaxisId":"left"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            }
+        ],
+        "tables": [
+        ]
+    },
+    "Expenses Analysis": {
+        "cards": [
+            
+        ],
+        "charts": [
+            {
+                "title": "Key Metrics",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Revenue",
+                        "label":"Revenue",
+                        "type":"Bar",
+                        "funcName":"totalRevenue",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Cost of Goods",
+                        "label": "Cost of Goods",
+                        "type": "Line",
+                        "funcName": "directExpenses",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Operating Expenses",
+                        "label": "Operating Expenses",
+                        "type": "Line",
+                        "funcName": "totalOperatingExpenses",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            },
+            {
+                "title": "Expenses to Revenue Ratio",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Expenses to Revenue Ratio",
+                        "label":"Current Year",
+                        "type":"Line",
+                        "funcName":"expensesToRevenueRatio",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Expenses to Revenue Ratio",
+                        "label": "Last Year",
+                        "type": "Line",
+                        "funcName": "expensesToRevenueRatio",
+                        "AreaFill": true,
+                        "yaxisId":"left"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            }
+        ],
+        "tables": [
+        ]
+    },
+    "Breakeven-Analysis": {
+        "cards": [
+            {
+                "title": "Revenue",
+                "mainFunction": "totalRevenue",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Expense-to-Revenue Ratio",
+                "mainFunction": "expensesToRevenueRatio",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Breakeven-Gap of Safety",
+                "mainFunction": "breakEvenMarginSafety",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Breakeven-Point",
+                "mainFunction": "breakEven",
+                "comparisonFunction": "growthRate"
+            }
+        ],
+        "charts": [
+            {
+                "title": "Profitability Chart",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Gross Profit",
+                        "label": "Gross Profit",
+                        "type": "Line",
+                        "funcName": "grossProfit",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Operating Profit",
+                        "label": "Operating Profit",
+                        "type": "Line",
+                        "funcName": "ebit",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            }
+        ],
+        "tables": [
+        ]
+    },
+    "Cash Flow Analysis": {
+        "cards": [
+            {
+                "title": "Operating Cash Flow",
+                "mainFunction": "getOperatingActivitiesCashFlow",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Free Cash Flow",
+                "mainFunction": "getFreeCashFlow",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Cash on Hand",
+                "mainFunction": "getCashOnHand",
+                "comparisonFunction": "growthRate"
+            }
+        ],
+        "charts": [
+            {
+                "title": "Cash Position",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Cash on Hand",
+                        "label": "Cash on Hand",
+                        "type": "Bar",
+                        "funcName": "getCashOnHand",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        "valueFunc":"Net Cash Flow",
+                        "label": "Net Cash Flow",
+                        "type": "Bar",
+                        "funcName": "getNetCashFlow",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            },
+            {
+                "title": "Free Cash Flow",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Free Cash Flow ",
+                        "label": "Free Cash Flow",
+                        "type": "Bar",
+                        "funcName": "getFreeCashFlow",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    }
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            }
+        ],
+        "tables": [
+                
+        ]
+    },
+    "Budget Comparison":{
+        "cards":[
+            {
+                "title": "Monthly Recurring Revenue",
+                "mainFunction": "MRR",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Annual Recurring Revenue",
+                "mainFunction": "ARR",
+                "comparisonFunction": "growthRate"
+            },
+            {
+                "title": "Annual Recurring Revenue",
+                "mainFunction": "Cash RunWay",
+                "comparisonFunction": "growthRate"
+            }
+           ],
+        "charts":[],
+        "tables":[
+            {
+                "title": "",
+                "columns": [
+                    "Particulars",
+                    "This Month",
+                    "Last Month",
+                    "This Month vs last Month(%)",
+                    "This Month vs last Month($)"
+                ],
+                "rows": [
+                    {
+                        "label": "Revenue",
+                        "func": "LTV"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Sales & Growth "
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Go-to-Market"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Capital Efficiency"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Total Customer Count"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Live"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Burn Rate"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Profitability"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Gross Margin"
+                    },
+                    {
+                        "label": "Revenue",
+                        "func": "Operating Margin"
+                    }
+                ]
+            }
+
+        ]
+    }
+}

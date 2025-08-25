@@ -3,12 +3,16 @@ from core.models.base.ResultModel import Result
 from services.reportSection.consolidateSection.AllSectionDataServices import AllSectionDataService
 from core.models.visualsModel.SectionData import ConsolidateSectionDate
 from core.models.base.SectionNamesEnum import SectionName
+from helper.LoadJsonData import SECTION_CARD_CONFIGS
+
 
 # Get the sections cards
 def getConsolidateSectionData(
-    year: int, months: list[int], reportType: str, section: str, reportId: int
+    year: int, months: list[int], reportType: str, section: str, reportId: int,companyId:int
 ):
     try:
+
+        configs = SECTION_CARD_CONFIGS.get(section)
 
         months = (
             [i for i in range(1, months[-1] + 1)]

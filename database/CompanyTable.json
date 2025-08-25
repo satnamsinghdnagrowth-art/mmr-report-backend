@@ -1,0 +1,12 @@
+[
+    {
+        "CompanyId":123456,
+        "CompanyName":"Waxology",
+        "FilePath":"config/CompanyBaseComponents/Waxology.json"
+    },
+    {
+        "CompanyId":123465,
+        "CompanyName":"Hey Begal",
+        "FilePath":"config/CompanyBaseComponents/HeyBegal.json"
+    }
+]

@@ -5,6 +5,7 @@ from services.reportSection.expensesAnalysis.sectionData.SectionData import (
     getSectionData,
 )
 
+
 CompanyRouter = APIRouter()
 
 

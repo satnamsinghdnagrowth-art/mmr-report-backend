@@ -1,12 +1,12 @@
 from datetime import datetime
-from typing import List
+from typing import List,Optional
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from services.visuals.card.retrieveCard import retrieveCard
 
 
 def getSectionCards(
-    year: int, months: List[int], reportType: str, section: str, reportId: int
+    year: int, months: List[int], reportType: str, section: str, reportId: int,config=""
 ) -> Result:
     try:
         compared_to = (

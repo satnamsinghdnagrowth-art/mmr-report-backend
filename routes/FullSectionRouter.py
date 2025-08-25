@@ -4,7 +4,6 @@ from core.models.base.SectionDataRequestBody import SectionChartRequestData
 from services.reportSection.consolidateSection.ConsolidateDataReporting import (
     getConsolidateSectionData,
 )
-
 # Router Name
 ConsolidateSectionsData = APIRouter()
 
@@ -18,4 +17,5 @@ def getSection(reportId: int, payload: SectionChartRequestData):
         months=payload.Months,
         reportType=payload.ReportType,
         section=payload.SectionName,
+        companyId=payload.CompanyId
     )
