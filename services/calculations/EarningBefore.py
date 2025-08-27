@@ -45,7 +45,7 @@ def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
 
         interestIC = interestIncome(year, month, reportId).Data
 
-        # Interest Expenses
+        # Error occur at otherIncomeMargin:enses
         IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
             "Interest Expense"
         ]
@@ -58,9 +58,9 @@ def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
 
         totalIEXP = IEXPFilter[0]["Value"] if IEXPFilter else 0
 
-        
+        otherIncomeValue = otherIncome(year, month,reportId).Data
 
-        result = (ebit + interestIC)-totalIEXP
+        result = ((ebit + interestIC)-totalIEXP)-otherIncomeValue
 
         return Result(
             Data=round(result, 2),

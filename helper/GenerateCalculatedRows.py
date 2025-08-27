@@ -2,6 +2,10 @@ from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetValueSymbol import getValueSymbol
 
 
+from core.models.visualsModel.ValueObject import ValueObjectModel
+from helper.GetValueSymbol import getValueSymbol
+
+
 def generateSummaryRow(
     label: str, year: int, staticMonths: list, calc_function
 ) -> list:
@@ -14,8 +18,9 @@ def generateSummaryRow(
     valueType = valueData["type"]
     valueSymbol = valueData["symbol"]
 
-    for month, year in staticMonths:
-        val = calc_function(year, month)
+    # Calculate month-wise values
+    for month, yr in staticMonths:
+        val = calc_function(yr, [month])
         grand_total += val
 
         row.append(
@@ -27,6 +32,14 @@ def generateSummaryRow(
             )
         )
 
+    # Special handling for margin values
+    if label in ["Gross Profit Margin(%)", "Net Income Margin(%)"]:
+        months = [m for m, _ in staticMonths]  # flat list of months
+        year_for_calc = year
+        grand_total = calc_function(year_for_calc, months)  # pass months directly
+
+
+    # Append total/summary column
     row.append(
         ValueObjectModel(
             Value=grand_total,

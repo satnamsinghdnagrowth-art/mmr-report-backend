@@ -80,7 +80,12 @@
                         "label": "Gross Profit",
                         "func": "grossProfit"
                     },
+                    {
+                        "label": "Gross Profit Margin",
+                        "func": "grossProfitMargin"
+                    },
                    
+            
                     {
                         "label": "Operating Expenses",
                         "func": "totalOperatingExpenses"
@@ -103,6 +108,11 @@
                         "func": "interestIncome"
                     },
                     {
+                        "label": "Interest Expenses",
+                        "func": "interestExpenses"
+                    },
+                    
+                    {
                         "label": "Earnings Before Tax",
                         "func": "earningBeforeTax"
                     },
@@ -110,6 +120,11 @@
                     {
                         "label": "Net Income",
                         "func": "netIncome"
+                    },
+
+                    {
+                        "label": "Net Income Margin",
+                        "func": "netIncomeMargin"
                     }
                     
                 ]
@@ -148,33 +163,24 @@
                 "ShowBothSideAxes":false
             },
             {
-                "title": "Gross Profit Margin",
+                "title": "Net Profit Margin",
                 "rigthYaxis": false,
                 "data": [
                     {
-                        "valueFunc":"Gross Profit Margin (%)",
-                        "label":"Current Year",
+                        "valueFunc":"Net Profit Margin (%)",
+                        "label":"Net Profit Margin (%)",
                         "type":"Bar",
-                        "funcName":"grossProfitMargin",
+                        "funcName":"netIncomeMargin",
                         "AreaFill": false,
                         "yaxisId":"left"
 
-                    },
-                    {
-                        "valueFunc":"Last Year Margin",
-                        "label":"Last Year",
-                        "type": "Line",
-                        "funcName": "grossProfitMargin",
-
-                        "AreaFill": true,
-
-                        "yaxisId":"left"
                     }
                 
                 ],
                 "indexAxis": "x",
                 "ShowBothSideAxes":false
             }
+            
         ],
         "tables": [
         ]
@@ -340,23 +346,8 @@
                 ],
                 "indexAxis": "x",
                 "ShowBothSideAxes":false
-            },
-            {
-                "title": "Free Cash Flow",
-                "rigthYaxis": false,
-                "data": [
-                    {
-                        "valueFunc":"Free Cash Flow ",
-                        "label": "Free Cash Flow",
-                        "type": "Bar",
-                        "funcName": "getFreeCashFlow",
-                        "AreaFill": false,
-                        "yaxisId":"left"
-                    }
-                ],
-                "indexAxis": "x",
-                "ShowBothSideAxes":false
             }
+        
         ],
         "tables": [
                 

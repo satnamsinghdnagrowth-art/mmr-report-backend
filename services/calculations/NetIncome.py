@@ -55,9 +55,14 @@ def netIncome(year: int, month, reportId: Optional[int] = None):
 
 def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
     try:
+
+        
         totalRev = totalRevenue(year, month, reportId).Data
 
+
         NIC = netIncome(year, month, reportId).Data
+
+
 
         netICMargin = (NIC / totalRev) * 100
 

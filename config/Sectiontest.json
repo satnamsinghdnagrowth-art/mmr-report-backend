@@ -162,6 +162,29 @@
                 
                 ],
                 "indexAxis": "x"
+            },
+            {
+                "title": "Gross Profit Margin",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Gross Profit Margin (%)",
+                        "label":"Current Year",
+                        "type":"Bar",
+                        "funcName":"grossProfitMargin",
+                        "AreaFill": false
+                    },
+                    {
+                        "valueFunc":"Last Year Margin",
+                        "label":"Last Year",
+                        "type": "Line",
+                        "funcName": "grossProfitMargin",
+
+                        "AreaFill": true
+                    }
+                
+                ],
+                "indexAxis": "x"
             }
         ],
         "tables": [

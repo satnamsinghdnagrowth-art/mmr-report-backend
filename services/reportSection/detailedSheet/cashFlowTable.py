@@ -13,8 +13,9 @@ import calendar
 
 
 # Generate Cash flow Table
-def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
+def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements"):
     try:
+        print(year,months)
         financialData = (
             getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         )
@@ -34,7 +35,7 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
         current_month = last_month
         current_year = year
 
-        for _ in range(12):
+        for _ in range(6):
             if (current_month, current_year) in available_months_set:
                 staticMonths.insert(0, (current_month, current_year))
             current_month -= 1
@@ -173,7 +174,7 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
 
         row = [
             ValueObjectModel(
-                Value="change In other Equity", isPositive=True, Type="", Symbol=""
+                Value="Change In other Equity", isPositive=True, Type="", Symbol=""
             )
         ]
 
@@ -252,19 +253,19 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
             result = chaneInOEQ + (chaneInRE - netIncomeValue)
 
             row.append(
-                ValueObjectModel(Value=result, isPositive=True, Type="", Symbol="")
+                ValueObjectModel(Value=result, isPositive=True, Type="currency", Symbol="$")
             )
 
         financing_rows.append(row)
 
         finance_change_rows = [
             (
-                "Change in Short Term Debt",
+                "Change in long Term Debt",
                 [
                     "BalanceSheet",
-                    "CURRENT LIABILITIES",
+                    "NON-CURRENT LIABILITIES",
                     "Classification",
-                    "Short-term Debt",
+                    "Long-term Debt",
                 ],
                 False,
             ),
@@ -288,7 +289,7 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
         finance_change_rows = [
             (
                 "Change in Cash & Equivalent",
-                ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash & Equivalents"],
                 False,
             ),
         ]
@@ -326,13 +327,13 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
 
             result = getValueSum(
                 financialData,
-                ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash & Equivalents"],
                 prevYear,
                 prevMonths,
             ).Data
             result2 = getValueSum(
                 financialData,
-                ["BalanceSheet", "CURRENT ASSETS", "Classification", "CASH"],
+                ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash & Equivalents"],
                 y,
                 [m],
             ).Data
@@ -350,7 +351,7 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Table"):
         rows.extend([OpenRows, closeRows])
 
         # ---------------- Final Table ----------------
-        tableObj = TableModel(Title="CASH FLOW STATEMENT", Column=Headers, Rows=rows)
+        tableObj = TableModel(Title="", Column=Headers, Rows=rows)
 
         return Result(
             Data=tableObj,

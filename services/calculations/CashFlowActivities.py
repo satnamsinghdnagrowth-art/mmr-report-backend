@@ -110,27 +110,7 @@ def getInvestigatingActivitiesCashFlow(
             getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         )
 
-        print(year,months,getValueSum(
-                financialData,
-                [
-                    "BalanceSheet",
-                    "NON-CURRENT ASSETS",
-                    "Classification",
-                    "Fixed Assets",
-                ],
-                year ,
-                [months[-1]-1],
-            ).Data,'*********',getValueSum(
-                financialData,
-                [
-                    "BalanceSheet",
-                    "NON-CURRENT ASSETS",
-                    "Classification",
-                    "Fixed Assets",
-                ],
-                year,
-                [months[-1]],
-            ).Data)
+        
 
         changeInFA = (
             getValueSum(
@@ -213,8 +193,6 @@ def getInvestigatingActivitiesCashFlow(
             year,
             months,
         ).Data
-
-        print(year,months,changeInFA,changeInIA,changeInONCA,totalInterestExpense,'----------------------')
 
         investigatingActivitiesCashFlow = (
             changeInFA + changeInIA + changeInONCA 

@@ -75,6 +75,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 latest_month = currentMonths[0]  # assumed to be the latest month
                 ytd_months = []
 
+
                 if latest_month >= financialMonth:
                     # Same year: financialMonth to latest_month
                     for m in range(financialMonth, latest_month + 1):
@@ -85,14 +86,30 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ytd_months.append((currentYear - 1, m))
                     for m in range(1, latest_month + 1):
                         ytd_months.append((currentYear, m))
+                
 
                 # ✅ Compute YTD total
-                ytdValue = sum(
-                    [
-                        func(year=y, month=[m], reportId=reportId).Data
-                        for y, m in ytd_months
-                    ]
-                )
+
+                print(entry['func'])
+
+
+                if entry['func'] == 'grossProfitMargin':
+
+
+                    ytdValue = func(year=2025, month=[1,2,3,4,5,6,7], reportId=reportId).Data
+
+                elif  entry['func'] == 'netIncomeMargin':
+                    ytdValue = func(year=2025, month=[1,2,3,4,5,6,7], reportId=reportId).Data
+
+
+
+                else:
+                    ytdValue = sum(
+                        [
+                            func(year=y, month=[m], reportId=reportId).Data
+                            for y, m in ytd_months
+                        ]
+                    )
 
                 result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
 
@@ -155,9 +172,9 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
             tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows)
             tables.append(tableObj)
 
-        tables.append(
-            getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
-        )
+        # tables.append(
+        #     getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
+        # )
 
         return Result(
             Data=tables, Status=1, Message="Income Statement generated successfully"

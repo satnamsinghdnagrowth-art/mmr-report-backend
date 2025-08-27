@@ -32,7 +32,7 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
 
         # Tax Expenses
         TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
-            "Interest Expense"
+            "Tax Expense"
         ]
 
         TEXPFilter = [
@@ -46,8 +46,6 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
         otherExpenses = totalIEXP + totalTEXP
 
         netProfit = ebit - otherExpenses
-
-        print(f"Net Profit:{netProfit}")
 
         return Result(
             Data=round(netProfit, 2),
@@ -69,11 +67,11 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
 #  Get Total Revenue
 def netProfitMargin(year: int, month, reportId: Optional[int] = None):
     try:
-        netprofit = netProfit(year, month, reportId).Data
+        netprofitValue = netProfit(year, month, reportId).Data
 
         totalRev = totalRevenue(year, month, reportId).Data
 
-        netProfitMargin = (netprofit / totalRev) * 100
+        netProfitMargin = (netprofitValue / totalRev) * 100
 
         return Result(
             Data=round(netProfitMargin, 2),

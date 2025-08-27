@@ -21,6 +21,8 @@ def getSectionData(
 
         cardsData = getSectionCards(year, months, reportType, section, reportId).Data
         chartsData = getSectionCharts(year, months, reportType, section, reportId).Data
+        # cards = []
+        # charts = []
         
         tablesData = [
             getDetailedTable(year, months, ["PROFIT & LOSS"], reportId).Data,

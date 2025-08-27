@@ -24,28 +24,30 @@ def retrieveChart(
         chartData = config["data"]
         axisChoice = config["indexAxis"]
 
-        # if reportType and reportType.lower() == "month":
-        #     current_month = months[0]  # assume latest month is passed
-        #     last_six_months = []
-        #     for i in range(4, -1, -1):
-        #         month = current_month - i
-        #         y = year
-        #         if month <= 0:
-        #             month += 12
-        #             y -= 1
-        #         last_six_months.append((y, month))
-        #     months = last_six_months
         if reportType and reportType.lower() == "month":
             current_month = months[0]  # assume latest month is passed
-            last_months = []
-            for m in range(1, current_month + 1):  # from Jan (1) to current month
-                last_months.append((year, m))
-            months = last_months
+            last_six_months = []
+            for i in range(5, -1, -1):
+                month = current_month - i
+                y = year
+                if month <= 0:
+                    month += 12
+                    y -= 1
+                last_six_months.append((y, month))
+            months = last_six_months
+        # if reportType and reportType.lower() == "month":
+        #     current_month = months[0]  # assume latest month is passed
+        #     last_months = []
+        #     for m in range(1, current_month + 1):  # from Jan (1) to current month
+        #         last_months.append((year, m))
+        #     months = last_months
 
         else:
             months = [(year, m) for m in months]
 
         first_label = chartData[0]["label"].lower()
+
+
 
         current_year = datetime.now().year
 
@@ -57,6 +59,7 @@ def retrieveChart(
         yAxisSeries = []
 
         symbolList = []
+
 
         for metric in chartData:
             valueFunc = metric["valueFunc"]
@@ -136,6 +139,8 @@ def retrieveChart(
             RightYaxis=rigthYaxis,
             YaxisController=yaxisControllers,
         )
+
+
 
         return Result(
             Data=chartData, Status=1, Message=f"{title} chart generated successfully"

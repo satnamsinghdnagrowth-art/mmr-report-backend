@@ -56,6 +56,43 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
         message = f"Error occur at directExpenses: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
+    
+
+def interestExpenses(year: int, month, reportId: Optional[int] = None):
+    try:
+        financialData = financialDataTest
+
+        if reportId is not None:
+            financialData = getReportData(reportId)["Financial Data"]
+
+        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+            "Interest Expense"
+        ]
+
+        IEXPFilter = [
+            item
+            for item in IEXPdata
+            if (item["Year"] == year and (0 in month or item["Month"] in month))
+        ]
+
+        totalIEXP = sum(item["Value"] for item in IEXPFilter)
+
+        
+        return Result(
+            Data=round(totalIEXP, 2),
+            Status=1,
+            Message="Month-wise interestExpenses calculated successfully",
+        )
+
+    except ZeroDivisionError as ex:
+        message = f"Error occurred at interestExpenses: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Data=0, Status=0, Message=message)
+
+    except Exception as ex:
+        message = f"Error occur at interestExpenses: {ex}"
+        print(f"{datetime.now()} {message}")
+        return Result(Status=0, Message=message)
 
 
 # Get Total Operating Expenses (Operating Expenses)

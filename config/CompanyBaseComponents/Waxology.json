@@ -148,14 +148,14 @@
                 "ShowBothSideAxes":false
             },
             {
-                "title": "Gross Profit Margin",
+                "title": "Net Profit Margin",
                 "rigthYaxis": false,
                 "data": [
                     {
-                        "valueFunc":"Gross Profit Margin (%)",
-                        "label":"Current Year",
+                        "valueFunc":"Net Profit Margin (%)",
+                        "label":"Net Profit Margin (%)",
                         "type":"Bar",
-                        "funcName":"grossProfitMargin",
+                        "funcName":"netProfitMargin",
                         "AreaFill": false,
                         "yaxisId":"left"
 
@@ -167,6 +167,24 @@
                         "funcName": "grossProfitMargin",
 
                         "AreaFill": true,
+
+                        "yaxisId":"left"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":false
+            },
+            {
+                "title": "Net Profit",
+                "rigthYaxis": false,
+                "data": [
+                    {
+                        "valueFunc":"Net Profit",
+                        "label":"Net Profit",
+                        "type":"Bar",
+                        "funcName":"netProfit",
+                        "AreaFill": false,
 
                         "yaxisId":"left"
                     }
