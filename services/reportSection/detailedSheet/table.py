@@ -367,23 +367,23 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                             lambda y, m: EBIT(y, m, reportId).Data,
                         )
                     )
-                    sectionRows.append([ValueObjectModel(
-                        Value="Interest Income",
-                        isPositive=True,
-                        Type="currency",
-                        Symbol="$",
-                    )])
+                    # sectionRows.append([ValueObjectModel(
+                    #     Value="Interest Income",
+                    #     isPositive=True,
+                    #     Type="currency",
+                    #     Symbol="$",
+                    # )])
 
 
-                    sectionRows.append(
-                        generateSummaryRow(
-                            "Interest & Dividend",
-                            year,
-                            staticMonths,
-                            lambda y, m: interestIncome(y, m, reportId).Data,
-                        )
+                    # sectionRows.append(
+                    #     generateSummaryRow(
+                    #         "Interest & Dividend",
+                    #         year,
+                    #         staticMonths,
+                    #         lambda y, m: interestIncome(y, m, reportId).Data,
+                    #     )
                     
-                    )
+                    # )
                     # sectionRows.append(
                     #     [
                     #         ValueObjectModel(
@@ -443,7 +443,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     
                     
 
-                if sectionName.upper() == "OTHER EXPENSES":
+                if sectionName.upper() == "INTEREST EXPENSES":
                     sectionRows.append(
                         generateSummaryRow(
                             "Earnings Before Tax",

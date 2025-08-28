@@ -20,7 +20,7 @@ def netIncome(year: int, month, reportId: Optional[int] = None):
         if reportId is not None:
             financialData = getReportData(reportId)["Financial Data"]
 
-        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+        TEXPdata = financialData["PROFIT & LOSS"]["TAX EXPENSES"]["Classification"][
             "Tax Expense"
         ]
 

@@ -46,7 +46,7 @@ def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
         interestIC = interestIncome(year, month, reportId).Data
 
         # Error occur at otherIncomeMargin:enses
-        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
             "Interest Expense"
         ]
 

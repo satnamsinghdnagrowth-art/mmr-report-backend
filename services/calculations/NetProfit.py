@@ -18,7 +18,7 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
         ebit = EBIT(year, month).Data
 
         # Interest Expenses
-        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
             "Interest Expense"
         ]
 
@@ -31,7 +31,7 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
         totalIEXP = IEXPFilter[0]["Value"] if IEXPFilter else 0
 
         # Tax Expenses
-        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+        TEXPdata = financialData["PROFIT & LOSS"]["TAX EXPENSES"]["Classification"][
             "Tax Expense"
         ]
 

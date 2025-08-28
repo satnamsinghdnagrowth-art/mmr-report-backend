@@ -54,7 +54,7 @@ def interestIncome(year: int, month, reportId: Optional[int] = None):
             financialData = getReportData(reportId)["Financial Data"]
 
         # Interest Expenses
-        interestIncomedata = financialData["PROFIT & LOSS"]["OTHER INCOME"][
+        interestIncomedata = financialData["PROFIT & LOSS"]["INTEREST INCOME"][
             "Classification"
         ]["Interest Income"]
 
@@ -73,11 +73,11 @@ def interestIncome(year: int, month, reportId: Optional[int] = None):
         )
 
     except ZeroDivisionError as ex:
-        message = f"Error occurred at otherIncomeMargin: {ex}"
+        message = f"Error occurred at interestIncome: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Data=0, Status=0, Message=message)
 
     except Exception as ex:
-        message = f"Error occur at otherIncomeMargin: {ex}"
+        message = f"Error occur at interestIncome: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)

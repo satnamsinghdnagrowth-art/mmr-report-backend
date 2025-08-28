@@ -65,7 +65,7 @@ def interestExpenses(year: int, month, reportId: Optional[int] = None):
         if reportId is not None:
             financialData = getReportData(reportId)["Financial Data"]
 
-        IEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
             "Interest Expense"
         ]
 

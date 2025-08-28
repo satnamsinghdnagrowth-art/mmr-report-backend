@@ -11,6 +11,9 @@ def getConsolidateSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int,companyId:int
 ):
     try:
+        
+
+
 
         configs = SECTION_CARD_CONFIGS.get(section)
 

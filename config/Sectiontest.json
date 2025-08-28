@@ -133,7 +133,7 @@
                         "valueFunc":"Operating Profit",
                         "label":"Operating Profit",
                         "type": "Line",
-                        "funcName": "ebit",
+                        "funcName": "operatingProfit",
                         "AreaFill": false
                     }
                 

@@ -25,7 +25,7 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
         totalInterestIncome = getValueSum(
             financialData,
-            ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Interest Income"],
+            ["PROFIT & LOSS", "INTEREST INCOME", "Classification", "Interest Income"],
             year,
             months,
         ).Data
@@ -39,12 +39,12 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
         totalInterestExpense = getValueSum(
             financialData,
-            ["PROFIT & LOSS", "OTHER EXPENSES", "Classification", "Interest Expense"],
+            ["PROFIT & LOSS", "INTEREST EXPENSES", "Classification", "Interest Expense"],
             year,
             months,
         ).Data
 
-        TEXPdata = financialData["PROFIT & LOSS"]["OTHER EXPENSES"]["Classification"][
+        TEXPdata = financialData["PROFIT & LOSS"]["TAX EXPENSES"]["Classification"][
             "Tax Expense"
         ]
 
@@ -171,8 +171,8 @@ def getInvestigatingActivitiesCashFlow(
                     "Classification",
                     "Other Non-Current Assets",
                 ],
-                year - 1,
-                [months[-1]],
+                year ,
+                [months[-1]-1],
             ).Data
             - getValueSum(
                 financialData,
@@ -189,7 +189,7 @@ def getInvestigatingActivitiesCashFlow(
 
         totalInterestExpense = getValueSum(
             financialData,
-            ["PROFIT & LOSS", "OTHER INCOME", "Classification", "Interest Income"],
+            ["PROFIT & LOSS", "INTEREST INCOME", "Classification", "Interest Income"],
             year,
             months,
         ).Data
@@ -197,6 +197,8 @@ def getInvestigatingActivitiesCashFlow(
         investigatingActivitiesCashFlow = (
             changeInFA + changeInIA + changeInONCA 
         )
+
+        print(changeInFA,changeInIA,changeInONCA,'7777777777777777777777777777777777777')
 
         return Result(
             Data=round(investigatingActivitiesCashFlow, 2),

@@ -92,6 +92,8 @@ def retrieveCard(
             mainFunc(d.year, [d.month], reportId).Data for d in trend_dates
         ]
 
+
+
         trendLineData = TrendLineChart(Xaxis=trendLineXaxis, Yaxis=trendLineYaxis)
 
         mainValuePositiveCheck = isMetricPositive(title, mainValue)
@@ -106,8 +108,13 @@ def retrieveCard(
 
         # Comparison value calculation
 
+
+
         if comparisonFunc.lower() == "growthrate":
-            comparisonValue = dataGrowthRate(mainValue, previousValue).Data
+            if title == "Expense-to-Revenue Ratio":
+                comparisonValue = mainValue - previousValue
+            else:
+                 comparisonValue = dataGrowthRate(mainValue, previousValue).Data
         else:
             comparisonValue = previousValue
 
