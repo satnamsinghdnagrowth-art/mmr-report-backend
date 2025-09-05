@@ -6,7 +6,7 @@ from core.models.visualsModel.TableModel import TableModel
 from datetime import datetime
 from services.calculations.NetIncome import netIncome
 from helper.GetValueSum import getValueSum
-from helper.GenerateRowsData import generateChangeRow, calculateSectionTotal
+from helper.GenerateRowsData import generateChangeRow, calculateSectionTotal,generateChangeValueRow
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 import calendar
@@ -15,7 +15,6 @@ import calendar
 # Generate Cash flow Table
 def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements"):
     try:
-        print(year,months)
         financialData = (
             getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         )
@@ -79,9 +78,27 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
 
         operating_rows.append(row)
 
+        row = [
+            ValueObjectModel(Value="Depreciation", isPositive=True, Type="", Symbol="")
+        ]
+        for m, y in staticMonths:
+            totalDep= getValueSum(
+                    financialData,
+                    ["PROFIT & LOSS", "EXPENSES", "Classification", "Depreciation"],
+                    y,
+                    [m],
+            ).Data
+            row.append(
+                ValueObjectModel(
+                    Value=totalDep, isPositive=True, Type="currency", Symbol="$"
+                )
+            )
+
+        operating_rows.append(row)
+
         # Operating changes (with isAsset flag)
         change_rows_config = [
-            # LIABILITIES (isAsset=False)
+            
             (
                 "Change in Other Current Liabilities",
                 [
@@ -135,8 +152,7 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
         rows.append(
             calculateSectionTotal(operating_rows, staticMonths, "Operating Activities")
         )
-
-        # ---------------- Investing Activities ----------------
+        
         rows.append(
             [
                 ValueObjectModel(
@@ -144,9 +160,10 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
                 )
             ]
         )
+
         investing_rows = []
 
-        row = generateChangeRow(
+        FArow = generateChangeValueRow(
             "Change in Fixed Assets",
             financialData,
             ["BalanceSheet", "NON-CURRENT ASSETS", "Classification", "Fixed Assets"],
@@ -155,9 +172,52 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
             isAsset=True,  # Fixed Assets is also an asset
         )
 
+        DArow = [
+        ]
+
+        for m, y in staticMonths:
+            totalDA= getValueSum(
+                    financialData,
+                    ["PROFIT & LOSS", "EXPENSES", "Classification", "Depreciation"],
+                    y,
+                    [m],
+            ).Data
+            DArow.append(
+               totalDA
+            )
+
+        DEProw = [
+        ]
+
+        for m, y in staticMonths:
+            totalDep= getValueSum(
+                    financialData,
+                    ["PROFIT & LOSS", "COST OF SALES", "Classification", "Depreciation"],
+                    y,
+                    [m],
+            ).Data
+            DEProw.append(
+               totalDep
+            )
+
+        row = [
+            ValueObjectModel(Value="Change in Fixed Assets", isPositive=True, Type="", Symbol="")
+        ]
+
+        for FA,DEP,DA in zip(FArow,DEProw,DArow):
+
+            changeInFA = FA - (DEP + DA)
+
+            row.append(
+                ValueObjectModel(
+                    Value=changeInFA, isPositive=True, Type="currency", Symbol="$"
+                )
+            )
+        
         investing_rows.append(row)
 
         rows.extend(investing_rows)
+
         rows.append(
             calculateSectionTotal(investing_rows, staticMonths, "Investing Activities")
         )
@@ -258,6 +318,8 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
 
         financing_rows.append(row)
 
+        
+        # Generic implementation - define all finance change rows in one place
         finance_change_rows = [
             (
                 "Change in long Term Debt",
@@ -269,13 +331,34 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
                 ],
                 False,
             ),
+            (
+                "Change in Short Term Debt",
+                [
+                    "BalanceSheet",
+                    "NON-CURRENT LIABILITIES",
+                    "Classification",
+                    "Short-term Debt",
+                ],
+                False,
+            ),
+            # Add more finance change rows as needed
+            # (
+            #     "Change in Share Capital",
+            #     [
+            #         "BalanceSheet",
+            #         "EQUITY",
+            #         "Classification", 
+            #         "Share Capital",
+            #     ],
+            #     False,
+            # ),
         ]
 
+        # Generic processing loop
         for title, keys, isAsset in finance_change_rows:
             row = generateChangeRow(
                 title, financialData, keys, year, staticMonths, isAsset=isAsset
             )
-
             financing_rows.append(row)
 
         rows.extend(financing_rows)
@@ -349,6 +432,8 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
             )
 
         rows.extend([OpenRows, closeRows])
+
+        
 
         # ---------------- Final Table ----------------
         tableObj = TableModel(Title="", Column=Headers, Rows=rows)

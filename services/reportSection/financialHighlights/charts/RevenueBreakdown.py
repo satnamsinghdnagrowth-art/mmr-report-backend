@@ -62,7 +62,7 @@ def getRevenueBreakdownChart(year: int, months: list[int], reportId: int):
             Title="Revenue BreakDown",
             Xaxis=xAxis,
             YaxisSeries=[yAxisObj],
-            IndexAxis="y",
+            IndexAxis="x",
             RightYaxis=False,
             YaxisController=[
                 YaxisControllerModel(Id="left", Orientation="left", Unit="$")

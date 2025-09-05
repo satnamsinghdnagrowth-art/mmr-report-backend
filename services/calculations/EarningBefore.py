@@ -41,26 +41,31 @@ def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
 
         if reportId is not None:
             financialData = getReportData(reportId)["Financial Data"]
-        ebit = earningBeforeInterestandTax(year, month, reportId).Data
+        ebit = EBIT(year, month, reportId).Data
 
         interestIC = interestIncome(year, month, reportId).Data
 
-        # Error occur at otherIncomeMargin:enses
-        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
+
+        TEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
             "Interest Expense"
         ]
 
-        IEXPFilter = [
+        TEXPFilter = [
             item
-            for item in IEXPdata
+            for item in TEXPdata
             if (item["Year"] == year and (0 in month or item["Month"] in month))
         ]
 
-        totalIEXP = IEXPFilter[0]["Value"] if IEXPFilter else 0
+        totalIEXP = sum(item["Value"] for item in TEXPFilter)
 
-        otherIncomeValue = otherIncome(year, month,reportId).Data
+        if month == [1,2,3,4,5,6,7]:
+            print(totalIEXP,"99845495948654")
 
-        result = ((ebit + interestIC)-totalIEXP)-otherIncomeValue
+            print(totalIEXP)
+
+        # otherIncomeValue = otherIncome(year, month,reportId).Data
+
+        result = (ebit + interestIC)-totalIEXP
 
         return Result(
             Data=round(result, 2),

@@ -12,7 +12,6 @@ from services.calculations.GrossProfit import grossProfit, grossProfitMargin
 # Analyze the data
 def retreiveKPIsValue(section, subSection, month, year: int, reportId: int):
     try:
-        print(year, month, subSection)
         value = 0
         if subSection == "TotalRevenue":
             value = totalRevenue(year, month, reportId).Data

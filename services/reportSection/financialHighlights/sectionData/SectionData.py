@@ -65,9 +65,12 @@ class FinancialHighlightSectionDataService:
 
             # charts_data.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
 
+
             tables_data = getISTable(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+
+            # tables_data.append(getRevenueBreakdownTable( self.year, self.months, self.reportType,  self.reportId).Data)
 
             # Combine into SectionData
             section_data = SectionData(

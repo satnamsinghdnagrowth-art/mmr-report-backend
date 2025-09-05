@@ -2,7 +2,8 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from datetime import datetime
 from core.models.visualsModel.SectionData import SectionData
-from services.reportSection.detailedSheet.table import getDetailedTable
+from services.reportSection.detailedSheet.BS_Table import getBalanaceSheetTable
+from services.reportSection.detailedSheet.PNL_Table import getProfitLossTable
 from services.reportSection.detailedSheet.cashFlowTable import getCashFlowTable
 import time
 from services.visuals.card.GetSectionsCards import getSectionCards
@@ -25,8 +26,8 @@ def getSectionData(
         # charts = []
         
         tablesData = [
-            getDetailedTable(year, months, ["PROFIT & LOSS"], reportId).Data,
-            getDetailedTable(year, months, ["BalanceSheet", "EQUITY"], reportId).Data,
+            getProfitLossTable(year, months, ["PROFIT & LOSS"], reportId).Data,
+            getBalanaceSheetTable(year, months, ["BalanceSheet", "EQUITY"], reportId).Data,
             getCashFlowTable(year, months, reportId).Data,
         ]
 

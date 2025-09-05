@@ -18,8 +18,6 @@ def getFreeCashFlow(year: int, months, reportId: Optional[int] = None):
             + getInvestigatingActivitiesCashFlow(year, months, reportId).Data
         )
 
-        print(year,months,getOperatingActivitiesCashFlow(year, months, reportId).Data,'-----',getInvestigatingActivitiesCashFlow(year, months, reportId).Data)
-
         return Result(
             Data=round(freeCashFlow, 2),
             Status=1,

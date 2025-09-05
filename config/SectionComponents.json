@@ -92,7 +92,7 @@
                     },
                     {
                         "label": "Operating Profit",
-                        "func": "ebit"
+                        "func": "operatingProfit"
                     },
                     
                     {
@@ -101,7 +101,7 @@
                     },
                     {
                         "label": "Earnings Before Interest & Tax",
-                        "func": "earningBeforeInterestandTax"
+                        "func": "ebit"
                     },
                     {
                         "label": "Interest Income",
@@ -229,7 +229,7 @@
                 "data": [
                     {
                         "valueFunc":"Expenses to Revenue Ratio",
-                        "label":"Current Year",
+                        "label":"Expenses to Revenue Ratio",
                         "type":"Line",
                         "funcName":"expensesToRevenueRatio",
                         "AreaFill": false,

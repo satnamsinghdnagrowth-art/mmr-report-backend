@@ -123,29 +123,27 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     
                     
                     
-                    # if subSectionName == "Additional Income":
-
-                    #     print(subSectionName,subSectionContent,'000000000000000000')
-                    #     sectionRows.insert(
-                    #     1,
-                    #     [
-                    #         ValueObjectModel(
-                    #             Value="Other Income", isPositive=True, Type="", Symbol=""
-                    #         )
-                    #     ],
-                    # )
+                    if subSectionName == "Additional Income":
+                        sectionRows.insert(
+                        1,
+                        [
+                            ValueObjectModel(
+                                Value="Other Income", isPositive=True, Type="", Symbol=""
+                            )
+                        ],
+                    )
                         
                     
                         
-                    # if subSectionName == "Interest Income":
-                    #     sectionRows.insert(
-                    #     1,
-                    #     [
-                    #         ValueObjectModel(
-                    #             Value="Interest Income", isPositive=True, Type="", Symbol=""
-                    #         )
-                    #     ],
-                    # )
+                    if subSectionName == "Interest Income":
+                        sectionRows.insert(
+                        1,
+                        [
+                            ValueObjectModel(
+                                Value="Interest Income", isPositive=True, Type="", Symbol=""
+                            )
+                        ],
+                    )
                     
                     monthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
@@ -297,7 +295,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                 sectionRows.append(totalSectionRow)
 
                 if (
-                    sectionName == "NON-CURRENT ASSETS"
+                    sectionName == "CURRENT ASSETS" and tableType == "BalanceSheet"
                 ):  # Only relevant for Balance Sheet
                     totalAssetsRow = [
                         ValueObjectModel(
@@ -316,7 +314,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     sectionRows.append(totalAssetsRow)
 
                 if (
-                    sectionName == "NON-CURRENT LIABILITIES"
+                    sectionName == "CURRENT LIABILITIES" and tableType == "BalanceSheet"
                 ):  # Only relevant for Balance Sheet
                     totalAssetsRow = [
                         ValueObjectModel(
@@ -357,7 +355,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-                if sectionName.upper() == "OTHER INCOME":
+                if  tableType == "PROFIT & LOSS" :
 
                     sectionRows.append(
                         generateSummaryRow(
@@ -440,10 +438,19 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-                    
+                    sectionRows.append(
+                        generateSummaryRow(
+                            "Earning Before Interest & Tax",
+                            year,
+                            staticMonths,
+                            lambda y, m: EBIT(y, m, reportId).Data,
+                        )
+                    )
+
                     
 
-                if sectionName.upper() == "INTEREST EXPENSES":
+                if tableType == "PROFIT & LOSS" and sectionName.upper() == "INTEREST INCOME":
+                    
                     sectionRows.append(
                         generateSummaryRow(
                             "Earnings Before Tax",

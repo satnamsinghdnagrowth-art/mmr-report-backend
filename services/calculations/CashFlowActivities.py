@@ -37,6 +37,13 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
             months,
         ).Data
 
+        totalDA = getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "COST OF SALES", "Classification", "Depreciation"],
+            year,
+            months,
+        ).Data
+
         totalInterestExpense = getValueSum(
             financialData,
             ["PROFIT & LOSS", "INTEREST EXPENSES", "Classification", "Interest Expense"],
@@ -88,7 +95,7 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
         netIncomeValue = netIncome(year,months,reportId).Data
 
-        operatingActivitesCashFlow = netIncomeValue + changeInCl + changeInCa
+        operatingActivitesCashFlow = netIncomeValue + changeInCl + changeInCa+totalDepreciation + totalDA
 
         return Result(
             Data=round(operatingActivitesCashFlow, 2),
@@ -109,8 +116,6 @@ def getInvestigatingActivitiesCashFlow(
         financialData = (
             getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         )
-
-        
 
         changeInFA = (
             getValueSum(
@@ -136,6 +141,20 @@ def getInvestigatingActivitiesCashFlow(
                 [months[-1]],
             ).Data
         )
+
+        totalDepreciation = getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "EXPENSES", "Classification", "Depreciation"],
+            year,
+            months,
+        ).Data
+
+        totalDA = getValueSum(
+            financialData,
+            ["PROFIT & LOSS", "COST OF SALES", "Classification", "Depreciation"],
+            year,
+            months,
+        ).Data
 
         changeInIA = (
             getValueSum(
@@ -195,10 +214,9 @@ def getInvestigatingActivitiesCashFlow(
         ).Data
 
         investigatingActivitiesCashFlow = (
-            changeInFA + changeInIA + changeInONCA 
+              changeInIA + changeInONCA+(changeInFA - (totalDepreciation+totalDA))
         )
 
-        print(changeInFA,changeInIA,changeInONCA,'7777777777777777777777777777777777777')
 
         return Result(
             Data=round(investigatingActivitiesCashFlow, 2),

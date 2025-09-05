@@ -84,6 +84,7 @@ def EBIT(year: int, month, reportId: Optional[int] = None):
         otherIncomeValue = otherIncome(year, month, reportId).Data
 
         otherExpensesValue = otherExpenses(year, month, reportId).Data
+        
         result = opertaingProfitValue + otherIncomeValue - otherExpensesValue
 
         return Result(

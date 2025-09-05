@@ -5,6 +5,8 @@ from services.calculations.Revenue import totalRevenue
 from services.calculations.Expenses import directExpenses,totalOperatingExpenses
 from typing import Optional
 
+from services.calculations.OtherIncome import otherIncome
+
 
 # Get Gross Profit
 def grossProfit(year: int, month, reportId: Optional[int] = None):
@@ -34,7 +36,7 @@ def operatingProfit(year: int, month, reportId: Optional[int] = None):
         GPValue = grossProfit(year, month, reportId).Data
         totalOperatingExpValue = totalOperatingExpenses(year, month, reportId).Data
 
-        value = GPValue - totalOperatingExpValue
+        value = GPValue - totalOperatingExpValue 
 
         return Result(
             Data=round(value, 2),

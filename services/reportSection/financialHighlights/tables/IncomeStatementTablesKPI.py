@@ -10,6 +10,7 @@ from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
 import calendar
 from config.FunctionMaping import functionRegistry
 from helper.GetValueSymbol import getValueSymbol
+from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import getRevenueBreakdownTable
 from helper.metricCheck import isMetricPositive
 from helper.GetFileByReportId import getReportData
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
@@ -56,10 +57,14 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                     f"{year} (YTD)",
                 ]
 
+
             rows = []
             for entry in config["rows"]:
+
                 valueData = getValueSymbol(entry["label"])
+
                 valueType = valueData["type"]
+
                 valueSymbol = valueData["symbol"]
 
                 func = functionRegistry.get(entry["func"])
@@ -67,6 +72,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 thisMonthValue = func(
                     year=currentYear, month=currentMonths, reportId=reportId
                 ).Data
+
                 prevMonthValue = func(
                     year=prevYear, month=prevMonths, reportId=reportId
                 ).Data
@@ -86,22 +92,13 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ytd_months.append((currentYear - 1, m))
                     for m in range(1, latest_month + 1):
                         ytd_months.append((currentYear, m))
-                
 
                 # ✅ Compute YTD total
-
-                print(entry['func'])
-
-
                 if entry['func'] == 'grossProfitMargin':
-
-
                     ytdValue = func(year=2025, month=[1,2,3,4,5,6,7], reportId=reportId).Data
 
                 elif  entry['func'] == 'netIncomeMargin':
                     ytdValue = func(year=2025, month=[1,2,3,4,5,6,7], reportId=reportId).Data
-
-
 
                 else:
                     ytdValue = sum(
@@ -110,6 +107,9 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                             for y, m in ytd_months
                         ]
                     )
+
+                
+                print(entry["label"],ytdValue)
 
                 result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
 
@@ -169,12 +169,15 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
 
                 rows.append(row)
 
+
             tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows)
             tables.append(tableObj)
+        
+        tables.append(
+            getRevenueBreakdownTable( year, months, reportType, reportId).Data
+        )
 
-        # tables.append(
-        #     getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
-        # )
+        
 
         return Result(
             Data=tables, Status=1, Message="Income Statement generated successfully"
@@ -188,139 +191,3 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
         message = f"Error occurred at getISTable: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Data=None, Status=0, Message=message)
-
-
-# Get the sections cards
-# def getISTable(year: int, months: list[int], reportType: str, section: str, reportId):
-#     try:
-
-#         financialData = getReportData(reportId)["Report Details"]
-
-#         financialMonth = financialData["Financial Year"]
-
-#         configs = SECTION_CARD_CONFIGS.get(section)
-#         if not configs:
-#             return Result(
-#                 Data=[],
-#                 Status=1,
-#                 Message=f"No tables configured for section '{section}'",
-#             )
-
-#         tables = []
-
-#         currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
-#             year, months, reportType
-#         )
-
-#         for config in configs.get("tables"):
-#             if reportType.lower() == "year":
-#                 Headers = [
-#                     "Particulars",
-#                     f"{currentYear} Year",
-#                     f"{prevYear} Year",
-#                     "This Year vs Last Year(%)",
-#                     "This Year vs Last Year($)",
-#                     f"{year} (YTD)"
-#                 ]
-#             else:
-#                 Headers = [
-#                     "Particulars",
-#                     f"{calendar.month_abbr[currentMonths[0]]} {year}",
-#                     f"{calendar.month_abbr[prevMonths[0]]} {year}",
-#                     "This Month vs Last Month(%)",
-#                     "This Month vs Last Month($)",
-#                     f"{year} (YTD)"
-#                 ]
-
-#             rows = []
-#             for entry in config["rows"]:
-#                 valueData = getValueSymbol(entry["label"])
-#                 valueType = valueData["type"]
-#                 valueSymbol = valueData["symbol"]
-
-#                 func = functionRegistry.get(entry["func"])
-
-#                 thisMonthValue = func(
-#                     year=currentYear, month=currentMonths, reportId=reportId
-#                 ).Data
-#                 prevMonthValue = func(
-#                     year=prevYear, month=prevMonths, reportId=reportId
-#                 ).Data
-
-#                 ytdValue = prevMonthValue = func(
-#                     year=prevYear, month=prevMonths, reportId=reportId
-#                 ).Data
-
-#                 result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
-
-#                 if result["Diffrence"] == 0:
-#                     continue
-
-#                 row = [
-#                     ValueObjectModel(
-#                         Value=entry["label"], isPositive=True, Type="", Symbol=""
-#                     )
-#                 ]
-
-#                 row.append(
-#                     ValueObjectModel(
-#                         Value=thisMonthValue,
-#                         isPositive=True,
-#                         Type=valueType,
-#                         Symbol=valueSymbol,
-#                     )
-#                 )
-#                 row.append(
-#                     ValueObjectModel(
-#                         Value=prevMonthValue,
-#                         isPositive=True,
-#                         Type=valueType,
-#                         Symbol=valueSymbol,
-#                     )
-#                 )
-
-
-#                 row.append(
-#                     ValueObjectModel(
-#                         Value=result["PercentChange"],
-#                         isPositive=isMetricPositive(
-#                             entry["label"], result["PercentChange"]
-#                         ),
-#                         Type="percentage",
-#                         Symbol="%",
-#                     )
-#                 )
-
-#                 row.append(
-#                     ValueObjectModel(
-#                         Value=result["Diffrence"],
-#                         isPositive=isMetricPositive(
-#                             entry["label"], result["Diffrence"]
-#                         ),
-#                         Type=valueType,
-#                         Symbol=valueSymbol,
-#                     )
-#                 )
-
-
-#                 rows.append(row)
-
-#             tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows)
-#             tables.append(tableObj)
-
-#         # tables.append(
-#         #     getRevenueTable(currentYear, currentMonths, reportId, reportType).Data
-#         # )
-
-#         return Result(
-#             Data=tables, Status=1, Message="Revenue Card calculated successfully"
-#         )
-
-#     except ZeroDivisionError as ex:
-#         message = f"Error occurred at getFHSectionCards: {ex}"
-#         print(f"{datetime.now()} {message}")
-#         return Result(Data=None, Status=0, Message=message)
-#     except Exception as ex:
-#         message = f"Error occurred at getFHSectionCards: {ex}"
-#         print(f"{datetime.now()} {message}")
-#         return Result(Data=None, Status=0, Message=message)

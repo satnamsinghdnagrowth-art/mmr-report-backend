@@ -1,0 +1,3886 @@
+{
+    "ReportId": 32777,
+    "Report Details": {
+        "Company Name": "Hey Bagel, LLC",
+        "Financial Year": 1,
+        "Data Range": [
+            {
+                "Month": 1,
+                "Year": 2025
+            },
+            {
+                "Month": 2,
+                "Year": 2025
+            },
+            {
+                "Month": 3,
+                "Year": 2025
+            },
+            {
+                "Month": 4,
+                "Year": 2025
+            },
+            {
+                "Month": 5,
+                "Year": 2025
+            },
+            {
+                "Month": 6,
+                "Year": 2025
+            }
+        ]
+    },
+    "Financial Data": {
+        "PROFIT & LOSS": {
+            "REVENUE": {
+                "Classification": {
+                    "Revenue": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 186229.68
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 346787.55
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 431965.75
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 404408.76
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 375011.24
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 406901.22
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Revenue": {
+                        "Sales": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 186229.68
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 346787.55
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 431965.75
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 404408.76
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 375011.24
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 406901.22
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 186229.68
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 346787.55
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 431965.75
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 404408.76
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 375011.24
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 406901.22
+                    }
+                ]
+            },
+            "COST OF SALES": {
+                "Classification": {
+                    "Variable Cost": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 41150.74
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 55585.32
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 75069.06
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 78297.73
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 89785.98
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 70348.28
+                        }
+                    ],
+                    "Fixed Cost": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Depreciation": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Variable Cost": {
+                        "Cost of goods sold": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 37584.11
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 52140.64
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 70280.56
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 76036.64
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 88501.58
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 69420.45
+                            }
+                        ],
+                        "Supplies & materials": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 3566.63
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 3444.68
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 4788.5
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 2261.09
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 1284.4
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 927.83
+                            }
+                        ]
+                    },
+                    "Fixed Cost": {},
+                    "Depreciation": {}
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 41150.74
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 55585.32
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 75069.06
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 78297.73
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 89785.98
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 70348.28
+                    }
+                ]
+            },
+            "EXPENSES": {
+                "Classification": {
+                    "Fixed Expenses": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 66696.41
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 115119.35
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 138554.82
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 185413.61
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 178684.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 142215.85
+                        }
+                    ],
+                    "Variable Expenses": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Depreciation": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Fixed Expenses": {
+                        "Advertising & marketing": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 655.52
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1890.78
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 3198.79
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 2297.96
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 2238.76
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -21.87
+                            }
+                        ],
+                        "Listing fees": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Social media": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Branding & Labeling Expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 330.43
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 3483.33
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 4328.98
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 3472.18
+                            }
+                        ],
+                        "Building & property rent": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 18571.19
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 10475.99
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 9880.99
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 10315.99
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 10410.99
+                            }
+                        ],
+                        "Business licences": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 1002.1
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Cleaning Services": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 1120.43
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Consultant Fees": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 2700
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 7650.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 4359.05
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Contract labor": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "General business expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Bank fees & service charges": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 131.83
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 10.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 10.75
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 31.5
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 11.5
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 11.5
+                            }
+                        ],
+                        "Memberships & subscriptions": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 661.07
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 661.07
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 1257.96
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 1965.22
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 1377.55
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 1441.97
+                            }
+                        ],
+                        "Property insurance": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 1369
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 379.36
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 379.36
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 695.79
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 923.34
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 937.76
+                            }
+                        ],
+                        "Meals": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 329.26
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1025.99
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 154.22
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 396.71
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 255.26
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 3546.28
+                            }
+                        ],
+                        "Office expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Shipping & postage": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 28.84
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 9.45
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 1.25
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 33.05
+                            }
+                        ],
+                        "Small tools and equipment": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 1414.09
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1631.83
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 494.16
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 98.46
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 153.72
+                            }
+                        ],
+                        "Software & apps": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 20.22
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 579.33
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 304.15
+                            }
+                        ],
+                        "Payroll expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 189.26
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Employee benefits": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 10328.83
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 331.33
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Payroll taxes": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 10369.63
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 23617.07
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 29597.03
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 30993.27
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 41425.15
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 28229.18
+                            }
+                        ],
+                        "Wages": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 19074.17
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 66790.2
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 88756.66
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 141635.11
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 90439.15
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 93227.02
+                            }
+                        ],
+                        "Professional Fees": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Recruitment Expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 59
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 143.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 168.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 109.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 193.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 168.0
+                            }
+                        ],
+                        "Supplies": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Taxes paid": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 26270.85
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 95.0
+                            }
+                        ],
+                        "Travel": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 6.4
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 151.6
+                            }
+                        ],
+                        "Hotels": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 1265.1
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 55.32
+                            }
+                        ],
+                        "Vehicle gas & fuel": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 33.62
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 18.34
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Vehicle rental": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 118.69
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Uncategorized Expense": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Utilities": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Internet & TV services": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 484.29
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 492.51
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 43.69
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 534.16
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 177.02
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ]
+                    },
+                    "Variable Expenses": {},
+                    "Depreciation": {}
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 66696.41
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 115119.35
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 138554.82
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 185413.61
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 178684.0
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 142215.85
+                    }
+                ]
+            },
+            "OTHER INCOME": {
+                "Classification": {
+                    "Additional Income": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 280.75
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 1223.91
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 636.09
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 72.61
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 117.06
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Additional Income": {
+                        "Miscellaneous Income": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 280.75
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1223.91
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 636.09
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 72.61
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 117.06
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 280.75
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 1223.91
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 636.09
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 72.61
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 117.06
+                    }
+                ]
+            },
+            "OTHER EXPENSES": {
+                "Classification": {
+                    "Adjustments": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Other Expenses": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 2512.53
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 3023.25
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 2312.61
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 5391.81
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 4310.01
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 4884.73
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Adjustments": {},
+                    "Other Expenses": {
+                        "Depreciation": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 885.79
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1078.11
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 1232.3
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 3289.61
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 3601.47
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 3708.92
+                            }
+                        ],
+                        "Home office": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Repairs & maintenance": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 1626.74
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1930.14
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 1045.31
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 873.2
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 708.54
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 1077.11
+                            }
+                        ],
+                        "Miscellaneous Expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 15.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 35.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 1229.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 98.7
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 2512.53
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 3023.25
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 2312.61
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 5391.81
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 4310.01
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 4884.73
+                    }
+                ]
+            },
+            "INTEREST INCOME": {
+                "Classification": {
+                    "Interest Income": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 153.53
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 298.15
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 289.37
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Interest Income": {
+                        "Interest earned": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 153.53
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 298.15
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 289.37
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 0.0
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 153.53
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 298.15
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 289.37
+                    }
+                ]
+            },
+            "INTEREST EXPENSES": {
+                "Classification": {
+                    "Interest Expense": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 5745.16
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 5711.48
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 5355.97
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 5421.15
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 5245.48
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 7028.95
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Interest Expense": {
+                        "Interest Commercial LOC": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 5525.24
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 5420.33
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 5147.36
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 5420.33
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 5245.48
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 7028.95
+                            }
+                        ],
+                        "Interest paid": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 2.17
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 2.12
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 1.92
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Credit card interest": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 217.75
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 289.03
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 206.69
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.82
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 5745.16
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 5711.48
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 5355.97
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 5421.15
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 5245.48
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 7028.95
+                    }
+                ]
+            },
+            "TAX EXPENSES": {
+                "Classification": {
+                    "Tax Expense": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Tax Expense": {}
+                },
+                "Total": []
+            },
+            "DIVIDEND": {
+                "Classification": {
+                    "Dividends": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Dividends": {}
+                },
+                "Total": []
+            }
+        },
+        "BalanceSheet": {
+            "CURRENT ASSETS": {
+                "Classification": {
+                    "Cash & Equivalents": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 78173.01
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 237561.02
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 433918.61
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 399946.81
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 497828.87
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 666905.41
+                        }
+                    ],
+                    "Accounts Receivable": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Inventory": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Work In Progress": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Other Current Assets": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Cash & Equivalents": {
+                        "Cash & Equivalents": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 78173.01
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 237561.02
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 433918.61
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 399946.81
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 497828.87
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 666905.41
+                            }
+                        ]
+                    },
+                    "Accounts Receivable": {},
+                    "Inventory": {},
+                    "Work In Progress": {},
+                    "Other Current Assets": {}
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 78173.01
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 237561.02
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 433918.61
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 399946.81
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 497828.87
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 666905.41
+                    }
+                ]
+            },
+            "NON-CURRENT ASSETS": {
+                "Classification": {
+                    "Fixed Assets": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 153788.01
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 165018.55
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 180860.38
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 302126.91
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 308236.87
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 322957.41
+                        }
+                    ],
+                    "Intangible Assets": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Other Non-Current Assets": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 20000
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 20000.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 20000.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 20000.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 20000.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 20000.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Fixed Assets": {
+                        "Hey Bagel Cafe - Work in progress": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 104036.56
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 104806.43
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 112629.17
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 113746.67
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 104746.67
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 114877.09
+                            }
+                        ],
+                        "Long-term office equipment": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Computers & tablets": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 1730.13
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 6751.06
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 6751.06
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 6751.06
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 6751.06
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 6751.06
+                            }
+                        ],
+                        "Accumulated Depreciation- Computers & Tablets": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": -115.36
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": -227.88
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": -340.4
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": -452.92
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": -565.44
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -677.96
+                            }
+                        ],
+                        "Shop Sinage": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 5997.84
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 5997.84
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 5997.84
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 5997.84
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 5997.84
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 5997.84
+                            }
+                        ],
+                        "Accumulated Depreciation - Shop Sinage": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": -457.38
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": -557.34
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": -657.3
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": -757.26
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": -857.22
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -957.18
+                            }
+                        ],
+                        "Tools, machinery, and equipment": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 45419.88
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 51937.73
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 61189.12
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 69684.6
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 88396.03
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 90248.03
+                            }
+                        ],
+                        "Accumulated Depreciation - T,M & E": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": -2823.66
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": -3689.29
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": -4709.11
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": -5870.52
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": -7343.79
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -2477.47
+                            }
+                        ],
+                        "Vehicles": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 114943.16
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 114943.16
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 114943.16
+                            }
+                        ],
+                        "Accumulated Depreciation- Vehicles": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": -1915.72
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": -3831.44
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -5747.16
+                            }
+                        ]
+                    },
+                    "Intangible Assets": {},
+                    "Other Non-Current Assets": {
+                        "Security Deposit": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 20000
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 20000.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 20000.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 20000.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 20000.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 20000.0
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 173788.01
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 185018.55
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 200860.38
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 322126.91
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 328236.87
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 342957.41
+                    }
+                ]
+            },
+            "CURRENT LIABILITIES": {
+                "Classification": {
+                    "Short-term Debt": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Accounts Payable": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Taxes & Levies": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Other Current Liabilities": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 182424.1
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 184314.59
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 185204.63
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 182327.43
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 188035.53
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 189002.77
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Short-term Debt": {},
+                    "Accounts Payable": {},
+                    "Taxes & Levies": {},
+                    "Other Current Liabilities": {
+                        "Alaska Airlines - 1271 - 2": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 4433.1
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 7143.86
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 18018.91
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 892.4
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 35.3
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 35.3
+                            }
+                        ],
+                        "Alaska Airlines - 5783": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 545.41
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 595.15
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 584.56
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 172.59
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 25.89
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 39.59
+                            }
+                        ],
+                        "Amazon Business Prime Card (1003) - 4": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 608.73
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 343.37
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 42.11
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 558.54
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 1503.13
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 270.43
+                            }
+                        ],
+                        "Amex Platinum Business - 71001": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 7318.12
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 12977.41
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 15902.46
+                            }
+                        ],
+                        "Commercial Line Of Credit (9102) - 3": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": -638200
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": -638200.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": -638200.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": -638200.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": -638200.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -638200.0
+                            }
+                        ],
+                        "CORP Account - Alaska Airlines - 0923 - 2": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 6714.35
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 6134.7
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": -3516.99
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 1170.34
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 1278.36
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 539.55
+                            }
+                        ],
+                        "Reserve Line/Bus Res Line - 7004 - 1": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 135.57
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 110.57
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 89.1
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Inkind Fund": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 110000
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 110000.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 110000.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 112228.5
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 112228.5
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 112228.5
+                            }
+                        ],
+                        "Lines of credit": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 698186.94
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 698186.94
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 698186.94
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 698186.94
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 698186.94
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 698186.94
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 182424.1
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 184314.59
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 185204.63
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 182327.43
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 188035.53
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 189002.77
+                    }
+                ]
+            },
+            "NON-CURRENT LIABILITIES": {
+                "Classification": {
+                    "Long-term Debt": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Deferred Tax": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ],
+                    "Other Non-Current Liabilities": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 0
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 0.0
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Long-term Debt": {},
+                    "Deferred Tax": {},
+                    "Other Non-Current Liabilities": {}
+                },
+                "Total": []
+            }
+        },
+        "EQUITY": {
+            "EQUITY": {
+                "Classification": {
+                    "Retained Earnings": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 26693.76
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 26693.76
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 26693.76
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 26693.76
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 26693.76
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 26693.76
+                        }
+                    ],
+                    "Current Earnings": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": 70405.59
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": 238977.65
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": 450287.03
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": 580397.63
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": 677681.55
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": 860511.39
+                        }
+                    ],
+                    "Other Equity": [
+                        {
+                            "Month": 1,
+                            "Year": 2025,
+                            "Value": -27562.43
+                        },
+                        {
+                            "Month": 2,
+                            "Year": 2025,
+                            "Value": -27406.43
+                        },
+                        {
+                            "Month": 3,
+                            "Year": 2025,
+                            "Value": -27406.43
+                        },
+                        {
+                            "Month": 4,
+                            "Year": 2025,
+                            "Value": -67345.1
+                        },
+                        {
+                            "Month": 5,
+                            "Year": 2025,
+                            "Value": -66345.1
+                        },
+                        {
+                            "Month": 6,
+                            "Year": 2025,
+                            "Value": -66345.1
+                        }
+                    ]
+                },
+                "LineItems": {
+                    "Retained Earnings": {
+                        "Retained Earnings": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 26693.76
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 26693.76
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 26693.76
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 26693.76
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 26693.76
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 26693.76
+                            }
+                        ]
+                    },
+                    "Current Earnings": {
+                        "Current Earnings": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 70405.59
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 238977.65
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 450287.03
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 580397.63
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 677681.55
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 860511.39
+                            }
+                        ]
+                    },
+                    "Other Equity": {
+                        "Opening balance equity": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 1662.57
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 1662.57
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 1662.57
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 1662.57
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 1662.57
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 1662.57
+                            }
+                        ],
+                        "Owner draws": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": -34255.3
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": -34255.3
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": -34255.3
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": -74193.97
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": -73193.97
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": -73193.97
+                            }
+                        ],
+                        "Owner investments": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 4103
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 4259.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 4259.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 4259.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 4259.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 4259.0
+                            }
+                        ],
+                        "Personal expenses": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 0
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 0.0
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 0.0
+                            }
+                        ],
+                        "Federal taxes": [
+                            {
+                                "Month": 1,
+                                "Year": 2025,
+                                "Value": 927.3
+                            },
+                            {
+                                "Month": 2,
+                                "Year": 2025,
+                                "Value": 927.3
+                            },
+                            {
+                                "Month": 3,
+                                "Year": 2025,
+                                "Value": 927.3
+                            },
+                            {
+                                "Month": 4,
+                                "Year": 2025,
+                                "Value": 927.3
+                            },
+                            {
+                                "Month": 5,
+                                "Year": 2025,
+                                "Value": 927.3
+                            },
+                            {
+                                "Month": 6,
+                                "Year": 2025,
+                                "Value": 927.3
+                            }
+                        ]
+                    }
+                },
+                "Total": [
+                    {
+                        "Month": 1,
+                        "Year": 2025,
+                        "Value": 69536.92
+                    },
+                    {
+                        "Month": 2,
+                        "Year": 2025,
+                        "Value": 238264.98
+                    },
+                    {
+                        "Month": 3,
+                        "Year": 2025,
+                        "Value": 449574.36
+                    },
+                    {
+                        "Month": 4,
+                        "Year": 2025,
+                        "Value": 539746.29
+                    },
+                    {
+                        "Month": 5,
+                        "Year": 2025,
+                        "Value": 638030.21
+                    },
+                    {
+                        "Month": 6,
+                        "Year": 2025,
+                        "Value": 820860.05
+                    }
+                ]
+            }
+        }
+    }
+}

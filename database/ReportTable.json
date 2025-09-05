@@ -1,2 +1,178 @@
 [
+    {
+        "ReportId": 76265,
+        "ReportName": "BaseFile 76265 20250828151138",
+        "FileName": "BaseFile_76265_20250828151138.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-28T15:11:39.047847"
+    },
+    {
+        "ReportId": 66106,
+        "ReportName": "BaseFile 66106 20250828151142",
+        "FileName": "BaseFile_66106_20250828151142.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-28T15:11:42.595970"
+    },
+    {
+        "ReportId": 10609,
+        "ReportName": "BaseFile 10609 20250828151323",
+        "FileName": "BaseFile_10609_20250828151323.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-28T15:13:24.074590"
+    },
+    {
+        "ReportId": 78837,
+        "ReportName": "BaseFile 78837 20250828151809",
+        "FileName": "BaseFile_78837_20250828151809.json",
+        "CompanyLogoFilePath": "database/companyLogos/logo_78837_20250828184507.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-28T15:18:09.378626"
+    },
+    {
+        "ReportId": 52732,
+        "ReportName": "BaseFile 52732 20250828163715",
+        "FileName": "BaseFile_52732_20250828163715.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-28T16:37:15.776070"
+    },
+    {
+        "ReportId": 64219,
+        "ReportName": "BaseFile 64219 20250828181457",
+        "FileName": "BaseFile_64219_20250828181457.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-28T18:14:57.566059"
+    },
+    {
+        "ReportId": 80153,
+        "ReportName": "BaseFile 80153 20250829123843",
+        "FileName": "BaseFile_80153_20250829123843.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-29T12:38:43.913181"
+    },
+    {
+        "ReportId": 72175,
+        "ReportName": "BaseFile 72175 20250829133004",
+        "FileName": "BaseFile_72175_20250829133004.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-29T13:30:04.378552"
+    },
+    {
+        "ReportId": 84802,
+        "ReportName": "BaseFile 84802 20250829150814",
+        "FileName": "BaseFile_84802_20250829150814.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-29T15:08:14.352697"
+    },
+    {
+        "ReportId": 32134,
+        "ReportName": "BaseFile 32134 20250829162928",
+        "FileName": "BaseFile_32134_20250829162928.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-29T16:29:28.599205"
+    },
+    {
+        "ReportId": 94536,
+        "ReportName": "BaseFile 94536 20250829164413",
+        "FileName": "BaseFile_94536_20250829164413.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-08-29T16:44:13.773698"
+    },
+    {
+        "ReportId": 62453,
+        "ReportName": "BaseFile 62453 20250901170149",
+        "FileName": "BaseFile_62453_20250901170149.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-01T17:01:50.093184"
+    },
+    {
+        "ReportId": 71512,
+        "ReportName": "BaseFile 71512 20250901170219",
+        "FileName": "BaseFile_71512_20250901170219.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-01T17:02:19.096037"
+    },
+    {
+        "ReportId": 99107,
+        "ReportName": "BaseFile 99107 20250902111200",
+        "FileName": "BaseFile_99107_20250902111200.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-02T11:12:01.091885"
+    },
+    {
+        "ReportId": 52503,
+        "ReportName": "BaseFile 52503 20250902111535",
+        "FileName": "BaseFile_52503_20250902111535.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-02T11:15:35.934954"
+    },
+    {
+        "ReportId": 32777,
+        "ReportName": "BaseFile 32777 20250902114331",
+        "FileName": "BaseFile_32777_20250902114331.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-02T11:43:32.126258"
+    },
+    {
+        "ReportId": 18712,
+        "ReportName": "BaseFile 18712 20250902114853",
+        "FileName": "BaseFile_18712_20250902114853.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-02T11:48:53.606908"
+    },
+    {
+        "ReportId": 27798,
+        "ReportName": "BaseFile 27798 20250902125435",
+        "FileName": "BaseFile_27798_20250902125435.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-02T12:54:36.043704"
+    },
+    {
+        "ReportId": 34268,
+        "ReportName": "BaseFile 34268 20250904110602",
+        "FileName": "BaseFile_34268_20250904110602.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-04T11:06:02.581831"
+    },
+    {
+        "ReportId": 11684,
+        "ReportName": "BaseFile 11684 20250904111634",
+        "FileName": "BaseFile_11684_20250904111634.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-04T11:16:34.869794"
+    },
+    {
+        "ReportId": 56495,
+        "ReportName": "BaseFile 56495 20250904173905",
+        "FileName": "BaseFile_56495_20250904173905.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-04T17:39:06.072828"
+    },
+    {
+        "ReportId": 39113,
+        "ReportName": "BaseFile 39113 20250905122056",
+        "FileName": "BaseFile_39113_20250905122056.json",
+        "CompanyLogoFilePath": "database/companyLogos/sample-logo.png",
+        "Currency": "US Dollar",
+        "CreatedOn": "2025-09-05T12:20:56.478881"
+    }
 ]

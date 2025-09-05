@@ -5,6 +5,7 @@ from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
 from helper.GetFileByReportId import getReportData
+from services.calculations.OtherIncome import otherIncome
 
 
 # Get Direct Expenses (Total Cost of Sales)
@@ -139,10 +140,11 @@ def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
 
         totalDA = sum(item["Value"] for item in DAFilter)
 
-        totalOperatingCost = totalFEXP + totalVEXP + totalDA
+
+        totalOperatingExp = totalFEXP + totalVEXP + totalDA
 
         return Result(
-            Data=round(totalOperatingCost, 2),
+            Data=round(totalOperatingExp, 2),
             Status=1,
             Message="Month-wise Total OperatingCost calculated successfully",
         )

@@ -44,6 +44,7 @@ def getCharts(reportId: int, payload: SectionChartRequestData):
 
 
 # Get Financial Higlights Section Tables
+
 @FinancialHighlights.post("/get/report/{reportId}/tables", response_model=Result)
 def getTables(reportId: int, payload: SectionChartRequestData):
     return FinancialHighlightSectionDataService(

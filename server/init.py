@@ -28,6 +28,5 @@ app.include_router(BreakEvenAnaysis, prefix="/api/v1/section/breakEvenAnalysis")
 app.include_router(CashFlow, prefix="/api/v1/section/cashflowAnalysis")
 app.include_router(BudgetSectionRouter, prefix="/api/v1/section/budgetComparison")
 
-
 # Static Files handling
 app.mount("/database", StaticFiles(directory="database"), name="company_assets")

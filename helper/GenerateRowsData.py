@@ -32,6 +32,29 @@ def generateChangeRow(title, financialData, pathKeys, year, staticMonths, isAsse
     return row
 
 
+def generateChangeValueRow(title, financialData, pathKeys, year, staticMonths, isAsset):
+    row = []
+
+    for m, y in staticMonths:
+        currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
+            y, [m], "month"
+        )
+
+        sumThis = getValueSum(financialData, pathKeys, currentYear, currentMonths).Data
+        sumPrev = getValueSum(financialData, pathKeys, prevYear, prevMonths).Data
+
+        result = sumThis - sumPrev
+
+        if isAsset:
+            result = -result  # reverse for asset
+
+        row.append(
+            result
+        )
+
+    return row
+
+
 def calculateSectionTotal(section_rows, staticMonths, title):
     totals = []
     for col_index in range(1, len(staticMonths) + 1):

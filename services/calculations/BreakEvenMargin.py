@@ -39,8 +39,21 @@ def breakEven(year: int, months, reportId: Optional[int] = None):
 
         totalFCOS = sum(item["Value"] for item in FCOSFilter)
 
+        DEPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
+            "Depreciation"
+        ]
+
+        DEPFilter = [
+            item
+            for item in DEPdata
+            if (item["Year"] == year and (0 in months or item["Month"] in months))
+        ]
+
+        totalDEP = sum(item["Value"] for item in DEPFilter)
+
+
         breakEvenPoint = (
-            (totalFEXP + totalFCOS) / contributionMargin(year, months, reportId).Data
+            (totalFEXP + totalFCOS+totalDEP) / contributionMargin(year, months, reportId).Data
         ) * 100
 
         return Result(
