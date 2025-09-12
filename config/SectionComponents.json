@@ -127,7 +127,8 @@
                         "func": "netIncomeMargin"
                     }
                     
-                ]
+                ],
+                "tableType":"Variance"
             }
         ]
     },

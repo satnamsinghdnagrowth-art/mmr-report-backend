@@ -170,12 +170,12 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 rows.append(row)
 
 
-            tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows)
+            tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows,TableType="Variance")
             tables.append(tableObj)
         
-        tables.append(
-            getRevenueBreakdownTable( year, months, reportType, reportId).Data
-        )
+        # tables.append(
+        #     getRevenueBreakdownTable( year, months, reportType, reportId).Data
+        # )
 
         
 

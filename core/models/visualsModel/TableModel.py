@@ -5,6 +5,7 @@ from enum import Enum
 class TableTypesName(Enum):
     Tabular : str = "Tabular"
     Progress : str = "Progress"
+    Variance : str = "Variance"
 
 
 # Data Transfer Objects

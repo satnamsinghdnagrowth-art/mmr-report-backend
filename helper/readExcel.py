@@ -42,12 +42,21 @@ def readExcelFile(filePath: str) -> Result:
 
         converted_data_range = [
             DateObject(
-                Month=datetime.strptime(label, "%b %Y").month,
-                # if monthAsString else datetime.strptime(label, "%b %Y").strftime("%b")),
-                Year=datetime.strptime(label, "%b %Y").year,
+                Month=(label.month if isinstance(label, datetime) else datetime.strptime(label, "%b %Y").month),
+                Year=(label.year if isinstance(label, datetime) else datetime.strptime(label, "%b %Y").year),
             )
             for label in dataRange
         ]
+
+
+        # converted_data_range = [
+        #     DateObject(
+        #         Month=datetime.strptime(label, "%b %Y").month,
+        #         # if monthAsString else datetime.strptime(label, "%b %Y").strftime("%b")),
+        #         Year=datetime.strptime(label, "%b %Y").year,
+        #     )
+        #     for label in dataRange
+        # ]
 
         response = {
             "Report Details": {

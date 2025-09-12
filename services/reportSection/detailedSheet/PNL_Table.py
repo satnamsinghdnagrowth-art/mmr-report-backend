@@ -176,7 +176,7 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
 
             sectionRows.append(totalSectionRow)
 
-            if sectionName.upper() == "COST OF SALES":
+            if sectionName.upper() == "EXPENSES":
                 rows.append(
                     generateSummaryRow(
                         "Gross Profit",

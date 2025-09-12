@@ -2,13 +2,12 @@ from fastapi import APIRouter, Body
 from services.accountNames.GetFinancialsNames import retreiveFinacialsNames
 from services.accountValues.RetriveData import getValues
 from typing import Optional
-from services.reportSection.cashFlowAnalysis.charts.cashFlowChart import getEACharts
 from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
-from services.calculations.CashFlowActivities import  getFinancingActivitiesCashFlow
+from services.calculations.CashFlowStatements import getNetCashFlow
 
-from services.calculations.CashFlowStatements import getCashOnHand, getFreeCashFlow,getNetCashFlow
+
 Account = APIRouter()
 
 

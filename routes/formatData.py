@@ -8,7 +8,6 @@ from weasyprint import HTML
 
 dataFormat = APIRouter()
 
-
 # File upload endpoint
 @dataFormat.post("/upload", response_model=Result)
 def formatReportData(
@@ -26,15 +25,19 @@ def formatReportData(
 
 @dataFormat.patch("/update/report/{reportId}/")
 def uploadLogo(reportId: int, CompanyLogo: Optional[UploadFile] = File(None)):
+    
     return updateReportFields(reportId, CompanyLogo)
 
+
 # downloadPDF
-@dataFormat.post("/test", response_model=Result)
+@dataFormat.post("/downloadPDF", response_model=Result)
 def testData(base64str=Body(...)):
+    
     htmlContent = base64str["base64str"]
 
     # Save PDF to a file path
     html = HTML(string=htmlContent)
+
     file_path = "database/ReportsPdf/test.pdf"
 
     html.write_pdf(file_path)

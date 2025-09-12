@@ -95,6 +95,7 @@ class FinancialHighlightSectionDataService:
         Retrieves only the Cards data for the section.
         """
         try:
+            print(self.months,self.year,"------------------")
             cards = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
