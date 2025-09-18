@@ -11,6 +11,7 @@ from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from config.FunctionMaping import functionRegistry
 from datetime import datetime
 from typing import List
+from services.reportSection.financialHighlights.tables.RevenueBreakDown import getRevenueTable
 
 
 # Get the sections cards
