@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from core.models.base.ResultModel import Result
-from core.models.base.SectionDataRequestBody import SectionChartRequestData
+from core.models.base.SectionDataRequestBody import SectionRequestData
 from services.reportSection.profitAbility.tables.GetProfitAbilityTable import getPATable
 from services.visuals.charts.GetSectionCharts import getSectionCharts
 from services.reportSection.profitAbility.sectionData.SectionData import getSectionData
@@ -10,7 +10,7 @@ ProfitAbility = APIRouter()
 
 # # Get Financial Higlights Section All Data
 @ProfitAbility.post("/get/report/{reportId}/sectionData", response_model=Result)
-def getSection(reportId: int, payload: SectionChartRequestData):
+def getSection(reportId: int, payload: SectionRequestData):
     return getSectionData(
         reportId=reportId,
         year=payload.Year,
@@ -31,7 +31,7 @@ def getSection(reportId: int, payload: SectionChartRequestData):
 
 # # Get Financial Higlights Section Charts
 @ProfitAbility.post("/get/charts", response_model=Result)
-def getCards(payload: SectionChartRequestData):
+def getCards(payload: SectionRequestData):
     return getSectionCharts(
         year=payload.Year,
         months=payload.Months,
@@ -42,7 +42,7 @@ def getCards(payload: SectionChartRequestData):
 
 # Get Financial Higlights Section Tables
 @ProfitAbility.post("/get/tables", response_model=Result)
-def getTables(payload: SectionChartRequestData):
+def getTables(payload: SectionRequestData):
     return getPATable(
         year=payload.Year,
         months=payload.Months,

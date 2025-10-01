@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from core.models.base.ResultModel import Result
-from core.models.base.SectionDataRequestBody import SectionChartRequestData
+from core.models.base.SectionDataRequestBody import SectionRequestData
 from services.reportSection.expensesAnalysis.sectionData.SectionData import (
     getSectionData,
 )
@@ -11,7 +11,7 @@ CompanyRouter = APIRouter()
 
 # # Get Financial Higlights Section All Data
 @CompanyRouter.post("/get/company/", response_model=Result)
-def createCompany(reportId: int, payload: SectionChartRequestData):
+def createCompany(reportId: int, payload: SectionRequestData):
     return companyCreation(
         reportId=reportId,
         year=payload.Year,

@@ -6,10 +6,11 @@ from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
 from services.calculations.CashFlowStatements import getNetCashFlow
+from services.calculations.Accountablity import getAP,getAPdays,getAR,getARdays,getCOGS
+from services.calculations.Ratios import cashRatio,currentRatio,workingCapital
 
 
 Account = APIRouter()
-
 
 # Get  Account Names
 @Account.get("/get/Names/report/{reportId}", response_model=Result)
@@ -36,8 +37,6 @@ def get_report_values(
         mainSection, section, reportId, subSection, payload.Year, payload.Month
     )
 
-
-
 # Get the dataRange of Report
 @Account.get("/get/reportDescription", response_model=Result)
 def getReportDescription():
@@ -47,9 +46,9 @@ def getReportDescription():
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return getNetCashFlow(
-        year=2024,
-        months=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        reportId=92161
+    return currentRatio(
+        year=2025,
+        months=[8],
+        reportId=76581
     )
     

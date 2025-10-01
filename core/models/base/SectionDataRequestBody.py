@@ -1,10 +1,10 @@
 from pydantic import BaseModel
-from typing import List,Optional
+from typing import List,Optional,Literal
 
 
-class SectionChartRequestData(BaseModel):
+class SectionRequestData(BaseModel):
     Year: int
     Months: List[int]
     CompanyId : Optional[int] = 123456
-    ReportType: str
+    ReportType: Literal["Year","Month","Quarter"] 
     SectionName: str
