@@ -16,6 +16,7 @@ from services.calculations.NetIncome import netIncome, netIncomeMargin
 from core.models.visualsModel.ValueObject import ValueObjectModel
 import calendar
 
+
 def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
     try:
         financialData = (
@@ -23,7 +24,6 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
         )
 
         reportDatarange = getReportData(reportId)["Report Details"]["Data Range"]
-
 
         available_months = sorted(
             [(d["Month"], d["Year"]) for d in reportDatarange],
@@ -34,9 +34,8 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
 
         combinedRows = []
         combinedHeaders = None
-        
+
         tableType = tableTypes[0]
-        
 
         data = financialData[tableType]
         last_month = max(months)
@@ -53,7 +52,6 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
             if current_month == 0:
                 current_month = 12
                 current_year -= 1
-
 
         # Correct headers
         if tableType == "PROFIT & LOSS":
@@ -73,7 +71,6 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
         rows = []
 
         for sectionName, sectionContent in data.items():
-
             sectionRows = []
 
             sectionRows.insert(
@@ -87,18 +84,14 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
 
             sectionMonthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
-
             for subSectionName, subSectionContent in sectionContent[
                 "LineItems"
             ].items():
-                
-                
                 monthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
                 subSectionRows = []
 
                 for itemLabel, itemData in subSectionContent.items():
-                    
                     rowData = [
                         ValueObjectModel(
                             Value=itemLabel, isPositive=True, Type="", Symbol=""
@@ -164,7 +157,6 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
                     )
                 )
 
-
             totalSectionRow.append(
                 ValueObjectModel(
                     Value=sectionGrandTotal,
@@ -172,7 +164,7 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
                     Type="currency",
                     Symbol="$",
                 )
-                )
+            )
 
             sectionRows.append(totalSectionRow)
 
@@ -194,9 +186,7 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
                     )
                 )
 
-                
             if sectionName.upper() == "OTHER INCOME":
-
                 rows.append(
                     generateSummaryRow(
                         "Operating Profit",
@@ -207,7 +197,6 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
                 )
 
             if sectionName.upper() == "INTEREST INCOME":
-
                 rows.append(
                     generateSummaryRow(
                         "Earning Before Interest & Tax",
@@ -217,8 +206,7 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
                     )
                 )
 
-            if  sectionName.upper() == "DIVIDEND":
-                
+            if sectionName.upper() == "DIVIDEND":
                 rows.append(
                     generateSummaryRow(
                         "Earnings Before Tax",
@@ -244,11 +232,9 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
                     )
                 )
 
-
             if sectionGrandTotal == 0.0:
                 continue
 
-            
             rows.extend(sectionRows)
 
         combinedRows.extend(rows)
@@ -257,7 +243,6 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
             tableTypes[0] = "Detailed Financial Statements (Last 6 months)"
         else:
             tableTypes[0] = ""
-
 
         tableObj = TableModel(
             Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows

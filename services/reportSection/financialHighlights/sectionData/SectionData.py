@@ -10,7 +10,9 @@ from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI 
 from services.reportSection.financialHighlights.charts.RevenueBreakdown import (
     getRevenueBreakdownChart,
 )
-from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import getRevenueBreakdownTable
+from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import (
+    getRevenueBreakdownTable,
+)
 from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
@@ -44,7 +46,6 @@ class FinancialHighlightSectionDataService:
             [i for i in range(1, months[-1] + 1)]
             if reportType.lower() == "year"
             else months
-
         )
 
     # Complete  Section
@@ -63,15 +64,17 @@ class FinancialHighlightSectionDataService:
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
 
-
             # charts_data.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
-
 
             tables_data = getISTable(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
 
-            tables_data.append(getRevenueBreakdownTable( self.year, self.months, self.reportType,  self.reportId).Data)
+            tables_data.append(
+                getRevenueBreakdownTable(
+                    self.year, self.months, self.reportType, self.reportId
+                ).Data
+            )
 
             # Combine into SectionData
             section_data = SectionData(
@@ -96,7 +99,7 @@ class FinancialHighlightSectionDataService:
         Retrieves only the Cards data for the section.
         """
         try:
-            print(self.months,self.year,"------------------")
+            print(self.months, self.year, "------------------")
             cards = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
@@ -122,8 +125,9 @@ class FinancialHighlightSectionDataService:
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
 
-
-            charts.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
+            charts.append(
+                getRevenueBreakdownChart(self.year, self.months, self.reportId).Data
+            )
 
             response = ChartsListModel(Charts=charts)
             return Result(

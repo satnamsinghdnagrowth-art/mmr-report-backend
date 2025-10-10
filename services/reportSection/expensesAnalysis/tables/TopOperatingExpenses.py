@@ -18,7 +18,6 @@ from datetime import datetime
 def getTopOpeatingExpensesNew(
     year: int, months: list[int], reportType: str, section: str, reportId: int
 ):
-
     try:
         financialData = financialDataTest
         if reportId is not None:
@@ -44,12 +43,16 @@ def getTopOpeatingExpensesNew(
         headers = ["Expenses Names", "Total"] + [f"Month {m}" for m in prev_months]
 
         # Fetch all fixed expenses
-        expensesdata = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"]["Fixed Expenses"].keys()
+        expensesdata = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"][
+            "Fixed Expenses"
+        ].keys()
         expenses_with_totals = []
 
         # Step 1: Calculate total per expense
         for expenses in expensesdata:
-            itemData = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"]["Fixed Expenses"][expenses]
+            itemData = financialData["PROFIT & LOSS"]["EXPENSES"]["LineItems"][
+                "Fixed Expenses"
+            ][expenses]
 
             # Current period filter
             filterData = [
@@ -81,12 +84,20 @@ def getTopOpeatingExpensesNew(
         # Step 4: Format into ValueObjectModel rows
         for expense_name, totalSum, month_values in top_expenses:
             row = [
-                ValueObjectModel(Value=expense_name, isPositive=True, Type="", Symbol=""),
-                ValueObjectModel(Value=totalSum, isPositive=True, Type="currency", Symbol="$"),
+                ValueObjectModel(
+                    Value=expense_name, isPositive=True, Type="", Symbol=""
+                ),
+                ValueObjectModel(
+                    Value=totalSum, isPositive=True, Type="currency", Symbol="$"
+                ),
             ]
             # Add last 6 month values
             for v in month_values:
-                row.append(ValueObjectModel(Value=v, isPositive=True, Type="currency", Symbol="$"))
+                row.append(
+                    ValueObjectModel(
+                        Value=v, isPositive=True, Type="currency", Symbol="$"
+                    )
+                )
             rows.append(row)
 
         # Step 5: Wrap in table object
@@ -111,7 +122,7 @@ def getTopOpeatingExpensesNew(
         message = f"Error occurred at getTopOperatingExpenses: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Data=None, Status=0, Message=message)
-    
+
 
 def getTopOpeatingExpenses(
     year: int, months: list[int], reportType: str, section: str, reportId: int
@@ -181,7 +192,10 @@ def getTopOpeatingExpenses(
 
         # Step 5: Wrap in table object
         tableObj = TableModel(
-            Title="Top 10 Operating Expenses", Column=Headers, Rows=rows
+            Title="Top 10 Operating Expenses",
+            Column=Headers,
+            Rows=rows,
+            TableType="Progress",
         )
         tables.append(tableObj)
 

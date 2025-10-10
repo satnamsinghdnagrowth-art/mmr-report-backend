@@ -1,11 +1,12 @@
 from pydantic import BaseModel
-from typing import List, Any,Optional
+from typing import List, Any, Optional
 from enum import Enum
 
+
 class TableTypesName(Enum):
-    Tabular : str = "Tabular"
-    Progress : str = "Progress"
-    Variance : str = "Variance"
+    Tabular: str = "Tabular"
+    Progress: str = "Progress"
+    Variance: str = "Variance"
 
 
 # Data Transfer Objects
@@ -13,8 +14,8 @@ class TableModel(BaseModel):
     Title: str
     Column: List[str]
     Rows: List[List[Any]]
-    TableType : Optional[str] = TableTypesName.Tabular.value
-    Visibility : Optional[bool] = True
+    TableType: Optional[str] = TableTypesName.Tabular.value
+    Visibility: Optional[bool] = True
 
 
 class TableListModel(BaseModel):

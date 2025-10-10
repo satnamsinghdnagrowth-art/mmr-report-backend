@@ -51,9 +51,9 @@ def breakEven(year: int, months, reportId: Optional[int] = None):
 
         totalDEP = sum(item["Value"] for item in DEPFilter)
 
-
         breakEvenPoint = (
-            (totalFEXP + totalFCOS+totalDEP) / contributionMargin(year, months, reportId).Data
+            (totalFEXP + totalFCOS + totalDEP)
+            / contributionMargin(year, months, reportId).Data
         ) * 100
 
         return Result(

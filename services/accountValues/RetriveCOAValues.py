@@ -1,7 +1,7 @@
 from helper.readExcel import readExcelFile
 from datetime import datetime
 from collections import defaultdict
-from helper.getMonthName import getMonthName
+from helper.GetMonthName import getMonthName
 from config.variable import variableMapping
 from helper.LoadJsonData import financialDataTest
 from core.models.base.ResultModel import Result
@@ -43,7 +43,7 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                 month_cols = list(matches.columns)
 
                 classificationTotal = []
-                print(month_cols,"--------------------------")
+                print(month_cols, "--------------------------")
                 for m in month_cols:
                     try:
                         value = matches[m].fillna(0).sum()

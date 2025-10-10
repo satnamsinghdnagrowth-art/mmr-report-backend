@@ -1,12 +1,13 @@
-PERCENTAGE_KEYWORDS = {"margin", "growth", "ratio"}
+from core.models.base.VisualUnitModel import UnitModel
+
+PERCENTAGE_KEYWORDS = {"margin", "growth", "ratio","%"}
 
 
 def getValueSymbol(title: str) -> dict:
-    currency_symbol: str = "$"
 
     title_lower = title.lower()
 
     if any(keyword in title_lower for keyword in PERCENTAGE_KEYWORDS):
-        return {"type": "percentage", "symbol": "%"}
+        return UnitModel(type="percentage",symbol="%").dict()
 
-    return {"type": "currency", "symbol": currency_symbol}
+    return UnitModel(type="currency",symbol="$").dict()

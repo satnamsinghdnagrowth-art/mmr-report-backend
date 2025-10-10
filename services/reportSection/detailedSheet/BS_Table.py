@@ -45,7 +45,6 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                     current_month = 12
                     current_year -= 1
 
-
             # Correct headers
             headers = [tableType] + [
                 f"{calendar.month_abbr[m]} {y}" for (m, y) in staticMonths
@@ -93,13 +92,9 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
 
                 sectionMonthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
-
                 for subSectionName, subSectionContent in sectionContent[
                     "LineItems"
                 ].items():
-                    
-                
-                    
                     monthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
                     subSectionRows = []
@@ -117,7 +112,6 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                         )
 
                     for itemLabel, itemData in subSectionContent.items():
-
                         rowData = [
                             ValueObjectModel(
                                 Value=itemLabel, isPositive=True, Type="", Symbol=""
@@ -152,8 +146,6 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
 
                         subSectionRows.append(rowData)
 
-
-
                     if tableType.lower() in ["balancesheet", "equity"]:
                         grandTotal = sum(monthlyTotals.values())
                         if grandTotal != 0.0:
@@ -177,11 +169,9 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                             subSectionRows.append(totalRow)
                             sectionRows.extend(subSectionRows)
                     else:
-                        sectionRows.extend(subSectionRows)  
-
+                        sectionRows.extend(subSectionRows)
 
                 sectionGrandTotal = sum(sectionMonthlyTotals.values())
-
 
                 if sectionName.strip().upper() in [
                     "CURRENT ASSETS",
@@ -216,19 +206,16 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-                    if sectionName.lower() == 'equity':
+                    if sectionName.lower() == "equity":
                         totalEquity.append(sectionMonthlyTotals[(m, y)])
 
-            
                 sectionRows.append(totalSectionRow)
 
-
-                if sectionGrandTotal == 0.0 :
+                if sectionGrandTotal == 0.0:
                     sectionRows = []
 
-
                 if (
-                    sectionName == "NON-CURRENT ASSETS" 
+                    sectionName == "NON-CURRENT ASSETS"
                 ):  # Only relevant for Balance Sheet
                     totalAssetsRow = [
                         ValueObjectModel(
@@ -246,9 +233,7 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     sectionRows.append(totalAssetsRow)
 
-                if (
-                    sectionName == "NON-CURRENT LIABILITIES" 
-                ):  
+                if sectionName == "NON-CURRENT LIABILITIES":
                     # Only relevant for Balance Sheet
                     totalAssetsRow = [
                         ValueObjectModel(
@@ -275,14 +260,18 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
 
             combinedRows.extend(rows)
 
-            if sectionName.lower() == 'equity':
+            if sectionName.lower() == "equity":
+                totalLiabilitiesAndEquity = [
+                    ValueObjectModel(
+                        Value="Total Liabilities & Equity",
+                        isPositive=True,
+                        Type="",
+                        Symbol="",
+                    )
+                ]
 
-                totalLiabilitiesAndEquity = [ValueObjectModel(
-                    Value="Total Liabilities & Equity", isPositive=True, Type="", Symbol=""
-                )]
-                
-                for l,e in zip(totalLiablities,totalEquity):
-                    total_value = l+e
+                for l, e in zip(totalLiablities, totalEquity):
+                    total_value = l + e
                     totalLiabilitiesAndEquity.append(
                         ValueObjectModel(
                             Value=total_value,

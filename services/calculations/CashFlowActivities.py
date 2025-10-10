@@ -1,17 +1,18 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import financialDataTest
-from typing import Optional,List
+from typing import Optional, List
 from helper.GetFileByReportId import getReportData
 from services.calculations.NetIncome import netIncome
 from services.calculations.CurrentAssestAndLiabilities import (
     getTotalCurrentLiabilities,
     getTotalCurrentAssets,
-) 
+)
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 from helper.GetValueSum import getValueSum
-          
-# Operating Profit 
+
+
+# Operating Profit
 def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
     try:
         if len(months) == 1:
@@ -46,7 +47,12 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
         totalInterestExpense = getValueSum(
             financialData,
-            ["PROFIT & LOSS", "INTEREST EXPENSES", "Classification", "Interest Expense"],
+            [
+                "PROFIT & LOSS",
+                "INTEREST EXPENSES",
+                "Classification",
+                "Interest Expense",
+            ],
             year,
             months,
         ).Data
@@ -93,9 +99,11 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
         #     - totalInterestIncome
         # )
 
-        netIncomeValue = netIncome(year,months,reportId).Data
+        netIncomeValue = netIncome(year, months, reportId).Data
 
-        operatingActivitesCashFlow = netIncomeValue + changeInCl + changeInCa+totalDepreciation + totalDA
+        operatingActivitesCashFlow = (
+            netIncomeValue + changeInCl + changeInCa + totalDepreciation + totalDA
+        )
 
         return Result(
             Data=round(operatingActivitesCashFlow, 2),
@@ -126,8 +134,8 @@ def getInvestigatingActivitiesCashFlow(
                     "Classification",
                     "Fixed Assets",
                 ],
-                year ,
-                [months[-1]-1],
+                year,
+                [months[-1] - 1],
             ).Data
             - getValueSum(
                 financialData,
@@ -190,8 +198,8 @@ def getInvestigatingActivitiesCashFlow(
                     "Classification",
                     "Other Non-Current Assets",
                 ],
-                year ,
-                [months[-1]-1],
+                year,
+                [months[-1] - 1],
             ).Data
             - getValueSum(
                 financialData,
@@ -214,9 +222,8 @@ def getInvestigatingActivitiesCashFlow(
         ).Data
 
         investigatingActivitiesCashFlow = (
-              changeInIA + changeInONCA+(changeInFA - (totalDepreciation+totalDA))
+            changeInIA + changeInONCA + (changeInFA - (totalDepreciation + totalDA))
         )
-
 
         return Result(
             Data=round(investigatingActivitiesCashFlow, 2),
@@ -228,20 +235,19 @@ def getInvestigatingActivitiesCashFlow(
         message = f"Error occur at getInvestigatingActivitiesCashFlow: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
+
 
 def getFinancingActivitiesCashFlow(
-    year: int, months:List[int], reportId: Optional[int] = None
+    year: int, months: List[int], reportId: Optional[int] = None
 ):
     try:
         financialData = (
             getReportData(reportId)["Financial Data"] if reportId else financialDataTest
         )
 
-        currentYear, currentMonths, prevYear, prevMonths = (
-                getCurrentAndPreviousPeriods(year, [months[-1]], "month")
-            )
-    
+        currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
+            year, [months[-1]], "month"
+        )
 
         chaneInOEQ = (
             getValueSum(

@@ -9,6 +9,7 @@ import time
 from services.visuals.card.GetSectionsCards import getSectionCards
 from services.visuals.charts.GetSectionCharts import getSectionCharts
 
+
 # Get the sections cards
 def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int
@@ -24,10 +25,12 @@ def getSectionData(
         chartsData = getSectionCharts(year, months, reportType, section, reportId).Data
         # cards = []
         # charts = []
-        
+
         tablesData = [
             getProfitLossTable(year, months, ["PROFIT & LOSS"], reportId).Data,
-            getBalanaceSheetTable(year, months, ["BalanceSheet", "EQUITY"], reportId).Data,
+            getBalanaceSheetTable(
+                year, months, ["BalanceSheet", "EQUITY"], reportId
+            ).Data,
             getCashFlowTable(year, months, reportId).Data,
         ]
 

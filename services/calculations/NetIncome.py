@@ -15,7 +15,6 @@ from helper.GetFileByReportId import getReportData
 # Operating Profit
 def netIncome(year: int, month, reportId: Optional[int] = None):
     try:
-        
         financialData = financialDataTest
 
         if reportId is not None:
@@ -39,7 +38,6 @@ def netIncome(year: int, month, reportId: Optional[int] = None):
 
         # if month == [1,2,3,4,5,6,7]:
         # print(year,month,result,ebt,totalTEXP,"---------------")
-            
 
         return Result(
             Data=round(result, 2),
@@ -60,14 +58,11 @@ def netIncome(year: int, month, reportId: Optional[int] = None):
 
 def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
     try:
-        
         totalRev = totalRevenue(year, month, reportId).Data
-
 
         NIC = netIncome(year, month, reportId).Data
 
         netICMargin = (NIC / totalRev) * 100
-
 
         return Result(
             Data=round(netICMargin, 2),

@@ -5,6 +5,7 @@ from services.reportSection.profitAbility.tables.GetProfitAbilityTable import ge
 from core.models.visualsModel.SectionData import SectionData
 from services.visuals.charts.GetSectionCharts import getSectionCharts
 
+
 # Get the sections cards
 def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId

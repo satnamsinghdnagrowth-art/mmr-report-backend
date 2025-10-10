@@ -11,21 +11,17 @@ variableMapping = {
             {"VEXP": "Variable Expenses"},
             {"DA": "Depreciation"},
         ],
-        "OTHER INCOME": [ {"AINC": "Additional Income"}],
+        "OTHER INCOME": [{"AINC": "Additional Income"}],
         "OTHER EXPENSES": [
             {"ADJ": "Adjustments"},
             {"OEXP": "Other Expenses"},
         ],
-        "INTEREST INCOME":[{"IINC": "Interest Income"}],
-        "INTEREST EXPENSES": [
-            {"IEXP": "Interest Expense"}
-        ],
+        "INTEREST INCOME": [{"IINC": "Interest Income"}],
+        "INTEREST EXPENSES": [{"IEXP": "Interest Expense"}],
         "TAX EXPENSES": [
             {"TEXP": "Tax Expense"},
         ],
-        "DIVIDEND": [
-            {"DIV": "Dividends"}
-        ],
+        "DIVIDEND": [{"DIV": "Dividends"}],
     },
     "BALANCE SHEET": {
         "CURRENT ASSETS": [

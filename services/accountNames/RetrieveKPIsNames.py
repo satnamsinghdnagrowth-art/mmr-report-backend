@@ -1,6 +1,6 @@
 from datetime import datetime
-from helper.getMonthName import getMonthName
-from helper.getMonthName import getQuarterMonthsFromMonth
+from helper.GetMonthName import getMonthName
+from helper.GetMonthName import getQuarterMonthsFromMonth
 from core.models.base.ResultModel import Result
 
 

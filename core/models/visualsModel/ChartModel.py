@@ -42,7 +42,8 @@ class ChartDataModel(BaseModel):
     RightYaxis: bool
     YaxisController: List[YaxisControllerModel]
     Markers: Optional[List[MarkerModel]] = []
-    Visibility : Optional[bool] = True
+    Visibility: Optional[bool] = True
+    Type: Optional[str] = "Normal"
 
 
 class ChartsListModel(BaseModel):

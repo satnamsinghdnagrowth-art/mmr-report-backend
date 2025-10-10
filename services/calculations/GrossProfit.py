@@ -2,7 +2,7 @@ from datetime import datetime
 from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
-from services.calculations.Expenses import directExpenses,totalOperatingExpenses
+from services.calculations.Expenses import directExpenses, totalOperatingExpenses
 from typing import Optional
 
 from services.calculations.OtherIncome import otherIncome
@@ -29,14 +29,14 @@ def grossProfit(year: int, month, reportId: Optional[int] = None):
         message = f"Error occur at grossProfit: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
+
 
 def operatingProfit(year: int, month, reportId: Optional[int] = None):
     try:
         GPValue = grossProfit(year, month, reportId).Data
         totalOperatingExpValue = totalOperatingExpenses(year, month, reportId).Data
 
-        value = GPValue - totalOperatingExpValue 
+        value = GPValue - totalOperatingExpValue
 
         return Result(
             Data=round(value, 2),

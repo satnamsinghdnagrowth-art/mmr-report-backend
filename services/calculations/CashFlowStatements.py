@@ -6,7 +6,7 @@ from helper.GetFileByReportId import getReportData
 from services.calculations.CashFlowActivities import (
     getInvestigatingActivitiesCashFlow,
     getOperatingActivitiesCashFlow,
-    getFinancingActivitiesCashFlow
+    getFinancingActivitiesCashFlow,
 )
 from helper.GetValueSum import getValueSum
 
@@ -62,7 +62,7 @@ def getNetCashFlow(year: int, months, reportId: Optional[int] = None):
             + getInvestigatingActivitiesCashFlow(year, months, reportId).Data
             + getFinancingActivitiesCashFlow(year, months, reportId).Data
         )
-        
+
         return Result(
             Data=round(netCashFlow, 2),
             Status=1,

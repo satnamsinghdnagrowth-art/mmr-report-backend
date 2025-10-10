@@ -8,6 +8,7 @@ from services.reportSection.expensesAnalysis.tables.TopOperatingExpenses import 
     getTopOpeatingExpenses,
 )
 
+
 # Get the sections cards
 def getSectionData(
     year: int, months: list[int], reportType: str, section: str, reportId: int

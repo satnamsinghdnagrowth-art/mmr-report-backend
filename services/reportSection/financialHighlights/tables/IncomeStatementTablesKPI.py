@@ -10,7 +10,9 @@ from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
 import calendar
 from config.FunctionMaping import functionRegistry
 from helper.GetValueSymbol import getValueSymbol
-from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import getRevenueBreakdownTable
+from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import (
+    getRevenueBreakdownTable,
+)
 from helper.metricCheck import isMetricPositive
 from helper.GetFileByReportId import getReportData
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
@@ -57,10 +59,8 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                     f"{year} (YTD)",
                 ]
 
-
             rows = []
             for entry in config["rows"]:
-
                 valueData = getValueSymbol(entry["label"])
 
                 valueType = valueData["type"]
@@ -81,7 +81,6 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 latest_month = currentMonths[0]  # assumed to be the latest month
                 ytd_months = []
 
-
                 if latest_month >= financialMonth:
                     # Same year: financialMonth to latest_month
                     for m in range(financialMonth, latest_month + 1):
@@ -94,11 +93,15 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ytd_months.append((currentYear, m))
 
                 # ✅ Compute YTD total
-                if entry['func'] == 'grossProfitMargin':
-                    ytdValue = func(year=2025, month=[1,2,3,4,5,6,7], reportId=reportId).Data
+                if entry["func"] == "grossProfitMargin":
+                    ytdValue = func(
+                        year=2025, month=[1, 2, 3, 4, 5, 6, 7], reportId=reportId
+                    ).Data
 
-                elif  entry['func'] == 'netIncomeMargin':
-                    ytdValue = func(year=2025, month=[1,2,3,4,5,6,7], reportId=reportId).Data
+                elif entry["func"] == "netIncomeMargin":
+                    ytdValue = func(
+                        year=2025, month=[1, 2, 3, 4, 5, 6, 7], reportId=reportId
+                    ).Data
 
                 else:
                     ytdValue = sum(
@@ -108,8 +111,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ]
                     )
 
-                
-                print(entry["label"],ytdValue)
+                print(entry["label"], ytdValue)
 
                 result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
 
@@ -169,15 +171,17 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
 
                 rows.append(row)
 
-
-            tableObj = TableModel(Title="Income Statement", Column=Headers, Rows=rows,TableType="Variance")
+            tableObj = TableModel(
+                Title="Income Statement",
+                Column=Headers,
+                Rows=rows,
+                TableType="Variance",
+            )
             tables.append(tableObj)
-        
+
         # tables.append(
         #     getRevenueBreakdownTable( year, months, reportType, reportId).Data
         # )
-
-        
 
         return Result(
             Data=tables, Status=1, Message="Income Statement generated successfully"

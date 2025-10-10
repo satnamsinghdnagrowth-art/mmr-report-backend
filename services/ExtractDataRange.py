@@ -1,10 +1,6 @@
 import pandas as pd
 from datetime import datetime
-from core.models.Accounts.ReportDescriptionModel import (
-    ReportDescriptionsModel,
-    DateObject,
-)
-from helper.readExcel import readExcelFile
+from core.models.Accounts.ReportDescriptionModel import ReportDescriptionsModel
 from typing import Optional
 from core.models.base.ResultModel import Result
 from helper.GetFileByReportId import getReportData
@@ -17,23 +13,18 @@ def retriveDataRange(reportId: Optional[int] = None):
 
         companyLogoPath = getReportMetaDatabyId(reportId).get("CompanyLogoFilePath")
 
-        print(
-            getReportMetaDatabyId(reportId),
-            getReportMetaDatabyId(reportId).get("CompanyLogoFilePath"),
-        )
-
         reportDetails = reportData["Report Details"]
 
         companyName = reportDetails["Company Name"]
 
-        finacialYear = reportDetails["Financial Year"]
+        financialYear = reportDetails["Financial Year"]
 
         dateRange = reportDetails["Data Range"]
 
         # # Create response model
         reportDescription = ReportDescriptionsModel(
             ReportName=companyName,
-            FinancialYear=finacialYear,
+            FinancialYear=financialYear,
             DataRange=dateRange,
             CompanyLogoPath=companyLogoPath,
         )

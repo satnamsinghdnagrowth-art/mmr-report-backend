@@ -3,7 +3,7 @@ from typing import Optional
 from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
-from services.calculations.GrossProfit import  operatingProfit
+from services.calculations.GrossProfit import operatingProfit
 from helper.GetValueSum import getValueSum
 from typing import Optional
 from helper.LoadJsonData import financialDataTest
@@ -39,7 +39,8 @@ def otherIncome(year: int, months, reportId: Optional[int] = None):
         message = f"Error occur at netIncomeMargin: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
+
+
 def otherExpenses(year: int, months, reportId: Optional[int] = None):
     try:
         financialData = (
@@ -84,7 +85,7 @@ def EBIT(year: int, month, reportId: Optional[int] = None):
         otherIncomeValue = otherIncome(year, month, reportId).Data
 
         otherExpensesValue = otherExpenses(year, month, reportId).Data
-        
+
         result = opertaingProfitValue + otherIncomeValue - otherExpensesValue
 
         return Result(

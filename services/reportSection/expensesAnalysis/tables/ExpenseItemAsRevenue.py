@@ -7,6 +7,7 @@ from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
 import calendar
 
+
 def expenseItemAsRevenueTable(
     year: int, months: list[int], section: str, reportId: int
 ):
@@ -62,7 +63,7 @@ def expenseItemAsRevenueTable(
         # Step 3: Take top 10 expenses
         top_expenses = expenses_with_totals[:10]
 
-        print(top_expenses,'------------------------------------------------')
+        print(top_expenses, "------------------------------------------------")
 
         rows = []
 

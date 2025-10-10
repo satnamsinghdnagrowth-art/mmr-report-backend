@@ -1,8 +1,8 @@
 from datetime import datetime
-from helper.getMonthName import getMonthName
+from helper.GetMonthName import getMonthName
 from collections import defaultdict
 from config.variable import variableMapping
-from helper.getMonthName import getQuarterMonthsFromMonth
+from helper.GetMonthName import getQuarterMonthsFromMonth
 from core.models.base.ResultModel import Result
 
 

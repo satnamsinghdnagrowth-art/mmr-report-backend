@@ -35,7 +35,12 @@ def getEACharts(year: int, months: list[int], reportId):
 
         totalInterestExpense = getValueSum(
             financialData,
-            ["PROFIT & LOSS", "INTEREST EXPENSES", "Classification", "Interest Expense"],
+            [
+                "PROFIT & LOSS",
+                "INTEREST EXPENSES",
+                "Classification",
+                "Interest Expense",
+            ],
             year,
             months,
         ).Data

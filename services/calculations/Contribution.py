@@ -43,7 +43,6 @@ def contribution(year: int, month, reportId: Optional[int] = None):
 
         totalContribution = totalRev - totalVCOS - totalVEXP
 
-
         return Result(
             Data=round(totalContribution, 2),
             Status=1,

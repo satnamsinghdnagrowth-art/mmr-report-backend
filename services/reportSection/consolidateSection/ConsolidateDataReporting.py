@@ -1,6 +1,8 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
-from services.reportSection.consolidateSection.AllSectionDataServices import AllSectionDataService
+from services.reportSection.consolidateSection.AllSectionDataServices import (
+    AllSectionDataService,
+)
 from core.models.visualsModel.SectionData import ConsolidateSectionDate
 from core.models.base.SectionNamesEnum import SectionName
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
@@ -8,10 +10,14 @@ from helper.LoadJsonData import SECTION_CARD_CONFIGS
 
 # Get the sections cards
 def getConsolidateSectionData(
-    year: int, months: list[int], reportType: str, section: str, reportId: int,companyId:int
+    year: int,
+    months: list[int],
+    reportType: str,
+    section: str,
+    reportId: int,
+    companyId: int,
 ):
     try:
-    
         configs = SECTION_CARD_CONFIGS.get(section)
 
         months = (
@@ -24,28 +30,38 @@ def getConsolidateSectionData(
             reportId=reportId, year=year, months=months, reportType=reportType
         )
 
-        FH_dataResponse = ConsolidateSectionDate(SectionName=SectionName.FinancialHighlights.value,
-            SectionData=serviceObj.getFinancialHighlightsSection().Data)
-        
-        EXP_dataResponse = ConsolidateSectionDate(SectionName=SectionName.ExpensesAnalysis.value,
-            SectionData=serviceObj.getExpensesAnalysisSection().Data)
-        
-        PA_dataResponse =ConsolidateSectionDate(SectionName=SectionName.Profitability.value,
-            SectionData=serviceObj.getProfitablitySection().Data)
-        
-        BE_dataResponse = ConsolidateSectionDate(SectionName=SectionName.BreakevenAnlaysis.value,
-            SectionData=serviceObj.getBreakEvenAnalysisSection().Data)
-        
-        CF_dataResponse = ConsolidateSectionDate(SectionName=SectionName.CashFlowAnalysis.value,
-            SectionData=serviceObj.getCashFlowSection().Data)
-        
+        FH_dataResponse = ConsolidateSectionDate(
+            SectionName=SectionName.FinancialHighlights.value,
+            SectionData=serviceObj.getFinancialHighlightsSection().Data,
+        )
+
+        EXP_dataResponse = ConsolidateSectionDate(
+            SectionName=SectionName.ExpensesAnalysis.value,
+            SectionData=serviceObj.getExpensesAnalysisSection().Data,
+        )
+
+        PA_dataResponse = ConsolidateSectionDate(
+            SectionName=SectionName.Profitability.value,
+            SectionData=serviceObj.getProfitablitySection().Data,
+        )
+
+        BE_dataResponse = ConsolidateSectionDate(
+            SectionName=SectionName.BreakevenAnlaysis.value,
+            SectionData=serviceObj.getBreakEvenAnalysisSection().Data,
+        )
+
+        CF_dataResponse = ConsolidateSectionDate(
+            SectionName=SectionName.CashFlowAnalysis.value,
+            SectionData=serviceObj.getCashFlowSection().Data,
+        )
+
         CombinedData = {
             "Sections": [
                 FH_dataResponse,
                 EXP_dataResponse,
                 PA_dataResponse,
                 BE_dataResponse,
-                CF_dataResponse
+                CF_dataResponse,
             ]
         }
 

@@ -57,7 +57,6 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     current_month = 12
                     current_year -= 1
 
-
             # Correct headers
             if tableType == "PROFIT & LOSS":
                 headers = (
@@ -116,35 +115,35 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
 
                 sectionMonthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
-
                 for subSectionName, subSectionContent in sectionContent[
                     "LineItems"
                 ].items():
-                    
-                    
-                    
                     if subSectionName == "Additional Income":
                         sectionRows.insert(
-                        1,
-                        [
-                            ValueObjectModel(
-                                Value="Other Income", isPositive=True, Type="", Symbol=""
-                            )
-                        ],
-                    )
-                        
-                    
-                        
+                            1,
+                            [
+                                ValueObjectModel(
+                                    Value="Other Income",
+                                    isPositive=True,
+                                    Type="",
+                                    Symbol="",
+                                )
+                            ],
+                        )
+
                     if subSectionName == "Interest Income":
                         sectionRows.insert(
-                        1,
-                        [
-                            ValueObjectModel(
-                                Value="Interest Income", isPositive=True, Type="", Symbol=""
-                            )
-                        ],
-                    )
-                    
+                            1,
+                            [
+                                ValueObjectModel(
+                                    Value="Interest Income",
+                                    isPositive=True,
+                                    Type="",
+                                    Symbol="",
+                                )
+                            ],
+                        )
+
                     monthlyTotals = {(m, y): 0.0 for (m, y) in staticMonths}
 
                     subSectionRows = []
@@ -162,11 +161,9 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
 
                     for itemLabel, itemData in subSectionContent.items():
-
                         if itemLabel == "Interest & Dividend":
                             continue
 
-                        
                         rowData = [
                             ValueObjectModel(
                                 Value=itemLabel, isPositive=True, Type="", Symbol=""
@@ -235,11 +232,6 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     else:
                         sectionRows.extend(subSectionRows)
 
-
-
-                    
-
-
                 sectionGrandTotal = sum(sectionMonthlyTotals.values())
 
                 if sectionGrandTotal == 0.0:
@@ -258,8 +250,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                 ]:
                     for key in staticMonths:
                         total_liablities_monthly[key] += sectionMonthlyTotals[key]
-                
-                
+
                 totalSectionRow = [
                     ValueObjectModel(
                         Value=f"Total {sectionName}",
@@ -279,7 +270,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-                    if sectionName.lower() == 'equity':
+                    if sectionName.lower() == "equity":
                         totalEquity.append(sectionMonthlyTotals[(m, y)])
 
                 if tableType == "PROFIT & LOSS":
@@ -325,7 +316,6 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     ]
                     for m, y in staticMonths:
-
                         totalLiablities.append(total_liablities_monthly[(m, y)])
                         totalAssetsRow.append(
                             ValueObjectModel(
@@ -355,8 +345,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-                if  tableType == "PROFIT & LOSS" :
-
+                if tableType == "PROFIT & LOSS":
                     sectionRows.append(
                         generateSummaryRow(
                             "Earning Before Interest & Tax",
@@ -372,7 +361,6 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     #     Symbol="$",
                     # )])
 
-
                     # sectionRows.append(
                     #     generateSummaryRow(
                     #         "Interest & Dividend",
@@ -380,7 +368,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     #         staticMonths,
                     #         lambda y, m: interestIncome(y, m, reportId).Data,
                     #     )
-                    
+
                     # )
                     # sectionRows.append(
                     #     [
@@ -425,10 +413,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
 
                     # sectionRows.append(interestIncome)
 
-                    
-
                 if sectionName.upper() == "EXPENSES":
-
                     sectionRows.append(
                         generateSummaryRow(
                             "Operating Profit",
@@ -447,10 +432,10 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-                    
-
-                if tableType == "PROFIT & LOSS" and sectionName.upper() == "INTEREST INCOME":
-                    
+                if (
+                    tableType == "PROFIT & LOSS"
+                    and sectionName.upper() == "INTEREST INCOME"
+                ):
                     sectionRows.append(
                         generateSummaryRow(
                             "Earnings Before Tax",
@@ -476,19 +461,22 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                         )
                     )
 
-
                 rows.extend(sectionRows)
 
             combinedRows.extend(rows)
 
-            if sectionName.lower() == 'equity':
+            if sectionName.lower() == "equity":
+                totalLiabilitiesAndEquity = [
+                    ValueObjectModel(
+                        Value="Total Liabilities & Equity",
+                        isPositive=True,
+                        Type="",
+                        Symbol="",
+                    )
+                ]
 
-                totalLiabilitiesAndEquity = [ValueObjectModel(
-                    Value="Total Liabilities & Equity", isPositive=True, Type="", Symbol=""
-                )]
-                
-                for l,e in zip(totalLiablities,totalEquity):
-                    total_value = l+e
+                for l, e in zip(totalLiablities, totalEquity):
+                    total_value = l + e
                     totalLiabilitiesAndEquity.append(
                         ValueObjectModel(
                             Value=total_value,
@@ -503,7 +491,6 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
             tableTypes[0] = "Detailed Financial Statements (Last 6 months)"
         else:
             tableTypes[0] = ""
-
 
         tableObj = TableModel(
             Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows

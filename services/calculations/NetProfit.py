@@ -18,9 +18,9 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
         ebit = EBIT(year, month).Data
 
         # Interest Expenses
-        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
-            "Interest Expense"
-        ]
+        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"][
+            "Classification"
+        ]["Interest Expense"]
 
         IEXPFilter = [
             item

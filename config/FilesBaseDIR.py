@@ -1,3 +1,4 @@
-UPLOAD_DIR = "database/uploadedFiles"
+ACTUALS_DATA_UPLOAD_DIR = "database/uploadedFiles"
+CUSTOM_KPIS_DATA_UPLOAD_DIR = "database/customKPIs"
 PROGRESS_JSON_PATH = "database/ReportProgressTable.json"
 REPORT_JSON_PATH = "database/ReportTable.json"

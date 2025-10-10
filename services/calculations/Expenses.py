@@ -57,7 +57,7 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
         message = f"Error occur at directExpenses: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    
+
 
 def interestExpenses(year: int, month, reportId: Optional[int] = None):
     try:
@@ -66,9 +66,9 @@ def interestExpenses(year: int, month, reportId: Optional[int] = None):
         if reportId is not None:
             financialData = getReportData(reportId)["Financial Data"]
 
-        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
-            "Interest Expense"
-        ]
+        IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"][
+            "Classification"
+        ]["Interest Expense"]
 
         IEXPFilter = [
             item
@@ -78,7 +78,6 @@ def interestExpenses(year: int, month, reportId: Optional[int] = None):
 
         totalIEXP = sum(item["Value"] for item in IEXPFilter)
 
-        
         return Result(
             Data=round(totalIEXP, 2),
             Status=1,
@@ -139,7 +138,6 @@ def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
         ]
 
         totalDA = sum(item["Value"] for item in DAFilter)
-
 
         totalOperatingExp = totalFEXP + totalVEXP + totalDA
 

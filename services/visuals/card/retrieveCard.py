@@ -6,8 +6,6 @@ from core.models.visualsModel.CardModel import (
     FooterModel,
 )
 from core.models.base.ResultModel import Result
-from typing import Any
-import calendar
 from config.MetricBehaviour import NEGATIVE_METRICS, PERCENTAGE_METRICS
 from config.FunctionMaping import functionRegistry
 from datetime import datetime
@@ -18,8 +16,6 @@ from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import os
-import calendar
 from dateutil.parser import parse
 
 
@@ -92,8 +88,6 @@ def retrieveCard(
             mainFunc(d.year, [d.month], reportId).Data for d in trend_dates
         ]
 
-
-
         trendLineData = TrendLineChart(Xaxis=trendLineXaxis, Yaxis=trendLineYaxis)
 
         mainValuePositiveCheck = isMetricPositive(title, mainValue)
@@ -107,14 +101,11 @@ def retrieveCard(
         )
 
         # Comparison value calculation
-
-
-
         if comparisonFunc.lower() == "growthrate":
             if title == "Expense-to-Revenue Ratio":
                 comparisonValue = mainValue - previousValue
             else:
-                 comparisonValue = dataGrowthRate(mainValue, previousValue).Data
+                comparisonValue = dataGrowthRate(mainValue, previousValue).Data
         else:
             comparisonValue = previousValue
 

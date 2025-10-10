@@ -42,40 +42,76 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def revenueGrowth(year: int, month: list, reportId: Optional[int] = None):
+from typing import Optional, List
+from datetime import datetime
+
+
+def revenueGrowth(year: int, month: List[int], reportId: Optional[int] = None):
     try:
-        if not month or len(month) != 1:
-            raise ValueError("Only one month should be provided in a list.")
+        if not month:
+            raise ValueError("Month list cannot be empty.")
 
-        monthValue = month[0]
+        # Define quarter mapping
+        quarter_map = {
+            1: [1, 2, 3],
+            2: [4, 5, 6],
+            3: [7, 8, 9],
+            4: [10, 11, 12],
+        }
 
-        # Calculate current month revenue
-        thisMonthRevenue = totalRevenue(year, [monthValue], reportId).Data
-
-        # Determine previous month and year
-        if monthValue == 1:
-            prevMonth = 12
-            prevYear = year - 1
-        else:
-            prevMonth = monthValue - 1
-            prevYear = year
-
-        # Calculate previous month revenue
-        prevMonthRevenue = totalRevenue(prevYear, [prevMonth], reportId).Data
-
-        if prevMonthRevenue == 0:
-            raise ZeroDivisionError(
-                "Previous month revenue is zero, cannot calculate growth."
+        # Determine if user passed full quarter or single month
+        if len(month) > 1:
+            # Find current quarter
+            current_quarter = next(
+                q for q, m in quarter_map.items() if set(month).issubset(set(m))
             )
 
-        revGrowth = (
-            (thisMonthRevenue - prevMonthRevenue) / abs(prevMonthRevenue)
+            # Determine previous quarter and year
+            if current_quarter == 1:
+                prev_quarter = 4
+                prev_year = year - 1
+            else:
+                prev_quarter = current_quarter - 1
+                prev_year = year
+
+            current_months = quarter_map[current_quarter]
+            prev_months = quarter_map[prev_quarter]
+
+            mode = "quarter"
+
+        else:
+            # Single month growth
+            month_value = month[0]
+
+            if month_value == 1:
+                prev_month = 12
+                prev_year = year - 1
+            else:
+                prev_month = month_value - 1
+                prev_year = year
+
+            current_months = [month_value]
+            prev_months = [prev_month]
+
+            mode = "month"
+
+        # Calculate revenues
+        this_period_revenue = totalRevenue(year, current_months, reportId).Data
+        prev_period_revenue = totalRevenue(prev_year, prev_months, reportId).Data
+
+        if prev_period_revenue == 0:
+            raise ZeroDivisionError(
+                "Previous period revenue is zero, cannot calculate growth."
+            )
+
+        rev_growth = (
+            (this_period_revenue - prev_period_revenue) / abs(prev_period_revenue)
         ) * 100
 
         return Result(
-            Data=round(revGrowth, 2),
+            Data=round(rev_growth, 2),
             Status=1,
-            Message="Revenue growth calculated successfully",
+            Message=f"Revenue growth calculated successfully for {mode}.",
         )
 
     except ZeroDivisionError as ex:

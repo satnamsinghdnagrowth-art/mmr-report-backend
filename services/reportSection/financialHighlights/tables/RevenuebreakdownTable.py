@@ -1,7 +1,7 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
-from core.models.visualsModel.TableModel import TableModel,TableTypesName
+from core.models.visualsModel.TableModel import TableModel, TableTypesName
 from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
@@ -11,29 +11,33 @@ from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from config.FunctionMaping import functionRegistry
 from datetime import datetime
 from typing import List
-from services.reportSection.financialHighlights.tables.RevenueBreakDown import getRevenueTable
+from services.reportSection.financialHighlights.tables.RevenueBreakDown import (
+    getRevenueTable,
+)
 
 
 # Get the sections cards
-def getRevenueBreakdownTable(year: int, months: list[int],section: str, reportId: int):
+def getRevenueBreakdownTable(year: int, months: list[int], section: str, reportId: int):
     try:
-
         financialData = financialDataTest
         if reportId is not None:
             financialData = getReportData(reportId)["Financial Data"]
 
         configs = SECTION_CARD_CONFIGS.get(section)
 
-
         tables = []
         Headers = ["Revenue Channels", "Total"]
 
-        expensesdata = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"].keys()
+        expensesdata = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"][
+            "Revenue"
+        ].keys()
         expenses_with_totals = []
 
         # Step 1: Calculate total per expense
         for expenses in expensesdata:
-            itemData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"][expenses]
+            itemData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"][
+                "Revenue"
+            ][expenses]
 
             filterData = [
                 item
@@ -72,7 +76,10 @@ def getRevenueBreakdownTable(year: int, months: list[int],section: str, reportId
 
         # Step 5: Wrap in table object
         tableObj = TableModel(
-            Title="Revenue Breakdown", Column=Headers, Rows=rows,TableType=TableTypesName.Progress.value
+            Title="Revenue Breakdown",
+            Column=Headers,
+            Rows=rows,
+            TableType=TableTypesName.Progress.value,
         )
 
         # tables.append(getTopOpeatingExpensesNew(year,months,reportType,section,reportId).Data)
@@ -82,7 +89,6 @@ def getRevenueBreakdownTable(year: int, months: list[int],section: str, reportId
             Status=1,
             Message="Revenue BreakDown calculated successfully",
         )
-
 
     except ZeroDivisionError as ex:
         message = f"Error occurred at getRevenueBreakdownChart: {ex}"

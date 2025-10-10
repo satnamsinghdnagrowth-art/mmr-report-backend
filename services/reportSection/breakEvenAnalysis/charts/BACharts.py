@@ -120,6 +120,7 @@ def getBACharts(
                 YaxisControllerModel(Id="left", Orientation="left", Unit="$")
             ],
             Markers=[markerObjBreakPoint],
+            Type="Break-Even",
         )
 
         return Result(

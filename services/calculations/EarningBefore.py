@@ -36,7 +36,6 @@ def earningBeforeInterestandTax(year: int, month, reportId: Optional[int] = None
 
 def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
     try:
-
         financialData = financialDataTest
 
         if reportId is not None:
@@ -45,10 +44,9 @@ def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
 
         interestIC = interestIncome(year, month, reportId).Data
 
-
-        TEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"]["Classification"][
-            "Interest Expense"
-        ]
+        TEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"][
+            "Classification"
+        ]["Interest Expense"]
 
         TEXPFilter = [
             item
@@ -58,14 +56,14 @@ def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
 
         totalIEXP = sum(item["Value"] for item in TEXPFilter)
 
-        if month == [1,2,3,4,5,6,7]:
-            print(totalIEXP,"99845495948654")
+        if month == [1, 2, 3, 4, 5, 6, 7]:
+            print(totalIEXP, "99845495948654")
 
             print(totalIEXP)
 
         # otherIncomeValue = otherIncome(year, month,reportId).Data
 
-        result = (ebit + interestIC)-totalIEXP
+        result = (ebit + interestIC) - totalIEXP
 
         return Result(
             Data=round(result, 2),

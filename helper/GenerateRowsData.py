@@ -48,9 +48,7 @@ def generateChangeValueRow(title, financialData, pathKeys, year, staticMonths, i
         if isAsset:
             result = -result  # reverse for asset
 
-        row.append(
-            result
-        )
+        row.append(result)
 
     return row
 

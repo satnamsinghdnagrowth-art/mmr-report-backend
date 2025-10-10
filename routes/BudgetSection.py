@@ -10,6 +10,7 @@ from helper.LoadJsonData import SECTION_CARD_CONFIGS
 
 BudgetSectionRouter = APIRouter()
 
+
 # # Get Financial Higlights Section All Data
 @BudgetSectionRouter.post("/get/report/{reportId}/sectionData/")
 def getSection():

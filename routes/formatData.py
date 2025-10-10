@@ -4,9 +4,18 @@ from services.accountValues.GetFinancialsValues import formatFinancialData
 from services.fileUploadHandling.FileUpload import fileUpload
 from services.reports.UpdateReportData import updateReportFields
 from typing import Optional
+from core.models.base.SectionDataRequestBody import SectionRequestData
 from weasyprint import HTML
+from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI import (
+    getISTable,
+)
+from services.customKPIs.RawDataProcessing import customKPIsDataProcessing
+from pydantic.json import pydantic_encoder
+import json
+from services.generateSummary.ExecutiveSummaryGenerator import generateExecutiveSummary
 
 dataFormat = APIRouter()
+
 
 # File upload endpoint
 @dataFormat.post("/upload", response_model=Result)
@@ -23,16 +32,23 @@ def formatReportData(
     return fileUpload(file, FileBase64Str, CompanyLogo)
 
 
+@dataFormat.post("/uploadcustomkpis/", response_model=Result)
+def formatReportData(file: Optional[UploadFile] = File(None)):
+    # if not file and not FileBase64Str:
+    #     return Result(
+    #         Status=400, Message="Either file or FileBase64Str must be provided."
+    #     )
+    return customKPIsDataProcessing(file, reportId=1234)
+
+
 @dataFormat.patch("/update/report/{reportId}/")
 def uploadLogo(reportId: int, CompanyLogo: Optional[UploadFile] = File(None)):
-    
     return updateReportFields(reportId, CompanyLogo)
 
 
 # downloadPDF
 @dataFormat.post("/downloadPDF", response_model=Result)
-def testData(base64str=Body(...)):
-    
+def pdfGenerator(base64str=Body(...)):
     htmlContent = base64str["base64str"]
 
     # Save PDF to a file path
@@ -47,3 +63,26 @@ def testData(base64str=Body(...)):
         Status=0,
         Message="PDF generated and ready for download",
     )
+
+
+@dataFormat.post("/generateSummary/{reportId}")
+def generateReportSummary(reportId: int, payload: SectionRequestData):
+    data = getISTable(
+        payload.Year,
+        payload.Months,
+        payload.ReportType,
+        payload.SectionName,
+        reportId,
+    ).Data
+
+    compact_json = json.dumps(
+        data, default=pydantic_encoder, separators=(",", ":"), ensure_ascii=False
+    )
+
+    responseData = generateExecutiveSummary(compact_json)
+
+    return responseData
+
+    # return getISTable(
+    #             selfyear, self.months, self.reportType, self.section, self.reportId
+    #         ).Data

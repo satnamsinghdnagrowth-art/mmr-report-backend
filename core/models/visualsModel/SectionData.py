@@ -5,8 +5,6 @@ from core.models.visualsModel.ChartModel import ChartDataModel
 from core.models.visualsModel.TableModel import TableModel
 
 
-
-
 # Section Data
 class SectionData(BaseModel):
     Cards: Optional[List[CardDataModel]] = []
@@ -14,8 +12,8 @@ class SectionData(BaseModel):
     Tables: Optional[List[TableModel]] = []
 
 
-# Consolidate Section 
+# Consolidate Section
 class ConsolidateSectionDate(BaseModel):
-    SectionName : str
-    SectionData : SectionData 
-    Visbility : Optional[bool] = True
+    SectionName: str
+    SectionData: SectionData
+    Visbility: Optional[bool] = True

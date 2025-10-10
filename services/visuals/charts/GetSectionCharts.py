@@ -31,7 +31,6 @@ def getSectionCharts(
             )
             charts.append(chart.Data)
 
-
         return Result(
             Data=charts, Status=1, Message="Revenue Card calculated successfully"
         )

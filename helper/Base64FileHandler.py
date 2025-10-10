@@ -3,10 +3,12 @@ from core.models.base.ResultModel import Result
 import os
 import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
-from config.FilesBaseDIR import UPLOAD_DIR
+from config.FilesBaseDIR import ACTUALS_DATA_UPLOAD_DIR
 
 
-def handleBase64File(base64str: str, fileNameOnly: str, fileExtension: str):
+def handleBase64File(
+    base64str: str, fileNameOnly: str, fileExtension: str, UPLOAD_DIR: str
+):
     try:
         try:
             header, encoded = (

@@ -37,7 +37,6 @@ def generateSummaryRow(
         months = [m for m, _ in staticMonths]  # flat list of months
         year_for_calc = year
         grand_total = calc_function(year_for_calc, months)  # pass months directly
-    
 
     # Append total/summary column
     row.append(

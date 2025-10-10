@@ -4,10 +4,11 @@ import os
 import shutil
 import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
-from config.FilesBaseDIR import UPLOAD_DIR
 
 
-def handleUploadFile(file: str, fileNameOnly: str, fileExtension: SystemError):
+def handleUploadFile(
+    file: str, fileNameOnly: str, fileExtension: SystemError, UPLOAD_DIR
+):
     try:
         timeStamp = datetime.now().strftime(
             "%Y%m%d%H%M%S"

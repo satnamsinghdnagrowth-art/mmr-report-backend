@@ -130,8 +130,6 @@ def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
 
         totalOCA = sum(item["Value"] for item in OCAFilter)
 
-        
-
         totalCA = totalAR + totalOCA + totalINV
 
         return Result(

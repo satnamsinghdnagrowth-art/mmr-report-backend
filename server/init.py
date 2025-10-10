@@ -10,8 +10,9 @@ from routes.CashFlowAnalysis import CashFlow
 from routes.BudgetSection import BudgetSectionRouter
 from routes.FullSectionRouter import ConsolidateSectionsData
 from fastapi.staticfiles import StaticFiles
+from routes.CustomKpis import CustomKPIsRouter
 
-# App Instance 
+# App Instance
 app = FastAPI()
 
 # Routes Prefix
@@ -20,6 +21,7 @@ app.include_router(Analyze, prefix="/api/v1/dataAnalysis")
 app.include_router(Account, prefix="/api/v1/Account")
 
 # Sections Routes
+app.include_router(CustomKPIsRouter, prefix="/api/v1/customs")
 app.include_router(ConsolidateSectionsData, prefix="/api/v1/section/Data")
 app.include_router(FinancialHighlights, prefix="/api/v1/section/financialHighlights")
 app.include_router(ProfitAbility, prefix="/api/v1/section/profitability")

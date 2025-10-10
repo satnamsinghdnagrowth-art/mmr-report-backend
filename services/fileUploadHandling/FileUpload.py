@@ -1,20 +1,15 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
-from services.calculations.Ebit import EBIT
-from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
-from typing import Optional
 import os
-import shutil
 from datetime import datetime
+from core.models.base.ResultModel import Result
 import random
-import json
-import base64
 from services.accountValues.GetFinancialsValues import formatFinancialData
 from helper.Base64FileHandler import handleBase64File
 from helper.FileUploadHandler import handleUploadFile
-from config.FilesBaseDIR import UPLOAD_DIR
+from config.FilesBaseDIR import ACTUALS_DATA_UPLOAD_DIR
 
 
 def fileUpload(file, fileBase64Str, CompanyLogo):
@@ -27,12 +22,14 @@ def fileUpload(file, fileBase64Str, CompanyLogo):
 
         # === CASE 1: Uploaded File ===
         if file is not None:
-            savedFilePath = handleUploadFile(file, fileNameOnly, fileExtension).Data
+            savedFilePath = handleUploadFile(
+                file, fileNameOnly, fileExtension, ACTUALS_DATA_UPLOAD_DIR
+            ).Data
 
         # === CASE 2: Base64 File ===
         if fileBase64Str is not None:
             savedFilePath = handleBase64File(
-                fileBase64Str, fileNameOnly, fileExtension
+                fileBase64Str, fileNameOnly, fileExtension, ACTUALS_DATA_UPLOAD_DIR
             ).Data
 
         result = formatFinancialData(savedFilePath, reportId, CompanyLogo)

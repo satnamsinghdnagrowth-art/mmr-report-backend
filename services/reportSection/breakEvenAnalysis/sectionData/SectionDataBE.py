@@ -50,10 +50,8 @@ class BreakEvenDataService:
             cards_data = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
-            
-            charts_data = getBACharts(
-                self.year, self.months, self.reportId
-            ).Data
+
+            charts_data = getBACharts(self.year, self.months, self.reportId).Data
             tables_data = []
 
             # Combine into SectionData
