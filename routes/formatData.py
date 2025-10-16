@@ -9,7 +9,6 @@ from weasyprint import HTML
 from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI import (
     getISTable,
 )
-from services.customKPIs.RawDataProcessing import customKPIsDataProcessing
 from pydantic.json import pydantic_encoder
 import json
 from services.generateSummary.ExecutiveSummaryGenerator import generateExecutiveSummary
@@ -30,15 +29,6 @@ def formatReportData(
         )
 
     return fileUpload(file, FileBase64Str, CompanyLogo)
-
-
-@dataFormat.post("/uploadcustomkpis/", response_model=Result)
-def formatReportData(file: Optional[UploadFile] = File(None)):
-    # if not file and not FileBase64Str:
-    #     return Result(
-    #         Status=400, Message="Either file or FileBase64Str must be provided."
-    #     )
-    return customKPIsDataProcessing(file, reportId=1234)
 
 
 @dataFormat.patch("/update/report/{reportId}/")

@@ -1,9 +1,11 @@
 from core.models.base.ResultModel import Result
 import json
+import os
 from datetime import datetime
 from services.customKPIs.visualCreation.CustomChartCreation import format_chart_data
 from services.customKPIs.visualCreation.CustomTableCreation import format_table_data
 
+REPORT_JSON_PATH = "database/ReportTable.json"
 
 def customKPICreation(payload, reportId) -> Result:
     try:
@@ -12,9 +14,20 @@ def customKPICreation(payload, reportId) -> Result:
         endmonth = payload.EndMonth  # Expected: integer (1-12)
         items = payload.Items  # Expected: list of KPI names
 
-        filepath = "database/customKPIs/1234.json"
+        customFilePath = None
 
-        with open(filepath) as f:
+        report_list_path = REPORT_JSON_PATH # your master JSON list
+
+        if os.path.exists(report_list_path):
+            with open(report_list_path, "r") as f:
+                reports = json.load(f)
+                
+            for item in reports:
+                if item["ReportId"] == int(reportId):
+                    customFilePath = item["CustomKPIFilePath"] 
+                    break
+
+        with open(customFilePath) as f:
             data = json.load(f)
 
         # Filter the data based on items and month range

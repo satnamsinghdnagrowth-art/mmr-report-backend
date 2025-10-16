@@ -10,7 +10,6 @@ from fastapi.encoders import jsonable_encoder
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
-
 # Analyze the data
 def formatFinancialData(filePath, reportId: int, companyLogo):
     try:

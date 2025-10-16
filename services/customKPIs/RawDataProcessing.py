@@ -8,31 +8,34 @@ from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 
 def customKPIsDataProcessing(file, reportId: int) -> Result:
     try:
-        fileNameOnly = f"CustomKPIs_{reportId}"
+        # Create directory path based on report ID
+        report_dir = os.path.join(CUSTOM_KPIS_DATA_UPLOAD_DIR, str(reportId))
+        os.makedirs(report_dir, exist_ok=True)
 
-        fileExtension = ".xlsx"  # or parse from `header` if possible
+        # Construct filename and extension
+        file_name_only = f"CustomKPIs_{reportId}"
+        file_extension = ".xlsx"  # or extract dynamically if needed
 
+        # Save uploaded file inside the report-specific directory
         if file is not None:
-            savedFilePath = handleUploadFile(
-                file, fileNameOnly, fileExtension, CUSTOM_KPIS_DATA_UPLOAD_DIR
+            saved_file_path = handleUploadFile(
+                file, file_name_only, file_extension, report_dir
             ).Data
+        else:
+            return Result(Status=0, Message="No file provided.")
 
-        result = dataFormatting(savedFilePath)
+        # Process the file after saving
+        result = dataFormatting(saved_file_path,reportId)
 
         if result.Status == 1:
-            response = {"Custom KPIs": result.Data["Custom KPIs"]}
+            response = {"CustomKPIs": result.Data["Custom KPIs"]}
+            return Result(Data=response, Status=1, Message="File uploaded successfully.")
 
-            return Result(Data=response, Status=1, Message="File uploaded Successfully")
+        # Remove file if incorrect format
+        if os.path.exists(saved_file_path):
+            os.remove(saved_file_path)
 
-        if os.path.exists(savedFilePath):
-            os.remove(savedFilePath)
+        return Result(Status=0, Message="Please upload the correct file format.")
 
-        return Result(
-            Status=0,
-            Message="Please Uplaoded the correct file format.",
-        )
-
-    except Exception as ex:
-        message = f"Error occurred in retriveDataRange: {ex}"
-        print(f"{datetime.now()} {message}")
-        return Result(Status=0, Message=message)
+    except Exception as e:
+        return Result(Status=0, Message=f"Error: {str(e)}") 

@@ -8,7 +8,6 @@ load_dotenv()
 
 API_KEY = os.getenv("GROQ_API_KEY")
 
-
 def generateExecutiveSummary(data):
     try:
         prompt = f"""
@@ -22,6 +21,8 @@ def generateExecutiveSummary(data):
             5. generate descriptive points based on given input. 
             6. Generate one point for the current and prior period comparison and and one point for the YTD value.
             7. No need to write the more professional language , use simple words like increase , decrease no need to use its synonyms.
+            8. Give me response in the HTML, inline CSS form and highlight the important metrics.
+            9. Use <br> tags for new lines (no newline characters like \n).
             
             Example : 
 

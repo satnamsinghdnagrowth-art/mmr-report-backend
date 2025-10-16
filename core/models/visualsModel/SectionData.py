@@ -17,3 +17,7 @@ class ConsolidateSectionDate(BaseModel):
     SectionName: str
     SectionData: SectionData
     Visbility: Optional[bool] = True
+
+
+class SectionDataModel(BaseModel):
+    Sections : List[ConsolidateSectionDate] 

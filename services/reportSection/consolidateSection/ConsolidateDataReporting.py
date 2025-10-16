@@ -3,7 +3,7 @@ from core.models.base.ResultModel import Result
 from services.reportSection.consolidateSection.AllSectionDataServices import (
     AllSectionDataService,
 )
-from core.models.visualsModel.SectionData import ConsolidateSectionDate
+from core.models.visualsModel.SectionData import ConsolidateSectionDate,SectionDataModel
 from core.models.base.SectionNamesEnum import SectionName
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 
@@ -55,15 +55,14 @@ def getConsolidateSectionData(
             SectionData=serviceObj.getCashFlowSection().Data,
         )
 
-        CombinedData = {
-            "Sections": [
+        CombinedData = SectionDataModel(Sections= [
                 FH_dataResponse,
                 EXP_dataResponse,
                 PA_dataResponse,
                 BE_dataResponse,
                 CF_dataResponse,
             ]
-        }
+        )
 
         return Result(
             Data=CombinedData, Status=1, Message="Section Data retrieved Successfully"
