@@ -10,13 +10,11 @@ from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI 
 from services.reportSection.financialHighlights.charts.RevenueBreakdown import (
     getRevenueBreakdownChart,
 )
-from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import (
-    getRevenueBreakdownTable,
-)
 from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
 from datetime import datetime
+from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import getRevenueBreakdownTable
 from typing import Optional, List
 
 
@@ -99,7 +97,6 @@ class FinancialHighlightSectionDataService:
         Retrieves only the Cards data for the section.
         """
         try:
-            print(self.months, self.year, "------------------")
             cards = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
@@ -130,6 +127,7 @@ class FinancialHighlightSectionDataService:
             )
 
             response = ChartsListModel(Charts=charts)
+
             return Result(
                 Data=charts, Status=1, Message="Charts retrieved successfully"
             )

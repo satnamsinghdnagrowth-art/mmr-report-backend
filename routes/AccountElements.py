@@ -5,14 +5,6 @@ from typing import Optional
 from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
-from services.calculations.CashFlowStatements import getNetCashFlow
-from services.calculations.Accountablity import (
-    getAP,
-    getAPdays,
-    getAR,
-    getARdays,
-    getCOGS,
-)
 from services.calculations.Ratios import cashRatio, currentRatio, workingCapital
 
 

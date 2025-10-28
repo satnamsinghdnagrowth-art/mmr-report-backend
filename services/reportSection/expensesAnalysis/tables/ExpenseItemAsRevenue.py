@@ -62,10 +62,7 @@ def expenseItemAsRevenueTable(
 
         # Step 3: Take top 10 expenses
         top_expenses = expenses_with_totals[:10]
-
-        print(top_expenses, "------------------------------------------------")
-
-        rows = []
+   rows = []
 
         # Step 4: Format into ValueObjectModel rows
         for expense_name, monthly_data, _ in top_expenses:

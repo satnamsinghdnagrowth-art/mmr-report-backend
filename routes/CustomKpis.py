@@ -4,9 +4,12 @@ from services.customKPIs.CustomKPIsCreation import customKPICreation
 from core.models.visualsModel.CustomKpiModel import CustomKpiRequestModel
 from services.customKPIs.CustomKPIsItems import customKpiItems
 from typing import Optional
+from services.customKPIs.CreateCustomKPIsList import addCustomKPI
 from services.customKPIs.RawDataProcessing import customKPIsDataProcessing
 
+
 CustomKPIsRouter = APIRouter()
+
 
 # File Upload Router for Customs KPIs
 @CustomKPIsRouter.post("/upload-data/report/{reportId}/", response_model=Result)
@@ -26,6 +29,8 @@ def getcustomKpiItems(reportId: int):
 
 
 # Get Custom Section All Data
-@CustomKPIsRouter.post("/report/{reportId}/", response_model=Result)
+@CustomKPIsRouter.post("/create/report/{reportId}/", response_model=Result)
 def createCustomKPI(reportId: int, payload: CustomKpiRequestModel):
-    return customKPICreation(payload, reportId)
+    return addCustomKPI(reportId,payload)
+
+

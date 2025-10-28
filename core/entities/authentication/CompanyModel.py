@@ -8,7 +8,6 @@ class CompanyModel(BaseModel):
     Id: int = Field(default=None, alias="_id")
     UserId: Optional[int] = 123
     CompanyName: str
-    SectionConfigFilePath: str
     BusinessType: Optional[str] = "Demo"
     Industry: Optional[str] = "Demo"
     CreatedOn: Optional[datetime] = datetime.now()

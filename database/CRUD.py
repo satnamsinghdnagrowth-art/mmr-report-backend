@@ -1,4 +1,4 @@
-from database._PostgresIntegration.dbConnection import get_connection
+from database.dbConnection import get_connection
 from core.models.base.ResultModel import Result
 
 async def createTable(tableName: str, schema: dict) -> Result:

@@ -11,6 +11,7 @@ from routes.BudgetSection import BudgetSectionRouter
 from routes.FullSectionRouter import ConsolidateSectionsData
 from fastapi.staticfiles import StaticFiles
 from routes.CustomKpis import CustomKPIsRouter
+from routes.authentication.User import UserRouter
 
 # App Instance
 app = FastAPI()
@@ -20,8 +21,10 @@ app.include_router(dataFormat, prefix="/api/v1/file")
 app.include_router(Analyze, prefix="/api/v1/dataAnalysis")
 app.include_router(Account, prefix="/api/v1/Account")
 
+# Authentication 
+app.include_router(UserRouter,prefix="/api/v1/authentication")
+
 # Sections Routes
-app.include_router(CustomKPIsRouter, prefix="/api/v1/customskpis")
 app.include_router(ConsolidateSectionsData, prefix="/api/v1/section/Data")
 app.include_router(FinancialHighlights, prefix="/api/v1/section/financialHighlights")
 app.include_router(ProfitAbility, prefix="/api/v1/section/profitability")
@@ -29,6 +32,10 @@ app.include_router(ExpensesAnalysis, prefix="/api/v1/section/expensesAnalysis")
 app.include_router(BreakEvenAnaysis, prefix="/api/v1/section/breakEvenAnalysis")
 app.include_router(CashFlow, prefix="/api/v1/section/cashflowAnalysis")
 app.include_router(BudgetSectionRouter, prefix="/api/v1/section/budgetComparison")
+
+
+# Custom KPI Routes
+app.include_router(CustomKPIsRouter, prefix="/api/v1/customskpis")
 
 # Static Files handling
 app.mount("/database", StaticFiles(directory="database"), name="company_assets")

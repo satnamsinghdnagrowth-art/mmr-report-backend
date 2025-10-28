@@ -1,7 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,Field
 from typing import List, Optional, Literal, Any
 from core.models.visualsModel.ValueObject import DisplayObj
-
+import uuid
 
 # Data Transfer Objects
 class YAxisSeriesModel(BaseModel):
@@ -35,6 +35,7 @@ class YaxisControllerModel(BaseModel):
 
 
 class ChartDataModel(BaseModel):
+    Id: str = Field(default_factory=lambda: uuid.uuid4().hex[:8].upper())
     Title: str
     Xaxis: List[str]
     YaxisSeries: List[YAxisSeriesModel]
@@ -44,6 +45,7 @@ class ChartDataModel(BaseModel):
     Markers: Optional[List[MarkerModel]] = []
     Visibility: Optional[bool] = True
     Type: Optional[str] = "Normal"
+    KpiType : Optional[Literal["Actuals","Custom","Budget"]] = "Actuals"
 
 
 class ChartsListModel(BaseModel):

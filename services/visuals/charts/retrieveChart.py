@@ -92,8 +92,6 @@ def retrieveChart(
         yAxisSeries = []
         symbolList = []
 
-        print(xAxis, "-------------------", months, "--------------------")
-
         # Process each metric
         for metric in chartData:
             valueFunc = metric["valueFunc"]
@@ -127,8 +125,6 @@ def retrieveChart(
                         month = (
                             month_list if isinstance(month_list, list) else [month_list]
                         )
-
-                    print(actual_year, month, functionName, "dhjfjfdfjfdbjjbdfbhj")
 
                     result = func(actual_year, month, reportId)
 

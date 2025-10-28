@@ -6,7 +6,6 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.GetValueSymbol import getValueSymbol
 
-
 def format_table_data(filtered_data: Dict) -> Dict:
     try:
         """
@@ -47,7 +46,7 @@ def format_table_data(filtered_data: Dict) -> Dict:
             for month, year in sorted_months:
                 value = value_lookup.get((month, year))
                 unitEntities = getValueSymbol(kpi_name)
-                if value is not None:
+                if value is  not None:
                     value = value_lookup.get((month, year), 0)
                     response = ValueObjectModel(
                         Value=round(value, 2),
@@ -69,11 +68,12 @@ def format_table_data(filtered_data: Dict) -> Dict:
             Rows=rows,
             TableType= "Tabular",
             Visibility=True,
+            KpiType="Custom"
         )
 
-        return {"Tables": [table]}
+        return table
+
     except Exception as ex:
         message = f"Error occurred in format_chart_data: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-

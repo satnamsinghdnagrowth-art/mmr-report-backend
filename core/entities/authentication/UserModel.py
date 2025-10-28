@@ -1,24 +1,58 @@
 from pydantic import BaseModel, Field, validator
-from typing import Optional
+from typing import Optional,Literal
 from datetime import datetime
 import re
 
-
 # Report Model
 class UserRegistrationModel(BaseModel):
-    Id: int = Field(default=None, alias="_id")
+    Id: int 
     FirstName: str
     LastName: str
     Email: str
     ContactNumber: str
-    Password: int
+    Password: str
+    CreatedOn: datetime = Field(default_factory=datetime.utcnow)
+    UpdatedOn: datetime = Field(default_factory=datetime.utcnow)
 
-    @validator("ContactNumber")
-    def validate_contact_number(cls, value):
-        pattern = r"^\+?[0-9\s\-()]{10,20}$"
-        if not re.fullmatch(pattern, value):
-            raise ValueError("Invalid phone number format")
-        return value
+# Roles Model
+class Role(BaseModel):
+    Id : int
+    RoleName : Literal["Admin","Superuser","Analyst"]
+    Description : str
+    CreatedOn: datetime = Field(default_factory=datetime.utcnow)
+    UpdatedOn: datetime = Field(default_factory=datetime.utcnow)
+    CreatedBy: Optional[int] = None
+    UpdatedBy: Optional[int] = None
+
+# PermissionModel
+class Permission(BaseModel):
+    Id : int
+    Code : Literal["can_create","can_update","can_edit","can_delete"]
+    Description: str
+    CreatedOn: datetime = Field(default_factory=datetime.utcnow)
+    UpdatedOn: datetime = Field(default_factory=datetime.utcnow)
+    CreatedBy: Optional[int] = None
+    UpdatedBy: Optional[int] = None
+
+# User Role Model
+class UserRole(BaseModel):
+    Id : int
+    UserId : int
+    RoleId : int
+    CreatedOn: datetime = Field(default_factory=datetime.utcnow)
+    UpdatedOn: datetime = Field(default_factory=datetime.utcnow)
+    CreatedBy: Optional[int] = None
+    UpdatedBy: Optional[int] = None
+
+# Role Permission Model
+class RolePermission(BaseModel):
+    Id:int
+    RoleId : int
+    PermissionId : int
+    CreatedOn: datetime = Field(default_factory=datetime.utcnow)
+    UpdatedOn: datetime = Field(default_factory=datetime.utcnow)
+    CreatedBy: Optional[int] = None
+    UpdatedBy: Optional[int] = None
 
 
 class UserLoginModel(BaseModel):

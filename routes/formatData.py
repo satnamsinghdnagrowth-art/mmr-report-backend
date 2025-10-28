@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Body, UploadFile, File, Form
 from core.models.base.ResultModel import Result
-from services.accountValues.GetFinancialsValues import formatFinancialData
 from services.fileUploadHandling.FileUpload import fileUpload
 from services.reports.UpdateReportData import updateReportFields
 from typing import Optional
@@ -13,8 +12,8 @@ from pydantic.json import pydantic_encoder
 import json
 from services.generateSummary.ExecutiveSummaryGenerator import generateExecutiveSummary
 
-dataFormat = APIRouter()
 
+dataFormat = APIRouter()
 
 # File upload endpoint
 @dataFormat.post("/upload", response_model=Result)
@@ -55,6 +54,7 @@ def pdfGenerator(base64str=Body(...)):
     )
 
 
+# Generate Executive Summary
 @dataFormat.post("/generateSummary/{reportId}")
 def generateReportSummary(reportId: int, payload: SectionRequestData):
     data = getISTable(
@@ -72,7 +72,3 @@ def generateReportSummary(reportId: int, payload: SectionRequestData):
     responseData = generateExecutiveSummary(compact_json)
 
     return responseData
-
-    # return getISTable(
-    #             selfyear, self.months, self.reportType, self.section, self.reportId
-    #         ).Data

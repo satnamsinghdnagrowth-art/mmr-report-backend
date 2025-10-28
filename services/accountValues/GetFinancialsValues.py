@@ -4,7 +4,6 @@ from core.models.base.ResultModel import Result
 from helper.readExcel import readExcelFile
 import json
 import os
-import random
 import shutil
 from fastapi.encoders import jsonable_encoder
 
@@ -73,9 +72,6 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
 
         # Append new report metadata
         existing_data.append(reportMetadata)
-
-        with open(REPORT_JSON_PATH, "w") as f:
-            json.dump(existing_data, f, indent=4)
 
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)
