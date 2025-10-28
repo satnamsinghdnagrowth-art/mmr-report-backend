@@ -45,7 +45,7 @@ def loadCustomKpisForReport(reportId: int):
         CustomKpisList[reportId] = []
         return []
 
-def saveCustomKpisList(reportId):
+def getCustomKpisList(reportId):
     try:
         REPORT_JSON_PATH = f"{CUSTOM_KPIS_DATA_UPLOAD_DIR}/{reportId}/customKpisData.json"
 

@@ -2,7 +2,7 @@ from core.models.base.ResultModel import Result
 import json
 import os
 from datetime import datetime
-from helper.SaveCustomKpisList import saveCustomKpisList
+from helper.SaveCustomKpisList import getCustomKpisList
 from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 
 REPORT_JSON_PATH = "database/ReportTable.json"
@@ -10,7 +10,7 @@ REPORT_JSON_PATH = "database/ReportTable.json"
 def addCustomKPI(reportId:int, payload) -> Result:
     try:
 
-        saveCustomKpisList(reportId)
+        getCustomKpisList(reportId)
 
         customReportData = {
             "ReportId": reportId,

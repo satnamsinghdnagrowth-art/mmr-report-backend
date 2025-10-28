@@ -11,7 +11,7 @@ from helper.SaveConsolidateDataResponse import saveResponse
 from core.models.visualsModel.CustomKpiModel import CustomKpiCreationModel
 from services.customKPIs.CustomKPIsCreation import customKPICreation
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from helper.SaveCustomKpisList import saveCustomKpisList
+from helper.SaveCustomKpisList import getCustomKpisList
 
 # Get the sections cards
 def getConsolidateSectionData(
@@ -65,7 +65,7 @@ def getConsolidateSectionData(
 
         saveResponse(reportId, CombinedData)
 
-        CustomKpisList = saveCustomKpisList(reportId)
+        CustomKpisList = getCustomKpisList(reportId)
 
         if CustomKpisList is not None:
 
