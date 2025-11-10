@@ -4,11 +4,16 @@ from datetime import datetime
 from typing import Optional,List
 
 
-class SourceModel(BaseModel):
+class SourceMetaDataModel(BaseModel):
+    SourceId : int
+    ReportId : Optional[int] = None
     SourceType: Literal["Excel", "CSV", "API", "Database","Google Sheet"]
     SourceName: Optional[str] = Field(None, description="Name or identifier for the data source")
     FilePath: Optional[str] = Field(None, description="Local or cloud path to the file")
     SheetName: Optional[str] = Field(None, description="Applicable only for Excel files")
-    UploadedAt: datetime = Field(default_factory=datetime.utcnow)
-    UpdatedBy : int
-    CreatedBy : int
+    TotalItems : int
+    ItemsList : List[dict] 
+    CreatedOn: Optional[datetime] = datetime.now()
+    UpdatedOn: Optional[datetime] = datetime.now()
+    UpdatedBy : Optional[int] = 1
+    CreatedBy : Optional[int] = 1

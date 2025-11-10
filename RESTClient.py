@@ -7,6 +7,7 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from helper.InitalFolderCreation import create_required_folders
 
 # Add CORS middleware to allow requests from your frontend
 app.add_middleware(
@@ -34,10 +35,11 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 @app.on_event("startup")
 def startup_event():
     load_section_configs()
+    create_required_folders()
 
 
 def runServer():
     try:
-        uvicorn.run(app, host="0.0.0.0", port=8081)
+        uvicorn.run(app, host="0.0.0.0", port=8082)
     except Exception as ex:
         print(f"Error: {ex}")

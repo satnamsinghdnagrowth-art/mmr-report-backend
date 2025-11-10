@@ -12,6 +12,7 @@ from routes.FullSectionRouter import ConsolidateSectionsData
 from fastapi.staticfiles import StaticFiles
 from routes.CustomKpis import CustomKPIsRouter
 from routes.authentication.User import UserRouter
+from routes.authentication.Role import RoleRouter
 
 # App Instance
 app = FastAPI()
@@ -22,6 +23,7 @@ app.include_router(Analyze, prefix="/api/v1/dataAnalysis")
 app.include_router(Account, prefix="/api/v1/Account")
 
 # Authentication 
+app.include_router(RoleRouter,prefix="/api/v1/role")
 app.include_router(UserRouter,prefix="/api/v1/authentication")
 
 # Sections Routes

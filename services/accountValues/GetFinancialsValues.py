@@ -14,7 +14,7 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
     try:
         fileName = os.path.splitext(os.path.basename(filePath))[0]
 
-        excelData = readExcelFile(filePath)
+        excelData = readExcelFile(filePath,reportId)
 
         formattedData = excelData.Data
 
@@ -54,7 +54,7 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
             # json.dump(data, f, indent=4)
             json.dump(jsonable_encoder(data), f, indent=4)
 
-        # 📦 Metadata object
+        # 📦 Metadata object                                                                                                                                        
         reportMetadata = {
             "ReportId": reportId,
             "ReportName": fileName.replace("_", " "),

@@ -4,12 +4,10 @@ from datetime import datetime
 
 
 # Report Model
-class CompanyModel(BaseModel):
+class PermissionModel(BaseModel):
     Id: int = Field(default=None, alias="_id")
-    UserId: Optional[int] = Field(default=123, alias="user_id")
-    CompanyName: str = Field(default=123, alias="company_name")
-    Industry: Optional[str] = Field(default=123, alias="industry")
-    Description : str = Field(default=123, alias="description")
+    PermissionName: Optional[int] = Field(default=123, alias="permsission_name")
+    Description: str = Field(default=123, alias="description")
     CreatedOn: Optional[datetime] = datetime.now()
     UpdatedOn: Optional[datetime] = datetime.now()
     CreatedBy: Optional[int] = 123

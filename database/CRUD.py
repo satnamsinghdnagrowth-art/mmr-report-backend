@@ -1,33 +1,32 @@
 from database.dbConnection import get_connection
 from core.models.base.ResultModel import Result
 
+
 async def createTable(tableName: str, schema: dict) -> Result:
     try:
-        conn =  await get_connection()
-
+        conn = await get_connection()
         if not conn:
             return Result(Status=0, Message="Database connection failed")
-        
-        # Add standard audit columns
-        schema["CreatedOn"] = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
-        schema["CreatedBy"] = "INT"
-        schema["UpdatedOn"] = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
-        schema["UpdatedBy"] = "INT"
 
+        constraints = schema.pop("__constraints__", [])
 
-        columns = ", ".join([f"{col} {dtype}" for col, dtype in schema.items()])
-        query = f"CREATE TABLE IF NOT EXISTS {tableName} ({columns});"
+        schema["created_on"] = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        schema["created_by"] = "UUID"
+        schema["updated_on"] = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        schema["updated_by"] = "UUID"
+
+        columns = [f"{col} {dtype}" for col, dtype in schema.items()]
+        columns += constraints
+        query = f"CREATE TABLE IF NOT EXISTS {tableName} ({', '.join(columns)});"
 
         with conn.cursor() as cur:
             cur.execute(query)
             conn.commit()
-
         conn.close()
-        return Result(Status=1, Message=f"Table '{tableName}' created successfully.")
 
+        return Result(Status=1, Message=f"Table '{tableName}' created successfully.")
     except Exception as ex:
         return Result(Status=0, Message=f"Error in createTable: {ex}")
-
 
 # 2. Insert records into any table
 async def insertRecord(tableName: str, data: dict) -> Result:

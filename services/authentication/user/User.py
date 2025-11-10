@@ -7,6 +7,8 @@ def userCreation():
 
         db = get_connection()
 
+        
+
     except Exception as ex:
         message = f"Error occurred in userCreation: {ex}"
         print(f"{datetime.now()} {message}")
