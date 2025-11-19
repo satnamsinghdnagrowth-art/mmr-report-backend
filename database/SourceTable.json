@@ -1,1 +1,300 @@
-[]
+[
+    {
+        "SourceId": 123456,
+        "ReportId": 91534,
+        "SourceType": "Excel",
+        "SourceName": "BaseFile_91534_20251119132218.xlsx",
+        "FilePath": "/home/hello/Work/FathomCopy/database/uploadedFiles/BaseFile_91534_20251119132218.xlsx",
+        "SheetName": "Financial Data",
+        "TotalItems": 59,
+        "ItemsList": [
+            {
+                "Classification": "AR",
+                "Accounts": [
+                    "Accounts Receivable"
+                ]
+            },
+            {
+                "Classification": "CASH",
+                "Accounts": [
+                    "Bank Accounts"
+                ]
+            },
+            {
+                "Classification": "CE",
+                "Accounts": [
+                    "Income"
+                ]
+            },
+            {
+                "Classification": "FEXP",
+                "Accounts": [
+                    "Sales and Marketing Costs",
+                    "Operating Payroll & Employee Expenses",
+                    "Payroll Expenses (Operating)",
+                    "Payroll Taxes (Operating)",
+                    "Employee Benefits & Insurance Expense",
+                    "Travel and expenses (Operating)",
+                    "Marketing Tech Stack ",
+                    "Events - Tradeshows and Conferences",
+                    "Travel/Meals (internal teammembers)",
+                    "Marketing Tech Stack 2]",
+                    "PR/Media",
+                    "Demand Generation",
+                    "Software subscription (P&E)",
+                    "Product and Engineering",
+                    "Product & Engineering Payroll & Employee Expenses",
+                    "People cost- Product & Engineering",
+                    "Payroll Taxes",
+                    "External Consultants",
+                    "Software subscription",
+                    "Operations- People cost",
+                    "Payroll Taxes (G&A)",
+                    "Employee Benefits & Insurance Expense (G&A)",
+                    "Executive Salary",
+                    "Consulting",
+                    "Professional Services (Legal, Recruitment, etc.)",
+                    "Rent and Utilities",
+                    "Software subscription (G&A)",
+                    "Payment Processing Costs",
+                    "Other expenses",
+                    "Fundraising Cost",
+                    "Merchant account fees"
+                ]
+            },
+            {
+                "Classification": "OCA",
+                "Accounts": [
+                    "Prepaid expenses",
+                    "Payments to deposit",
+                    "Accrued Income"
+                ]
+            },
+            {
+                "Classification": "OCL",
+                "Accounts": [
+                    "Credit Cards",
+                    "Short Term Loan Payable",
+                    "Short-term loans from partners"
+                ]
+            },
+            {
+                "Classification": "OEQ",
+                "Accounts": [
+                    "Partner investments",
+                    "Partner distributions"
+                ]
+            },
+            {
+                "Classification": "ONCL",
+                "Accounts": [
+                    "Convertible Notes"
+                ]
+            },
+            {
+                "Classification": "RE",
+                "Accounts": [
+                    "Retained Earnings"
+                ]
+            },
+            {
+                "Classification": "REV",
+                "Accounts": [
+                    "DXOne ERP - Licence Tier 3 ",
+                    "Other Optional Suites",
+                    "DCA Monitoring",
+                    "Implementation",
+                    "Implementation Tier 3 ",
+                    "Discounts",
+                    "Customer Discounts"
+                ]
+            },
+            {
+                "Classification": "VCOS",
+                "Accounts": [
+                    "Implementation Costs",
+                    "Implementation Payroll & Employee Expenses",
+                    "Payroll Expenses (Implementation)",
+                    "Payroll Taxes (Implementation)",
+                    "Server Hosting Charges",
+                    "Customer Success Payroll & Employee Expenses",
+                    "Payroll Expenses (Customer Success)",
+                    "Payroll Taxes (Customer Success)"
+                ]
+            }
+        ],
+        "CreatedOn": "2025-11-19 13:22:18.407947",
+        "UpdatedOn": "2025-11-19 13:22:18.407952",
+        "UpdatedBy": 1,
+        "CreatedBy": 1
+    },
+    {
+        "SourceId": 123456,
+        "ReportId": 61986,
+        "SourceType": "Excel",
+        "SourceName": "BaseFile_61986_20251119133637.xlsx",
+        "FilePath": "/home/hello/Work/FathomCopy/database/uploadedFiles/BaseFile_61986_20251119133637.xlsx",
+        "SheetName": "Financial Data",
+        "TotalItems": 69,
+        "ItemsList": [
+            {
+                "Classification": "AINC",
+                "Accounts": [
+                    "Other income"
+                ]
+            },
+            {
+                "Classification": "CASH",
+                "Accounts": [
+                    "Bank Accounts"
+                ]
+            },
+            {
+                "Classification": "CE",
+                "Accounts": [
+                    "Net Income"
+                ]
+            },
+            {
+                "Classification": "DA",
+                "Accounts": [
+                    "Depreciation Expense"
+                ]
+            },
+            {
+                "Classification": "FA",
+                "Accounts": [
+                    "Accumulated Depreciation",
+                    "Auto",
+                    "Furniture and Equipment",
+                    "The Treat Bar (Shoreline)",
+                    "Totem Lake",
+                    "Treat Shop - TI"
+                ]
+            },
+            {
+                "Classification": "FEXP",
+                "Accounts": [
+                    "Automobile Expense",
+                    "Rent",
+                    "Utilities",
+                    "Insurance - Business",
+                    "IT Expense - SAAS",
+                    "Merchant Fees",
+                    "Repairs, Maintenance",
+                    "Supplies, Materials",
+                    "Bank Fees",
+                    "Charity",
+                    "Dues, Subscriptions",
+                    "License, Permits",
+                    "Office Supplies",
+                    "Telephone Expense",
+                    "Payroll Expenses",
+                    "Payroll Tax",
+                    "Salaries & Wages",
+                    "Professional Fees",
+                    "Sales & Marketing",
+                    "Interest Expense",
+                    "Travel & Meals"
+                ]
+            },
+            {
+                "Classification": "IEXP",
+                "Accounts": [
+                    "Interest Expense"
+                ]
+            },
+            {
+                "Classification": "IINC",
+                "Accounts": [
+                    "Interest Earned"
+                ]
+            },
+            {
+                "Classification": "LTD",
+                "Accounts": [
+                    "Flex Loan"
+                ]
+            },
+            {
+                "Classification": "OCA",
+                "Accounts": [
+                    "Cash Clearing",
+                    "DoorDash Clearing",
+                    "ERTC Receivable",
+                    "Inventory Asset",
+                    "Prepaid Insurance",
+                    "Rise Alliance - Escrow",
+                    "Sales Clearing",
+                    "Square Clearing",
+                    "Uncategorized Asset",
+                    "Undeposited Funds",
+                    "Woo Commerce/Authorize.net Clearing"
+                ]
+            },
+            {
+                "Classification": "OCL",
+                "Accounts": [
+                    "Credit Cards - Citi Bank CC (5366)",
+                    "Gift Card Unredeemed",
+                    "Intuit/Web Bank Loan",
+                    "JP Morgan Chase-Car",
+                    "Loan Payable - D. Ford",
+                    "Payroll Liabilities",
+                    "SBA EIDL Loan",
+                    "Buster",
+                    "Shoreline Barkery",
+                    "Treat Shop - Sq Loan-Treatshop 2/8/2024",
+                    "Sales Tax Payable",
+                    "Accrued expenses"
+                ]
+            },
+            {
+                "Classification": "OEQ",
+                "Accounts": [
+                    "Member Distribution",
+                    "Members Contribution",
+                    "Owner Equity"
+                ]
+            },
+            {
+                "Classification": "ONCA",
+                "Accounts": [
+                    "Shoreline Bakery Deposit"
+                ]
+            },
+            {
+                "Classification": "RE",
+                "Accounts": [
+                    "Retained Earnings"
+                ]
+            },
+            {
+                "Classification": "REV",
+                "Accounts": [
+                    "Retail Sales Income [Clover]",
+                    "Retail Sales Income [DoorDash]",
+                    "Retail Sales Income [Woo]"
+                ]
+            },
+            {
+                "Classification": "TEXP",
+                "Accounts": [
+                    "Taxes"
+                ]
+            },
+            {
+                "Classification": "VCOS",
+                "Accounts": [
+                    "COGS - Packaging",
+                    "COGS - Products",
+                    "COGS - Raw Ingredients"
+                ]
+            }
+        ],
+        "CreatedOn": "2025-11-19 13:36:37.136521",
+        "UpdatedOn": "2025-11-19 13:36:37.136527",
+        "UpdatedBy": 1,
+        "CreatedBy": 1
+    }
+]

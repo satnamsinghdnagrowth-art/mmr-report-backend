@@ -7,19 +7,18 @@ from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
-def addCustomKPI(reportId:int, payload) -> Result:
-    try:
 
+def addCustomKPI(reportId: int, payload) -> Result:
+    try:
         getCustomKpisList(reportId)
 
-        customReportData = {
-            "ReportId": reportId,
-            "CustomKpi": payload.dict()
-        }
+        customReportData = {"ReportId": reportId, "CustomKpi": payload.dict()}
 
         print(customReportData)
 
-        REPORT_JSON_PATH = f"{CUSTOM_KPIS_DATA_UPLOAD_DIR}/{reportId}/customKpisData.json"
+        REPORT_JSON_PATH = (
+            f"{CUSTOM_KPIS_DATA_UPLOAD_DIR}/{reportId}/customKpisData.json"
+        )
 
         os.makedirs(os.path.dirname(REPORT_JSON_PATH), exist_ok=True)
 
@@ -38,7 +37,9 @@ def addCustomKPI(reportId:int, payload) -> Result:
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)
 
-        return Result(Data=customReportData, Status=1, Message="KPI added successfully.")
+        return Result(
+            Data=customReportData, Status=1, Message="KPI added successfully."
+        )
 
     except Exception as ex:
         message = f"Error occurred in customKPICreation: {ex}"

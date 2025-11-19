@@ -34,7 +34,6 @@ def fileUpload(file, fileBase64Str, CompanyLogo):
 
         result = formatFinancialData(savedFilePath, reportId, CompanyLogo)
 
-
         if result.Status == 1:
             response = {"ReportId": result.Data["ReportId"]}
 

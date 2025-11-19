@@ -5,6 +5,7 @@ import os
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
+
 # Data formatting of custom files
 def dataFormatting(filePath, reportId: int) -> Result:
     try:
@@ -47,7 +48,7 @@ def dataFormatting(filePath, reportId: int) -> Result:
             json.dump(result, f, indent=2)
 
         # Now update main report list file
-        report_list_path = REPORT_JSON_PATH # your master JSON list
+        report_list_path = REPORT_JSON_PATH  # your master JSON list
 
         if os.path.exists(report_list_path):
             with open(report_list_path, "r") as f:
@@ -68,7 +69,11 @@ def dataFormatting(filePath, reportId: int) -> Result:
         else:
             raise FileNotFoundError("reports.json file not found in 'database/' folder")
 
-        return Result(Data=result, Status=1, Message="Data formatted successfully and report list updated.")
+        return Result(
+            Data=result,
+            Status=1,
+            Message="Data formatted successfully and report list updated.",
+        )
 
     except Exception as e:
         return Result(Status=0, Message=str(e))

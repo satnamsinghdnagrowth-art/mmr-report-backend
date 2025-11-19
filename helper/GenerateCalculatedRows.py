@@ -2,10 +2,6 @@ from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetValueSymbol import getValueSymbol
 
 
-from core.models.visualsModel.ValueObject import ValueObjectModel
-from helper.GetValueSymbol import getValueSymbol
-
-
 def generateSummaryRow(
     label: str, year: int, staticMonths: list, calc_function
 ) -> list:

@@ -10,6 +10,7 @@ from services.generateSummary.ExecutiveSummaryGenerator import generateExecutive
 
 dataFormat = APIRouter()
 
+
 # File upload endpoint
 @dataFormat.post("/upload", response_model=Result)
 def formatReportData(

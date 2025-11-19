@@ -8,20 +8,21 @@ import os
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
-# Custom 
-def customKpiItems(reportId : int) -> Result:
+
+# Custom
+def customKpiItems(reportId: int) -> Result:
     try:
         customFilePath = None
 
-        report_list_path = REPORT_JSON_PATH # your master JSON list
+        report_list_path = REPORT_JSON_PATH  # your master JSON list
 
         if os.path.exists(report_list_path):
             with open(report_list_path, "r") as f:
                 reports = json.load(f)
-                
+
             for item in reports:
                 if item["ReportId"] == int(reportId):
-                    customFilePath = item["CustomKPIFilePath"] 
+                    customFilePath = item["CustomKPIFilePath"]
                     break
 
         with open(customFilePath) as f:

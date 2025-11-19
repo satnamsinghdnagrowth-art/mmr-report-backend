@@ -38,7 +38,7 @@ def getSectionCards(
                 functionName=config["mainFunction"],
                 comparisonFunc=config["comparisonFunction"],
                 comparedTo=compared_to,
-                visualId=config["visualId"]
+                visualId=config["visualId"],
             )
 
             section_cards.append(card_result.Data)

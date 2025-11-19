@@ -4,7 +4,10 @@ from services.reportSection.consolidateSection.AllSectionDataServices import (
     AllSectionDataService,
 )
 from helper.SaveConsolidateDataResponse import consolidateDataResponse
-from core.models.visualsModel.SectionData import ConsolidateSectionDate,SectionDataModel
+from core.models.visualsModel.SectionData import (
+    ConsolidateSectionDate,
+    SectionDataModel,
+)
 from core.models.base.SectionNamesEnum import SectionName
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from helper.SaveConsolidateDataResponse import saveResponse
@@ -12,6 +15,7 @@ from core.models.visualsModel.CustomKpiModel import CustomKpiCreationModel
 from services.customKPIs.CustomKPIsCreation import customKPICreation
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from helper.SaveCustomKpisList import getCustomKpisList
+
 
 # Get the sections cards
 def getConsolidateSectionData(
@@ -21,7 +25,7 @@ def getConsolidateSectionData(
     section: str,
     reportId: int,
     companyId: int,
-):  
+):
     try:
         months = (
             [i for i in range(1, months[-1] + 1)]
@@ -54,7 +58,9 @@ def getConsolidateSectionData(
             name = future_to_name[future]
             try:
                 data = future.result()
-                temp_results[name] = ConsolidateSectionDate(SectionName=name, SectionData=data.Data)
+                temp_results[name] = ConsolidateSectionDate(
+                    SectionName=name, SectionData=data.Data
+                )
             except Exception as e:
                 print(f"Error in section {name}: {e}")
 
@@ -68,7 +74,6 @@ def getConsolidateSectionData(
         CustomKpisList = getCustomKpisList(reportId)
 
         if CustomKpisList is not None:
-
             data = consolidateDataResponse.get(reportId)
             formattedData = data.model_dump()
             sectionData = formattedData["Sections"]
@@ -79,7 +84,9 @@ def getConsolidateSectionData(
                     for sec in sectionData:
                         if sec["SectionName"] == customKpi.SectionName:
                             visualType = (
-                                "Charts" if customKpi.VisualType == "Chart" else "Tables"
+                                "Charts"
+                                if customKpi.VisualType == "Chart"
+                                else "Tables"
                             )
                             requestModel = CustomKpiCreationModel(
                                 Year=year,

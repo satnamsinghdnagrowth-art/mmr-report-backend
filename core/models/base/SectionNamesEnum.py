@@ -7,4 +7,3 @@ class SectionName(Enum):
     Profitability = "Profitability"
     BreakevenAnlaysis = "BreakevenAnlaysis"
     CashFlowAnalysis = "CashFlowAnalysis"
-

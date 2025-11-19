@@ -2,12 +2,11 @@ from pydantic import BaseModel
 from typing import List, Literal, Optional
 
 
-
 # Section Data
 class CustomKpiRequestModel(BaseModel):
     VisualType: Literal["Table", "Chart"]
     Items: List[str]
-    SectionName : str
+    SectionName: str
 
 
 class CustomKpiCreationModel(BaseModel):
@@ -15,4 +14,3 @@ class CustomKpiCreationModel(BaseModel):
     Year: int
     Months: List[int]
     Items: List[str]
-    

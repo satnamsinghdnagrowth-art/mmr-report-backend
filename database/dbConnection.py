@@ -5,6 +5,7 @@ import os
 
 load_dotenv()
 
+
 async def get_connection():
     try:
         conn = psycopg2.connect(
@@ -12,7 +13,7 @@ async def get_connection():
             user=os.getenv("DB_USER"),
             password=os.getenv("DB_PASSWORD"),
             host=os.getenv("DB_HOST"),
-            port=int(os.getenv("DB_PORT"))
+            port=int(os.getenv("DB_PORT")),
         )
         print(" Connection successful")
         return conn

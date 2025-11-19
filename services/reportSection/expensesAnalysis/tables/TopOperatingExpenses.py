@@ -196,7 +196,7 @@ def getTopOpeatingExpenses(
             Column=Headers,
             Rows=rows,
             TableType="Progress",
-            Id="TOP_OPERATING_EXPENSES"
+            Id="TOP_OPERATING_EXPENSES",
         )
         tables.append(tableObj)
 

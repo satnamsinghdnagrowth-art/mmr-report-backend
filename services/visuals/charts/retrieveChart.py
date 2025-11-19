@@ -9,8 +9,7 @@ from core.models.visualsModel.ChartModel import (
     YAxisSeriesModel,
     YaxisControllerModel,
 )
-
-
+from core.models.base.SourceModel import SourceDataTypes
 from datetime import datetime
 from core.models.base.ResultModel import Result
 import calendar
@@ -36,7 +35,8 @@ def retrieveChart(
         rigthYaxis = config["rigthYaxis"]
         chartData = config["data"]
         axisChoice = config["indexAxis"]
-        visualId = config['visualId']
+        visualId = config["visualId"]
+        sourceType = config.get("sourceType",None)
 
         # Handle different report types
         if reportType and reportType.lower() == "month":
@@ -126,8 +126,10 @@ def retrieveChart(
                         month = (
                             month_list if isinstance(month_list, list) else [month_list]
                         )
+                    if sourceType is None:
+                        sourceType = "Actuals"
 
-                    result = func(actual_year, month, reportId)
+                    result = func(actual_year, month, reportId,sourceType)
 
                     data = result.Data
                 except Exception as error:
@@ -159,7 +161,7 @@ def retrieveChart(
                     UnitType=valueType,
                     Symbol=valueSymbol,
                     AreaFill=metric["AreaFill"],
-                    YaxisId=yaxisId
+                    YaxisId=yaxisId,
                 )
             )
 
@@ -190,7 +192,7 @@ def retrieveChart(
             IndexAxis=axisChoice,
             RightYaxis=rigthYaxis,
             YaxisController=yaxisControllers,
-            Id=visualId
+            Id=visualId,
         )
 
         return Result(

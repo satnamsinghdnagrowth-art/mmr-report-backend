@@ -121,7 +121,7 @@ def getBACharts(
             ],
             Markers=[markerObjBreakPoint],
             Type="Break-Even",
-            Id="BREAK_EVEN_CHART"
+            Id="BREAK_EVEN_CHART",
         )
 
         return Result(

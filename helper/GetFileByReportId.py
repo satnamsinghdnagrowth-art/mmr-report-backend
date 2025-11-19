@@ -50,9 +50,7 @@ def getReportData(reportId: int, reportDetail: Optional[bool] = False):
 
 
 def getBudgetData(reportId: int, reportDetail: Optional[bool] = False):
-
     if reportId not in budget_data:
-
         filePath = getReportMetaDatabyId(reportId).get("BudgetFilePath")
 
         if not filePath:

@@ -1,7 +1,8 @@
-from pydantic import BaseModel,Field
-from typing import List, Any, Optional,Literal
+from pydantic import BaseModel, Field
+from typing import List, Any, Optional, Literal
 from enum import Enum
 import uuid
+
 
 class TableTypesName(Enum):
     Tabular: str = "Tabular"
@@ -17,7 +18,7 @@ class TableModel(BaseModel):
     Rows: List[List[Any]]
     TableType: Optional[str] = TableTypesName.Tabular.value
     Visibility: Optional[bool] = True
-    KpiType : Optional[Literal["Actuals","Custom","Budget"]] = "Actuals"
+    KpiType: Optional[Literal["Actuals", "Custom", "Budget"]] = "Actuals"
 
 
 class TableListModel(BaseModel):

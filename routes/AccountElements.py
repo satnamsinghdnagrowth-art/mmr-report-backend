@@ -5,12 +5,10 @@ from typing import Optional
 from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
-from services.calculations.Ratios import cashRatio, currentRatio, workingCapital
 from services.calculations.Revenue import totalRevenue
-from services.classificationBasedKPIs.createRevenueItemsTable import createRevenueItemsTable
 from core.models.base.SourceModel import SourceDataTypes
-Account = APIRouter()
 
+Account = APIRouter()
 
 # Get  Account Names
 @Account.get("/get/Names/report/{reportId}", response_model=Result)
@@ -47,4 +45,6 @@ def getReportDescription():
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return totalRevenue(year=2025, month=[3,4,5,6], reportId=45753, dataType  = SourceDataTypes.Budget )  
+    return totalRevenue(
+        year=2025, month=[3, 4, 5, 6], reportId=45753, dataType=SourceDataTypes.Budget
+    )

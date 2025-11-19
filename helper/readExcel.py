@@ -121,6 +121,7 @@ from config.FilesBaseDIR import SOURCE_JSON_PATH
 #         print(f"{datetime.now()} {message}")
 #         return Result(Status=0, Message=message)
 
+
 def readExcelFile(filePath: str, reportId: int) -> Result:
     try:
         pd.set_option("future.no_silent_downcasting", True)
@@ -170,7 +171,9 @@ def readExcelFile(filePath: str, reportId: int) -> Result:
 
         # ✅ <------------  Source Model Data Creation ----------------->
         if "Classification" not in data.columns or "Account Name" not in data.columns:
-            raise ValueError("Excel must contain 'Classification' and 'Account Name' columns.")
+            raise ValueError(
+                "Excel must contain 'Classification' and 'Account Name' columns."
+            )
 
         # Filter valid rows
         df_valid = data.dropna(subset=["Classification", "Account Name"], how="any")
@@ -227,7 +230,7 @@ def readExcelFile(filePath: str, reportId: int) -> Result:
                 "Data Range": converted_data_range,
             },
             "Financial Data": data,
-            "Source Meta": sourceData.dict()
+            "Source Meta": sourceData.dict(),
         }
         return Result(Data=response, Status=1, Message="SUCCESS")
 

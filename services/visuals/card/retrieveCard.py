@@ -18,6 +18,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
 
+
 def retrieveCard(
     reportId: int,
     year: int,
@@ -26,7 +27,7 @@ def retrieveCard(
     functionName: str,
     comparisonFunc: str,
     comparedTo: str,
-    visualId: str
+    visualId: str,
 ):
     try:
         valueData = getValueSymbol(title)
@@ -124,7 +125,9 @@ def retrieveCard(
             TrendLine=trendLineData,
         )
 
-        cardData = CardDataModel(Title=title, Content=contentValueObj, Footer=footerObj,Id=visualId)
+        cardData = CardDataModel(
+            Title=title, Content=contentValueObj, Footer=footerObj, Id=visualId
+        )
 
         return Result(Data=cardData, Status=1, Message="Card calculated successfully")
 

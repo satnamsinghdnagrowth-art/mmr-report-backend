@@ -14,7 +14,9 @@ from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
 from datetime import datetime
-from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import getRevenueBreakdownTable
+from services.reportSection.financialHighlights.tables.RevenuebreakdownTable import (
+    getRevenueBreakdownTable,
+)
 from typing import Optional, List
 
 
@@ -57,7 +59,6 @@ class FinancialHighlightSectionDataService:
             cards_data = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
-
 
             charts_data = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId

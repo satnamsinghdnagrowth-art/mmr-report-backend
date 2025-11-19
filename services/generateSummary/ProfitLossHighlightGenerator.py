@@ -8,6 +8,7 @@ load_dotenv()
 
 API_KEY = os.getenv("GROQ_API_KEY")
 
+
 def generateProfitLossHighlights(data):
     try:
         prompt = f"""

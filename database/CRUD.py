@@ -28,6 +28,7 @@ async def createTable(tableName: str, schema: dict) -> Result:
     except Exception as ex:
         return Result(Status=0, Message=f"Error in createTable: {ex}")
 
+
 # 2. Insert records into any table
 async def insertRecord(tableName: str, data: dict) -> Result:
     try:
@@ -73,7 +74,9 @@ async def readRecords(query: str) -> Result:
 
 
 # 4. Update record by ID
-async def updateRecord(tableName: str, idColumn: str, recordId: int, updates: dict) -> Result:
+async def updateRecord(
+    tableName: str, idColumn: str, recordId: int, updates: dict
+) -> Result:
     try:
         conn = await get_connection()
         if not conn:
@@ -94,6 +97,7 @@ async def updateRecord(tableName: str, idColumn: str, recordId: int, updates: di
     except Exception as ex:
         return Result(Status=0, Message=f"Error in updateRecord: {ex}")
 
+
 # 5. Delete record by ID
 async def deleteRecord(tableName: str, idColumn: str, recordId: int) -> Result:
     try:
@@ -108,7 +112,9 @@ async def deleteRecord(tableName: str, idColumn: str, recordId: int) -> Result:
             conn.commit()
         conn.close()
 
-        return Result(Status=1, Message=f"Record from '{tableName}' deleted successfully")
+        return Result(
+            Status=1, Message=f"Record from '{tableName}' deleted successfully"
+        )
 
     except Exception as ex:
         return Result(Status=0, Message=f"Error in deleteRecord: {ex}")

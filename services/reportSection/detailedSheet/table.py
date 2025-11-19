@@ -495,7 +495,7 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
             id = "BALANCE_SHEET_TABLE"
 
         tableObj = TableModel(
-            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows,Id=id
+            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows, Id=id
         )
         return Result(
             Data=tableObj, Status=1, Message="Combined tables generated successfully"

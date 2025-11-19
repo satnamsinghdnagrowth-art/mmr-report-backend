@@ -9,12 +9,13 @@ from fastapi.encoders import jsonable_encoder
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
+
 # Analyze the data
 def formatFinancialData(filePath, reportId: int, companyLogo):
     try:
         fileName = os.path.splitext(os.path.basename(filePath))[0]
 
-        excelData = readExcelFile(filePath,reportId)
+        excelData = readExcelFile(filePath, reportId)
 
         formattedData = excelData.Data
 
@@ -25,7 +26,7 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
         if companyLogo is not None:
             logoFileName = f"logo_{reportId}"
             fileExtension = ".png"
-            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S") 
+            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S")
 
             savedFileName = f"{logoFileName}_{timeStamp}{fileExtension}"
             logoFilePath = os.path.join("database", "companyLogos", savedFileName)
@@ -54,7 +55,7 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
             # json.dump(data, f, indent=4)
             json.dump(jsonable_encoder(data), f, indent=4)
 
-        # 📦 Metadata object                                                                                                                                        
+        # 📦 Metadata object
         reportMetadata = {
             "ReportId": reportId,
             "ReportName": fileName.replace("_", " "),

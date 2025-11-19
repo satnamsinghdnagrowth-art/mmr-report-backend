@@ -2,6 +2,7 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 import os, shutil, traceback
 
+
 def handleUploadFile(file, fileNameOnly: str, fileExtension: str, UPLOAD_DIR: str):
     try:
         UPLOAD_DIR = os.path.abspath(UPLOAD_DIR)

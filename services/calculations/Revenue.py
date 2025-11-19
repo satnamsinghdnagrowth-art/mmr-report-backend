@@ -1,13 +1,16 @@
 from datetime import datetime
-from typing import Optional,List
+from typing import Optional, List
 from core.models.base.ResultModel import Result
 from core.models.base.SourceModel import SourceDataTypes
 from helper.GetFinancialData import getFinancialData
 
+
 # Get Total Revenue
-def totalRevenue(year: int, month, reportId,dataType : Optional[str] = SourceDataTypes.Actuals ):
+def totalRevenue(
+    year: int, month, reportId, dataType: Optional[str] = SourceDataTypes.Actuals
+):
     try:
-        financialData = getFinancialData(reportId,dataType)
+        financialData = getFinancialData(reportId, dataType)
 
         data = financialData["PROFIT & LOSS"]["REVENUE"]["Total"]
 
@@ -33,7 +36,7 @@ def totalRevenue(year: int, month, reportId,dataType : Optional[str] = SourceDat
 
     except Exception as ex:
         message = f"Error occur at totalRevenue: {ex}"
-        # print(f"{datetime.now()} {message}")
+        print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
 
 
@@ -62,7 +65,7 @@ def revenueGrowth(year: int, month: List[int], reportId: Optional[int] = None):
             if current_quarter == 1:
                 prev_quarter = 4
                 prev_year = year - 1
-                
+
             else:
                 prev_quarter = current_quarter - 1
                 prev_year = year

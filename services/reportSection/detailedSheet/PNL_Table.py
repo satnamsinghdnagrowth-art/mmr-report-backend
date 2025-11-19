@@ -245,7 +245,10 @@ def getProfitLossTable(year: int, months, tableTypes: list[str], reportId):
             tableTypes[0] = ""
 
         tableObj = TableModel(
-            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows,Id="PROFIT_LOSS_TABLE"
+            Title=tableTypes[0],
+            Column=combinedHeaders,
+            Rows=combinedRows,
+            Id="PROFIT_LOSS_TABLE",
         )
         return Result(
             Data=tableObj, Status=1, Message="Combined tables generated successfully"

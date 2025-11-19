@@ -9,6 +9,7 @@ from services.generateSummary.ExecutiveSummaryGenerator import generateExecutive
 
 SummaryGeneratorRouter = APIRouter()
 
+
 # Generate Executive Summary
 @SummaryGeneratorRouter.post("/complete/report/{reportId}")
 def generateReportSummary(reportId: int, payload: SectionRequestData):

@@ -5,7 +5,8 @@ from datetime import datetime
 import os
 from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 
-# 
+
+#
 def customKPIsDataProcessing(file, reportId: int) -> Result:
     try:
         # Create directory path based on report ID
@@ -25,11 +26,13 @@ def customKPIsDataProcessing(file, reportId: int) -> Result:
             return Result(Status=0, Message="No file provided.")
 
         # Process the file after saving
-        result = dataFormatting(saved_file_path,reportId)
+        result = dataFormatting(saved_file_path, reportId)
 
         if result.Status == 1:
             response = {"CustomKPIs": result.Data["Custom KPIs"]}
-            return Result(Data=response, Status=1, Message="File uploaded successfully.")
+            return Result(
+                Data=response, Status=1, Message="File uploaded successfully."
+            )
 
         # Remove file if incorrect format
         if os.path.exists(saved_file_path):
@@ -38,4 +41,4 @@ def customKPIsDataProcessing(file, reportId: int) -> Result:
         return Result(Status=0, Message="Please upload the correct file format.")
 
     except Exception as e:
-        return Result(Status=0, Message=f"Error: {str(e)}") 
+        return Result(Status=0, Message=f"Error: {str(e)}")

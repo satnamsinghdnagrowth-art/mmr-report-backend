@@ -20,4 +20,4 @@ class ConsolidateSectionDate(BaseModel):
 
 
 class SectionDataModel(BaseModel):
-    Sections : List[ConsolidateSectionDate] 
+    Sections: List[ConsolidateSectionDate]

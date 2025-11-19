@@ -7,13 +7,14 @@ from services.reports.GetReportProgress import getreportProgress
 
 ReportProgressRouter = APIRouter()
 
+
 # Save Report Progress
 @ReportProgressRouter.post("/save", response_model=Result)
 def saveReportProgress(metaData: dict):
     return reportProgressSave(metaData)
 
+
 # Get the Progress Data
 @ReportProgressRouter.get("/get/", response_model=Result)
-def saveReportProgress(reportId: int,templateId:int):
-    return getreportProgress(reportId,templateId)
-
+def saveReportProgress(reportId: int, templateId: int):
+    return getreportProgress(reportId, templateId)

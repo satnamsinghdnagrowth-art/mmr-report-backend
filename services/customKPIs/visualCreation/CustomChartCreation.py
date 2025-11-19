@@ -67,7 +67,9 @@ def format_chart_data(filtered_data: Dict) -> Dict:
             yaxis_series.append(series)
 
         # Build Y-axis controller
-        yaxis_controller = YaxisControllerModel(Id="left", Orientation="left", Unit=unitEntities["symbol"])
+        yaxis_controller = YaxisControllerModel(
+            Id="left", Orientation="left", Unit=unitEntities["symbol"]
+        )
 
         chart = ChartDataModel(
             Title="Custom KPI Data",
@@ -76,7 +78,7 @@ def format_chart_data(filtered_data: Dict) -> Dict:
             IndexAxis="y",
             RightYaxis=False,
             YaxisController=[yaxis_controller],
-            KpiType="Custom"
+            KpiType="Custom",
         )
 
         return chart
@@ -85,4 +87,3 @@ def format_chart_data(filtered_data: Dict) -> Dict:
         message = f"Error occurred in format_chart_data: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-    

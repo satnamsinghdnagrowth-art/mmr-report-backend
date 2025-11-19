@@ -6,6 +6,7 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.GetValueSymbol import getValueSymbol
 
+
 def format_table_data(filtered_data: Dict) -> Dict:
     try:
         """
@@ -46,7 +47,7 @@ def format_table_data(filtered_data: Dict) -> Dict:
             for month, year in sorted_months:
                 value = value_lookup.get((month, year))
                 unitEntities = getValueSymbol(kpi_name)
-                if value is  not None:
+                if value is not None:
                     value = value_lookup.get((month, year), 0)
                     response = ValueObjectModel(
                         Value=round(value, 2),
@@ -66,9 +67,9 @@ def format_table_data(filtered_data: Dict) -> Dict:
             Title="Custom KPI Table",
             Column=columns,
             Rows=rows,
-            TableType= "Tabular",
+            TableType="Tabular",
             Visibility=True,
-            KpiType="Custom"
+            KpiType="Custom",
         )
 
         return table

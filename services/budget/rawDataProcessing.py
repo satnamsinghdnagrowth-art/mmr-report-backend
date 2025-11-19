@@ -12,7 +12,7 @@ from helper.FileUploadHandler import handleUploadFile
 from config.FilesBaseDIR import BUDGET_DATA_UPLOAD_DIR
 
 
-def fileUploadProcessing(file, reportId,fileBase64Str=None):
+def fileUploadProcessing(file, reportId, fileBase64Str=None):
     try:
         fileNameOnly = f"BudgetFile_{reportId}"
 
@@ -53,7 +53,3 @@ def fileUploadProcessing(file, reportId,fileBase64Str=None):
         message = f"Error occur at fileUpload: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-
-
-
-

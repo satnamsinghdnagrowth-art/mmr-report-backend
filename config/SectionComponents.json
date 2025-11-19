@@ -61,8 +61,36 @@
                 ],
                 "indexAxis": "x",
                 "ShowBothSideAxes":true
+            },
+            {
+                "visualId":"REVENUE_BUDGET_CHART",
+                "title": "Revenue",
+                "rigthYaxis":true,
+                "data": [
+                    {
+                        
+                        "valueFunc":"Revenue",
+                        "label":"Revenue",
+                        "type":"Bar",
+                        "funcName":"totalRevenue",
+                        "AreaFill":false,
+                        "yaxisId":"left"
+                    },
+                    {
+                        
+                        "valueFunc":"Revenue",
+                        "label":"Budget",
+                        "type":"Bar",
+                        "funcName":"totalRevenue",
+                        "AreaFill":false,
+                        "yaxisId":"left",
+                        "sourceType":"Budget"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":true
             }
-            
         ],
         "tables": [
             {

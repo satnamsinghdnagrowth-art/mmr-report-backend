@@ -9,12 +9,13 @@ from fastapi.encoders import jsonable_encoder
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
+
 # Analyze the data
 def formatFinancialData(filePath, reportId: int):
     try:
         fileName = os.path.splitext(os.path.basename(filePath))[0]
 
-        excelData = readExcelFile(filePath,reportId)
+        excelData = readExcelFile(filePath, reportId)
 
         formattedData = excelData.Data
 
@@ -64,8 +65,9 @@ def formatFinancialData(filePath, reportId: int):
         else:
             raise FileNotFoundError("reports.json file not found in 'database/' folder")
 
-        return Result( Status=1, Message="Data formatted successfully and report list updated.")
-
+        return Result(
+            Status=1, Message="Data formatted successfully and report list updated."
+        )
 
     except Exception as ex:
         message = f"Error occur at formatFinancialData: {ex}"

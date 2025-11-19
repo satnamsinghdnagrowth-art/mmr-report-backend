@@ -1,5 +1,6 @@
 import os
 
+
 def create_required_folders():
     base_path = "database"
     os.makedirs(base_path, exist_ok=True)  # ensure base folder exists

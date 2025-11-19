@@ -1,13 +1,11 @@
 from datetime import datetime
-from core.models.base.ResultModel import  Result
+from core.models.base.ResultModel import Result
 from database.dbConnection import get_connection
+
 
 def userCreation():
     try:
-
         db = get_connection()
-
-        
 
     except Exception as ex:
         message = f"Error occurred in userCreation: {ex}"

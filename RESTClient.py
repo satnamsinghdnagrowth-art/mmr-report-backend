@@ -28,9 +28,12 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
             "Status": 0,
             "Message": "Invalid request format or data type",
             "Errors": exc.errors(),
-            "RequestBody": await request.json() if request.method in ("POST", "PUT", "PATCH") else None
+            "RequestBody": await request.json()
+            if request.method in ("POST", "PUT", "PATCH")
+            else None,
         },
     )
+
 
 @app.on_event("startup")
 def startup_event():

@@ -1,6 +1,6 @@
 ACTUALS_DATA_UPLOAD_DIR = "database/uploadedFiles"
 CUSTOM_KPIS_DATA_UPLOAD_DIR = "database/customKPIs"
-BUDGET_DATA_UPLOAD_DIR="database/budgetDataFiles"
+BUDGET_DATA_UPLOAD_DIR = "database/budgetDataFiles"
 PROGRESS_JSON_PATH = "database/ReportProgressTable.json"
 REPORT_JSON_PATH = "database/ReportTable.json"
 SOURCE_JSON_PATH = "database/SourceTable.json"

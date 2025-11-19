@@ -13,12 +13,13 @@ import os
 from datetime import datetime
 import json, os
 
+
 def customKPICreation(payload, reportId) -> Result:
     try:
         visualtype = str(payload.VisualType).lower()
-        year = int(payload.Year)          # e.g., 2025
-        month = payload.Months[0]         # e.g., 7 for July
-        items = payload.Items or []       # optional list of KPIs
+        year = int(payload.Year)  # e.g., 2025
+        month = payload.Months[0]  # e.g., 7 for July
+        items = payload.Items or []  # optional list of KPIs
 
         customFilePath = None
         report_list_path = REPORT_JSON_PATH
@@ -78,23 +79,31 @@ def customKPICreation(payload, reportId) -> Result:
         # --- Format based on visual type ---
         if visualtype == "table":
             table_data = format_table_data(filtered_data)
-            return Result(Data=table_data, Status=1,
-                          Message=f"Data filtered for last 6 months up to {month}-{year} (table format).")
+            return Result(
+                Data=table_data,
+                Status=1,
+                Message=f"Data filtered for last 6 months up to {month}-{year} (table format).",
+            )
 
         elif visualtype == "chart":
             chart_data = format_chart_data(filtered_data)
-            return Result(Data=chart_data, Status=1,
-                          Message=f"Data filtered for last 6 months up to {month}-{year} (chart format).")
+            return Result(
+                Data=chart_data,
+                Status=1,
+                Message=f"Data filtered for last 6 months up to {month}-{year} (chart format).",
+            )
 
         else:
-            return Result(Data=filtered_data, Status=1,
-                          Message=f"Data filtered for last 6 months up to {month}-{year} successfully.")
+            return Result(
+                Data=filtered_data,
+                Status=1,
+                Message=f"Data filtered for last 6 months up to {month}-{year} successfully.",
+            )
 
     except Exception as ex:
         message = f"Error occurred in customKPICreation: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
-
 
 
 # def customKPICreation(payload, reportId) -> Result:
@@ -111,10 +120,10 @@ def customKPICreation(payload, reportId) -> Result:
 #         if os.path.exists(report_list_path):
 #             with open(report_list_path, "r") as f:
 #                 reports = json.load(f)
-                
+
 #             for item in reports:
 #                 if item["ReportId"] == int(reportId):
-#                     customFilePath = item["CustomKPIFilePath"] 
+#                     customFilePath = item["CustomKPIFilePath"]
 #                     break
 
 #         with open(customFilePath) as f:

@@ -80,8 +80,7 @@ def getRevenueBreakdownTable(year: int, months: list[int], section: str, reportI
             Column=Headers,
             Rows=rows,
             TableType=TableTypesName.Progress.value,
-            Id="REVENUE_BREAKDOWN_TABLE"
-
+            Id="REVENUE_BREAKDOWN_TABLE",
         )
 
         # tables.append(getTopOpeatingExpensesNew(year,months,reportType,section,reportId).Data)

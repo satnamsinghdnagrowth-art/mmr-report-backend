@@ -1,7 +1,8 @@
-from pydantic import BaseModel,Field
-from typing import List, Optional,Literal
+from pydantic import BaseModel, Field
+from typing import List, Optional, Literal
 from core.models.visualsModel.ValueObject import ValueObjectModel
 import uuid
+
 
 # Data Transfer Objects
 class TrendLineChart(BaseModel):
@@ -18,12 +19,12 @@ class FooterModel(BaseModel):
 
 
 class CardDataModel(BaseModel):
-    Id: str 
+    Id: str
     Title: str
     Content: ValueObjectModel
     Footer: FooterModel
     Visibility: Optional[bool] = True
-    KpiType : Optional[Literal["Actuals","Custom","Budget"]] = "Actuals"
+    KpiType: Optional[Literal["Actuals", "Custom", "Budget"]] = "Actuals"
 
 
 class CardsListModel(BaseModel):
