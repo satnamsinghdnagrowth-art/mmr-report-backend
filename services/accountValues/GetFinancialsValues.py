@@ -25,7 +25,7 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
         if companyLogo is not None:
             logoFileName = f"logo_{reportId}"
             fileExtension = ".png"
-            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S")
+            timeStamp = datetime.now().strftime("%Y%m%d%H%M%S") 
 
             savedFileName = f"{logoFileName}_{timeStamp}{fileExtension}"
             logoFilePath = os.path.join("database", "companyLogos", savedFileName)

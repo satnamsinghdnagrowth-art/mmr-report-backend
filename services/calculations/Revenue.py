@@ -1,18 +1,13 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional,List
 from core.models.base.ResultModel import Result
-from helper.readExcel import readExcelFile
-from helper.GetFileByReportId import getReportData
-from helper.LoadJsonData import financialDataTest
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 # Get Total Revenue
-def totalRevenue(year: int, month, reportId: Optional[int] = None):
+def totalRevenue(year: int, month, reportId,dataType : Optional[str] = SourceDataTypes.Actuals ):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId,dataType)
 
         data = financialData["PROFIT & LOSS"]["REVENUE"]["Total"]
 
@@ -42,10 +37,7 @@ def totalRevenue(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-from typing import Optional, List
-from datetime import datetime
-
-
+# Get Revenue Growth
 def revenueGrowth(year: int, month: List[int], reportId: Optional[int] = None):
     try:
         if not month:
@@ -70,6 +62,7 @@ def revenueGrowth(year: int, month: List[int], reportId: Optional[int] = None):
             if current_quarter == 1:
                 prev_quarter = 4
                 prev_year = year - 1
+                
             else:
                 prev_quarter = current_quarter - 1
                 prev_year = year

@@ -2,6 +2,12 @@ from pydantic import BaseModel,Field
 from typing import Literal
 from datetime import datetime
 from typing import Optional,List
+from enum import Enum
+
+
+class SourceDataTypes(Enum):
+    Actuals : str = "Actuals"
+    Budget : str = "Budget"
 
 
 class SourceMetaDataModel(BaseModel):

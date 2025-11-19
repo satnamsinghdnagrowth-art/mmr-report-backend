@@ -6,8 +6,9 @@ from core.models.base.DateFilterModel import DateFilter
 from services.ExtractDataRange import retriveDataRange
 from core.models.base.ResultModel import Result
 from services.calculations.Ratios import cashRatio, currentRatio, workingCapital
-
-
+from services.calculations.Revenue import totalRevenue
+from services.classificationBasedKPIs.createRevenueItemsTable import createRevenueItemsTable
+from core.models.base.SourceModel import SourceDataTypes
 Account = APIRouter()
 
 
@@ -46,4 +47,4 @@ def getReportDescription():
 # Test the calulation
 @Account.get("/get/Calculations")
 def calculation() -> Result:
-    return currentRatio(year=2025, months=[8], reportId=76581)
+    return totalRevenue(year=2025, month=[3,4,5,6], reportId=45753, dataType  = SourceDataTypes.Budget )  

@@ -9,9 +9,14 @@ Analyze = APIRouter()
 
 class SummaryObject(BaseModel):
     ReportId: int
-    Summary: str
+    Summary: dict
+
+
+@Analyze.get("/{reportId}", response_model=Result)
+def analyzeData(reportId: int):
+    return retriveDataRange(reportId)
 
 
 @Analyze.post("/saveSummary", response_model=Result)
-def saveReportProgress(paylodData: SummaryObject):
-    return reportProgressSave(paylodData)
+def saveReportProgress(metaData: dict):
+    return reportProgressSave(metaData)

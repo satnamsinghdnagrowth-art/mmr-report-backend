@@ -448,7 +448,7 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
         rows.extend([OpenRows, closeRows])
 
         # ---------------- Final Table ----------------
-        tableObj = TableModel(Title="", Column=Headers, Rows=rows)
+        tableObj = TableModel(Title="", Column=Headers, Rows=rows,Id="CASH_FLOW_TABLE")
 
         return Result(
             Data=tableObj,

@@ -28,6 +28,7 @@ def getSectionCharts(
                 months=months,
                 config=config,
                 reportType=reportType,
+            
             )
             charts.append(chart.Data)
 

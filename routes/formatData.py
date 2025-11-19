@@ -5,11 +5,6 @@ from services.reports.UpdateReportData import updateReportFields
 from typing import Optional
 from core.models.base.SectionDataRequestBody import SectionRequestData
 from weasyprint import HTML
-from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI import (
-    getISTable,
-)
-from pydantic.json import pydantic_encoder
-import json
 from services.generateSummary.ExecutiveSummaryGenerator import generateExecutiveSummary
 
 
@@ -52,23 +47,3 @@ def pdfGenerator(base64str=Body(...)):
         Status=0,
         Message="PDF generated and ready for download",
     )
-
-
-# Generate Executive Summary
-@dataFormat.post("/generateSummary/{reportId}")
-def generateReportSummary(reportId: int, payload: SectionRequestData):
-    data = getISTable(
-        payload.Year,
-        payload.Months,
-        payload.ReportType,
-        payload.SectionName,
-        reportId,
-    ).Data
-
-    compact_json = json.dumps(
-        data, default=pydantic_encoder, separators=(",", ":"), ensure_ascii=False
-    )
-
-    responseData = generateExecutiveSummary(compact_json)
-
-    return responseData

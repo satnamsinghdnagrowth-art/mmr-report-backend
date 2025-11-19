@@ -36,6 +36,7 @@ def retrieveChart(
         rigthYaxis = config["rigthYaxis"]
         chartData = config["data"]
         axisChoice = config["indexAxis"]
+        visualId = config['visualId']
 
         # Handle different report types
         if reportType and reportType.lower() == "month":
@@ -158,7 +159,7 @@ def retrieveChart(
                     UnitType=valueType,
                     Symbol=valueSymbol,
                     AreaFill=metric["AreaFill"],
-                    YaxisId=yaxisId,
+                    YaxisId=yaxisId
                 )
             )
 
@@ -189,6 +190,7 @@ def retrieveChart(
             IndexAxis=axisChoice,
             RightYaxis=rigthYaxis,
             YaxisController=yaxisControllers,
+            Id=visualId
         )
 
         return Result(

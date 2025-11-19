@@ -6,34 +6,31 @@ import os
 from datetime import datetime
 from core.models.base.ResultModel import Result
 import random
-from services.accountValues.GetFinancialsValues import formatFinancialData
+from services.budget.dataFormatting import formatFinancialData
 from helper.Base64FileHandler import handleBase64File
 from helper.FileUploadHandler import handleUploadFile
-from config.FilesBaseDIR import ACTUALS_DATA_UPLOAD_DIR
+from config.FilesBaseDIR import BUDGET_DATA_UPLOAD_DIR
 
 
-def fileUpload(file, fileBase64Str, CompanyLogo):
+def fileUploadProcessing(file, reportId,fileBase64Str=None):
     try:
-        reportId = random.randint(10000, 99999)
-
-        fileNameOnly = f"BaseFile_{reportId}"
+        fileNameOnly = f"BudgetFile_{reportId}"
 
         fileExtension = ".xlsx"  # or parse from `header` if possible
 
         # === CASE 1: Uploaded File ===
         if file is not None:
             savedFilePath = handleUploadFile(
-                file, fileNameOnly, fileExtension, ACTUALS_DATA_UPLOAD_DIR
+                file, fileNameOnly, fileExtension, BUDGET_DATA_UPLOAD_DIR
             ).Data
 
         # === CASE 2: Base64 File ===
         if fileBase64Str is not None:
             savedFilePath = handleBase64File(
-                fileBase64Str, fileNameOnly, fileExtension, ACTUALS_DATA_UPLOAD_DIR
+                fileBase64Str, fileNameOnly, fileExtension, BUDGET_DATA_UPLOAD_DIR
             ).Data
 
-        result = formatFinancialData(savedFilePath, reportId, CompanyLogo)
-
+        result = formatFinancialData(savedFilePath, reportId)
 
         if result.Status == 1:
             response = {"ReportId": result.Data["ReportId"]}
@@ -56,3 +53,7 @@ def fileUpload(file, fileBase64Str, CompanyLogo):
         message = f"Error occur at fileUpload: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)
+
+
+
+

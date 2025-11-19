@@ -284,7 +284,7 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                 combinedRows.append(totalLiabilitiesAndEquity)
 
         tableObj = TableModel(
-            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows
+            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows,Id="BALANCE_SHEET_TABLE"
         )
         return Result(
             Data=tableObj, Status=1, Message="Combined tables generated successfully"

@@ -58,6 +58,7 @@ class FinancialHighlightSectionDataService:
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
 
+
             charts_data = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data

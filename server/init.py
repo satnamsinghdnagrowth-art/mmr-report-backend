@@ -13,6 +13,8 @@ from fastapi.staticfiles import StaticFiles
 from routes.CustomKpis import CustomKPIsRouter
 from routes.authentication.User import UserRouter
 from routes.authentication.Role import RoleRouter
+from routes.SummaryGeneration import SummaryGeneratorRouter
+from routes.ReportProgressHandling import ReportProgressRouter
 
 # App Instance
 app = FastAPI()
@@ -26,6 +28,9 @@ app.include_router(Account, prefix="/api/v1/Account")
 app.include_router(RoleRouter,prefix="/api/v1/role")
 app.include_router(UserRouter,prefix="/api/v1/authentication")
 
+# Summary Generation 
+app.include_router(SummaryGeneratorRouter,prefix="/api/v1/summary/generation")
+
 # Sections Routes
 app.include_router(ConsolidateSectionsData, prefix="/api/v1/section/Data")
 app.include_router(FinancialHighlights, prefix="/api/v1/section/financialHighlights")
@@ -35,9 +40,11 @@ app.include_router(BreakEvenAnaysis, prefix="/api/v1/section/breakEvenAnalysis")
 app.include_router(CashFlow, prefix="/api/v1/section/cashflowAnalysis")
 app.include_router(BudgetSectionRouter, prefix="/api/v1/section/budgetComparison")
 
-
 # Custom KPI Routes
 app.include_router(CustomKPIsRouter, prefix="/api/v1/customskpis")
+
+# Report Progress Route
+app.include_router(ReportProgressRouter, prefix="/api/v1/report/progress")
 
 # Static Files handling
 app.mount("/database", StaticFiles(directory="database"), name="company_assets")

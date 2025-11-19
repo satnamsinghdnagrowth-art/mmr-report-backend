@@ -489,11 +489,13 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                 combinedRows.append(totalLiabilitiesAndEquity)
         if tableTypes[0] == "PROFIT & LOSS":
             tableTypes[0] = "Detailed Financial Statements (Last 6 months)"
+            id = "PROFIT_LOSS_TABLE"
         else:
             tableTypes[0] = ""
+            id = "BALANCE_SHEET_TABLE"
 
         tableObj = TableModel(
-            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows
+            Title=tableTypes[0], Column=combinedHeaders, Rows=combinedRows,Id=id
         )
         return Result(
             Data=tableObj, Status=1, Message="Combined tables generated successfully"

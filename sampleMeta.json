@@ -1,4 +1,9 @@
 {
+    "reportId": "41238",
+    "companyName": "Lucky Lemons",
+    "reportName": "Monthly Management Report",
+    "latestMonth": 10,
+    "latestYear": 2025,
     "pages": [
         {
             "pageNo": 1,

@@ -11,7 +11,7 @@ class TableTypesName(Enum):
 
 # Data Transfer Objects
 class TableModel(BaseModel):
-    Id: str = Field(default_factory=lambda: uuid.uuid4().hex[:8].upper())
+    Id: str
     Title: str
     Column: List[str]
     Rows: List[List[Any]]

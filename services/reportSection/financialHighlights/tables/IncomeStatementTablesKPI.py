@@ -95,12 +95,12 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 # ✅ Compute YTD total
                 if entry["func"] == "grossProfitMargin":
                     ytdValue = func(
-                        year=2025, month=[1, 2, 3, 4, 5, 6, 7], reportId=reportId
+                        year=2025, month=[1, 2, 3, 4, 5, 6, 7,8,9,10,11,12], reportId=reportId
                     ).Data
 
                 elif entry["func"] == "netIncomeMargin":
                     ytdValue = func(
-                        year=2025, month=[1, 2, 3, 4, 5, 6, 7], reportId=reportId
+                        year=2025, month=[1, 2, 3, 4, 5, 6, 7,8,9,10,11,12], reportId=reportId
                     ).Data
 
                 else:
@@ -172,11 +172,13 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 rows.append(row)
 
             tableObj = TableModel(
-                Title="Income Statement",
+                Title=config["title"],
                 Column=Headers,
                 Rows=rows,
                 TableType="Variance",
+                Id=config["visualId"]
             )
+
             tables.append(tableObj)
 
         # tables.append(

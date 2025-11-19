@@ -3,6 +3,7 @@ from typing import Optional
 import os
 
 report_data = {}
+budget_data = {}
 
 Report_Table_File_Path = os.path.join("database", "ReportTable.json")
 
@@ -46,3 +47,27 @@ def getReportData(reportId: int, reportDetail: Optional[bool] = False):
         report_data[reportId] = data
 
     return report_data[reportId]
+
+
+def getBudgetData(reportId: int, reportDetail: Optional[bool] = False):
+
+    if reportId not in budget_data:
+
+        filePath = getReportMetaDatabyId(reportId).get("BudgetFilePath")
+
+        if not filePath:
+            raise ValueError(f"No file name found for report ID {reportId}")
+
+        if not os.path.exists(filePath):
+            raise FileNotFoundError(f"Report file not found at: {filePath}")
+
+        try:
+            with open(filePath, "r") as f:
+                data = json.load(f)
+
+        except json.JSONDecodeError:
+            raise ValueError(f"Invalid JSON in report file: {filePath}")
+
+        budget_data[reportId] = data
+
+    return budget_data[reportId]

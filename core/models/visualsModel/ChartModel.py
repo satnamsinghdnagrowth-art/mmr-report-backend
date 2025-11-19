@@ -35,7 +35,7 @@ class YaxisControllerModel(BaseModel):
 
 
 class ChartDataModel(BaseModel):
-    Id: str = Field(default_factory=lambda: uuid.uuid4().hex[:8].upper())
+    Id: str
     Title: str
     Xaxis: List[str]
     YaxisSeries: List[YAxisSeriesModel]
