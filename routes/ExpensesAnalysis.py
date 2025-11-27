@@ -5,11 +5,11 @@ from services.reportSection.expensesAnalysis.sectionData.SectionData import (
     getSectionData,
 )
 
-ExpensesAnalysis = APIRouter()
+ExpensesAnalysisRouter = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@ExpensesAnalysis.post("/get/report/{reportId}/sectionData", response_model=Result)
+@ExpensesAnalysisRouter.post("/get/report/{reportId}/sectionData", response_model=Result)
 def getSection(reportId: int, payload: SectionRequestData):
     return getSectionData(
         reportId=reportId,

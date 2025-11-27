@@ -5,11 +5,11 @@ from services.reportSection.profitAbility.tables.GetProfitAbilityTable import ge
 from services.visuals.charts.GetSectionCharts import getSectionCharts
 from services.reportSection.profitAbility.sectionData.SectionData import getSectionData
 
-ProfitAbility = APIRouter()
+ProfitAbilityRouter = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@ProfitAbility.post("/get/report/{reportId}/sectionData", response_model=Result)
+@ProfitAbilityRouter.post("/get/report/{reportId}/sectionData", response_model=Result)
 def getSection(reportId: int, payload: SectionRequestData):
     return getSectionData(
         reportId=reportId,
@@ -30,7 +30,7 @@ def getSection(reportId: int, payload: SectionRequestData):
 
 
 # # Get Financial Higlights Section Charts
-@ProfitAbility.post("/get/charts", response_model=Result)
+@ProfitAbilityRouter.post("/get/charts", response_model=Result)
 def getCards(payload: SectionRequestData):
     return getSectionCharts(
         year=payload.Year,
@@ -41,7 +41,7 @@ def getCards(payload: SectionRequestData):
 
 
 # Get Financial Higlights Section Tables
-@ProfitAbility.post("/get/tables", response_model=Result)
+@ProfitAbilityRouter.post("/get/tables", response_model=Result)
 def getTables(payload: SectionRequestData):
     return getPATable(
         year=payload.Year,

@@ -5,11 +5,11 @@ from services.reportSection.breakEvenAnalysis.sectionData.SectionData import (
     getSectionData,
 )
 
-BreakEvenAnaysis = APIRouter()
+BreakEvenAnaysisRouter = APIRouter()
 
 
 # # Get Financial Higlights Section All Data
-@BreakEvenAnaysis.post("/get/report/{reportId}/sectionData", response_model=Result)
+@BreakEvenAnaysisRouter.post("/get/report/{reportId}/sectionData", response_model=Result)
 def getSection(reportId: int, payload: SectionRequestData):
     return getSectionData(
         reportId=reportId,

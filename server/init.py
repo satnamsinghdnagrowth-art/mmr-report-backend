@@ -2,13 +2,13 @@ from fastapi import FastAPI
 from routes.dataAnalyze import ReportRouter
 from routes.formatData import UploadRouter
 from routes.AccountElements import AccountItemsRouter
-from routes.FinancialHighligths import FinancialHighlights
-from routes.ProfitablitySection import ProfitAbility
-from routes.ExpensesAnalysis import ExpensesAnalysis
-from routes.BreakEvenAnalysis import BreakEvenAnaysis
-from routes.CashFlowAnalysis import CashFlow
+from routes.FinancialHighligths import FinancialHighlightsRouter
+from routes.ProfitablitySection import ProfitAbilityRouter
+from routes.ExpensesAnalysis import ExpensesAnalysisRouter
+from routes.BreakEvenAnalysis import BreakEvenAnaysisRouter
+from routes.CashFlowAnalysis import CashFlowRouter
 from routes.BudgetSection import BudgetSectionRouter
-from routes.FullSectionRouter import ConsolidateSectionsData
+from routes.FullSectionRouter import ConsolidateDataRouter
 from fastapi.staticfiles import StaticFiles
 from routes.CustomKpis import CustomKPIsRouter
 from routes.authentication.User import UserRouter
@@ -32,12 +32,12 @@ app.include_router(UserRouter, prefix="/api/v1/authentication")
 app.include_router(SummaryGeneratorRouter, prefix="/api/v1/summary/generation")
 
 # Sections Routes
-app.include_router(ConsolidateSectionsData, prefix="/api/v1/section/Data")
-app.include_router(FinancialHighlights, prefix="/api/v1/section/financialHighlights")
-app.include_router(ProfitAbility, prefix="/api/v1/section/profitability")
-app.include_router(ExpensesAnalysis, prefix="/api/v1/section/expensesAnalysis")
-app.include_router(BreakEvenAnaysis, prefix="/api/v1/section/breakEvenAnalysis")
-app.include_router(CashFlow, prefix="/api/v1/section/cashflowAnalysis")
+app.include_router(ConsolidateDataRouter, prefix="/api/v1/section/Data")
+app.include_router(FinancialHighlightsRouter, prefix="/api/v1/section/financialHighlights")
+app.include_router(ProfitAbilityRouter, prefix="/api/v1/section/profitability")
+app.include_router(ExpensesAnalysisRouter, prefix="/api/v1/section/expensesAnalysis")
+app.include_router(BreakEvenAnaysisRouter, prefix="/api/v1/section/breakEvenAnalysis")
+app.include_router(CashFlowRouter, prefix="/api/v1/section/cashflowAnalysis")
 app.include_router(BudgetSectionRouter, prefix="/api/v1/section/budgetComparison")
 
 # Custom KPI Routes

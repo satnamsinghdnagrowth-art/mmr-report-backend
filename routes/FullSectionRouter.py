@@ -6,10 +6,10 @@ from services.reportSection.consolidateSection.ConsolidateDataReporting import (
 )
 
 # Router Name
-ConsolidateSectionsData = APIRouter()
+ConsolidateDataRouter = APIRouter()
 
 
-@ConsolidateSectionsData.post(
+@ConsolidateDataRouter.post(
     "/get/report/{reportId}/sectionData/", response_model=Result
 )
 def getSection(reportId: int, payload: SectionRequestData):
