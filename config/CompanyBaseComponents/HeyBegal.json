@@ -1,4 +1,10 @@
 {
+    "reportId": "93985",
+    "companyName": "Test Company",
+    "reportName": "Monthly Management Report",
+    "latestMonth": 10,
+    "latestYear": 2025,
+    "selectedTimeLine": "Month",
     "pages": [
         {
             "pageNo": 1,
@@ -36,6 +42,14 @@
                     {
                         "Title": "Revenue Growth",
                         "Id": "REVENUE_CHART"
+                    },
+                    {
+                        "Title": "Budget revneue",
+                        "Id": "REVENUE_BUDGET_CHART"
+                    },
+                    {
+                        "Title": "Budget COS",
+                        "Id": "COS_BUDGET_CHART"
                     }
                 ]
             }

@@ -1,6 +1,8 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from typing import Optional
+from helper.GetFinancialData import getFinancialData
+from core.models.base.SourceModel import SourceDataTypes
 # Helper function to calculate differences and percentage change
 
 
@@ -9,9 +11,12 @@ def diffrenceAndPercentage(
 ):
     try:
         diff = this_month_value - prev_month_value
+
         percentChange = 0
+
         if prev_month_value != 0:
             percentChange = round((diff / abs(prev_month_value)) * 100, 2)
+            
         resultData = {"Diffrence": round(diff, 2), "PercentChange": percentChange}
 
         return Result(

@@ -115,7 +115,6 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ]
                     )
 
-                print(entry["label"], ytdValue)
 
                 result = diffrenceAndPercentage(thisMonthValue, prevMonthValue).Data
 

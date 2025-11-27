@@ -2,14 +2,17 @@ from datetime import datetime
 from config.variable import variableMapping
 from core.models.base.ResultModel import Result
 from services.calculations.Ebit import EBIT
-from typing import Optional
+from typing import Optional,List
 from services.calculations.OtherIncome import otherIncome, interestIncome
 from helper.LoadJsonData import financialDataTest
+from core.models.base.SourceModel import SourceDataTypes
 from helper.GetFileByReportId import getReportData
+from helper.GetFinancialData import getFinancialData
+
 
 
 # Operating Profit
-def earningBeforeInterestandTax(year: int, month, reportId: Optional[int] = None):
+def earningBeforeInterestandTax(year: int, month: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         ebit = EBIT(year, month, reportId).Data
 
@@ -34,12 +37,9 @@ def earningBeforeInterestandTax(year: int, month, reportId: Optional[int] = None
         return Result(Status=0, Message=message)
 
 
-def earningBeforeTax(year: int, month, reportId: Optional[int] = None):
+def earningBeforeTax(year: int, month : List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
         ebit = EBIT(year, month, reportId).Data
 
         interestIC = interestIncome(year, month, reportId).Data

@@ -17,14 +17,12 @@ from services.calculations.OtherIncome import interestIncome
 from services.calculations.NetIncome import netIncome, netIncomeMargin
 from core.models.visualsModel.ValueObject import ValueObjectModel
 import calendar
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, SourceDataTypes.Actuals)
         reportDatarange = getReportData(reportId)["Report Details"]["Data Range"]
 
         totalLiablities = []

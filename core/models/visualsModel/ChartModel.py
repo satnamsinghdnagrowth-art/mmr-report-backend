@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional, Literal, Any
 from core.models.visualsModel.ValueObject import DisplayObj
-import uuid
-
+import random
+from core.models.base.ColorModel import COLORS
 
 # Data Transfer Objects
 class YAxisSeriesModel(BaseModel):
@@ -12,8 +12,8 @@ class YAxisSeriesModel(BaseModel):
     Symbol: str
     AreaFill: Optional[bool] = False
     Values: List[float]
-
     YaxisId: Optional[str] = "left"  # ---------
+    Color: Optional[str] = COLORS[0]
 
 
 class MarkerModel(BaseModel):

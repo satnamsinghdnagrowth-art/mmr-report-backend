@@ -2,10 +2,12 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from typing import Optional
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 
 # Get Gross Profit
-def growthRate(year: int, month, reportId: Optional[int] = None):
+def growthRate(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         if not month or len(month) != 1:
             raise ValueError("Only one month should be provided in a list.")

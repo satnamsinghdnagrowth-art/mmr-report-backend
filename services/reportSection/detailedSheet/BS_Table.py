@@ -5,14 +5,12 @@ from helper.GetFileByReportId import getReportData
 from core.models.visualsModel.TableModel import TableModel
 from core.models.visualsModel.ValueObject import ValueObjectModel
 import calendar
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, SourceDataTypes.Actuals)
         reportDatarange = getReportData(reportId)["Report Details"]["Data Range"]
 
         totalLiablities = []

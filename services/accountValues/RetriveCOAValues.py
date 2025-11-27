@@ -45,8 +45,14 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                 classificationTotal = []
                 for m in month_cols:
                     try:
+                        if isinstance(m, datetime):
+                            date_obj = m
+                        else:
+                            # m is a string like "Jan 2024"
+                            date_obj = datetime.strptime(m, "%b %Y")
+
                         value = matches[m].fillna(0).sum()
-                        date_obj = datetime.strptime(m, "%b %Y")
+
                         classificationTotal.append(
                             {
                                 "Month": date_obj.month,
@@ -54,6 +60,7 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
                                 "Value": round(value, 2),
                             }
                         )
+
                     except:
                         continue
 
@@ -80,8 +87,13 @@ def retriveCOAValues(data, category: str, month=4, year=2023):
 
                         for m in month_cols:
                             try:
+                                if isinstance(m, datetime):
+                                    date_obj = m
+                                else:
+                                    # m is a string like "Jan 2024"
+                                    date_obj = datetime.strptime(m, "%b %Y")
+
                                 value = item_matches[m].fillna(0).sum()
-                                date_obj = datetime.strptime(m, "%b %Y")
                                 lineItemsTotal.append(
                                     {
                                         "Month": date_obj.month,

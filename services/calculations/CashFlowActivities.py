@@ -8,22 +8,23 @@ from services.calculations.CurrentAssestAndLiabilities import (
     getTotalCurrentLiabilities,
     getTotalCurrentAssets,
 )
+from core.models.base.SourceModel import SourceDataTypes
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 from helper.GetValueSum import getValueSum
+from helper.GetFinancialData import getFinancialData
+
 
 
 # Operating Profit
-def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = None):
+def getOperatingActivitiesCashFlow(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         if len(months) == 1:
             reportType = "Month"
         else:
             reportType = "Year"
 
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         totalInterestIncome = getValueSum(
             financialData,
             ["PROFIT & LOSS", "INTEREST INCOME", "Classification", "Interest Income"],
@@ -118,13 +119,10 @@ def getOperatingActivitiesCashFlow(year: int, months, reportId: Optional[int] = 
 
 
 def getInvestigatingActivitiesCashFlow(
-    year: int, months, reportId: Optional[int] = None
+    year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals
 ):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         changeInFA = (
             getValueSum(
                 financialData,
@@ -238,13 +236,10 @@ def getInvestigatingActivitiesCashFlow(
 
 
 def getFinancingActivitiesCashFlow(
-    year: int, months: List[int], reportId: Optional[int] = None
+    year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals
 ):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         currentYear, currentMonths, prevYear, prevMonths = getCurrentAndPreviousPeriods(
             year, [months[-1]], "month"
         )

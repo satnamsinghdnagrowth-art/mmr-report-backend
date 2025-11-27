@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Literal
 from core.models.visualsModel.ValueObject import ValueObjectModel
 import uuid
+from core.models.base.ColorModel import ColorsModel
 
 
 # Data Transfer Objects
@@ -9,7 +10,6 @@ class TrendLineChart(BaseModel):
     Xaxis: List[str]
     Yaxis: List[float]
     Visibility: Optional[bool] = True
-
 
 class FooterModel(BaseModel):
     ComparisonValue: ValueObjectModel
@@ -24,6 +24,7 @@ class CardDataModel(BaseModel):
     Content: ValueObjectModel
     Footer: FooterModel
     Visibility: Optional[bool] = True
+    Colors : ColorsModel = ColorsModel() 
     KpiType: Optional[Literal["Actuals", "Custom", "Budget"]] = "Actuals"
 
 

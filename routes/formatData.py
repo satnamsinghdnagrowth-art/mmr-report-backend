@@ -3,16 +3,15 @@ from core.models.base.ResultModel import Result
 from services.fileUploadHandling.FileUpload import fileUpload
 from services.reports.UpdateReportData import updateReportFields
 from typing import Optional
-from core.models.base.SectionDataRequestBody import SectionRequestData
 from weasyprint import HTML
-from services.generateSummary.ExecutiveSummaryGenerator import generateExecutiveSummary
+from services.budget.rawDataProcessing import fileUploadProcessing
+from services.customKPIs.RawDataProcessing import customKPIsDataProcessing
 
 
-dataFormat = APIRouter()
+UploadRouter = APIRouter()
 
-
-# File upload endpoint
-@dataFormat.post("/upload", response_model=Result)
+# <-------------------- Upload the Actuals Data---------------------->
+@UploadRouter.post("/actuals", response_model=Result)
 def formatReportData(
     file: Optional[UploadFile] = File(None),
     FileBase64Str: Optional[str] = Form(None),
@@ -22,29 +21,32 @@ def formatReportData(
         return Result(
             Status=400, Message="Either file or FileBase64Str must be provided."
         )
-
     return fileUpload(file, FileBase64Str, CompanyLogo)
 
 
-@dataFormat.patch("/update/report/{reportId}/")
+# <-------------------- Upload the Budget Data---------------------->
+@UploadRouter.post("/file/budget")
+def formatBudgetData(reportId:int, file: Optional[UploadFile] = File(None)):
+    if not file:
+        #  and not FileBase64Str:
+        return Result(
+            Status=400, Message="Either file or FileBase64Str must be provided."
+        )
+    return fileUploadProcessing(file, reportId)
+
+
+#<-------------------- Upload the Custom KPIs Data---------------------->
+@UploadRouter.post("/custom", response_model=Result)
+def formatReportData(reportId, file: Optional[UploadFile] = File(None)):
+    if not file:
+        #  and not FileBase64Str:
+        return Result(
+            Status=400, Message="Either file or FileBase64Str must be provided."
+        )
+    return customKPIsDataProcessing(file, reportId)
+
+
+#<-------------------- Upload the  Report Logo---------------------->
+@UploadRouter.patch("/logo")
 def uploadLogo(reportId: int, CompanyLogo: Optional[UploadFile] = File(None)):
     return updateReportFields(reportId, CompanyLogo)
-
-
-# downloadPDF
-@dataFormat.post("/downloadPDF", response_model=Result)
-def pdfGenerator(base64str=Body(...)):
-    htmlContent = base64str["base64str"]
-
-    # Save PDF to a file path
-    html = HTML(string=htmlContent)
-
-    file_path = "database/ReportsPdf/test.pdf"
-
-    html.write_pdf(file_path)
-
-    return Result(
-        Data="/database/ReportsPdf/test.pdf",
-        Status=0,
-        Message="PDF generated and ready for download",
-    )

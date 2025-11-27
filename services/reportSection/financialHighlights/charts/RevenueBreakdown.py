@@ -14,15 +14,13 @@ from services.calculations.DiffrenceCalculation import diffrenceAndPercentage
 from config.FunctionMaping import functionRegistry
 from datetime import datetime
 from typing import List
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 # Get the sections cards
 def getRevenueBreakdownChart(year: int, months: list[int], reportId: int):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, SourceDataTypes.Actuals)
 
         revenueData = financialData["PROFIT & LOSS"]["REVENUE"]["LineItems"]["Revenue"]
 

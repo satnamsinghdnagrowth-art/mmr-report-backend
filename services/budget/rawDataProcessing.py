@@ -33,12 +33,10 @@ def fileUploadProcessing(file, reportId, fileBase64Str=None):
         result = formatFinancialData(savedFilePath, reportId)
 
         if result.Status == 1:
-            response = {"ReportId": result.Data["ReportId"]}
 
             return Result(
-                Data=response,
                 Status=1,
-                Message="File uploaded Successfully",
+                Message="Budget File uploaded Successfully",
             )
 
         if os.path.exists(savedFilePath):

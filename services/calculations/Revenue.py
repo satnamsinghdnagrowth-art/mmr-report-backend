@@ -17,7 +17,6 @@ def totalRevenue(
         filteredData = [
             item for item in data if item["Month"] in month and item["Year"] == year
         ]
-
         if not filteredData:
             totalRevenue = 0
 
@@ -41,7 +40,7 @@ def totalRevenue(
 
 
 # Get Revenue Growth
-def revenueGrowth(year: int, month: List[int], reportId: Optional[int] = None):
+def revenueGrowth(year: int, month: List[int], reportId,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         if not month:
             raise ValueError("Month list cannot be empty.")

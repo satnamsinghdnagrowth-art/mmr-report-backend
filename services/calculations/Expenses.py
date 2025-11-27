@@ -6,15 +6,14 @@ from helper.LoadJsonData import financialDataTest
 from typing import Optional
 from helper.GetFileByReportId import getReportData
 from services.calculations.OtherIncome import otherIncome
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 
 # Get Direct Expenses (Total Cost of Sales)
-def directExpenses(year: int, month, reportId: Optional[int] = None):
+def directExpenses(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         VCOSdata = financialData["PROFIT & LOSS"]["COST OF SALES"]["Classification"][
             "Variable Cost"
@@ -59,12 +58,9 @@ def directExpenses(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def interestExpenses(year: int, month, reportId: Optional[int] = None):
+def interestExpenses(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         IEXPdata = financialData["PROFIT & LOSS"]["INTEREST EXPENSES"][
             "Classification"
@@ -96,12 +92,9 @@ def interestExpenses(year: int, month, reportId: Optional[int] = None):
 
 
 # Get Total Operating Expenses (Operating Expenses)
-def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
+def totalOperatingExpenses(year, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         FEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Variable Expenses"
@@ -159,7 +152,7 @@ def totalOperatingExpenses(year, month, reportId: Optional[int] = None):
 
 
 # Get Expenses To Revenue Ratio
-def expensesToRevenueRatio(year: int, month, reportId: Optional[int] = None):
+def expensesToRevenueRatio(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         operatingExp = totalOperatingExpenses(year, month, reportId).Data
         directExp = directExpenses(year, month, reportId).Data

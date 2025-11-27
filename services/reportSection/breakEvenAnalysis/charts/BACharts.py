@@ -15,7 +15,7 @@ from core.models.visualsModel.ChartModel import (
     MarkerModel,
     YaxisControllerModel,
 )
-
+from core.models.base.ColorModel import COLORS
 
 def getBACharts(
     year: int,
@@ -35,8 +35,6 @@ def getBACharts(
         # Calculate contribution margin
         cm_percent = fixedCost / breakEvenValue
         variable_cost_percent = 1 - cm_percent
-
-        print()
 
         # Revenue range for X-axis
         revenue = list(range(0, int(breakEvenValue * 2) + 1, 1500))
@@ -59,6 +57,7 @@ def getBACharts(
                 Type="Line",
                 UnitType=valueType,
                 Symbol=valueSymbol,
+                Color=COLORS[0]
             ),
             YAxisSeriesModel(
                 Title="Total Costs",
@@ -66,6 +65,7 @@ def getBACharts(
                 Type="Line",
                 UnitType=valueType,
                 Symbol=valueSymbol,
+                Color=COLORS[1]
             ),
             YAxisSeriesModel(
                 Title="Fixed Cost",
@@ -73,6 +73,7 @@ def getBACharts(
                 Type="Line",
                 UnitType=valueType,
                 Symbol=valueSymbol,
+                Color=COLORS[2]
             ),
         ]
 
@@ -123,7 +124,7 @@ def getBACharts(
             Type="Break-Even",
             Id="BREAK_EVEN_CHART",
         )
-
+        
         return Result(
             Data=[chartData], Status=1, Message="chart chart generated successfully"
         )

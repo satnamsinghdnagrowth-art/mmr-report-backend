@@ -1,22 +1,32 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
 from core.models.base.ResultModel import Result
-from services.reports.ProgressSave import reportProgressSave
 from services.ExtractDataRange import retriveDataRange
+from fastapi import APIRouter, Body
+from core.models.base.ResultModel import Result
+from weasyprint import HTML
 
-Analyze = APIRouter()
+ReportRouter = APIRouter()
 
-
-class SummaryObject(BaseModel):
-    ReportId: int
-    Summary: dict
-
-
-@Analyze.get("/{reportId}", response_model=Result)
-def analyzeData(reportId: int):
+#  <-------------------- Get report Date Range ---------------------->
+@ReportRouter.get("/{reportId}/get/range", response_model=Result)
+def getReportDataRange(reportId: int):
     return retriveDataRange(reportId)
 
 
-@Analyze.post("/saveSummary", response_model=Result)
-def saveReportProgress(metaData: dict):
-    return reportProgressSave(metaData)
+# <-------------------- Download Report PDF ---------------------->
+@ReportRouter.post("/download/PDF", response_model=Result)
+def pdfGenerator(base64str=Body(...)):
+    htmlContent = base64str["base64str"]
+
+    # Save PDF to a file path
+    html = HTML(string=htmlContent)
+
+    file_path = "database/ReportsPdf/test.pdf"
+
+    html.write_pdf(file_path)
+
+    return Result(
+        Data="/database/ReportsPdf/test.pdf",
+        Status=0,
+        Message="PDF generated and ready for download",
+    )

@@ -8,14 +8,13 @@ from helper.GetFileByReportId import getReportData
 from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow
 from services.calculations.CurrentAssestAndLiabilities import getTotalCurrentLiabilities
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 # Get the sections cards
 def getEACharts(year: int, months: list[int], reportId):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
+        financialData = getFinancialData(reportId, SourceDataTypes.Actuals)
 
         netProfitTotal = netIncome(year, months, reportId).Data
 

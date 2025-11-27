@@ -3,12 +3,12 @@ from core.models.base.ResultModel import Result
 from helper.GetFileByReportId import getReportData
 from helper.LoadJsonData import financialDataTest
 import calendar
-import calendar
 from core.models.visualsModel.TableModel import TableModel, TableListModel
 
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from datetime import datetime
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 def createRevenueItemsTable():
     try:
@@ -16,10 +16,7 @@ def createRevenueItemsTable():
         reportId = 72669
         classification_code = "REVENUE"
 
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, SourceDataTypes.Actuals)
         # Table header
         header_values = [
             "REVENUE",

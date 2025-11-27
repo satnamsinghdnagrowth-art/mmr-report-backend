@@ -1,0 +1,5610 @@
+{
+  "ReportId": "95065",
+  "Report Details": {
+    "Company Name": "DXone ERP",
+    "Financial Year": 1,
+    "Data Range": [
+      {
+        "Month": 4,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Year": 2025
+      },
+      {
+        "Month": 9,
+        "Year": 2025
+      },
+      {
+        "Month": 10,
+        "Year": 2025
+      },
+      {
+        "Month": 11,
+        "Year": 2025
+      },
+      {
+        "Month": 12,
+        "Year": 2025
+      }
+    ]
+  },
+  "Financial Data": {
+    "PROFIT & LOSS": {
+      "REVENUE": {
+        "Classification": {
+          "Revenue": []
+        },
+        "LineItems": {
+          "Revenue": {
+            "DXOne ERP - Licence Tier 3": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 8484
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 8484
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 11312
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 11312
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 14140
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 5656
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 5656
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 5656
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 5656
+              }
+            ],
+            "Other Optional Suites": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "DCA Monitoring": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 1500
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1500
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 2000
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 2000
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 2500
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 2500
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 2500
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 3000
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 3000
+              }
+            ],
+            "Implementation": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Implementation Tier 3": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 5000
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 5000
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 5000
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 5000
+              }
+            ],
+            "Discounts": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Customer Discounts": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "DXOne ERP - Licence Tier 1": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "DXOne ERP - Licence Tier 2": [
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 6667
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 6667
+              }
+            ],
+            "Implementation Tier 1": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Implementation Tier 2": [
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 12500
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 12500
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 12500
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 12500
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 12500
+              }
+            ],
+            "Software Upgrades": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Customer Support": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Services": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 14984.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 27484.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 18312.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 30812.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 16640.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 8156.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 20656.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 27823.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 27823.0
+          }
+        ]
+      },
+      "COST OF SALES": {
+        "Classification": {
+          "Variable Cost": [
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 38478
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 35250
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 39233
+            }
+          ],
+          "Fixed Cost": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Depreciation": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Variable Cost": {
+            "Implementation Costs": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Implementation Payroll & Employee Expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Payroll Expenses (Implementation)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 21827
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 21827
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 25101
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 21827
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 21827
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 25101
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 21827
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 21827
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 25101
+              }
+            ],
+            "Payroll Taxes (Implementation)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 1670
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1670
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1920
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 1670
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 1670
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 1920
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 1670
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 1670
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 1920
+              }
+            ],
+            "Server Hosting Charges": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 800
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1200
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 1400
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 1400
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 800
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 800
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 1200
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 1200
+              }
+            ],
+            "Customer Success Payroll & Employee Expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Payroll Expenses (Customer Success)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 4365
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 4365
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 4584
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 4365
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 4365
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 4584
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 4365
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 4365
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 4584
+              }
+            ],
+            "Payroll Taxes (Customer Success)": [
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 17
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 17
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 17
+              }
+            ],
+            "Software Subscriptions": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 4242
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 4242
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 5656
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 5656
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 7070
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 2828
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 2828
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 6411
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 6411
+              }
+            ]
+          },
+          "Fixed Cost": {},
+          "Depreciation": {}
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 32904.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 33104.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 38478.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 34918.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 36332.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 35250.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 31490.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 35473.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 39233.0
+          }
+        ]
+      },
+      "EXPENSES": {
+        "Classification": {
+          "Fixed Expenses": [],
+          "Variable Expenses": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Depreciation": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Fixed Expenses": {
+            "Sales and Marketing Costs": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Operating Payroll & Employee Expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Payroll Expenses (Operating)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 10656
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 10656
+              }
+            ],
+            "Payroll Taxes (Operating)": [
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 17
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 17
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 17
+              }
+            ],
+            "Employee Benefits & Insurance Expense": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Travel and expenses (Operating)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 3016
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 3016
+              }
+            ],
+            "Marketing Tech Stack (3rd party)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Events - Tradeshows and Conferences": [
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 17500
+              }
+            ],
+            "Travel/Meals (internal teammembers)": [
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 12860
+              }
+            ],
+            "Marketing Tech Stack": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "PR/Media": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 1416
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1416
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 1416
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 1841
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 1300
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 1841
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 1300
+              }
+            ],
+            "Demand Generation": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 68
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 68
+              }
+            ],
+            "Software subscription (P&E)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 170
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 170
+              }
+            ],
+            "Product and Engineering": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Product & Engineering Payroll & Employee Expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "People cost- Product & Engineering": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 1538
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 1538
+              }
+            ],
+            "Payroll Taxes": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 118
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 118
+              }
+            ],
+            "External Consultants": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Software subscription": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Operations- People cost": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 4833
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 4979
+              }
+            ],
+            "Payroll Taxes (G&A)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 4667
+              }
+            ],
+            "Employee Benefits & Insurance Expense (G&A)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 3000
+              }
+            ],
+            "Executive Salary": [
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 10385
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 10385
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 10385
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 10385
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 10385
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 10385
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 10385
+              }
+            ],
+            "Consulting": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 4667
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 4667
+              }
+            ],
+            "Professional Services (Legal, Recruitment, etc.)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 3000
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 2500
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 2500
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 5000
+              }
+            ],
+            "Travel and expenses (G&A)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 804
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 804
+              }
+            ],
+            "Rent and Utilities": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 1399
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 1399
+              }
+            ],
+            "Software subscription (G&A)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 643
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 643
+              }
+            ],
+            "Payment Processing Costs": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 462
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 462
+              }
+            ],
+            "Other expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Fundraising Cost": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 379
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 379
+              }
+            ],
+            "Merchant account fees": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Worker's Compensation": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Registration Fees": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 8250
+              }
+            ],
+            "Business Development": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Webhosting / Website Development": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Website and Branding": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 1000
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 1300
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 1651
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 2064
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 2477
+              }
+            ],
+            "SEO": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Video": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Ad Copy design and artwork outsourcing": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Referrals": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Variable Expenses": {},
+          "Depreciation": {}
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 50086.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 37920.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 77598.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 48305.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 46221.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 46963.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 46756.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 52710.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 47745.0
+          }
+        ]
+      },
+      "OTHER INCOME": {
+        "Classification": {
+          "Additional Income": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 152
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 152
+            }
+          ]
+        },
+        "LineItems": {
+          "Additional Income": {
+            "Software subscription (S&M)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 152
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 152
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 152.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 152.0
+          }
+        ]
+      },
+      "OTHER EXPENSES": {
+        "Classification": {
+          "Adjustments": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 223
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 223
+            }
+          ],
+          "Other Expenses": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Adjustments": {
+            "Payroll Taxes (PCS)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 223
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 223
+              }
+            ]
+          },
+          "Other Expenses": {}
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 223.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 223.0
+          }
+        ]
+      },
+      "INTEREST INCOME": {
+        "Classification": {
+          "Interest Income": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Interest Income": {
+            "Bank fees & service charges": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      },
+      "INTEREST EXPENSES": {
+        "Classification": {
+          "Interest Expense": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Interest Expense": {
+            "Uncategorized Expense": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      },
+      "TAX EXPENSES": {
+        "Classification": {
+          "Tax Expense": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 2910
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 2910
+            }
+          ]
+        },
+        "LineItems": {
+          "Tax Expense": {
+            "People cost-Customer Success": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 2910
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 2910
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 2910.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 2910.0
+          }
+        ]
+      },
+      "DIVIDEND": {
+        "Classification": {
+          "Dividends": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Dividends": {}
+        },
+        "Total": []
+      }
+    },
+    "BalanceSheet": {
+      "CURRENT ASSETS": {
+        "Classification": {
+          "Cash & Equivalents": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Accounts Receivable": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Inventory": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Work In Progress": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Other Current Assets": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Cash & Equivalents": {
+            "Other expenses (1)": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Accounts Receivable": {
+            "Interest Expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Inventory": {},
+          "Work In Progress": {},
+          "Other Current Assets": {
+            "Tax Expenses": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Adjustments": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ],
+            "Dividends": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      },
+      "NON-CURRENT ASSETS": {
+        "Classification": {
+          "Fixed Assets": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Intangible Assets": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Other Non-Current Assets": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Fixed Assets": {
+            "NaN": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Intangible Assets": {},
+          "Other Non-Current Assets": {}
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      },
+      "CURRENT LIABILITIES": {
+        "Classification": {
+          "Short-term Debt": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Accounts Payable": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Taxes & Levies": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Other Current Liabilities": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Short-term Debt": {},
+          "Accounts Payable": {
+            "NaN": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Taxes & Levies": {},
+          "Other Current Liabilities": {
+            "NaN": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      },
+      "NON-CURRENT LIABILITIES": {
+        "Classification": {
+          "Long-term Debt": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Deferred Tax": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Other Non-Current Liabilities": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Long-term Debt": {
+            "NaN": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Deferred Tax": {},
+          "Other Non-Current Liabilities": {}
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      }
+    },
+    "EQUITY": {
+      "EQUITY": {
+        "Classification": {
+          "Retained Earnings": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Current Earnings": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ],
+          "Other Equity": [
+            {
+              "Month": 4,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 5,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 6,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 7,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 8,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 9,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 10,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 11,
+              "Year": 2025,
+              "Value": 0
+            },
+            {
+              "Month": 12,
+              "Year": 2025,
+              "Value": 0
+            }
+          ]
+        },
+        "LineItems": {
+          "Retained Earnings": {
+            "NaN": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          },
+          "Current Earnings": {},
+          "Other Equity": {
+            "NaN": [
+              {
+                "Month": 4,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 5,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 6,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 7,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 8,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 9,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 10,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 11,
+                "Year": 2025,
+                "Value": 0
+              },
+              {
+                "Month": 12,
+                "Year": 2025,
+                "Value": 0
+              }
+            ]
+          }
+        },
+        "Total": [
+          {
+            "Month": 4,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 5,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 6,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 7,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 8,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 9,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 10,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 11,
+            "Year": 2025,
+            "Value": 0.0
+          },
+          {
+            "Month": 12,
+            "Year": 2025,
+            "Value": 0.0
+          }
+        ]
+      }
+    }
+  }
+}

@@ -13,22 +13,9 @@ def reportProgressSave(metaData):
         reportId = metaData["reportId"]
         file_path = f"{REPORT_META_DATA_JSON_PATH}/{reportId}.json"
 
-        # If file exists, load existing data
-        if os.path.exists(file_path):
-            with open(file_path, "r") as f:
-                existing_data = json.load(f)
-        else:
-            existing_data = []
-
-        # Append the new metadata entry
-        if hasattr(metaData, "dict"):
-            existing_data.append(metaData.dict())
-        else:
-            existing_data.append(metaData)
-
         # Save back to file
         with open(file_path, "w") as f:
-            json.dump(existing_data, f, indent=4)
+            json.dump(metaData, f, indent=4)
 
         return Result(Status=1, Message="Executive Summary Saved Successfully")
 

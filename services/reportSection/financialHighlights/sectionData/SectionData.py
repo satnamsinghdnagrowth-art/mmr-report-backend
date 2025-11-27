@@ -10,6 +10,7 @@ from services.reportSection.financialHighlights.tables.IncomeStatementTablesKPI 
 from services.reportSection.financialHighlights.charts.RevenueBreakdown import (
     getRevenueBreakdownChart,
 )
+from services.budget.VarianceAnalysisTable import varianceTable
 from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
@@ -64,8 +65,8 @@ class FinancialHighlightSectionDataService:
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
 
-            # charts_data.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
 
+            # charts_data.append(getRevenueBreakdownChart(self.year, self.months, self.reportId).Data)
             tables_data = getISTable(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
@@ -76,10 +77,19 @@ class FinancialHighlightSectionDataService:
                 ).Data
             )
 
+            # varianceResult = varianceTable( self.year, self.months, self.reportId)
+
+            # if varianceResult.Data is not None:
+            #     tables_data.append(varianceResult.Data)
+
+            # tables_data.append()
+
             # Combine into SectionData
             section_data = SectionData(
                 Charts=charts_data, Cards=cards_data, Tables=tables_data
             )
+
+            section_data.dict()
 
             return Result(
                 Data=section_data,
@@ -123,10 +133,11 @@ class FinancialHighlightSectionDataService:
             charts = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
             ).Data
+            
 
-            charts.append(
-                getRevenueBreakdownChart(self.year, self.months, self.reportId).Data
-            )
+            # charts.append(
+            #     getRevenueBreakdownChart(self.year, self.months, self.reportId).Data
+            # )
 
             response = ChartsListModel(Charts=charts)
 

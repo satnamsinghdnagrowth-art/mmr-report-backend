@@ -4,16 +4,15 @@ from services.calculations.Ebit import EBIT
 from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
-from typing import Optional
+from typing import Optional,List
+from helper.GetFinancialData import getFinancialData
+from core.models.base.SourceModel import SourceDataTypes
 
 
 # Operating Profit
-def contribution(year: int, month, reportId: Optional[int] = None):
+def contribution(year: int, month: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         totalRev = totalRevenue(year, month, reportId).Data
 
@@ -55,7 +54,7 @@ def contribution(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def contributionMargin(year: int, month, reportId: Optional[int] = None):
+def contributionMargin(year: int, month: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         totalContribution = contribution(year, month, reportId).Data
 

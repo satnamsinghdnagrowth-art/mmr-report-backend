@@ -5,15 +5,16 @@ from helper.LoadJsonData import financialDataTest
 from typing import Optional, List
 from helper.GetFileByReportId import getReportData
 from services.calculations.COGS import getCOGS
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
+
 
 
 # Account Receivables
-def getAR(year: int, months: List[int], reportId: Optional[int] = None):
+def getAR(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         ARdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Accounts Receivable"
         ]
@@ -39,12 +40,9 @@ def getAR(year: int, months: List[int], reportId: Optional[int] = None):
 
 
 # Account Payables
-def getAP(year: int, months: List[int], reportId: Optional[int] = None):
+def getAP(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         APdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"]["Classification"][
             "Accounts Payable"
         ]
@@ -70,9 +68,8 @@ def getAP(year: int, months: List[int], reportId: Optional[int] = None):
 
 
 # Account Payables Days
-def getAPdays(year: int, months: List[int], reportId: Optional[int] = None):
+def getAPdays(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        print(year)
         totalAP = getAP(year, months, reportId).Data
 
         totalCOG = getCOGS(year, months, reportId).Data
@@ -91,7 +88,7 @@ def getAPdays(year: int, months: List[int], reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def getARdays(year: int, months: List[int], reportId: Optional[int] = None):
+def getARdays(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         totalRev = totalRevenue(year, months, reportId).Data
 

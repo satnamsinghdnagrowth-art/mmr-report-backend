@@ -4,15 +4,16 @@ from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from typing import Optional, List
 from helper.GetFileByReportId import getReportData
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
+
 
 
 # Account Receivables
-def getCOGS(year: int, months: List[int], reportId: Optional[int] = None):
+def getCOGS(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         FCOSdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Accounts Receivable"
         ]

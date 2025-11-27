@@ -4,14 +4,13 @@ from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from services.calculations.Expenses import directExpenses, totalOperatingExpenses
 from typing import Optional
-
-from services.calculations.OtherIncome import otherIncome
-
+from core.models.base.SourceModel import SourceDataTypes
 
 # Get Gross Profit
-def grossProfit(year: int, month, reportId: Optional[int] = None):
+def grossProfit(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         totalRev = totalRevenue(year, month, reportId).Data
+        
         grossProfit = totalRev - directExpenses(year, month, reportId).Data
 
         return Result(
@@ -31,7 +30,7 @@ def grossProfit(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def operatingProfit(year: int, month, reportId: Optional[int] = None):
+def operatingProfit(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         GPValue = grossProfit(year, month, reportId).Data
         totalOperatingExpValue = totalOperatingExpenses(year, month, reportId).Data
@@ -56,7 +55,7 @@ def operatingProfit(year: int, month, reportId: Optional[int] = None):
 
 
 # Get Gross Profit Margin
-def grossProfitMargin(year: int, month, reportId: Optional[int] = None):
+def grossProfitMargin(year: int, month, reportId: int, dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         totalRev = totalRevenue(year, month, reportId).Data
         GP = grossProfit(year, month, reportId).Data

@@ -64,18 +64,9 @@
             },
             {
                 "visualId":"REVENUE_BUDGET_CHART",
-                "title": "Revenue",
+                "title": "Budget revneue",
                 "rigthYaxis":true,
                 "data": [
-                    {
-                        
-                        "valueFunc":"Revenue",
-                        "label":"Revenue",
-                        "type":"Bar",
-                        "funcName":"totalRevenue",
-                        "AreaFill":false,
-                        "yaxisId":"left"
-                    },
                     {
                         
                         "valueFunc":"Revenue",
@@ -83,6 +74,44 @@
                         "type":"Bar",
                         "funcName":"totalRevenue",
                         "AreaFill":false,
+                        "yaxisId":"left",
+                        "sourceType":"Budget"
+                    },
+                    {
+                        
+                        "valueFunc":"Revenue",
+                        "label":"Revenue",
+                        "type":"Line",
+                        "funcName":"totalRevenue",
+                        "AreaFill":false,
+                        "yaxisId":"left"
+                    }
+                
+                ],
+                "indexAxis": "x",
+                "ShowBothSideAxes":true
+            },
+            {
+                "visualId":"COS_BUDGET_CHART",
+                "title": "Budget COS",
+                "rigthYaxis":true,
+                "data": [
+                    
+                    {
+                        "valueFunc":"Cost of Goods",
+                        "label": "Cost of Goods",
+                        "type": "Bar",
+                        "funcName": "directExpenses",
+                        "AreaFill": false,
+                        "yaxisId":"left"
+                    },
+
+                    {
+                        "valueFunc":"Cost of Goods",
+                        "label": "Budget",
+                        "type": "Line",
+                        "funcName": "directExpenses",
+                        "AreaFill": false,
                         "yaxisId":"left",
                         "sourceType":"Budget"
                     }

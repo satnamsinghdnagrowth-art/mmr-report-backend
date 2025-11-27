@@ -9,15 +9,14 @@ from services.calculations.CurrentAssestAndLiabilities import (
     getTotalCurrentAssets,
     getTotalCurrentLiabilities,
 )
-
+from helper.GetFinancialData import getFinancialData
+from core.models.base.SourceModel import SourceDataTypes
 
 # Current Ratio
-def currentRatio(year: int, months: List[int], reportId: Optional[int] = None):
+def currentRatio(year: int, months: List[int], reportId:int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         CASHdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Cash & Equivalents"
         ]
@@ -48,14 +47,11 @@ def currentRatio(year: int, months: List[int], reportId: Optional[int] = None):
 
 
 # Cash Ratio
-def cashRatio(year: int, months: List[int], reportId: Optional[int] = None):
+def cashRatio(year: int, months: List[int], reportId:int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         totalCL = getTotalCurrentLiabilities(year, months, reportId).Data
 
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         cashData = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Cash & Equivalents"
         ]
@@ -83,12 +79,9 @@ def cashRatio(year: int, months: List[int], reportId: Optional[int] = None):
 
 
 # Working Capital
-def workingCapital(year: int, months: List[int], reportId: Optional[int] = None):
+def workingCapital(year: int, months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         CASHdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Cash & Equivalents"
         ]

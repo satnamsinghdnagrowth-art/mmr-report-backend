@@ -3,18 +3,18 @@ from core.models.base.ResultModel import Result
 from services.calculations.Revenue import totalRevenue
 from services.calculations.Contribution import contribution, contributionMargin
 from helper.LoadJsonData import financialDataTest
-from typing import Optional
-
+from typing import Optional,List
+from core.models.base.SourceModel import SourceDataTypes
 from helper.GetFileByReportId import getReportData
+from helper.GetFinancialData import getFinancialData
+
 
 
 # Break Even
-def breakEven(year: int, months, reportId: Optional[int] = None):
+def breakEven(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         FEXPdata = financialData["PROFIT & LOSS"]["EXPENSES"]["Classification"][
             "Fixed Expenses"
         ]
@@ -73,7 +73,7 @@ def breakEven(year: int, months, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def breakEvenMarginSafety(year: int, months, reportId: Optional[int] = None):
+def breakEvenMarginSafety(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         breakEvenValue = breakEven(year, months, reportId).Data
 

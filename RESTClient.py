@@ -2,10 +2,9 @@
 from server.init import app
 from helper.LoadJsonData import load_section_configs
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
-from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from helper.InitalFolderCreation import create_required_folders
 
@@ -17,7 +16,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # Global Exception Handler for Validatio Errors
 @app.exception_handler(RequestValidationError)
@@ -34,12 +32,10 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         },
     )
 
-
 @app.on_event("startup")
 def startup_event():
     load_section_configs()
     create_required_folders()
-
 
 def runServer():
     try:

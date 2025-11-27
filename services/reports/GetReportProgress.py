@@ -29,13 +29,17 @@ def getreportProgress(reportId: int, templateId: int):
                 return Result(
                     Data=existing_data,
                     Status=1,
-                    Message="Executive Summary Saved Successfully",
+                    Message=" Data fetch Successfully",
                 )
 
         else:
+            template_data_path = "config/CompanyBaseComponents/HeyBegal.json"
+            with open(template_data_path, "r") as f:
+                existing_data = json.load(f)
             return Result(
+                Data=None,
                 Status=1,
-                Message="Data not avaible, user has choosen to create report from scratch",
+                Message=" Data fetch Successfully",
             )
 
     except Exception as ex:

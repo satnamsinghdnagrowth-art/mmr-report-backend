@@ -5,15 +5,14 @@ from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
 from helper.GetFileByReportId import getReportData
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 
 # Get Total Revenue
-def netProfit(year: int, month, reportId: Optional[int] = None):
+def netProfit(year: int, month, reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         ebit = EBIT(year, month).Data
 
@@ -65,7 +64,7 @@ def netProfit(year: int, month, reportId: Optional[int] = None):
 
 
 #  Get Total Revenue
-def netProfitMargin(year: int, month, reportId: Optional[int] = None):
+def netProfitMargin(year: int, month, reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         netprofitValue = netProfit(year, month, reportId).Data
 

@@ -1,17 +1,19 @@
 from datetime import datetime
 from core.models.base.ResultModel import Result
 from helper.LoadJsonData import financialDataTest
-from typing import Optional
+from typing import Optional,List
 from helper.GetFileByReportId import getReportData
 from services.calculations.CashFlowActivities import (
     getInvestigatingActivitiesCashFlow,
     getOperatingActivitiesCashFlow,
     getFinancingActivitiesCashFlow,
 )
+from helper.GetFinancialData import getFinancialData
+from core.models.base.SourceModel import SourceDataTypes
 from helper.GetValueSum import getValueSum
 
 
-def getFreeCashFlow(year: int, months, reportId: Optional[int] = None):
+def getFreeCashFlow(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         freeCashFlow = (
             getOperatingActivitiesCashFlow(year, months, reportId).Data
@@ -30,12 +32,10 @@ def getFreeCashFlow(year: int, months, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def getCashOnHand(year: int, months, reportId: Optional[int] = None):
+def getCashOnHand(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         totalCash = getValueSum(
             financialData,
             ["BalanceSheet", "CURRENT ASSETS", "Classification", "Cash & Equivalents"],
@@ -55,7 +55,7 @@ def getCashOnHand(year: int, months, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def getNetCashFlow(year: int, months, reportId: Optional[int] = None):
+def getNetCashFlow(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         netCashFlow = (
             getOperatingActivitiesCashFlow(year, months, reportId).Data

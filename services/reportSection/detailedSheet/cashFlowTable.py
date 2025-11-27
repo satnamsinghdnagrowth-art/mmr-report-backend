@@ -14,15 +14,13 @@ from helper.GenerateRowsData import (
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from helper.GetCurrentPrevPeriods import getCurrentAndPreviousPeriods
 import calendar
-
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 # Generate Cash flow Table
 def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements"):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, SourceDataTypes.Actuals)
         reportDatarange = getReportData(reportId)["Report Details"]["Data Range"]
 
         available_months = sorted(

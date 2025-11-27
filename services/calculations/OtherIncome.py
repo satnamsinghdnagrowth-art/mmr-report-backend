@@ -3,15 +3,14 @@ from core.models.base.ResultModel import Result
 from helper.GetFileByReportId import getReportData
 from helper.LoadJsonData import financialDataTest
 from typing import Optional
+from core.models.base.SourceModel import SourceDataTypes
+from helper.GetFinancialData import getFinancialData
 
 
 # Get Total Revenue
-def otherIncome(year: int, month, reportId: Optional[int] = None):
+def otherIncome(year: int, month, reportId:int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         # Another Expenses
         AINCdata = financialData["PROFIT & LOSS"]["OTHER INCOME"]["Classification"][
@@ -46,12 +45,9 @@ def otherIncome(year: int, month, reportId: Optional[int] = None):
 
 
 #  Get Total Revenue
-def interestIncome(year: int, month, reportId: Optional[int] = None):
+def interestIncome(year: int, month, reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         # Interest Expenses
         interestIncomedata = financialData["PROFIT & LOSS"]["INTEREST INCOME"][

@@ -4,16 +4,16 @@ from services.calculations.Ebit import EBIT
 from services.calculations.Revenue import totalRevenue
 from helper.LoadJsonData import financialDataTest
 from helper.GetFileByReportId import getReportData
-from typing import Optional
+from typing import Optional,List
+from helper.GetFinancialData import getFinancialData
+from core.models.base.SourceModel import SourceDataTypes
 
 
 # Operating Profit
-def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None):
+def getTotalCurrentLiabilities(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
+        
         STDdata = financialData["BalanceSheet"]["CURRENT LIABILITIES"][
             "Classification"
         ]["Short-term Debt"]
@@ -76,12 +76,9 @@ def getTotalCurrentLiabilities(year: int, months, reportId: Optional[int] = None
         return Result(Status=0, Message=message)
 
 
-def getTotalCurrentAssets(year: int, months, reportId: Optional[int] = None):
+def getTotalCurrentAssets(year: int,months: List[int], reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         ARdata = financialData["BalanceSheet"]["CURRENT ASSETS"]["Classification"][
             "Accounts Receivable"
         ]

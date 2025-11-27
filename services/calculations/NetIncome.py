@@ -5,20 +5,18 @@ from services.calculations.Revenue import totalRevenue
 from services.calculations.EarningBefore import (
     earningBeforeTax,
 )
-
+from core.models.base.SourceModel import SourceDataTypes
 from helper.GetValueSum import getValueSum
 from typing import Optional
 from helper.LoadJsonData import financialDataTest
+from helper.GetFinancialData import getFinancialData
 from helper.GetFileByReportId import getReportData
 
 
 # Operating Profit
-def netIncome(year: int, month, reportId: Optional[int] = None):
+def netIncome(year: int, month, reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = financialDataTest
-
-        if reportId is not None:
-            financialData = getReportData(reportId)["Financial Data"]
+        financialData = getFinancialData(reportId, dataType)
 
         TEXPdata = financialData["PROFIT & LOSS"]["TAX EXPENSES"]["Classification"][
             "Tax Expense"
@@ -56,7 +54,7 @@ def netIncome(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
+def netIncomeMargin(year: int, month, reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
         totalRev = totalRevenue(year, month, reportId).Data
 
@@ -81,12 +79,9 @@ def netIncomeMargin(year: int, month, reportId: Optional[int] = None):
         return Result(Status=0, Message=message)
 
 
-def otherIncome(year: int, months, reportId: Optional[int] = None):
+def otherIncome(year: int, months, reportId: int,dataType: Optional[str] = SourceDataTypes.Actuals):
     try:
-        financialData = (
-            getReportData(reportId)["Financial Data"] if reportId else financialDataTest
-        )
-
+        financialData = getFinancialData(reportId, dataType)
         #  Income without interest
         totaltherIncome = getValueSum(
             financialData,

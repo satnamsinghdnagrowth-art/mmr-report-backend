@@ -1,6 +1,6 @@
 from core.models.base.SourceModel import SourceDataTypes
 from helper.GetFileByReportId import getReportData, getBudgetData
-
+import os
 
 def getFinancialData(reportId, dataType):
     if dataType == SourceDataTypes.Actuals:
@@ -11,3 +11,10 @@ def getFinancialData(reportId, dataType):
 
     # fallback or test data
     return None
+
+
+def checkFileExistance(filepath):
+    if os.path.exists(filepath):
+        return True
+    else:
+        return False
