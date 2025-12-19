@@ -8,7 +8,7 @@ import shutil
 from fastapi.encoders import jsonable_encoder
 
 REPORT_JSON_PATH = "database/ReportTable.json"
-
+REPORT_JSONL_PATH = "database/ReportTable.jsonl"
 
 # Analyze the data
 def formatFinancialData(filePath, reportId: int, companyLogo):
@@ -73,6 +73,9 @@ def formatFinancialData(filePath, reportId: int, companyLogo):
 
         # Append new report metadata
         existing_data.append(reportMetadata)
+
+        with open(REPORT_JSONL_PATH, "a", encoding="utf-8") as f:
+             f.write(json.dumps(reportMetadata) + "\n")
 
         with open(REPORT_JSON_PATH, "w") as f:
             json.dump(existing_data, f, indent=4)

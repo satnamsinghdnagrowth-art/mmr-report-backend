@@ -18,7 +18,7 @@ from routes.ReportProgressHandling import ReportProgressRouter
 
 # App Instance
 app = FastAPI()
-1
+
 # Data Preprccessing Routes
 app.include_router(UploadRouter, prefix="/api/v1/upload/file")
 app.include_router(ReportRouter, prefix="/api/v1/report")

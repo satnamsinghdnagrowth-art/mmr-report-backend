@@ -5,5 +5,5 @@ class SectionName(Enum):
     FinancialHighlights = "Profit & Loss Snippet"
     ExpensesAnalysis = "Expenses Analysis"
     Profitability = "Profitability"
-    BreakevenAnlaysis = "BreakevenAnlaysis"
-    CashFlowAnalysis = "CashFlowAnalysis"
+    BreakevenAnlaysis = "Break-Even Anlaysis"
+    CashFlowAnalysis = "Cash Flow Analysis"

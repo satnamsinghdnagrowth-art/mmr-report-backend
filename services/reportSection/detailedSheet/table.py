@@ -62,8 +62,9 @@ def getDetailedTable(year: int, months, tableTypes: list[str], reportId):
                     + [f"{calendar.month_abbr[m]} {y}" for (m, y) in staticMonths]
                     + ["Total"]
                 )
+
             else:
-                headers = [tableType] + [
+                headers = ["BALANCE SHEET"] + [
                     f"{calendar.month_abbr[m]} {y}" for (m, y) in staticMonths
                 ]
 

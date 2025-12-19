@@ -7,7 +7,6 @@ from services.reportSection.cashFlowAnalysis.sectionData.SectionData import (
 
 CashFlowRouter = APIRouter()
 
-
 # # Get Financial Higlights Section All Data
 @CashFlowRouter.post("/get/report/{reportId}/sectionData", response_model=Result)
 def getSection(reportId: int, payload: SectionRequestData):
