@@ -1,0 +1,60 @@
+[
+    {
+        "ReportId": 47145,
+        "CustomKpi": {
+            "VisualType": "Chart",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Consulting Services (%)",
+                "Software - G&A (%)",
+                "Travel and Meals (%)",
+                "R&D Expenses (%)",
+                "Professional Services (%)"
+            ],
+            "SectionName": "Cash Flow Analysis"
+        }
+    },
+    {
+        "ReportId": 47145,
+        "CustomKpi": {
+            "VisualType": "Chart",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Consulting Services (%)",
+                "Software - G&A (%)",
+                "Travel and Meals (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    },
+    {
+        "ReportId": 47145,
+        "CustomKpi": {
+            "VisualType": "Table",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Consulting Services (%)",
+                "Software - G&A (%)",
+                "Travel and Meals (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    },
+    {
+        "ReportId": 47145,
+        "CustomKpi": {
+            "VisualType": "Table",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Consulting Services (%)",
+                "Software - G&A (%)",
+                "Travel and Meals (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    }
+]

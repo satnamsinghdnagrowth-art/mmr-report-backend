@@ -1,0 +1,1015 @@
+{
+  "Report Id": "47145",
+  "Custom KPIs": {
+    "Wages and Benefits (%)": [
+      {
+        "Month": 1,
+        "Value": 4.35718256687396,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 3.93255479144112,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 3.12985125340435,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 2.23783589125766,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 1.82808367612359,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 2.23312959248489,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 2.28712186587929,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 1.91149890111142,
+        "Year": 2025
+      }
+    ],
+    "Sales & Marketing (%)": [
+      {
+        "Month": 1,
+        "Value": 0.439450047928722,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.716739083506328,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.59041207331593,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.299703113658642,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.2945116874002,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.344650230700742,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.644360321953898,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.469667223228113,
+        "Year": 2025
+      }
+    ],
+    "Consulting Services (%)": [
+      {
+        "Month": 1,
+        "Value": 1.13036058282803,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.776648287884124,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.46118805408447,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.349397996063964,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.498508057734117,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.51436013010009,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.815095465432831,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.570051300446388,
+        "Year": 2025
+      }
+    ],
+    "Software - G&A (%)": [
+      {
+        "Month": 1,
+        "Value": 0.213192496153697,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.16064300310497,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.111668613836898,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.200113928028914,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.131494240223816,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.143709748120174,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.114051690842432,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.128291327890134,
+        "Year": 2025
+      }
+    ],
+    "Travel and Meals (%)": [
+      {
+        "Month": 1,
+        "Value": 0.0874327012406059,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.306758706657426,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.0993700447889852,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.0134640855451709,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.0691867028525825,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.0514804854421134,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.0751488917923216,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.129624370843582,
+        "Year": 2025
+      }
+    ],
+    "R&D Expenses (%)": [
+      {
+        "Month": 1,
+        "Value": 0.787454310722181,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.433901468733617,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.3044850383021,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.23932219370384,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.2206851167771,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.223071167738531,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.626939071749171,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.0698424119750387,
+        "Year": 2025
+      }
+    ],
+    "Professional Services (%)": [
+      {
+        "Month": 1,
+        "Value": 0.381403655881011,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.170957087138802,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.236032614781586,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.127182217499645,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.253339652717647,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.0378197936953037,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.0527821376519314,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.0432409811423886,
+        "Year": 2025
+      }
+    ],
+    "Office Expense - G&A (%)": [
+      {
+        "Month": 1,
+        "Value": 0.0253026712643763,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.00249890847236447,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.0011691742660959,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.124965017173388,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.0241039867493655,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.018809287083219,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.064264726760744,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.0190577813268653,
+        "Year": 2025
+      }
+    ],
+    "Dues and Subcriptions -G&A (%)": [
+      {
+        "Month": 1,
+        "Value": 0.0257237791104651,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.0181432181643183,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.00974968891208361,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.0108394381795461,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.0102734985232852,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.00852084508556842,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.0101954539397742,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.0105422844356382,
+        "Year": 2025
+      }
+    ],
+    "Insurance Expense - G&A (%)": [
+      {
+        "Month": 1,
+        "Value": 0.0258715362494436,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.0227355873717151,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.0483224974385612,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.0131022845469443,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.0121193055460384,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.0114184792068597,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.0129710163417316,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.0105826742848684,
+        "Year": 2025
+      }
+    ],
+    "LinkedIn (Ad)": [
+      {
+        "Month": 1,
+        "Value": 5828.08,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 6228.75,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 2695.4,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 8119.92,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 7071.47,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 13419.44,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 10275.42,
+        "Year": 2025
+      }
+    ],
+    "LEVELUP LEADS LL (Ad)": [
+      {
+        "Month": 1,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 5000.0,
+        "Year": 2025
+      }
+    ],
+    "Others (Ad)": [
+      {
+        "Month": 1,
+        "Value": 2411.0,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 3230.87,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 24394.6,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 1896.94,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 1415.0,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 1415.0,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 10094.35,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 3350.0,
+        "Year": 2025
+      }
+    ],
+    "Google (Ad)": [
+      {
+        "Month": 1,
+        "Value": 2825.13,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 5540.45,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 5169.56,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 3278.91,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 1214.02,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 2857.61,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 2733.83,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 3122.38,
+        "Year": 2025
+      }
+    ],
+    "Hubspot (Ad)": [
+      {
+        "Month": 1,
+        "Value": 50.0,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 50.0,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 175.19,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 1500.56,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 2111.07,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 2111.07,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 2111.07,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 2111.07,
+        "Year": 2025
+      }
+    ],
+    "Tee time mastercard (Ad)": [
+      {
+        "Month": 1,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 0.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 1190.46,
+        "Year": 2025
+      }
+    ],
+    "Matthews, Kennedy Renee (S&M)": [
+      {
+        "Month": 7,
+        "Value": 6890.71,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 6890.71,
+        "Year": 2025
+      }
+    ],
+    "Taichman, Amir (G&A)": [
+      {
+        "Month": 7,
+        "Value": 16844.09,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 16844.09,
+        "Year": 2025
+      }
+    ],
+    "Cordeiro, Kevin (OP)": [
+      {
+        "Month": 7,
+        "Value": 19955.92,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 19955.92,
+        "Year": 2025
+      }
+    ],
+    "Nevin, Stephanie Ann (S&M)": [
+      {
+        "Month": 7,
+        "Value": 18472.91,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 18317.18,
+        "Year": 2025
+      }
+    ],
+    "Alon, Nir (CS)": [
+      {
+        "Month": 7,
+        "Value": 20324.21,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 20324.21,
+        "Year": 2025
+      }
+    ],
+    "Aharonoff, Monica (G&A)": [
+      {
+        "Month": 7,
+        "Value": 11367.64,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 11367.64,
+        "Year": 2025
+      }
+    ],
+    "Honagekar, Shreyas Madhukar (CS)": [
+      {
+        "Month": 7,
+        "Value": 11017.68,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 10932.0,
+        "Year": 2025
+      }
+    ],
+    "Zing, Emily  (CS)": [
+      {
+        "Month": 7,
+        "Value": 109.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 0.0,
+        "Year": 2025
+      }
+    ],
+    "Others (CS)": [
+      {
+        "Month": 7,
+        "Value": -109.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 2798.09,
+        "Year": 2025
+      }
+    ],
+    "Searates FZE": [
+      {
+        "Month": 1,
+        "Value": 6676.46,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 6730.02,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 6810.36,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 6620.84,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 9668.0,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 8368.0,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 15577.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 13779.0,
+        "Year": 2025
+      }
+    ],
+    "LinkedIn": [
+      {
+        "Month": 1,
+        "Value": 5828.08,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 6228.75,
+        "Year": 2025
+      },
+      {
+        "Month": 4,
+        "Value": 2695.4,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 8119.92,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 7071.47,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 13419.44,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 10275.42,
+        "Year": 2025
+      }
+    ],
+    "Tal Brown": [
+      {
+        "Month": 1,
+        "Value": 10937.5,
+        "Year": 2025
+      },
+      {
+        "Month": 2,
+        "Value": 8750.0,
+        "Year": 2025
+      },
+      {
+        "Month": 3,
+        "Value": 8750.0,
+        "Year": 2025
+      },
+      {
+        "Month": 5,
+        "Value": 8750.0,
+        "Year": 2025
+      },
+      {
+        "Month": 6,
+        "Value": 8750.0,
+        "Year": 2025
+      },
+      {
+        "Month": 7,
+        "Value": 8750.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 8750.0,
+        "Year": 2025
+      }
+    ],
+    "First Investment Bank AD": [
+      {
+        "Month": 8,
+        "Value": 8543.16,
+        "Year": 2025
+      }
+    ],
+    "Jody": [
+      {
+        "Month": 7,
+        "Value": 10000.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 5000.0,
+        "Year": 2025
+      }
+    ],
+    "International Forest Products (AR)": [
+      {
+        "Month": 8,
+        "Value": 64500.0,
+        "Year": 2025
+      }
+    ],
+    "Adama Agan Ltd (AR)": [
+      {
+        "Month": 8,
+        "Value": 20374.5,
+        "Year": 2025
+      }
+    ],
+    "High Life, LLC (AR)": [
+      {
+        "Month": 8,
+        "Value": 10860.28,
+        "Year": 2025
+      }
+    ],
+    "Jones Twine and Net wrap (AR)": [
+      {
+        "Month": 8,
+        "Value": 4999.0,
+        "Year": 2025
+      }
+    ],
+    "Mission Produce (Ar)": [
+      {
+        "Month": 8,
+        "Value": 4387.5,
+        "Year": 2025
+      }
+    ],
+    "International Forest Products (Customer)": [
+      {
+        "Month": 7,
+        "Value": 21500.0,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 21500.0,
+        "Year": 2025
+      }
+    ],
+    "Adama Agan Ltd (Customer)": [
+      {
+        "Month": 7,
+        "Value": -8055.15666666667,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 14214.8333333333,
+        "Year": 2025
+      }
+    ],
+    "Robert Bosch LLC (Customer)": [
+      {
+        "Month": 7,
+        "Value": 2916.66666666667,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 2916.66666666667,
+        "Year": 2025
+      }
+    ],
+    "CANUSA WOOD PRODUCTS (Customer)": [
+      {
+        "Month": 7,
+        "Value": 2291.66666666667,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 2291.66666666667,
+        "Year": 2025
+      }
+    ],
+    "High Life, LLC (Customer)": [
+      {
+        "Month": 7,
+        "Value": 11598.3433333333,
+        "Year": 2025
+      },
+      {
+        "Month": 8,
+        "Value": 1843.33333333333,
+        "Year": 2025
+      }
+    ]
+  }
+}

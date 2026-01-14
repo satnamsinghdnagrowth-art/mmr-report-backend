@@ -140,7 +140,7 @@ def readExcelFile(filePath: str, reportId: int) -> Result:
         data.columns = headers
 
         # Optional conversion for consistency
-        data = data.applymap(
+        data = data.map(
             lambda x: x.item() if isinstance(x, (np.int64, np.float64)) else x
         )
 

@@ -4684,5 +4684,373 @@
         "UpdatedOn": "2025-12-17 17:18:19.113604",
         "UpdatedBy": 1,
         "CreatedBy": 1
+    },
+    {
+        "SourceId": 123456,
+        "ReportId": 47145,
+        "SourceType": "Excel",
+        "SourceName": "BaseFile_47145_20260113152621.xlsx",
+        "FilePath": "/home/hello/Work/MMR_Report_Generation/backend/database/uploadedFiles/BaseFile_47145_20260113152621.xlsx",
+        "SheetName": "Financial Data",
+        "TotalItems": 74,
+        "ItemsList": [
+            {
+                "Classification": "AINC",
+                "Accounts": [
+                    "Miscellaneous Income"
+                ]
+            },
+            {
+                "Classification": "AP",
+                "Accounts": [
+                    "Accounts Payable"
+                ]
+            },
+            {
+                "Classification": "AR",
+                "Accounts": [
+                    "Accounts Receivable",
+                    "Accounts Receivable - Other",
+                    "Sundry Accounts Receivable",
+                    "Due by Directors"
+                ]
+            },
+            {
+                "Classification": "CASH",
+                "Accounts": [
+                    "Cash & Equivalents"
+                ]
+            },
+            {
+                "Classification": "CE",
+                "Accounts": [
+                    "Current Earnings"
+                ]
+            },
+            {
+                "Classification": "DA",
+                "Accounts": [
+                    "Depreciation"
+                ]
+            },
+            {
+                "Classification": "FA",
+                "Accounts": [
+                    "Machinery and equipment",
+                    "Computer equipment",
+                    "Furniture and Fixtures",
+                    "Leasehold Improvements",
+                    "Motor vehicles",
+                    "Land",
+                    "Cutlery and crockery",
+                    "Signs",
+                    "Accumulated depreciation - fixed assets"
+                ]
+            },
+            {
+                "Classification": "FEXP",
+                "Accounts": [
+                    "Payroll Expenses - Salaries and wages",
+                    "National insurance - Salaries and wages",
+                    "Staff meals ",
+                    "Group Health & Medical - Wages",
+                    "Payroll expenses - Administration",
+                    "National insurance - Administrative staff",
+                    "Group Health & Medical - Administration",
+                    "Staff incentive programme",
+                    "Rent or lease payments",
+                    "Vehicle expense - gas and oil",
+                    "Repairs and Maintenance",
+                    "Utilities",
+                    "Security services",
+                    "Insurance - Pension",
+                    "Insurance - General",
+                    "Other general and administrative expenses",
+                    "Advertising & promotion",
+                    "Stationery and printing",
+                    "Travel expenses - general and admin expenses",
+                    "Professional fees",
+                    "Dues and subscriptions",
+                    "Office expenses",
+                    "Equipment rental",
+                    "Accounting support fees",
+                    "Cashier shorts and overs",
+                    "Credit card commission",
+                    "Equipment , parts and supplies",
+                    "Garbage Disposal",
+                    "Miscellaneous Expense",
+                    "Payroll expense - Severance payment",
+                    "Staff Uniforms",
+                    "Uncategorized Expenses",
+                    "Vehicle expense - Licenses",
+                    "Vehicle Lease",
+                    "Penalties & interest",
+                    "Overdraft Interest",
+                    "Bank charges and interest"
+                ]
+            },
+            {
+                "Classification": "IEXP",
+                "Accounts": [
+                    "Loan interest"
+                ]
+            },
+            {
+                "Classification": "INV",
+                "Accounts": [
+                    "Inventory"
+                ]
+            },
+            {
+                "Classification": "LTD",
+                "Accounts": [
+                    "Long-term debt"
+                ]
+            },
+            {
+                "Classification": "OCA",
+                "Accounts": [
+                    "Prepaid Expenses",
+                    "Security deposits",
+                    "Undeposited Funds",
+                    "Wildey Drive - thru Project"
+                ]
+            },
+            {
+                "Classification": "OCL",
+                "Accounts": [
+                    "Other Current Liabilities",
+                    "Accrued liabilities",
+                    "Payroll liabilities",
+                    "Tax Liability"
+                ]
+            },
+            {
+                "Classification": "OEQ",
+                "Accounts": [
+                    "Share capital"
+                ]
+            },
+            {
+                "Classification": "ONCL",
+                "Accounts": [
+                    "Shareholder's loan"
+                ]
+            },
+            {
+                "Classification": "RE",
+                "Accounts": [
+                    "Retained Earnings"
+                ]
+            },
+            {
+                "Classification": "REV",
+                "Accounts": [
+                    "Sales - Retail",
+                    "Discounts/Refunds",
+                    "Services"
+                ]
+            },
+            {
+                "Classification": "TEXP",
+                "Accounts": [
+                    "Corporation  tax expense"
+                ]
+            },
+            {
+                "Classification": "VCOS",
+                "Accounts": [
+                    "Cost of goods sold"
+                ]
+            }
+        ],
+        "CreatedOn": "2026-01-13 15:26:21.281899",
+        "UpdatedOn": "2026-01-13 15:26:21.281908",
+        "UpdatedBy": 1,
+        "CreatedBy": 1
+    },
+    {
+        "SourceId": 123456,
+        "ReportId": 66283,
+        "SourceType": "Excel",
+        "SourceName": "BaseFile_66283_20260113162546.xlsx",
+        "FilePath": "/home/hello/Work/MMR_Report_Generation/backend/database/uploadedFiles/BaseFile_66283_20260113162546.xlsx",
+        "SheetName": "Financial Data",
+        "TotalItems": 74,
+        "ItemsList": [
+            {
+                "Classification": "AINC",
+                "Accounts": [
+                    "Miscellaneous Income"
+                ]
+            },
+            {
+                "Classification": "AP",
+                "Accounts": [
+                    "Accounts Payable"
+                ]
+            },
+            {
+                "Classification": "AR",
+                "Accounts": [
+                    "Accounts Receivable",
+                    "Accounts Receivable - Other",
+                    "Sundry Accounts Receivable",
+                    "Due by Directors"
+                ]
+            },
+            {
+                "Classification": "CASH",
+                "Accounts": [
+                    "Cash & Equivalents"
+                ]
+            },
+            {
+                "Classification": "CE",
+                "Accounts": [
+                    "Current Earnings"
+                ]
+            },
+            {
+                "Classification": "DA",
+                "Accounts": [
+                    "Depreciation"
+                ]
+            },
+            {
+                "Classification": "FA",
+                "Accounts": [
+                    "Machinery and equipment",
+                    "Computer equipment",
+                    "Furniture and Fixtures",
+                    "Leasehold Improvements",
+                    "Motor vehicles",
+                    "Land",
+                    "Cutlery and crockery",
+                    "Signs",
+                    "Accumulated depreciation - fixed assets"
+                ]
+            },
+            {
+                "Classification": "FEXP",
+                "Accounts": [
+                    "Payroll Expenses - Salaries and wages",
+                    "National insurance - Salaries and wages",
+                    "Staff meals ",
+                    "Group Health & Medical - Wages",
+                    "Payroll expenses - Administration",
+                    "National insurance - Administrative staff",
+                    "Group Health & Medical - Administration",
+                    "Staff incentive programme",
+                    "Rent or lease payments",
+                    "Vehicle expense - gas and oil",
+                    "Repairs and Maintenance",
+                    "Utilities",
+                    "Security services",
+                    "Insurance - Pension",
+                    "Insurance - General",
+                    "Other general and administrative expenses",
+                    "Advertising & promotion",
+                    "Stationery and printing",
+                    "Travel expenses - general and admin expenses",
+                    "Professional fees",
+                    "Dues and subscriptions",
+                    "Office expenses",
+                    "Equipment rental",
+                    "Accounting support fees",
+                    "Cashier shorts and overs",
+                    "Credit card commission",
+                    "Equipment , parts and supplies",
+                    "Garbage Disposal",
+                    "Miscellaneous Expense",
+                    "Payroll expense - Severance payment",
+                    "Staff Uniforms",
+                    "Uncategorized Expenses",
+                    "Vehicle expense - Licenses",
+                    "Vehicle Lease",
+                    "Penalties & interest",
+                    "Overdraft Interest",
+                    "Bank charges and interest"
+                ]
+            },
+            {
+                "Classification": "IEXP",
+                "Accounts": [
+                    "Loan interest"
+                ]
+            },
+            {
+                "Classification": "INV",
+                "Accounts": [
+                    "Inventory"
+                ]
+            },
+            {
+                "Classification": "LTD",
+                "Accounts": [
+                    "Long-term debt"
+                ]
+            },
+            {
+                "Classification": "OCA",
+                "Accounts": [
+                    "Prepaid Expenses",
+                    "Security deposits",
+                    "Undeposited Funds",
+                    "Wildey Drive - thru Project"
+                ]
+            },
+            {
+                "Classification": "OCL",
+                "Accounts": [
+                    "Other Current Liabilities",
+                    "Accrued liabilities",
+                    "Payroll liabilities",
+                    "Tax Liability"
+                ]
+            },
+            {
+                "Classification": "OEQ",
+                "Accounts": [
+                    "Share capital"
+                ]
+            },
+            {
+                "Classification": "ONCL",
+                "Accounts": [
+                    "Shareholder's loan"
+                ]
+            },
+            {
+                "Classification": "RE",
+                "Accounts": [
+                    "Retained Earnings"
+                ]
+            },
+            {
+                "Classification": "REV",
+                "Accounts": [
+                    "Sales - Retail",
+                    "Discounts/Refunds",
+                    "Services"
+                ]
+            },
+            {
+                "Classification": "TEXP",
+                "Accounts": [
+                    "Corporation  tax expense"
+                ]
+            },
+            {
+                "Classification": "VCOS",
+                "Accounts": [
+                    "Cost of goods sold"
+                ]
+            }
+        ],
+        "CreatedOn": "2026-01-13 16:25:46.231325",
+        "UpdatedOn": "2026-01-13 16:25:46.231331",
+        "UpdatedBy": 1,
+        "CreatedBy": 1
     }
 ]

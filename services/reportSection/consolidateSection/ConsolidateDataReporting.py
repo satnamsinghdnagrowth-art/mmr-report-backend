@@ -72,12 +72,11 @@ def getConsolidateSectionData(
         saveResponse(reportId, CombinedData)
 
         CustomKpisList = getCustomKpisList(reportId)
-
+        
         if CustomKpisList is not None:
             data = consolidateDataResponse.get(reportId)
             formattedData = data.model_dump()
             sectionData = formattedData["Sections"]
-
             # Inject custom KPIs if any
             if reportId in CustomKpisList:
                 for customKpi in CustomKpisList[reportId]:
@@ -95,6 +94,7 @@ def getConsolidateSectionData(
                                 Items=customKpi.Items,
                             )
                             kpiResponse = customKPICreation(requestModel, reportId).Data
+                            # print(f"kpiResponse :: {kpiResponse}")
                             sec["SectionData"][visualType].append(kpiResponse)
         else:
             formattedData = CombinedData

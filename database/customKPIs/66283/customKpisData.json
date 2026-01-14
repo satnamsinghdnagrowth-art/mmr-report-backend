@@ -1,0 +1,49 @@
+[
+    {
+        "ReportId": 66283,
+        "CustomKpi": {
+            "VisualType": "Table",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Insurance Expense - G&A (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    },
+    {
+        "ReportId": 66283,
+        "CustomKpi": {
+            "VisualType": "Table",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Consulting Services (%)",
+                "Dues and Subcriptions -G&A (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    },
+    {
+        "ReportId": 66283,
+        "CustomKpi": {
+            "VisualType": "Chart",
+            "Items": [
+                "Wages and Benefits (%)",
+                "Sales & Marketing (%)",
+                "Consulting Services (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    },
+    {
+        "ReportId": 66283,
+        "CustomKpi": {
+            "VisualType": "Table",
+            "Items": [
+                "Wages and Benefits (%)"
+            ],
+            "SectionName": "Profit & Loss Snippet"
+        }
+    }
+]

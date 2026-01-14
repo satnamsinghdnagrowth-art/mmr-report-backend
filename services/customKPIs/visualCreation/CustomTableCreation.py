@@ -1,69 +1,87 @@
+from typing import Dict, Any
+import calendar
+import traceback
+from datetime import datetime
+
+from core.models.base.ResultModel import Result
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from core.models.visualsModel.TableModel import TableModel
-from typing import Dict
-import calendar
-from datetime import datetime
-from core.models.base.ResultModel import Result
 from helper.GetValueSymbol import getValueSymbol
 
 
-def format_table_data(filtered_data: Dict) -> Dict:
+def format_table_data(filtered_data: Dict[str, Any]):
+    """
+    Format filtered KPI data into a table structure.
+    """
     try:
-        """
-        Format filtered KPI data into table structure
-        """
+        custom_kpis = filtered_data.get("Custom KPIs", {})
+        if not custom_kpis:
+            raise ValueError("No Custom KPI data available for table formatting.")
 
-        # Collect all unique months across all KPIs
+        # --- Collect all unique (month, year) pairs ---
         all_months = set()
-        for kpi_values in filtered_data["Custom KPIs"].values():
-            for entry in kpi_values:
-                all_months.add((entry["Month"], entry["Year"]))
+        for kpi_values in custom_kpis.values():
+            for entry in kpi_values or []:
+                month = entry.get("Month")
+                year = entry.get("Year")
+                if month is not None and year is not None:
+                    all_months.add((month, year))
 
-        # Sort months by year and month
-        sorted_months = sorted(list(all_months), key=lambda x: (x[1], x[0]))
+        if not all_months:
+            raise ValueError("No valid month/year data found in KPI entries.")
 
-        # Build columns: KPI Name + Month columns
+        # --- Sort months chronologically (Year, Month) ---
+        sorted_months = sorted(all_months, key=lambda x: (x[1], x[0]))
+
+        # --- Build table columns ---
         columns = ["KPI Name"]
-        for month, year in sorted_months:
-            month_name = calendar.month_abbr[month]
-            columns.append(f"{month_name} {year}")
+        columns.extend(
+            f"{calendar.month_abbr[month]} {year}"
+            for month, year in sorted_months
+        )
 
-        # Build rows - one row per KPI
         rows = []
-        for kpi_name, kpi_values in filtered_data["Custom KPIs"].items():
-            if not kpi_values:  # Skip empty KPIs
+
+        # --- Build table rows ---
+        for kpi_name, kpi_values in custom_kpis.items():
+            if not kpi_values:
                 continue
 
+            unit_entities = getValueSymbol(kpi_name)
+
+            # KPI name column
             row = [
-                ValueObjectModel(Value=kpi_name, isPositive=True, Type="", Symbol="")
+                ValueObjectModel(
+                    Value=kpi_name,
+                    isPositive=True,
+                    Type="",
+                    Symbol=""
+                )
             ]
 
-            # Create a lookup dictionary for quick access
+            # Lookup values by (month, year)
             value_lookup = {
-                (entry["Month"], entry["Year"]): entry["Value"] for entry in kpi_values
+                (entry.get("Month"), entry.get("Year")): entry.get("Value")
+                for entry in kpi_values
             }
 
-            # Fill in values for each month (use "-" or 0 for missing values)
+            # Fill month-wise values
             for month, year in sorted_months:
                 value = value_lookup.get((month, year))
-                unitEntities = getValueSymbol(kpi_name)
-                if value is not None:
-                    value = value_lookup.get((month, year), 0)
-                    response = ValueObjectModel(
-                        Value=round(value, 2),
+
+                row.append(
+                    ValueObjectModel(
+                        Value=round(value, 2) if value is not None else "-",
                         isPositive=True,
-                        Type=unitEntities["type"],
-                        Symbol=unitEntities["symbol"],
+                        Type=unit_entities.get("type"),
+                        Symbol=unit_entities.get("symbol"),
                     )
-
-                    row.append(response)
-
-                else:
-                    row.append("-")  # or use 0 if you prefer
+                )
 
             rows.append(row)
 
-        table = TableModel(
+        return TableModel(
+            Id=f"custom_kpi_table_{filtered_data.get('Report Id', '')}",
             Title="Custom KPI Table",
             Column=columns,
             Rows=rows,
@@ -72,9 +90,14 @@ def format_table_data(filtered_data: Dict) -> Dict:
             KpiType="Custom",
         )
 
-        return table
-
     except Exception as ex:
-        message = f"Error occurred in format_chart_data: {ex}"
+        error_trace = traceback.format_exc()
+        message = f"Error occurred in format_table_data: {ex}"
+
         print(f"{datetime.now()} {message}")
-        return Result(Status=0, Message=message)
+        print(error_trace)
+
+        return Result(
+            Status=0,
+            Message=message
+        )

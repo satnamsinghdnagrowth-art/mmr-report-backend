@@ -1,7 +1,8 @@
-from core.models.visualsModel.ValueObject import ValueObjectModel
 from typing import Dict
 import calendar
+import traceback
 from datetime import datetime
+
 from core.models.base.ResultModel import Result
 from core.models.visualsModel.ChartModel import (
     ChartDataModel,
@@ -11,79 +12,103 @@ from core.models.visualsModel.ChartModel import (
 from helper.GetValueSymbol import getValueSymbol
 
 
-def format_chart_data(filtered_data: Dict) -> Dict:
+def format_chart_data(filtered_data: Dict):
+    """
+    Format filtered KPI data into chart structure with multiple series
+    """
     try:
-        """
-        Format filtered KPI data into chart structure with multiple series
-        """
+        custom_kpis = filtered_data.get("Custom KPIs", {})
+        if not custom_kpis:
+            raise ValueError("No Custom KPI data available for chart formatting.")
 
-        # Collect all unique months across all KPIs
+        # --- Collect all unique (month, year) pairs ---
         all_months = set()
-        for kpi_values in filtered_data["Custom KPIs"].values():
+        for kpi_values in custom_kpis.values():
             for entry in kpi_values:
-                all_months.add((entry["Month"], entry["Year"]))
+                month = entry.get("Month")
+                year = entry.get("Year")
+                if month and year:
+                    all_months.add((month, year))
 
-        # Sort months by year and month
-        sorted_months = sorted(list(all_months), key=lambda x: (x[1], x[0]))
+        if not all_months:
+            raise ValueError("No valid month/year data found in KPI entries.")
 
-        # Build X-axis labels
-        xaxis = []
-        for month, year in sorted_months:
-            month_name = calendar.month_abbr[month]
-            xaxis.append(f"{month_name} {year}")
+        # --- Sort months chronologically ---
+        sorted_months = sorted(all_months, key=lambda x: (x[1], x[0]))
 
-        # Build Y-axis series - one series per KPI
+        # --- Build X-axis labels ---
+        xaxis = [
+            f"{calendar.month_abbr[month]} {year}"
+            for month, year in sorted_months
+        ]
+
+        # --- Build Y-axis series (one per KPI) ---
         yaxis_series = []
+        yaxis_controllers = {}
+        axis_index = 0
 
-        for kpi_name, kpi_values in filtered_data["Custom KPIs"].items():
-            if not kpi_values:  # Skip empty KPIs
+        for kpi_name, kpi_values in custom_kpis.items():
+            if not kpi_values:
                 continue
 
-            # Create a lookup dictionary for quick access
+            # Lookup values by (month, year)
             value_lookup = {
-                (entry["Month"], entry["Year"]): entry["Value"] for entry in kpi_values
+                (entry.get("Month"), entry.get("Year")): entry.get("Value", 0)
+                for entry in kpi_values
             }
 
-            # Fill in values for each month
-            values = []
-            for month, year in sorted_months:
-                value = value_lookup.get((month, year), 0)
+            values = [
+                round(value_lookup.get((month, year), 0), 2)
+                for month, year in sorted_months
+            ]
 
-                values.append(round(value, 2))
+            # Determine unit type and symbol
+            unit_entities = getValueSymbol(kpi_name)
+            yaxis_id = f"y{axis_index}"
 
-            # Determine unit type and symbol based on KPI name
-            unitEntities = getValueSymbol(kpi_name)
+            # Create Y-axis controller per unit type
+            if yaxis_id not in yaxis_controllers:
+                yaxis_controllers[yaxis_id] = YaxisControllerModel(
+                    Id=yaxis_id,
+                    Orientation="left" if axis_index == 0 else "right",
+                    Unit=unit_entities.get("symbol"),
+                )
 
             series = YAxisSeriesModel(
                 Title=kpi_name,
                 Type="Line",
-                UnitType=unitEntities["type"],
-                Symbol=unitEntities["symbol"],
+                UnitType=unit_entities.get("type"),
+                Symbol=unit_entities.get("symbol"),
                 AreaFill=False,
                 Values=values,
-                YaxisId="left",
+                YaxisId=yaxis_id,
             )
 
             yaxis_series.append(series)
+            axis_index += 1
 
-        # Build Y-axis controller
-        yaxis_controller = YaxisControllerModel(
-            Id="left", Orientation="left", Unit=unitEntities["symbol"]
-        )
-
+        # --- Build chart model ---
         chart = ChartDataModel(
+            Id=f"custom_kpi_chart_{filtered_data.get('Report Id', '')}",
             Title="Custom KPI Data",
             Xaxis=xaxis,
             YaxisSeries=yaxis_series,
-            IndexAxis="y",
-            RightYaxis=False,
-            YaxisController=[yaxis_controller],
+            IndexAxis="x",
+            RightYaxis=len(yaxis_controllers) > 1,
+            YaxisController=list(yaxis_controllers.values()),
             KpiType="Custom",
         )
 
         return chart
 
     except Exception as ex:
+        error_trace = traceback.format_exc()
         message = f"Error occurred in format_chart_data: {ex}"
+
         print(f"{datetime.now()} {message}")
-        return Result(Status=0, Message=message)
+        print(error_trace)
+
+        return Result(
+            Status=0,
+            Message=message
+        )
