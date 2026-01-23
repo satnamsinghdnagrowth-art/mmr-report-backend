@@ -5,6 +5,7 @@ import traceback
 from datetime import datetime
 from services.customKPIs.visualCreation.CustomChartCreation import format_chart_data
 from services.customKPIs.visualCreation.CustomTableCreation import format_table_data
+from services.customKPIs.visualCreation.CustomCardCreation import format_card_data
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
@@ -88,7 +89,14 @@ def customKPICreation(payload, reportId) -> Result:
                 Status=1,
                 Message=f"Data filtered for last 6 months up to {month}-{year} (chart format)."
             )
-
+        elif visualtype == "card":
+            card_data = format_card_data(filtered_data)
+            return Result(
+                Data=card_data,
+                Status=1,
+                Message=f"Data filtered for last 6 months up to {month}-{year} (card format)."
+            )
+        
         return Result(
             Data=filtered_data,
             Status=1,

@@ -82,20 +82,39 @@ def getConsolidateSectionData(
                 for customKpi in CustomKpisList[reportId]:
                     for sec in sectionData:
                         if sec["SectionName"] == customKpi.SectionName:
-                            visualType = (
-                                "Charts"
-                                if customKpi.VisualType == "Chart"
-                                else "Tables"
-                            )
+
+                            # Ensure all visual containers exist
+                            sec["SectionData"].setdefault("Cards", [])
+                            sec["SectionData"].setdefault("Charts", [])
+                            sec["SectionData"].setdefault("Tables", [])
+
+                            # Map VisualType to SectionData key
+                            if customKpi.VisualType == "Chart":
+                                visualType = "Charts"
+                            elif customKpi.VisualType == "Table":
+                                visualType = "Tables"
+                            elif customKpi.VisualType == "Card":
+                                visualType = "Cards"
+                            else:
+                                continue  # Unsupported visual type
+
                             requestModel = CustomKpiCreationModel(
                                 Year=year,
                                 Months=months,
                                 VisualType=customKpi.VisualType,
                                 Items=customKpi.Items,
                             )
+
                             kpiResponse = customKPICreation(requestModel, reportId).Data
-                            # print(f"kpiResponse :: {kpiResponse}")
-                            sec["SectionData"][visualType].append(kpiResponse)
+
+                            # --- Prevent duplicates by checking existing Ids ---
+                            existing_ids = {
+                                item.Id for item in sec["SectionData"][visualType]
+                                if hasattr(item, "Id")
+                            }
+
+                            if hasattr(kpiResponse, "Id") and kpiResponse.Id not in existing_ids:
+                                sec["SectionData"][visualType].append(kpiResponse)
         else:
             formattedData = CombinedData
             print(f"No custom KPIs defined for report {reportId}")

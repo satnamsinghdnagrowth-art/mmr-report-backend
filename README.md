@@ -76,7 +76,7 @@ See `calculation.md` for a detailed breakdown of all logic and formulas.
 The system supports user-defined KPIs via Excel uploads.
 - **Ingestion:** Parses custom Excel files using `services/customKPIs/FormatData.py`.
 - **Management:** Adds custom items to reports via `CreateCustomKPIsList.py`.
-- **Visualization:** Generates custom charts and tables (`CustomChartCreation.py`, `CustomTableCreation.py`).
+- **Visualization:** Generates custom charts and tables (`CustomChartCreation.py`, `CustomTableCreation.py`, `CustomCardCreation.py`).
 
 ### 3. Report Generation
 Generates PDF reports by consolidating data from:

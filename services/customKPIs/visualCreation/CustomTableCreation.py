@@ -15,6 +15,8 @@ def format_table_data(filtered_data: Dict[str, Any]):
     """
     try:
         custom_kpis = filtered_data.get("Custom KPIs", {})
+        # --- Get only the first key ---
+        first_key = next(iter(custom_kpis.keys()), None)
         if not custom_kpis:
             raise ValueError("No Custom KPI data available for table formatting.")
 
@@ -81,8 +83,8 @@ def format_table_data(filtered_data: Dict[str, Any]):
             rows.append(row)
 
         return TableModel(
-            Id=f"custom_kpi_table_{filtered_data.get('Report Id', '')}",
-            Title="Custom KPI Table",
+            Id=f"custom_kpi_table_{first_key}_{filtered_data.get('Report Id', '')}",
+            Title=f"{first_key}",
             Column=columns,
             Rows=rows,
             TableType="Tabular",

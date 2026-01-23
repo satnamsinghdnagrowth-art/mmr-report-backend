@@ -18,6 +18,9 @@ def format_chart_data(filtered_data: Dict):
     """
     try:
         custom_kpis = filtered_data.get("Custom KPIs", {})
+        # --- Get only the first key ---
+        first_key = next(iter(custom_kpis.keys()), None)
+
         if not custom_kpis:
             raise ValueError("No Custom KPI data available for chart formatting.")
 
@@ -89,8 +92,8 @@ def format_chart_data(filtered_data: Dict):
 
         # --- Build chart model ---
         chart = ChartDataModel(
-            Id=f"custom_kpi_chart_{filtered_data.get('Report Id', '')}",
-            Title="Custom KPI Data",
+            Id=f"custom_kpi_chart_{first_key}_{filtered_data.get('Report Id', '')}",
+            Title=f"{first_key}",
             Xaxis=xaxis,
             YaxisSeries=yaxis_series,
             IndexAxis="x",

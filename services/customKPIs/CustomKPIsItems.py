@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from services.customKPIs.visualCreation.CustomChartCreation import format_chart_data
 from services.customKPIs.visualCreation.CustomTableCreation import format_table_data
+from services.customKPIs.visualCreation.CustomCardCreation import format_card_data
 from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 import os
 
