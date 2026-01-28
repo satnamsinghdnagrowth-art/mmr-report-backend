@@ -79,10 +79,10 @@ def getConsolidateSectionData(
             sectionData = formattedData["Sections"]
             # Inject custom KPIs if any
             if reportId in CustomKpisList:
+
                 for customKpi in CustomKpisList[reportId]:
                     for sec in sectionData:
                         if sec["SectionName"] == customKpi.SectionName:
-
                             # Ensure all visual containers exist
                             sec["SectionData"].setdefault("Cards", [])
                             sec["SectionData"].setdefault("Charts", [])
@@ -108,13 +108,13 @@ def getConsolidateSectionData(
                             kpiResponse = customKPICreation(requestModel, reportId).Data
 
                             # --- Prevent duplicates by checking existing Ids ---
-                            existing_ids = {
-                                item.Id for item in sec["SectionData"][visualType]
-                                if hasattr(item, "Id")
-                            }
+                            # existing_ids = {
+                            #     item.Id for item in sec["SectionData"][visualType]
+                            #     if hasattr(item, "Id")
+                            # }
 
-                            if hasattr(kpiResponse, "Id") and kpiResponse.Id not in existing_ids:
-                                sec["SectionData"][visualType].append(kpiResponse)
+                            # if hasattr(kpiResponse, "Id") and kpiResponse.Id not in existing_ids:
+                            sec["SectionData"][visualType].append(kpiResponse)
         else:
             formattedData = CombinedData
             print(f"No custom KPIs defined for report {reportId}")

@@ -4,7 +4,7 @@ from typing import Optional
 from core.models.base.ResultModel import Result
 from services.reports.ProgressSave import reportProgressSave
 from services.reports.GetReportProgress import getreportProgress
-
+from services.reports.GetReportKeys import getreportKeys
 
 ReportProgressRouter = APIRouter()
 
@@ -19,3 +19,9 @@ def saveReportProgress(metaData: dict):
 @ReportProgressRouter.get("/get/report/{reportId}", response_model=Result)
 def saveReportProgress(reportId: int, templateId: Optional[int]=None):
     return getreportProgress(reportId, templateId)
+
+
+# Get keys of Actual Report
+@ReportProgressRouter.get("/get/report/keys/{reportId}", response_model=Result)
+def getActualReportKeys(reportId: int):
+    return getreportKeys(reportId)

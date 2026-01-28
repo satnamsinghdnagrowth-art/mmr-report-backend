@@ -58,7 +58,6 @@ def getCustomKpisList(reportId):
         with open(REPORT_JSON_PATH, "r") as f:
             data = json.load(f)
 
-        # Create model objects only for the matching reportId
         filteredData = [
             CustomKpiRequestModel(**kpi["CustomKpi"])
             for kpi in data
@@ -68,7 +67,10 @@ def getCustomKpisList(reportId):
         global CustomKpisList
 
         # Extend to keep it a flat list instead of nested list
-        CustomKpisList.setdefault(reportId, []).extend(filteredData)
+        # CustomKpisList.setdefault(reportId, []).extend(filteredData)
+
+        # Reset list for this reportId before adding new values
+        CustomKpisList[reportId] = filteredData
 
         return CustomKpisList
 
