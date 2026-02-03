@@ -7,9 +7,10 @@ from core.models.base.ResultModel import Result
 from core.models.visualsModel.ValueObject import ValueObjectModel
 from core.models.visualsModel.TableModel import TableModel
 from helper.GetValueSymbol import getValueSymbol
+from helper.GenerateVisualId import generate_visual_id
 
 
-def format_table_data(filtered_data: Dict[str, Any]):
+def format_table_data(filtered_data: Dict[str, Any], payload=None):
     """
     Format filtered KPI data into a table structure.
     """
@@ -82,8 +83,12 @@ def format_table_data(filtered_data: Dict[str, Any]):
 
             rows.append(row)
 
+        # --- Generate unique ID ---
+        payload_params = payload.__dict__ if payload and hasattr(payload, '__dict__') else None
+        visual_id = generate_visual_id('table', filtered_data, payload_params)
+
         return TableModel(
-            Id=f"custom_kpi_table_{first_key}_{filtered_data.get('Report Id', '')}",
+            Id=visual_id,
             Title=f"{first_key}",
             Column=columns,
             Rows=rows,

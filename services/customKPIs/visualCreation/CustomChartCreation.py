@@ -10,9 +10,10 @@ from core.models.visualsModel.ChartModel import (
     YAxisSeriesModel,
 )
 from helper.GetValueSymbol import getValueSymbol
+from helper.GenerateVisualId import generate_visual_id
 
 
-def format_chart_data(filtered_data: Dict):
+def format_chart_data(filtered_data: Dict, payload=None):
     """
     Format filtered KPI data into chart structure with multiple series
     """
@@ -90,9 +91,13 @@ def format_chart_data(filtered_data: Dict):
             yaxis_series.append(series)
             axis_index += 1
 
+        # --- Generate unique ID ---
+        payload_params = payload.__dict__ if payload and hasattr(payload, '__dict__') else None
+        visual_id = generate_visual_id('chart', filtered_data, payload_params)
+
         # --- Build chart model ---
         chart = ChartDataModel(
-            Id=f"custom_kpi_chart_{first_key}_{filtered_data.get('Report Id', '')}",
+            Id=visual_id,
             Title=f"{first_key}",
             Xaxis=xaxis,
             YaxisSeries=yaxis_series,

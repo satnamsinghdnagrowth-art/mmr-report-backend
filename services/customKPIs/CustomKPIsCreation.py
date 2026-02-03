@@ -75,7 +75,7 @@ def customKPICreation(payload, reportId) -> Result:
 
         # --- Format output based on visual type ---
         if visualtype == "table":
-            table_data = format_table_data(filtered_data)
+            table_data = format_table_data(filtered_data, payload)
             return Result(
                 Data=table_data,
                 Status=1,
@@ -83,14 +83,14 @@ def customKPICreation(payload, reportId) -> Result:
             )
 
         elif visualtype == "chart":
-            chart_data = format_chart_data(filtered_data)
+            chart_data = format_chart_data(filtered_data, payload)
             return Result(
                 Data=chart_data,
                 Status=1,
                 Message=f"Data filtered for last 6 months up to {month}-{year} (chart format)."
             )
         elif visualtype == "card":
-            card_data = format_card_data(filtered_data)
+            card_data = format_card_data(filtered_data, payload)
             return Result(
                 Data=card_data,
                 Status=1,

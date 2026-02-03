@@ -14,9 +14,10 @@ from core.models.visualsModel.CardModel import (
 )
 from helper.metricCheck import isMetricPositive
 from helper.GetValueSymbol import getValueSymbol
+from helper.GenerateVisualId import generate_visual_id
 
 
-def format_card_data(filtered_data: Dict[str, Any]):
+def format_card_data(filtered_data: Dict[str, Any], payload=None):
     """
     Format Custom KPI data into a SINGLE CardDataModel
     with aggregated KPI values.
@@ -99,9 +100,13 @@ def format_card_data(filtered_data: Dict[str, Any]):
             TrendLine=trend_line,
         )
 
+        # --- Generate unique ID ---
+        payload_params = payload.__dict__ if payload and hasattr(payload, '__dict__') else None
+        visual_id = generate_visual_id('card', filtered_data, payload_params)
+        
         # --- Single aggregated card ---
         card = CardDataModel(
-            Id=f"custom_kpi_card_{first_key}_{filtered_data.get('Report Id', '')}",
+            Id=visual_id,
             Title=f"{first_key}",
             Content=main_value_obj,
             Footer=footer,
