@@ -73,54 +73,67 @@ def getConsolidateSectionData(
 
         CustomKpisList = getCustomKpisList(reportId)
         
-        if CustomKpisList is not None:
-            data = consolidateDataResponse.get(reportId)
-            formattedData = data.model_dump()
-            sectionData = formattedData["Sections"]
-            # Inject custom KPIs if any
-            if reportId in CustomKpisList:
+        # Get the original data
+        data = consolidateDataResponse.get(reportId)
+        actualData = data.model_dump()
+        
+        # Initialize custom data structure
+        customData = {"Sections": []}
+        
+        if CustomKpisList is not None and reportId in CustomKpisList:
+            # Create a mapping for quick lookup
+            sectionDataMap = {sec["SectionName"]: sec for sec in actualData["Sections"]}
+            
+            for customKpi in CustomKpisList[reportId]:
+                # Find or create section in customData
+                customSection = next(
+                    (s for s in customData["Sections"] if s["SectionName"] == customKpi.SectionName),
+                    None
+                )
+                
+                if customSection is None:
+                    customSection = {
+                        "SectionName": customKpi.SectionName,
+                        "SectionData": {"Cards": [], "Charts": [], "Tables": []},
+                        "Visbility": True
+                    }
+                    customData["Sections"].append(customSection)
+                
+                # Ensure all visual containers exist
+                customSection["SectionData"].setdefault("Cards", [])
+                customSection["SectionData"].setdefault("Charts", [])
+                customSection["SectionData"].setdefault("Tables", [])
 
-                for customKpi in CustomKpisList[reportId]:
-                    for sec in sectionData:
-                        if sec["SectionName"] == customKpi.SectionName:
-                            # Ensure all visual containers exist
-                            sec["SectionData"].setdefault("Cards", [])
-                            sec["SectionData"].setdefault("Charts", [])
-                            sec["SectionData"].setdefault("Tables", [])
+                # Map VisualType to SectionData key
+                if customKpi.VisualType == "Chart":
+                    visualType = "Charts"
+                elif customKpi.VisualType == "Table":
+                    visualType = "Tables"
+                elif customKpi.VisualType == "Card":
+                    visualType = "Cards"
+                else:
+                    continue  # Unsupported visual type
 
-                            # Map VisualType to SectionData key
-                            if customKpi.VisualType == "Chart":
-                                visualType = "Charts"
-                            elif customKpi.VisualType == "Table":
-                                visualType = "Tables"
-                            elif customKpi.VisualType == "Card":
-                                visualType = "Cards"
-                            else:
-                                continue  # Unsupported visual type
+                requestModel = CustomKpiCreationModel(
+                    Year=year,
+                    Months=months,
+                    VisualType=customKpi.VisualType,
+                    Items=customKpi.Items,
+                )
 
-                            requestModel = CustomKpiCreationModel(
-                                Year=year,
-                                Months=months,
-                                VisualType=customKpi.VisualType,
-                                Items=customKpi.Items,
-                            )
-
-                            kpiResponse = customKPICreation(requestModel, reportId).Data
-
-                            # --- Prevent duplicates by checking existing Ids ---
-                            # existing_ids = {
-                            #     item.Id for item in sec["SectionData"][visualType]
-                            #     if hasattr(item, "Id")
-                            # }
-
-                            # if hasattr(kpiResponse, "Id") and kpiResponse.Id not in existing_ids:
-                            sec["SectionData"][visualType].append(kpiResponse)
+                kpiResponse = customKPICreation(requestModel, reportId).Data
+                customSection["SectionData"][visualType].append(kpiResponse)
         else:
-            formattedData = CombinedData
             print(f"No custom KPIs defined for report {reportId}")
 
+        # Prepare the separated response
+        separatedData = {
+            "ActualData": actualData,
+            "CustomData": customData
+        }
+
         return Result(
-            Data=formattedData, Status=1, Message="Section Data retrieved Successfully"
+            Data=separatedData, Status=1, Message="Section Data retrieved Successfully"
         )
 
     except Exception as ex:
