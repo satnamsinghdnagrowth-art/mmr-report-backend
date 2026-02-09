@@ -8,7 +8,7 @@ from core.models.visualsModel.SectionData import (
     ConsolidateSectionDate,
     SectionDataModel,
 )
-from core.models.base.SectionNamesEnum import SectionName
+from core.models.base.SectionNamesEnum import SectionName, get_section_id
 from helper.LoadJsonData import SECTION_CARD_CONFIGS
 from helper.SaveConsolidateDataResponse import saveResponse
 from core.models.visualsModel.CustomKpiModel import CustomKpiCreationModel
@@ -58,8 +58,11 @@ def getConsolidateSectionData(
             name = future_to_name[future]
             try:
                 data = future.result()
+                section_id = get_section_id(name)
                 temp_results[name] = ConsolidateSectionDate(
-                    SectionName=name, SectionData=data.Data
+                    SectionId=section_id,
+                    SectionName=name,
+                    SectionData=data.Data
                 )
             except Exception as e:
                 print(f"Error in section {name}: {e}")
@@ -92,7 +95,9 @@ def getConsolidateSectionData(
                 )
                 
                 if customSection is None:
+                    section_id = get_section_id(customKpi.SectionName)
                     customSection = {
+                        "SectionId": section_id,
                         "SectionName": customKpi.SectionName,
                         "SectionData": {"Cards": [], "Charts": [], "Tables": []},
                         "Visbility": True

@@ -5,6 +5,7 @@ import traceback
 from datetime import datetime
 from helper.SaveCustomKpisList import getCustomKpisList
 from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
+from core.models.base.SectionNamesEnum import get_section_id
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
@@ -14,9 +15,14 @@ def addCustomKPI(reportId: int, payload) -> Result:
         # Validate / fetch existing KPI list
         getCustomKpisList(reportId)
 
+        # Auto-populate SectionId if not provided
+        kpi_dict = payload.dict()
+        if not kpi_dict.get("SectionId"):
+            kpi_dict["SectionId"] = get_section_id(kpi_dict["SectionName"])
+
         customReportData = {
             "ReportId": reportId,
-            "CustomKpi": payload.dict()
+            "CustomKpi": kpi_dict
         }
 
         print(customReportData)

@@ -1,0 +1,184 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                  DYNAMIC SECTION ID QUICK REFERENCE                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+📋 COMMON OPERATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Get Section ID
+  ─────────────────────────────────────────────────────────────────────────────
+    from core.models.base.SectionNamesEnum import get_section_id
+    
+    section_id = get_section_id("Profit & Loss Snippet")
+    # Returns: "section-001-financial-highlights"
+    
+    # Auto-registers custom sections
+    section_id = get_section_id("My Custom Section")
+    # Returns: "section-a1b2c3d4" (new UUID-based ID)
+
+  2. Register New Section
+  ─────────────────────────────────────────────────────────────────────────────
+    from core.models.base.SectionNamesEnum import register_section
+    
+    section_id = register_section(
+        section_name="Revenue Forecast",
+        section_type="custom",
+        description="Monthly revenue forecasting"
+    )
+
+  3. Get Section Name from ID
+  ─────────────────────────────────────────────────────────────────────────────
+    from core.models.base.SectionNamesEnum import get_section_name
+    
+    name = get_section_name("section-001-financial-highlights")
+    # Returns: "Profit & Loss Snippet"
+
+  4. Update Section Name
+  ─────────────────────────────────────────────────────────────────────────────
+    from core.models.base.SectionNamesEnum import update_section_name
+    
+    success = update_section_name("Old Name", "New Name")
+    # ID stays the same!
+
+  5. List All Sections
+  ─────────────────────────────────────────────────────────────────────────────
+    from core.models.base.SectionNamesEnum import list_all_sections
+    
+    sections = list_all_sections()
+    for name, metadata in sections.items():
+        print(f"{name}: {metadata['section_id']}")
+
+
+📦 SECTION ID FORMATS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Predefined Sections (Stable IDs):
+  ─────────────────────────────────────────────────────────────────────────────
+    section-001-financial-highlights  (Profit & Loss Snippet)
+    section-002-expenses-analysis     (Expenses Analysis)
+    section-003-profitability         (Profitability)
+    section-004-breakeven-analysis    (Break-Even Anlaysis)
+    section-005-cashflow-analysis     (Cash Flow Analysis)
+
+  Custom Sections (UUID-based):
+  ─────────────────────────────────────────────────────────────────────────────
+    section-{uuid}
+    
+    Examples:
+      section-5c09fd8d
+      section-a1b2c3d4
+      section-98a56157
+
+
+💾 REGISTRY FILE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Location: database/section_registry.json
+  
+  Structure:
+  ─────────────────────────────────────────────────────────────────────────────
+    {
+      "Section Name": {
+        "section_id": "section-xxx",
+        "section_name": "Section Name",
+        "section_type": "predefined" | "custom",
+        "created_at": "2026-02-06T15:04:31.791618",
+        "description": "Description text",
+        "updated_at": "2026-02-06T15:04:31.792032"
+      }
+    }
+
+
+🔧 API INTEGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Creating Section:
+  ─────────────────────────────────────────────────────────────────────────────
+    from core.models.visualsModel.SectionData import (
+        ConsolidateSectionDate, SectionData
+    )
+    from core.models.base.SectionNamesEnum import get_section_id
+    
+    section = ConsolidateSectionDate(
+        SectionId=get_section_id("Profit & Loss Snippet"),
+        SectionName="Profit & Loss Snippet",
+        SectionData=SectionData(Cards=[], Charts=[], Tables=[])
+    )
+
+  API Response:
+  ─────────────────────────────────────────────────────────────────────────────
+    {
+      "Data": {
+        "ActualData": {
+          "Sections": [
+            {
+              "SectionId": "section-001-financial-highlights",
+              "SectionName": "Profit & Loss Snippet",
+              "SectionData": { ... }
+            }
+          ]
+        },
+        "CustomData": { ... }
+      }
+    }
+
+
+✨ KEY FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✓ Auto-Registration   - Unknown sections registered automatically
+  ✓ ID Stability        - IDs never change
+  ✓ Persistence         - Stored in JSON file
+  ✓ UUID for Custom     - Unique IDs for custom sections
+  ✓ Rename Safety       - Update names without breaking IDs
+  ✓ Metadata Rich       - Timestamps, types, descriptions
+  ✓ Scalable            - Unlimited custom sections
+  ✓ Type Safe           - Predefined vs Custom distinction
+
+
+🧪 TESTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Run comprehensive tests:
+  ─────────────────────────────────────────────────────────────────────────────
+    python test_section_ids.py
+
+  Tests cover:
+    • Predefined section IDs
+    • Custom section creation
+    • ID persistence
+    • Reverse lookup
+    • Metadata retrieval
+    • Name updates
+    • Auto-registration
+    • File persistence
+    • Integration with models
+
+
+⚡ BEST PRACTICES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Always use get_section_id() for section lookups
+  2. Let auto-registration work - don't manually check existence
+  3. Use section IDs in queries, not names
+  4. Provide descriptions when registering custom sections
+  5. Use helper functions, not direct registry access
+  6. Filter by SectionId, not SectionName
+
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DYNAMIC_SECTION_ID_SYSTEM.md    - Complete implementation guide
+  SECTION_API_CHANGES.md          - API response structure
+  IMPLEMENTATION_COMPLETE.md      - Summary of all changes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  📝 IDs are generated dynamically when sections are created
+  🔒 Predefined sections have stable, backwards-compatible IDs
+  🆕 Custom sections get UUID-based unique IDs
+  💾 All changes are persisted to database/section_registry.json
+  ♾️  System supports unlimited custom sections!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

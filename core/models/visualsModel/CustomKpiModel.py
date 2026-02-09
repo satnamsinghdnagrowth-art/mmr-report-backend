@@ -7,6 +7,7 @@ class CustomKpiRequestModel(BaseModel):
     VisualType: Literal["Table", "Chart", "Card"]
     Items: List[str]
     SectionName: str
+    SectionId: Optional[str] = None  # Optional for backwards compatibility
 
 
 class CustomKpiCreationModel(BaseModel):

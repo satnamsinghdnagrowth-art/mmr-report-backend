@@ -14,6 +14,7 @@ class SectionData(BaseModel):
 
 # Consolidate Section
 class ConsolidateSectionDate(BaseModel):
+    SectionId: str
     SectionName: str
     SectionData: SectionData
     Visbility: Optional[bool] = True
