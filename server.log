@@ -1,0 +1,9 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/hello/Work/MMR_Report_Generation/backend/main.py", line 1, in <module>
+    from RESTClient import runServer
+  File "/home/hello/Work/MMR_Report_Generation/backend/RESTClient.py", line 2, in <module>
+    from server.init import app
+  File "/home/hello/Work/MMR_Report_Generation/backend/server/init.py", line 1, in <module>
+    from fastapi import FastAPI
+ModuleNotFoundError: No module named 'fastapi'

@@ -52,8 +52,8 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
             else:
                 Headers = [
                     "Particulars",
-                    f"{calendar.month_abbr[currentMonths[0]]} {year}",
-                    f"{calendar.month_abbr[prevMonths[0]]} {year}",
+                    f"{calendar.month_abbr[currentMonths[0]]} {currentYear}",
+                    f"{calendar.month_abbr[prevMonths[0]]} {prevYear}",
                     "This Month vs Last Month(%)",
                     "This Month vs Last Month($)",
                     f"{year} (YTD)",
@@ -93,20 +93,43 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                         ytd_months.append((currentYear, m))
 
                 # ✅ Compute YTD total
-                if entry["func"] == "grossProfitMargin":
-                    ytdValue = func(
-                        year=2025,
-                        month=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                        reportId=reportId,
-                    ).Data
-
-                elif entry["func"] == "netIncomeMargin":
-                    ytdValue = func(
-                        year=2025,
-                        month=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                        reportId=reportId,
-                    ).Data
-
+                if entry["func"] == "grossProfitMargin" or entry["func"] == "netIncomeMargin":
+                    # For margin calculations across years, we need to calculate margins properly
+                    # by aggregating the underlying values first (revenue, profit) then computing margin
+                    # The margin functions handle multiple months, so we pass all ytd months
+                    
+                    # Group months by year for proper calculation
+                    year_month_map = {}
+                    for y, m in ytd_months:
+                        if y not in year_month_map:
+                            year_month_map[y] = []
+                        year_month_map[y].append(m)
+                    
+                    # Calculate margin for each year and then aggregate
+                    if len(year_month_map) == 1:
+                        # All months in same year
+                        year_val = list(year_month_map.keys())[0]
+                        months_val = year_month_map[year_val]
+                        ytdValue = func(
+                            year=year_val,
+                            month=months_val,
+                            reportId=reportId,
+                        ).Data
+                    else:
+                        # Cross-year: Need to aggregate revenue and profit, then calculate margin
+                        # For now, calculate each year separately and use weighted average
+                        # This is a simplification - ideally we'd aggregate revenue/profit first
+                        total_months = len(ytd_months)
+                        weighted_margin = 0
+                        for year_val, months_val in year_month_map.items():
+                            margin = func(
+                                year=year_val,
+                                month=months_val,
+                                reportId=reportId,
+                            ).Data
+                            weight = len(months_val) / total_months
+                            weighted_margin += margin * weight
+                        ytdValue = weighted_margin
                 else:
                     ytdValue = sum(
                         [

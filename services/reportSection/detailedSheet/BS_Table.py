@@ -21,6 +21,8 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
             key=lambda x: (x[1], x[0]),  # Sort by year, then month
         )
 
+        # Use last 6 months from available months
+        staticMonths = available_months[-6:] if len(available_months) >= 6 else available_months
         available_months_set = set(available_months)
 
         combinedRows = []
@@ -28,20 +30,6 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
 
         for tableIndex, tableType in enumerate(tableTypes):
             data = financialData[tableType]
-            last_month = max(months)
-
-            # Get last 6 months (month, year) pairs
-            staticMonths = []
-            current_month = last_month
-            current_year = year
-
-            for _ in range(6):
-                if (current_month, current_year) in available_months_set:
-                    staticMonths.insert(0, (current_month, current_year))
-                current_month -= 1
-                if current_month == 0:
-                    current_month = 12
-                    current_year -= 1
 
             # Correct headers
             headers = [tableType] + [
@@ -97,18 +85,6 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
 
                     subSectionRows = []
 
-                    if tableType.lower() in ["balancesheet", "equity"]:
-                        subSectionRows.append(
-                            [
-                                ValueObjectModel(
-                                    Value=subSectionName,
-                                    isPositive=True,
-                                    Type="",
-                                    Symbol="",
-                                )
-                            ]
-                        )
-
                     for itemLabel, itemData in subSectionContent.items():
                         rowData = [
                             ValueObjectModel(
@@ -147,6 +123,26 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                     if tableType.lower() in ["balancesheet", "equity"]:
                         grandTotal = sum(monthlyTotals.values())
                         if grandTotal != 0.0:
+                            # Check if subsection has only one item with same name
+                            item_names = list(subSectionContent.keys())
+                            skip_subsection_header = (
+                                len(subSectionRows) == 1 and 
+                                len(item_names) == 1 and 
+                                item_names[0] == subSectionName
+                            )
+                            
+                            # Add subsection header only if there's data and not a duplicate name
+                            if not skip_subsection_header:
+                                subsectionHeader = [
+                                    ValueObjectModel(
+                                        Value=subSectionName,
+                                        isPositive=True,
+                                        Type="",
+                                        Symbol="",
+                                    )
+                                ]
+                                subSectionRows.insert(0, subsectionHeader)
+                            
                             totalRow = [
                                 ValueObjectModel(
                                     Value=f"Total {subSectionName}",
@@ -164,10 +160,13 @@ def getBalanaceSheetTable(year: int, months, tableTypes: list[str], reportId):
                                         Symbol="$",
                                     )
                                 )
+                            
+                            # Add total at end
                             subSectionRows.append(totalRow)
                             sectionRows.extend(subSectionRows)
                     else:
-                        sectionRows.extend(subSectionRows)
+                        if len(subSectionRows) > 0:
+                            sectionRows.extend(subSectionRows)
 
                 sectionGrandTotal = sum(sectionMonthlyTotals.values())
 

@@ -1,0 +1,20 @@
+2026-02-23 11:40:29 | ERROR    | RESTClient:45 | Failed to start server: [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/home/hello/Work/MMR_Report_Generation_v2/backend/RESTClient.py", line 43, in runServer
+    except Exception as ex:
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hello/Work/MMR_Report_Generation/backend/venv/lib/python3.12/site-packages/uvicorn/main.py", line 574, in run
+    ChangeReload(config, target=server.run, sockets=[sock]).run()
+  File "/home/hello/Work/MMR_Report_Generation/backend/venv/lib/python3.12/site-packages/uvicorn/supervisors/basereload.py", line 58, in run
+    ", ".join(map(_display_path, changes)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hello/Work/MMR_Report_Generation/backend/venv/lib/python3.12/site-packages/uvicorn/supervisors/basereload.py", line 120, in _display_path
+    return f"'{path.relative_to(Path.cwd())}'"
+                                ^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1197, in cwd
+    return cls().absolute()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1218, in absolute
+    cwd = os.getcwd()
+          ^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory

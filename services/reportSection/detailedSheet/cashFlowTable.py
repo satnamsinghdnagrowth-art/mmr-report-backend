@@ -28,26 +28,12 @@ def getCashFlowTable(year: int, months, reportId, tableType="CashFlow Statements
             key=lambda x: (x[1], x[0]),  # Sort by year, then month
         )
 
+        # Use last 6 months from available months
+        staticMonths = available_months[-6:] if len(available_months) >= 6 else available_months
         available_months_set = set(available_months)
 
-        staticMonths = []
-
-        last_month = max(months)
-        current_month = last_month
-        current_year = year
-
-        for _ in range(6):
-            if (current_month, current_year) in available_months_set:
-                staticMonths.insert(0, (current_month, current_year))
-            current_month -= 1
-            if current_month == 0:
-                current_month = 12
-                current_year -= 1
-
-        # staticMonths = range(2, 6)
-
         Headers = [tableType] + [
-            f"{calendar.month_abbr[m]} {year}" for m, y in staticMonths
+            f"{calendar.month_abbr[m]} {y}" for m, y in staticMonths
         ]
 
         rows = []
