@@ -8,6 +8,7 @@ from core.models.visualsModel.ValueObject import ValueObjectModel
 from core.models.visualsModel.TableModel import TableModel
 from helper.GetValueSymbol import getValueSymbol
 from helper.GenerateVisualId import generate_visual_id
+import hashlib
 
 
 def format_table_data(filtered_data: Dict[str, Any], payload=None):
@@ -83,9 +84,12 @@ def format_table_data(filtered_data: Dict[str, Any], payload=None):
 
             rows.append(row)
 
-        # --- Generate unique ID ---
-        payload_params = payload.__dict__ if payload and hasattr(payload, '__dict__') else None
-        visual_id = generate_visual_id('table', filtered_data, payload_params)
+        # --- Use stored ID or generate fallback ---
+        if hasattr(payload, 'VisualId') and payload.VisualId:
+            visual_id = payload.VisualId
+        else:
+            name_hash = hashlib.md5(str(first_key).encode('utf-8')).hexdigest()[:8]
+            visual_id = f"custom_legacy_table_{name_hash}"
 
         return TableModel(
             Id=visual_id,

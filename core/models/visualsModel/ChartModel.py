@@ -47,6 +47,9 @@ class ChartDataModel(BaseModel):
     Visibility: Optional[bool] = True
     Type: Optional[str] = "Normal"
     KpiType: Optional[Literal["Actuals", "Custom", "Budget"]] = "Actuals"
+    SectionID: Optional[str] = None
+    PageNo: Optional[int] = None
+    Order: Optional[int] = None
 
 
 class ChartsListModel(BaseModel):

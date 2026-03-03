@@ -15,6 +15,7 @@ from routes.authentication.User import UserRouter
 from routes.authentication.Role import RoleRouter
 from routes.SummaryGeneration import SummaryGeneratorRouter
 from routes.ReportProgressHandling import ReportProgressRouter
+from routes.Templates import TemplatesRouter
 
 # App Instance
 app = FastAPI()
@@ -45,6 +46,9 @@ app.include_router(CustomKPIsRouter, prefix="/api/v1/customskpis")
 
 # Report Progress Route
 app.include_router(ReportProgressRouter, prefix="/api/v1/progress")
+
+# Templates Route
+app.include_router(TemplatesRouter, prefix="/api/v1/templates")
 
 # Static Files handling
 app.mount("/database", StaticFiles(directory="database"), name="company_assets")

@@ -81,6 +81,7 @@ def getRevenueBreakdownTable(year: int, months: list[int], section: str, reportI
             Rows=rows,
             TableType=TableTypesName.Progress.value,
             Id="REVENUE_BREAKDOWN_TABLE",
+            KpiType="Actuals",
         )
 
         # tables.append(getTopOpeatingExpensesNew(year,months,reportType,section,reportId).Data)

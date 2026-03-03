@@ -5,20 +5,10 @@ from services.customKPIs.CustomKPIsItems import customKpiItems
 from typing import Optional
 from services.customKPIs.CreateCustomKPIsList import addCustomKPI
 from services.customKPIs.RawDataProcessing import customKPIsDataProcessing
+from services.customKPIs.DeleteCustomKPI import deleteCustomKPI
 
 
 CustomKPIsRouter = APIRouter()
-
-
-# # File Upload Router for Customs KPIs
-# @CustomKPIsRouter.post("/upload-data/report/{reportId}/", response_model=Result)
-# def formatReportData(reportId, file: Optional[UploadFile] = File(None)):
-#     if not file:
-#         #  and not FileBase64Str:
-#         return Result(
-#             Status=400, Message="Either file or FileBase64Str must be provided."
-#         )
-#     return customKPIsDataProcessing(file, reportId)
 
 
 # Get Items of Custom Data
@@ -27,7 +17,13 @@ def getcustomKpiItems(reportId: int):
     return customKpiItems(reportId)
 
 
-# Get Custom Section All Data
+# Create / save a custom KPI visual definition
 @CustomKPIsRouter.post("/create/report/{reportId}/", response_model=Result)
 def createCustomKPI(reportId: int, payload: CustomKpiRequestModel):
     return addCustomKPI(reportId, payload)
+
+
+# Delete a custom KPI visual definition by its visual ID
+@CustomKPIsRouter.delete("/delete/report/{reportId}/kpi/{visual_id}", response_model=Result)
+def removeCustomKPI(reportId: int, visual_id: str):
+    return deleteCustomKPI(reportId, visual_id)

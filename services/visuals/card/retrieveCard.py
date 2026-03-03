@@ -126,7 +126,8 @@ def retrieveCard(
         )
 
         cardData = CardDataModel(
-            Title=title, Content=contentValueObj, Footer=footerObj, Id=visualId
+            Title=title, Content=contentValueObj, Footer=footerObj, Id=visualId,
+            KpiType="Actuals"
         )
 
         return Result(Data=cardData, Status=1, Message="Card calculated successfully")

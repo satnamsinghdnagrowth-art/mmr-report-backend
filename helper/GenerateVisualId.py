@@ -6,6 +6,7 @@ Generates unique, collision-free IDs for cards, charts, and tables
 import hashlib
 import json
 import re
+import uuid
 from typing import Dict, Any, Optional
 
 
@@ -15,7 +16,7 @@ def generate_visual_id(
     payload_params: Optional[Dict[str, Any]] = None
 ) -> str:
     """
-    Generate unique composite visual ID with parameter hash
+    Generate unique composite visual ID with parameter hash and UUID.
     
     Args:
         visual_type: Type of visual ('card', 'chart', or 'table')
@@ -27,7 +28,7 @@ def generate_visual_id(
     
     Example:
         >>> generate_visual_id('card', {'Report Id': '45373', ...}, {...})
-        'custom_kpi_card_45373_wages_and_benefits_pct_a3f9b2e1'
+        'custom_kpi_card_45373_wages_and_benefits_pct_a3f9b2e1_1234abcd'
     """
     # Extract basic components
     report_id = str(filtered_data.get('Report Id', 'unknown'))
@@ -37,11 +38,14 @@ def generate_visual_id(
     # Sanitize KPI name for HTML ID
     sanitized_kpi = _sanitize_for_html_id(first_key, max_length=50)
     
-    # Generate parameter hash for uniqueness
+    # Generate parameter hash for deterministic data uniqueness
     params_hash = _generate_params_hash(payload_params) if payload_params else 'default'
     
+    # Generate a short UUID to ensure 100% uniqueness even if exact same data is saved twice
+    unique_suffix = str(uuid.uuid4()).split('-')[0]
+    
     # Construct final ID
-    visual_id = f"custom_kpi_{visual_type}_{report_id}_{sanitized_kpi}_{params_hash}"
+    visual_id = f"custom_kpi_{visual_type}_{report_id}_{sanitized_kpi}_{params_hash}_{unique_suffix}"
     
     return visual_id
 

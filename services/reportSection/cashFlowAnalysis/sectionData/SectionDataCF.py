@@ -2,6 +2,7 @@ from datetime import datetime
 from core.models.base.ResultModel import Result
 from services.visuals.card.GetSectionsCards import getSectionCards
 from services.visuals.charts.GetSectionCharts import getSectionCharts
+from services.reportSection.cashFlowAnalysis.charts.cashFlowChart import getEACharts
 from core.models.visualsModel.SectionData import SectionData
 from typing import Optional
 from services.reportSection.detailedSheet.table import getDetailedTable
@@ -9,7 +10,6 @@ from services.reportSection.detailedSheet.cashFlowTable import getCashFlowTable
 from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
-from datetime import datetime
 from typing import Optional, List
 
 
@@ -40,21 +40,33 @@ class CashFlowAnalysisDataService:
             else months
         )
 
-    # Complete  Section
+    # Complete Section
     def get(self) -> Result:
         """
         Retrieves all section data: Cards, Charts, and Tables.
         Returns a Result object containing a SectionData model.
         """
         try:
-            # Retrieve individual data types
-            cards_data = getSectionCards(
+            # Cards
+            cards_result = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
-            ).Data
-            charts_data = getSectionCharts(
+            )
+            cards_data = cards_result.Data or []
+
+            # Charts from JSON config (e.g. CASH_POSITION_CHART)
+            config_charts_result = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
-            ).Data
-            tables_data = [
+            )
+            config_charts = config_charts_result.Data or []
+
+            # Waterfall cash-flow chart (CASH_FLOW_CHART) — built separately
+            cf_chart_result = getEACharts(self.year, self.months, self.reportId)
+            cf_charts = cf_chart_result.Data or [] if cf_chart_result else []
+
+            charts_data = config_charts + cf_charts
+
+            # Tables — filter out None entries in case any sub-call failed
+            raw_tables = [
                 getDetailedTable(
                     self.year, self.months, ["PROFIT & LOSS"], self.reportId
                 ).Data,
@@ -63,6 +75,7 @@ class CashFlowAnalysisDataService:
                 ).Data,
                 getCashFlowTable(self.year, self.months, self.reportId).Data,
             ]
+            tables_data = [t for t in raw_tables if t is not None]
 
             # Combine into SectionData
             section_data = SectionData(
@@ -108,13 +121,17 @@ class CashFlowAnalysisDataService:
         Retrieves only the Charts data for the section.
         """
         try:
-            charts = getEACharts(
+            config_charts = getSectionCharts(
                 self.year, self.months, self.reportType, self.section, self.reportId
-            ).Data
+            ).Data or []
 
-            response = ChartsListModel(Charts=charts)
+            cf_chart_result = getEACharts(self.year, self.months, self.reportId)
+            cf_charts = cf_chart_result.Data or [] if cf_chart_result else []
+
+            all_charts = config_charts + cf_charts
+            response = ChartsListModel(Charts=all_charts)
             return Result(
-                Data=charts, Status=1, Message="Charts retrieved successfully"
+                Data=response, Status=1, Message="Charts retrieved successfully"
             )
 
         except Exception as ex:

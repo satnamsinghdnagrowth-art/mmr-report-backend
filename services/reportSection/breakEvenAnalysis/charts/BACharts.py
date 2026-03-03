@@ -112,7 +112,7 @@ def getBACharts(
         )
 
         chartData = ChartDataModel(
-            Title="",
+            Title="Break-Even Analysis",
             Xaxis=xaxis_labels,
             YaxisSeries=yAxisSeries,
             IndexAxis="x",

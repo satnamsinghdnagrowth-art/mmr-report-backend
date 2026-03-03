@@ -116,7 +116,7 @@ def getPATable(
 
                 # Create TableModel and return result
             tableObj = TableModel(
-                Title="Variance Analysis - Income Statements", Column=Headers, Rows=rows
+                Title="Variance Analysis - Income Statements", Column=Headers, Rows=rows, KpiType="Actuals"
             )
 
             tables.append(tableObj)

@@ -204,6 +204,7 @@ def retrieveChart(
             RightYaxis=rigthYaxis,
             YaxisController=yaxisControllers,
             Id=visualId,
+            KpiType="Actuals",
         )
 
         return Result(

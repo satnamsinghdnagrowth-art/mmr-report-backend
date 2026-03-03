@@ -84,6 +84,9 @@ def customKPICreation(payload, reportId) -> Result:
 
         elif visualtype == "chart":
             chart_data = format_chart_data(filtered_data, payload)
+            if isinstance(chart_data, list):
+                # Only keep successful Result parsing cases consistent
+                return Result(Data=chart_data, Status=1, Message=f"Data filtered for last 6 months up to {month}-{year} (chart format).")
             return Result(
                 Data=chart_data,
                 Status=1,
@@ -91,6 +94,8 @@ def customKPICreation(payload, reportId) -> Result:
             )
         elif visualtype == "card":
             card_data = format_card_data(filtered_data, payload)
+            if isinstance(card_data, list):
+                return Result(Data=card_data, Status=1, Message=f"Data filtered for last 6 months up to {month}-{year} (card format).")
             return Result(
                 Data=card_data,
                 Status=1,

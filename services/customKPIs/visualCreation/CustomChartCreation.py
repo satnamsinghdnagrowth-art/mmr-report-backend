@@ -11,6 +11,7 @@ from core.models.visualsModel.ChartModel import (
 )
 from helper.GetValueSymbol import getValueSymbol
 from helper.GenerateVisualId import generate_visual_id
+import hashlib
 
 
 def format_chart_data(filtered_data: Dict, payload=None):
@@ -91,9 +92,12 @@ def format_chart_data(filtered_data: Dict, payload=None):
             yaxis_series.append(series)
             axis_index += 1
 
-        # --- Generate unique ID ---
-        payload_params = payload.__dict__ if payload and hasattr(payload, '__dict__') else None
-        visual_id = generate_visual_id('chart', filtered_data, payload_params)
+        # --- Use stored ID or generate fallback ---
+        if hasattr(payload, 'VisualId') and payload.VisualId:
+            visual_id = payload.VisualId
+        else:
+            name_hash = hashlib.md5(str(first_key).encode('utf-8')).hexdigest()[:8]
+            visual_id = f"custom_legacy_chart_{name_hash}"
 
         # --- Build chart model ---
         chart = ChartDataModel(

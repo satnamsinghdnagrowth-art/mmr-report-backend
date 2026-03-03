@@ -1,15 +1,11 @@
 from core.models.base.ResultModel import Result
-from helper.LoadJsonData import SECTION_CARD_CONFIGS
-from helper.LoadJsonData import financialDataTest
 from services.calculations.NetIncome import netIncome
 from helper.GetValueSum import getValueSum
-from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow
-from helper.GetFileByReportId import getReportData
-from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel
 from services.calculations.CashFlowActivities import getOperatingActivitiesCashFlow
 from services.calculations.CurrentAssestAndLiabilities import getTotalCurrentLiabilities
 from core.models.base.SourceModel import SourceDataTypes
 from helper.GetFinancialData import getFinancialData
+from core.models.visualsModel.ChartModel import ChartDataModel, YAxisSeriesModel, YaxisControllerModel
 
 # Get the sections cards
 def getEACharts(year: int, months: list[int], reportId):
@@ -157,8 +153,8 @@ def getEACharts(year: int, months: list[int], reportId):
         )
 
         changeInCL = (
-            getTotalCurrentLiabilities(year, [months[-1]]).Data
-            - getTotalCurrentLiabilities(year - 1, [months[-1]]).Data
+            getTotalCurrentLiabilities(year, [months[-1]], reportId).Data
+            - getTotalCurrentLiabilities(year - 1, [months[-1]], reportId).Data
         )
 
         operatingCashFlow = getOperatingActivitiesCashFlow(year, months, reportId).Data
@@ -335,8 +331,6 @@ def getEACharts(year: int, months: list[int], reportId):
 
         totalChangeinRE = changeinRE - totalCE
 
-        print(changeinOE, changeinSTD, changeinRE)
-
         financingActivitiesCashFlow = changeinOE + changeinSTD + totalChangeinRE
 
         netCashFlow = freeCashFlow + financingActivitiesCashFlow
@@ -411,6 +405,7 @@ def getEACharts(year: int, months: list[int], reportId):
         ]
 
         data = ChartDataModel(
+            Id="CASH_FLOW_CHART",
             Title="Cash Flow Statements",
             Xaxis=xAxisValue,
             YaxisSeries=[
@@ -419,8 +414,12 @@ def getEACharts(year: int, months: list[int], reportId):
                     Type="Bar",
                     Symbol="$",
                     AreaFill=False,
-                    Values=yAxisValue,  # Values, 0 if total is auto
+                    Values=yAxisValue,
+                    YaxisId="left",
                 )
+            ],
+            YaxisController=[
+                YaxisControllerModel(Id="left", Orientation="left", Unit="$")
             ],
             IndexAxis="y",
             RightYaxis=False,

@@ -203,6 +203,7 @@ def getISTable(year: int, months: list[int], reportType: str, section: str, repo
                 Rows=rows,
                 TableType="Variance",
                 Id=config["visualId"],
+                KpiType="Actuals",
             )
 
             tables.append(tableObj)

@@ -3,22 +3,27 @@ import json
 import os
 import traceback
 from datetime import datetime
-from helper.SaveCustomKpisList import getCustomKpisList
+from helper.SaveCustomKpisList import getCustomKpisList, CustomKpisList
 from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 from core.models.base.SectionNamesEnum import get_section_id
+from helper.GenerateVisualId import generate_visual_id
 
 REPORT_JSON_PATH = "database/ReportTable.json"
 
 
 def addCustomKPI(reportId: int, payload) -> Result:
     try:
-        # Validate / fetch existing KPI list
-        getCustomKpisList(reportId)
-
         # Auto-populate SectionId if not provided
         kpi_dict = payload.dict()
         if not kpi_dict.get("SectionId"):
             kpi_dict["SectionId"] = get_section_id(kpi_dict["SectionName"])
+
+        # Pre-generate the VisualId that ConsolidateDataReporting will produce
+        # so that the DELETE endpoint can match by this ID later.
+        visual_type = str(kpi_dict.get("VisualType", "")).lower()
+        filtered_stub = {"Report Id": reportId, "Custom KPIs": {item: [] for item in (kpi_dict.get("Items") or [])}}
+        payload_params = {"Items": kpi_dict.get("Items"), "VisualType": kpi_dict.get("VisualType")}
+        kpi_dict["VisualId"] = generate_visual_id(visual_type, filtered_stub, payload_params)
 
         customReportData = {
             "ReportId": reportId,
@@ -48,9 +53,13 @@ def addCustomKPI(reportId: int, payload) -> Result:
         # Append new KPI data
         existing_data.append(customReportData)
 
-        # Save updated data
+        # Save updated data to disk
         with open(report_json_path, "w", encoding="utf-8") as f:
             json.dump(existing_data, f, indent=4)
+
+        # ── Invalidate in-memory cache so the next sectionData call re-reads
+        # from disk and picks up this newly added custom KPI. ──
+        CustomKpisList.pop(reportId, None)
 
         return Result(
             Data=customReportData,

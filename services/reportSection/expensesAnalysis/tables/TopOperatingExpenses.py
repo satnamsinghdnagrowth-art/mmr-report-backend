@@ -105,6 +105,7 @@ def getTopOpeatingExpensesNew(
             Title="Top 10 Operating Expenses",
             Column=headers,
             Rows=rows,
+            KpiType="Actuals",
         )
         tables.append(tableObj)
 
@@ -197,6 +198,7 @@ def getTopOpeatingExpenses(
             Rows=rows,
             TableType="Progress",
             Id="TOP_OPERATING_EXPENSES",
+            KpiType="Actuals",
         )
         tables.append(tableObj)
 

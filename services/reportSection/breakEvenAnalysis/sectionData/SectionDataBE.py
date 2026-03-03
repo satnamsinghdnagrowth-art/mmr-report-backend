@@ -1,15 +1,12 @@
 from datetime import datetime
+from typing import Optional, List
 from core.models.base.ResultModel import Result
 from services.visuals.card.GetSectionsCards import getSectionCards
-from core.models.visualsModel.SectionData import SectionData
-from typing import Optional
 from core.models.visualsModel.SectionData import SectionData
 from services.reportSection.breakEvenAnalysis.charts.BACharts import getBACharts
 from core.models.visualsModel.CardModel import CardsListModel
 from core.models.visualsModel.ChartModel import ChartsListModel
 from core.models.visualsModel.TableModel import TableListModel
-from datetime import datetime
-from typing import Optional, List
 
 
 class BreakEvenDataService:
@@ -47,11 +44,14 @@ class BreakEvenDataService:
         """
         try:
             # Retrieve individual data types
-            cards_data = getSectionCards(
+            cards_result = getSectionCards(
                 self.year, self.months, self.reportType, self.section, self.reportId
-            ).Data
+            )
+            cards_data = cards_result.Data or []
 
-            charts_data = getBACharts(self.year, self.months, self.reportId).Data
+            charts_result = getBACharts(self.year, self.months, self.reportId)
+            charts_data = charts_result.Data or []
+
             tables_data = []
 
             # Combine into SectionData

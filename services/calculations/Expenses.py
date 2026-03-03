@@ -158,6 +158,13 @@ def expensesToRevenueRatio(year: int, month, reportId: int, dataType: Optional[s
         directExp = directExpenses(year, month, reportId).Data
         totalRev = totalRevenue(year, month, reportId).Data
 
+        if totalRev == 0:
+            return Result(
+                Data=0,
+                Status=1,
+                Message="Total revenue is zero, returning 0 for ratio.",
+            )
+
         totalExpenses = operatingExp + directExp
 
         expToRevRation = (totalExpenses / totalRev) * 100
