@@ -28,7 +28,12 @@ venv/
 ENV/
 env/
 .venv/
+
+# Sensitive environment files — NEVER commit these
+.env
+.env.*
 .env/
 *.reportsDataFiles/
 *.uploadedFiles/
 database/
+sampleMeta.json
