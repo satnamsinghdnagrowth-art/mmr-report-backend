@@ -37,7 +37,7 @@ def formatBudgetData(reportId:int, file: Optional[UploadFile] = File(None)):
 
 #<-------------------- Upload the Custom KPIs Data---------------------->
 @UploadRouter.post("/custom", response_model=Result)
-def formatReportData(reportId, file: Optional[UploadFile] = File(None)):
+def formatReportData(reportId: int, file: Optional[UploadFile] = File(None)):
     if not file:
         #  and not FileBase64Str:
         return Result(

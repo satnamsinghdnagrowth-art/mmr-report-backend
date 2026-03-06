@@ -1,4 +1,5 @@
 from core.models.base.ResultModel import Result
+from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
 import json
 import os
 import traceback
@@ -7,7 +8,9 @@ from services.customKPIs.visualCreation.CustomChartCreation import format_chart_
 from services.customKPIs.visualCreation.CustomTableCreation import format_table_data
 from services.customKPIs.visualCreation.CustomCardCreation import format_card_data
 
-REPORT_JSON_PATH = "database/ReportTable.json"
+
+def _custom_kpi_data_path(reportId) -> str:
+    return os.path.join(CUSTOM_KPIS_DATA_UPLOAD_DIR, str(reportId), f"CustomFile_{reportId}.json")
 
 
 def customKPICreation(payload, reportId) -> Result:
@@ -17,20 +20,14 @@ def customKPICreation(payload, reportId) -> Result:
         month = int(payload.Months[0])  # First selected month
         items = payload.Items or []
 
-        custom_file_path = None
+        # Use the canonical predictable path — no ReportTable.json lookup needed
+        custom_file_path = _custom_kpi_data_path(reportId)
 
-        # --- Find Custom KPI file path for the report ---
-        if os.path.exists(REPORT_JSON_PATH):
-            with open(REPORT_JSON_PATH, "r", encoding="utf-8") as f:
-                reports = json.load(f)
-
-            for report in reports:
-                if report.get("ReportId") == int(reportId):
-                    custom_file_path = report.get("CustomKPIFilePath")
-                    break
-
-        if not custom_file_path or not os.path.exists(custom_file_path):
-            raise FileNotFoundError("Custom KPI file not found for this report.")
+        if not os.path.exists(custom_file_path):
+            raise FileNotFoundError(
+                f"Custom KPI data file not found for report {reportId}. "
+                "Please upload a custom KPI Excel file first."
+            )
 
         # --- Load KPI data ---
         with open(custom_file_path, "r", encoding="utf-8") as f:

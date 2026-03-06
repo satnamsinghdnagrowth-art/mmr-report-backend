@@ -1,42 +1,33 @@
 from core.models.base.ResultModel import Result
-import json
-from datetime import datetime
-from services.customKPIs.visualCreation.CustomChartCreation import format_chart_data
-from services.customKPIs.visualCreation.CustomTableCreation import format_table_data
-from services.customKPIs.visualCreation.CustomCardCreation import format_card_data
 from config.FilesBaseDIR import CUSTOM_KPIS_DATA_UPLOAD_DIR
+from datetime import datetime
+import json
 import os
 
-REPORT_JSON_PATH = "database/ReportTable.json"
+
+def _custom_kpi_data_path(reportId) -> str:
+    return os.path.join(CUSTOM_KPIS_DATA_UPLOAD_DIR, str(reportId), f"CustomFile_{reportId}.json")
 
 
-# Custom
 def customKpiItems(reportId: int) -> Result:
     try:
-        customFilePath = None
+        file_path = _custom_kpi_data_path(reportId)
 
-        report_list_path = REPORT_JSON_PATH  # your master JSON list
+        if not os.path.exists(file_path):
+            return Result(
+                Data=[],
+                Status=0,
+                Message="No custom KPI data file found. Please upload a custom KPI Excel file first.",
+            )
 
-        if os.path.exists(report_list_path):
-            with open(report_list_path, "r") as f:
-                reports = json.load(f)
-
-            for item in reports:
-                if item["ReportId"] == int(reportId):
-                    customFilePath = item["CustomKPIFilePath"]
-                    break
-
-        with open(customFilePath) as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        filteredData = data["Custom KPIs"].keys()
+        kpi_names = list(data.get("Custom KPIs", {}).keys())
 
-        # Return raw filtered data for other visual types
-        return Result(
-            Data=list(filteredData), Status=1, Message="Data filtered successfully."
-        )
+        return Result(Data=kpi_names, Status=1, Message="Custom KPI items retrieved successfully.")
 
     except Exception as ex:
-        message = f"Error occurred in customKPICreation: {ex}"
+        message = f"Error occurred in customKpiItems: {ex}"
         print(f"{datetime.now()} {message}")
         return Result(Status=0, Message=message)

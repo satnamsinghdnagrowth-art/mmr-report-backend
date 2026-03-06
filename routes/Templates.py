@@ -1,12 +1,14 @@
 from fastapi import APIRouter
 from core.models.base.ResultModel import Result
-from core.models.base.TemplateModel import CreateTemplateRequest, UpdateTemplateRequest
+from core.models.base.TemplateModel import CreateTemplateRequest, UpdateTemplateRequest, SaveLayoutRequest
 from services.templates.TemplateService import (
     getDefaultTemplate,
     getCustomTemplates,
     createCustomTemplate,
     deleteCustomTemplate,
     updateCustomTemplate,
+    getAppliedLayout,
+    saveAppliedLayout,
 )
 
 TemplatesRouter = APIRouter()
@@ -35,3 +37,13 @@ def updateTemplate(templateId: str, reportId: int, request: UpdateTemplateReques
 @TemplatesRouter.delete("/delete/{templateId}/report/{reportId}", response_model=Result)
 def removeTemplate(templateId: str, reportId: int):
     return deleteCustomTemplate(reportId, templateId)
+
+
+@TemplatesRouter.get("/layout/report/{reportId}", response_model=Result)
+def fetchAppliedLayout(reportId: int):
+    return getAppliedLayout(reportId)
+
+
+@TemplatesRouter.put("/layout/report/{reportId}", response_model=Result)
+def persistAppliedLayout(reportId: int, request: SaveLayoutRequest):
+    return saveAppliedLayout(reportId, request)

@@ -66,12 +66,10 @@ class CashFlowAnalysisDataService:
             charts_data = config_charts + cf_charts
 
             # Tables — filter out None entries in case any sub-call failed
+            # Note: Balance Sheet table moved to the dedicated Balance Sheet section
             raw_tables = [
                 getDetailedTable(
                     self.year, self.months, ["PROFIT & LOSS"], self.reportId
-                ).Data,
-                getDetailedTable(
-                    self.year, self.months, ["BalanceSheet", "EQUITY"], self.reportId
                 ).Data,
                 getCashFlowTable(self.year, self.months, self.reportId).Data,
             ]
@@ -143,14 +141,12 @@ class CashFlowAnalysisDataService:
     def getTablesOnly(self) -> Result:
         """
         Retrieves only the Tables data for the section.
+        Note: Balance Sheet table is in the dedicated Balance Sheet section.
         """
         try:
             tables = [
                 getDetailedTable(
                     self.year, self.months, ["PROFIT & LOSS"], self.reportId
-                ).Data,
-                getDetailedTable(
-                    self.year, self.months, ["BalanceSheet", "EQUITY"], self.reportId
                 ).Data,
                 getCashFlowTable(self.year, self.months, self.reportId).Data,
             ]

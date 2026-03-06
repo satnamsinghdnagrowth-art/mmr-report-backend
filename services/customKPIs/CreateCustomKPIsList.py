@@ -50,6 +50,14 @@ def addCustomKPI(reportId: int, payload) -> Result:
             except json.JSONDecodeError:
                 existing_data = []
 
+        # Return existing entry if same VisualType + Items already registered (prevent duplicates)
+        for entry in existing_data:
+            if entry.get("ReportId") == reportId:
+                existing_kpi = entry.get("CustomKpi", {})
+                if (existing_kpi.get("VisualType") == kpi_dict.get("VisualType") and
+                        sorted(existing_kpi.get("Items") or []) == sorted(kpi_dict.get("Items") or [])):
+                    return Result(Data=entry, Status=1, Message="KPI already registered.")
+
         # Append new KPI data
         existing_data.append(customReportData)
 

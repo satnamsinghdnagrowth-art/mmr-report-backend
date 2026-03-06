@@ -44,11 +44,12 @@ def getConsolidateSectionData(
             SectionName.Profitability.value: serviceObj.getProfitablitySection,
             SectionName.BreakevenAnlaysis.value: serviceObj.getBreakEvenAnalysisSection,
             SectionName.CashFlowAnalysis.value: serviceObj.getCashFlowSection,
+            SectionName.BalanceSheet.value: serviceObj.getBalanceSheetSection,
         }
 
         # Submit all tasks
         future_to_name = {}
-        with ThreadPoolExecutor(max_workers=5) as executor:
+        with ThreadPoolExecutor(max_workers=6) as executor:
             for name, func in sectionMethods.items():
                 future = executor.submit(func)
                 future_to_name[future] = name
@@ -166,7 +167,7 @@ def getConsolidateSectionData(
                     VisualId=customKpi.VisualId,
                 )
                 kpiResponse = customKPICreation(requestModel, reportId).Data
-                if kpiResponse is None:
+                if kpiResponse is None or isinstance(kpiResponse, Result):
                     continue
 
                 # Handle list of items or single item
@@ -186,6 +187,7 @@ def getConsolidateSectionData(
                     item.SectionID = kpi_section_id
                     item.PageNo = kpi_page_no
                     item.Order = current_order
+                    item.KpiType = "Custom"
 
                     if customKpi.VisualType == "Card":
                         all_cards.append(item)

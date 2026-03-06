@@ -17,6 +17,9 @@ from services.reportSection.cashFlowAnalysis.sectionData.SectionDataCF import (
 from services.reportSection.breakEvenAnalysis.sectionData.SectionDataBE import (
     BreakEvenDataService,
 )
+from services.reportSection.balanceSheet.sectionData.SectionDataBS import (
+    BalanceSheetDataService,
+)
 
 
 class AllSectionDataService:
@@ -170,5 +173,28 @@ class AllSectionDataService:
         except Exception as ex:
             # Catch-all for unexpected issues
             message = f"Exception in get(): {ex}"
+            print(f"{datetime.now()} {message}")
+            return Result(Data=None, Status=0, Message=message)
+
+    # Get Balance Sheet Section
+    def getBalanceSheetSection(self) -> Result:
+        """
+        Retrieves Balance Sheet section data: Cards, Charts, and Tables.
+        The primary visual is the combined Balance Sheet + Equity table (BALANCE_SHEET_TABLE).
+        """
+        try:
+            sectionName = "Balance Sheet"
+
+            BS_Obj = BalanceSheetDataService(
+                self.year, self.reportType, sectionName, self.reportId, self.months
+            )
+
+            data = BS_Obj.get().Data
+
+            return Result(
+                Data=data, Status=1, Message="Section Data retrieved Successfully"
+            )
+        except Exception as ex:
+            message = f"Exception in getBalanceSheetSection(): {ex}"
             print(f"{datetime.now()} {message}")
             return Result(Data=None, Status=0, Message=message)

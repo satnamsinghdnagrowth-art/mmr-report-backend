@@ -33,3 +33,13 @@ class UpdateTemplateRequest(BaseModel):
 
 class TemplatesFile(BaseModel):
     templates: List[Template] = []
+
+
+class AppliedLayout(BaseModel):
+    appliedTemplateId: Optional[str] = None
+    pages: List[TemplatePage] = []
+
+
+class SaveLayoutRequest(BaseModel):
+    appliedTemplateId: Optional[str] = None
+    pages: List[TemplatePage]

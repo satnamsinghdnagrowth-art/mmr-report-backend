@@ -35,6 +35,7 @@ class SectionRegistry:
                 with open(SECTION_REGISTRY_FILE, 'r', encoding='utf-8') as f:
                     self._registry = json.load(f)
                     print(f"Loaded {len(self._registry)} sections from registry")
+                self._ensure_default_sections()
             else:
                 print("Section registry file not found, initializing empty registry")
                 self._registry = {}
@@ -43,6 +44,31 @@ class SectionRegistry:
             print(f"Error loading section registry: {e}")
             self._registry = {}
             self._initialize_default_sections()
+
+    def _ensure_default_sections(self):
+        """Add any missing predefined sections without touching existing entries."""
+        defaults = {
+            "Profit & Loss Snippet": ("section-001-financial-highlights", "Financial highlights and P&L snippet"),
+            "Expenses Analysis":     ("section-002-expenses-analysis",    "Detailed expenses analysis"),
+            "Profitability":         ("section-003-profitability",         "Profitability metrics and analysis"),
+            "Break-Even Anlaysis":   ("section-004-breakeven-analysis",    "Break-even analysis"),
+            "Cash Flow Analysis":    ("section-005-cashflow-analysis",     "Cash flow analysis"),
+            "Balance Sheet":         ("section-006-balance-sheet",         "Balance sheet with assets, liabilities, and equity"),
+        }
+        added = False
+        for name, (sid, desc) in defaults.items():
+            if name not in self._registry:
+                self._registry[name] = {
+                    "section_id":   sid,
+                    "section_name": name,
+                    "section_type": "predefined",
+                    "created_at":   datetime.now().isoformat(),
+                    "description":  desc,
+                }
+                added = True
+                print(f"Backfilled missing predefined section: {name} -> {sid}")
+        if added:
+            self._save_registry()
     
     def _save_registry(self):
         """Save section registry to file"""
@@ -93,12 +119,19 @@ class SectionRegistry:
                 "section_type": "predefined",
                 "created_at": datetime.now().isoformat(),
                 "description": "Cash flow analysis"
+            },
+            "Balance Sheet": {
+                "section_id": "section-006-balance-sheet",
+                "section_name": "Balance Sheet",
+                "section_type": "predefined",
+                "created_at": datetime.now().isoformat(),
+                "description": "Balance sheet with assets, liabilities, and equity"
             }
         }
-        
+
         for section_name, metadata in default_sections.items():
             self._registry[section_name] = metadata
-        
+
         self._save_registry()
         print(f"Initialized {len(default_sections)} default sections")
     

@@ -50,10 +50,17 @@ def loadCustomKpisForReport(reportId: int):
 
 
 def getCustomKpisList(reportId):
+    """
+    Always reads from disk (no cache) so newly uploaded Excel data is
+    immediately visible without a backend restart.
+    """
     try:
         REPORT_JSON_PATH = (
             f"{CUSTOM_KPIS_DATA_UPLOAD_DIR}/{reportId}/customKpisData.json"
         )
+
+        if not os.path.exists(REPORT_JSON_PATH):
+            return None
 
         with open(REPORT_JSON_PATH, "r") as f:
             data = json.load(f)
@@ -65,15 +72,10 @@ def getCustomKpisList(reportId):
         ]
 
         global CustomKpisList
-
-        # Extend to keep it a flat list instead of nested list
-        # CustomKpisList.setdefault(reportId, []).extend(filteredData)
-
-        # Reset list for this reportId before adding new values
         CustomKpisList[reportId] = filteredData
 
         return CustomKpisList
 
     except Exception as ex:
-        print(f"Error occurred in saveCustomKpisList: {ex}")
+        print(f"Error occurred in getCustomKpisList: {ex}")
         return None

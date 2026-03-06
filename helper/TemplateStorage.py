@@ -1,7 +1,7 @@
 import json
 import os
 from config.FilesBaseDIR import TEMPLATES_DIR
-from core.models.base.TemplateModel import Template, TemplatesFile
+from core.models.base.TemplateModel import Template, TemplatesFile, AppliedLayout
 
 
 def _report_path(reportId: int) -> str:
@@ -65,3 +65,33 @@ def updateTemplatePages(reportId: int, templateId: str, pages: list):
             saveTemplates(reportId, file)
             return template
     return None
+
+
+def _layout_path(reportId: int) -> str:
+    return f"{TEMPLATES_DIR}/{reportId}_layout.json"
+
+
+def loadLayout(reportId: int) -> AppliedLayout:
+    """Load the persisted applied layout for a report."""
+    path = _layout_path(reportId)
+    if not os.path.exists(path):
+        return AppliedLayout()
+    try:
+        with open(path, "r") as f:
+            data = json.load(f)
+        return AppliedLayout(**data)
+    except Exception as ex:
+        print(f"[TemplateStorage] Error loading layout for report {reportId}: {ex}")
+        return AppliedLayout()
+
+
+def saveLayout(reportId: int, layout: AppliedLayout):
+    """Persist the applied layout for a report."""
+    _ensure_dir()
+    path = _layout_path(reportId)
+    try:
+        with open(path, "w") as f:
+            json.dump(layout.model_dump(), f, indent=2)
+    except Exception as ex:
+        print(f"[TemplateStorage] Error saving layout for report {reportId}: {ex}")
+        raise

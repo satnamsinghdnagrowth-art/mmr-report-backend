@@ -7,6 +7,7 @@ class SectionName(Enum):
     Profitability = "Profitability"
     BreakevenAnlaysis = "Break-Even Anlaysis"
     CashFlowAnalysis = "Cash Flow Analysis"
+    BalanceSheet = "Balance Sheet"
 
 
 # Import registry functions for dynamic section ID management

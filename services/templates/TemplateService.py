@@ -6,12 +6,16 @@ from core.models.base.TemplateModel import (
     TemplatePageCategory,
     CreateTemplateRequest,
     UpdateTemplateRequest,
+    AppliedLayout,
+    SaveLayoutRequest,
 )
 from helper.TemplateStorage import (
     loadTemplates,
     addTemplate,
     removeTemplate,
     updateTemplatePages,
+    loadLayout,
+    saveLayout,
 )
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -91,6 +95,15 @@ DEFAULT_TEMPLATE = Template(
                 Tables=[],
             ),
         ),
+        TemplatePage(
+            pageNo=6,
+            pageName="Balance Sheet",
+            category=TemplatePageCategory(
+                Cards=[],
+                Charts=[],
+                Tables=["BALANCE_SHEET_TABLE"],
+            ),
+        ),
     ],
 )
 
@@ -135,3 +148,14 @@ def updateCustomTemplate(reportId: int, templateId: str, request: UpdateTemplate
     if not updated:
         return Result(Data=None, Status=0, Message=f"Template '{templateId}' not found")
     return Result(Data=updated.model_dump(), Status=1, Message="Template updated successfully")
+
+
+def getAppliedLayout(reportId: int) -> Result:
+    layout = loadLayout(reportId)
+    return Result(Data=layout.model_dump(), Status=1, Message="Applied layout retrieved")
+
+
+def saveAppliedLayout(reportId: int, request: SaveLayoutRequest) -> Result:
+    layout = AppliedLayout(appliedTemplateId=request.appliedTemplateId, pages=request.pages)
+    saveLayout(reportId, layout)
+    return Result(Data=layout.model_dump(), Status=1, Message="Layout saved successfully")
